@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Branche pour la feature de récupération des tweets
 Le code récupéré de https://github.com/Jefferson-Henrique/GetOldTweets-python nous permet de récupérer les tweets sur une fenêtre temporelle sans utiliser l'API twitter et donc en contournant la limite à 7 jours de tweet.
 
@@ -5,3 +6,6 @@ Le code récupéré de https://github.com/Jefferson-Henrique/GetOldTweets-python
 
 python Exporter.py --querysearch "primaire droite" --since 2016-05-15
 Les tweets recoltés sont exportés sous forme structurée (.csv)
+=======
+# Elections
+>>>>>>> aa6e5829d6b44be623261a497b8e954b780829eb
