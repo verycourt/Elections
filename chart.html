@@ -1,0 +1,27 @@
+<script src="assets/js/Chart.min.js"></script>
+<script src="assets/js/jquery-1.12.0.min.js"></script> <!--Optional-->
+
+<canvas id="myChart" width="400" height="200"></canvas>
+
+<script>
+var data = {
+    labels: ["Sarkozy", "Juppé", "Fillon", "Poisson", "NKM", "Le Maire", "Copé"],
+    datasets: [
+      {
+        label: "My First dataset",
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: [29203, 16900, 16844, 11306, 6124, 5848, 42]
+      },
+    ]
+  };
+  // Get the context of the canvas element we want to select
+  var ctx = document.getElementById("myChart").getContext("2d");
+
+  // Instantiate a new chart using 'data' (defined below)
+  var myChart = new Chart(ctx).Line(data);
+</script>
