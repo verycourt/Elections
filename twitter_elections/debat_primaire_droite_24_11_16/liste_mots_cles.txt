@@ -1,0 +1,3 @@
+track = ['#PrimaireLeDebat', '#LeGrandDebat', 'Juppe', '#Juppe', '#Fillon', 'Fillon', '#Primaire2016', '@Alex_Bensaid', '@GillesBouleau', '@davidpujadas', '@lesRepublicains', '@partisocialiste', '@FrancoisFillon', \
+    '@alainjuppe', '@NicolasSarkozy', '@BrunoLeMaire', '@nk_m', '@jf_cope', '@jfpoisson78', '@montebourg', \
+    '@manuelvalls', '@jccambadelis', '@fhollande', '@benoithamon', 'Lienemann', '@gerardfiloche17', '@FdeRugy', '@JlBennahmias']
