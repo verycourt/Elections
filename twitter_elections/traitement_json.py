@@ -2,7 +2,7 @@ import pandas as pd
 import re
 
 # open the file
-data = open("test3.json", "r")
+data = open("debat_primaire_droite_24_11_16/test3.json", "r")
 
 # get the whole document (it is one line)
 dataSplit = data.readline().split('}{')
