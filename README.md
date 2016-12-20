@@ -17,3 +17,5 @@ Une API non officielle permet de récupérer certaines données de Google Trends
 Le code de l'API est copié dans le fichier trendsAPI.py pour l'adapter à nos besoins.
 
 Documentation de l'API à cette adresse : https://github.com/GeneralMills/pytrends
+
+Problème ouvert : limite de 5 termes de recherche à la fois. Comment faire pour merger plusieurs tables de résultats pour contourner cette limite ? 
