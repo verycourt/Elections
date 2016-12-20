@@ -12,3 +12,8 @@ Les tweets recoltés sont exportés sous forme structurée (.csv)
 ## Récupération live de tweets
 * L'infra mise en place sur AWS nous permet de récupérer les tweets en streaming en utiliant  RabbitMQ
 
+## Analyse Google Trends
+Une API non officielle permet de récupérer certaines données de Google Trends, format JSON et DataFrame pandas pour les volumes de recherche, avec la possibilité d'exporter en format .csv si besoin.
+Le code de l'API est copié dans le fichier trendsAPI.py pour l'adapter à nos besoins.
+
+Documentation de l'API à cette adresse : https://github.com/GeneralMills/pytrends
