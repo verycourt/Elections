@@ -1,56 +1,8 @@
-<!DOCTYPE html>
-<style>
-body{
-    width:1060px;
-    margin:50px auto;
-}
-path {  stroke: #fff; }
-path:hover {  opacity:0.9; }
-rect:hover {  fill:red; }
-.axis {  font: 10px sans-serif; }
-.legend tr{    border-bottom:1px solid grey; }
-.legend tr:first-child{    border-top:1px solid grey; }
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {  display: none; }
-.legend{
-    margin-bottom:76px;
-    display:inline-block;
-    border-collapse: collapse;
-    border-spacing: 0px;
-}
-.legend td{
-    padding:4px 5px;
-    vertical-align:bottom;
-}
-.legendFreq, .legendPerc{
-    align:right;
-    width:50px;
-}
-
-</style>
-<form>
-    <input type="radio" onclick="afficher('mlpVSff.tsv')" name="group-stack" value="mlpVSff" checked>Marine Le Pen VS François Fillon
-    <input type="radio" onclick="afficher('mlpVSem.tsv')" name="group-stack" value="mlpVSem">Marine Le Pen VS Emmanuel Macron
-	<input type="radio" onclick="afficher('mlpVSmv.tsv')" name="group-stack" value="mlpVSmv">Marine Le Pen VS Manuel Valls
-	
-</form>
-<body>
-<div id='dashboard'>
-</div>
-
-
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
 
 function dashboard2(id, fData){
+	
 
+	
     function segColor(c){ return {
 	"Emmanuel Macron":"#A9A9A9",
 	"Jean-Luc Mélenchon" : "#FF0000",
@@ -69,8 +21,8 @@ function dashboard2(id, fData){
     // function to handle histogram.
     function histoGram(fD){
         var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
-        hGDim.w = 300 - hGDim.l - hGDim.r, 
-        hGDim.h = 300 - hGDim.t - hGDim.b;
+        hGDim.w = 350 - hGDim.l - hGDim.r, 
+        hGDim.h = 350 - hGDim.t - hGDim.b;
             
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
@@ -198,7 +150,7 @@ function dashboard2(id, fData){
         // Utility function to be called on mouseover a pie slice.
         function mouseover(d){
             // call the update function of histogram with new data.
-            hG.update(fData.map(function(v){ 
+            hG.update(fData.map(function(v){
                 return [v.date,v[d.data.type]];}),segColor(d.data.type));
         }
         //Utility function to be called on mouseout a pie slice.
@@ -272,25 +224,15 @@ function dashboard2(id, fData){
         leg= legend(tF);  // create the legend.
 }
 
-</script>
-
-<script>
 
 function afficher(nom){
-d3.selectAll("svg > *").remove();
-var parseDate = d3.time.format("%Y%m%d").parse;
+	var parseDate = d3.time.format("%Y%m%d").parse;
+		/*data.forEach(function(d) { // Make every date in the csv data a javascript date object format
+		d.date = parseDate(d.date);
+		});*/
+		d3.tsv(nom, function(data) {
+	  dashboard2('#dashboard',data);
 
-d3.tsv(nom, function(data) {
-	/*data.forEach(function(d) { // Make every date in the csv data a javascript date object format
-    d.date = parseDate(d.date);
-	});*/
-	console.log(data);
-	console.log(d3.keys(data[0])[1]);
-  //window.alert(data.date);
-  dashboard2('#dashboard',data);
 
-});
+	});
 }
-
-
-</script>
