@@ -2,6 +2,9 @@ body{
     width:1060px;
     margin:50px auto;
 }
+h1 {
+    font-family: sans-serif;
+}
 path {  stroke: #fff; }
 path:hover {  opacity:0.9; }
 rect:hover {  fill:#B22222; }

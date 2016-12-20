@@ -76,8 +76,8 @@ function dashboard2(id, fData){
         
         function mouseout(d){    // utility function to be called on mouseout.
             // reset the pie-chart and legend.    
-            pC.update(tF);
-            leg.update(tF);
+            //pC.update(tF);
+            //leg.update(tF);
         }
         
         // create function to update the bars. This will be used by pie-chart.
@@ -159,8 +159,8 @@ function dashboard2(id, fData){
         //Utility function to be called on mouseout a pie slice.
         function mouseout(d){
             // call the update function of histogram with all data.
-            hG.update(fData.map(function(v){
-                return [v.date,v[names[1]]];}), barColor);
+            //hG.update(fData.map(function(v){
+              //  return [v.date,v[names[1]]];}), barColor);
         }
         // Animating the pie-slice requiring a custom function which specifies
         // how the intermediate paths should be drawn.
