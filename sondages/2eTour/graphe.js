@@ -59,6 +59,7 @@ function dashboard2(id, fData){
             
         //Create the frequency labels above the rectangles.
         bars.append("text").text(function(d){ return d3.format(",")(d[1])})
+			.style("font-family", "sans-serif")
             .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
             .attr("y", function(d) { return y(d[1])-5; })
             .attr("text-anchor", "middle");
@@ -131,16 +132,18 @@ function dashboard2(id, fData){
             .style("fill", function(d) { return segColor(d.data.type); })
             .on("mouseover",mouseover).on("mouseout",mouseout)
 			
-		/*svg.append("svg:text").attr("transform",function(d) {
+		svg.append("svg:text").attr("transform",function(d) {
 										d.innerRadius = 0;
 										d.outerRadius = 0;
 										var c  =arc.centroid(d);
 										return "translate(" + c[0] + "," + c[1] + ")";
 									})
 							.attr("text-anchor","middle")
-							.style("font-size","12px")
-							.text(function(d) {return d.data.freq/2;});
-		*/
+							.style("font-size","11px")
+							.style("font-weight", "bold")
+							.style("font-family", "sans-serif")
+							.text(function(d) {return d.data.type;});
+		
 
         // create function to update pie-chart. This will be used by histogram.
         pC.update = function(nD){
@@ -183,14 +186,15 @@ function dashboard2(id, fData){
         // create the first column for each segment.
         tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")
             .attr("width", '16').attr("height", '16')
-			.attr("fill",function(d){ return segColor(d.type); });
+			.attr("fill",function(d){ return segColor(d.type); })
+			.on("mouseover",mouseover);
             
         // create the second column for each segment.
-        tr.append("td").text(function(d){ return d.type;});
+        //tr.append("td").text(function(d){ return d.type;});
 
         // create the fourth column for each segment.
         tr.append("td").attr("class",'legendPerc')
-            .text(function(d){ return getLegend(d,lD);});
+            .text(function(d){ return getLegend(d,lD);}).style("font-family", "sans-serif");
 
         // Utility function to be used to update the legend.
         leg.update = function(nD){
@@ -206,6 +210,16 @@ function dashboard2(id, fData){
         
         function getLegend(d,aD){ // Utility function to compute percentage.
             return d3.format("%")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));
+        }
+		
+
+		
+		function mouseover(d){
+            // call the update function of histogram with new data.
+            hG.update(fData.map(function(v){
+		
+                return [v.date,v[d.type]];}),segColor(d.type));
+				
         }
 
         return leg;
