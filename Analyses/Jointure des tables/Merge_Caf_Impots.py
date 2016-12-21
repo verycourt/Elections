@@ -35,7 +35,8 @@ sheet_1 = sheet_1.rename(columns={'Unnamed: 1': 'code', 'Unnamed: 2': 'départem
                                   2012:"TxFonBat_an12", 2013 : "TxFonBat_an13",
                                   2014 : "TxFonBat_an14",  2015 : "TxFonBat_an15"})
 
-
+# On garde seulement les taux votés 
+del sheet_1["TxFonBat_an10_ref"]
 
 # Foncier non Bâti 
 sheet_2 = pd.read_excel("impots_locaux_2000-2015.xls",sheetname=2,skiprows=3,skip_footer=3)
@@ -191,7 +192,7 @@ base_caf = base_caf.rename(columns={"dep_" : "code"})
 # On export les deux tables intermédiaires
 
 base_caf.to_csv(os.getcwd()+"/base_caf.csv")
-base_impots.to_csv(os.getcwd()+"/base_impots.csv")
+base_impots.to_csv(os.getcwd()+"/base_impots.csv",encoding="ISO-8859-1")
 
 base_caf_dgi = pd.merge(base_caf,base_impots ,on=["code"],suffixes=('', ''))
 
