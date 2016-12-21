@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """Get tweet in real time."""
 from slistener import SListener
 from tweepy import OAuthHandler
@@ -18,7 +19,7 @@ api = tweepy.API(auth)
 
 def main():
     """Method to get Twitter status in real time."""
-    track = ['hollande', '@fhollande', '#hollande', '#DirectPR']
+    track = ['Fillon', '#Fillon', '@FrancoisFillon', 'Jadot', '#Jadot', '@yjadot', 'Bayrou', '#Bayrou', '@bayrou', 'macron', '#macron', '@EmmanuelMacron', '@MLP_officiel', '#MLP', 'Melenchon', '#Melenchon', '@JLMelenchon', 'Poutou', '#Poutou', '@PhilippePoutou', 'dupont-aignan', 'dupontaignan', '#dupontaignan', '@dupontaignan', 'Peillon', '#peillon', '@Vincent_Peillon', '#Rugy', 'Rugy', '@FdeRugy', 'Hamon', '#hamon', '@benoithamon', 'pinel', '#pinel', '@SylviaPinel', 'benhamias', '#benhamias', 'Jean-Luc benhamias', 'valls', '#valls', '@manuelvalls', 'montebourg', '#montebourg', '@montebourg']
 
     listen = SListener(api, 'myprefix')
     stream = tweepy.Stream(auth, listen)
