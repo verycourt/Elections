@@ -36,3 +36,14 @@ Tx_FonBat_an* : Pour l'année *, Taxe Foncière sur les Propriétés  Bâties (T
 TX_FonNonBat_an* : Pour l'année *, Taxe Foncière sur les Propriétés  Non  Bâties (Taux d'imposition votés)
 Tx_Pro_an* : Pour l'année *, Taxe Professionnelle (Taux d'imposition votés)
 Tx_Hab_an* : Pour l'année *, Taxe Habitation (Taux d'imposition votés)
+
+## Table : base_resultats_elections.csv (tour 1 et 2)
+**Granularité** : circonscreption, facilement en départements
+Année : Année de l'élection
+département : Libellé du département
+code : Numéro du département
+Inscrits : nombre d'inscrits sur les listes électorales par circonscreption
+Votants : Nombres de votants par "
+Exprimés : Nombres d'exprimés
+centre, gauche, xgauche... : nombre de voix pour les partis
+taux_centre,taux_gauche... : idem en pourcentage 
