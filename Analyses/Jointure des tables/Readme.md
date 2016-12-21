@@ -9,7 +9,7 @@ Cette base contient pour chaque département toutes les informations disponibles
 
 
 | Variables       | Descriptions | Années Disponibles |
-| ------------- |:-------------:| 
+| ------------- |:-------------:| | -----:|
 | code      | Numéro du département |	|
 | département | Libellé du département     |	| 
 | reg      | Numéro de région du département |   |
@@ -21,6 +21,7 @@ Cette base contient pour chaque département toutes les informations disponibles
 | TXFonNonBat     | Taxe Foncière sur les Propriétés  Non  Bâties (Taux d'imposition votés) | 2000-2010|
 | TxPro  | Taxe Professionnelle (Taux d'imposition votés)      | 2000-2010 |  
 | TxHab | Taxe Habitation (Taux d'imposition votés)      | 2000-2010 |
+
 
 
 ## Table : base_caf.csv
