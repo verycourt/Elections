@@ -8,11 +8,12 @@ Cette base contient pour chaque département toutes les informations disponibles
 **Granularité** : Départements
 
 
+
 | Variables       | Descriptions | Années Disponibles |
-| ------------- |:-------------:| | -----:|
+| ------------- |:-------------:| -----:|
 | code      | Numéro du département |	|
 | département | Libellé du département     |	| 
-| reg      | Numéro de région du département |   |
+| reg      | Numéro de région du département |  |
 | année      | année d'observation |	1993 - 2015 |
 | alf      | le nombre de foyers allocataires percevant l'allocation de logement familiale (AFL) | 1993-2015	| 
 | af    | le nombre de foyer bénéficiaires d'un droit payable aux allocations familiales (AF)    | 1993-2015	|
