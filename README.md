@@ -13,14 +13,14 @@ Les tweets recoltés sont exportés sous forme structurée (.csv)
 * L'infra mise en place sur AWS nous permet de récupérer les tweets en streaming en utiliant  RabbitMQ
 * Le script a été transformé en service pour permettre une exécution en tâche de fond
 * TODO : écrire le script .sh qui sera appelé par Crontab et finaliser traitement_JSON.py pour permettre l'import dans mongo
-1) Le Script .sh arrête le service tweet river
-2) Le script .sh renomme le fichier all_tweet.txt => temp_all_tweet.txt
-4) Le script .sh relance le service tweet_river
-3) Le script .sh appelle traitement_json.py
-4) Le script traitement_json.py effectue les opérations suivantes :
-a) Nettoyer les données et les transformer en JSON
-b) Importer les données dans MongoDB avec une bonne gestion d'erreur
-5) Le script .sh supprime temp_all_tweet.txt
+1. Le Script .sh arrête le service tweet river
+2. Le script .sh renomme le fichier all_tweet.txt => temp_all_tweet.txt
+4. Le script .sh relance le service tweet_river
+3. Le script .sh appelle traitement_json.py
+4. Le script traitement_json.py effectue les opérations suivantes :
+a. Nettoyer les données et les transformer en JSON
+b. Importer les données dans MongoDB avec une bonne gestion d'erreur
+5. Le script .sh supprime temp_all_tweet.txt
 
 
 ## Analyse Google Trends
