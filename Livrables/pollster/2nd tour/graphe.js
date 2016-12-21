@@ -5,9 +5,9 @@ function dashboard2(id, fData){
 	
     function segColor(c){ return {
 	"Emmanuel Macron":"#A9A9A9",
-	"Jean-Luc Mélenchon" : "#FF0000",
+	"Jean-Luc MÃ©lenchon" : "#FF0000",
 	"Marine Le Pen":"#3399FF", 
-	"François Fillon":"#000080",
+	"FranÃ§ois Fillon":"#000080",
 	"Manuel Valls":"#FF6699",
 	"Abstention, blanc ou nul":"#F5F5DC"}[c]; }
     
@@ -240,7 +240,6 @@ function dashboard2(id, fData){
 
 
 function afficher(nom){
-	var parseDate = d3.time.format("%Y%m%d").parse;
 		/*data.forEach(function(d) { // Make every date in the csv data a javascript date object format
 		d.date = parseDate(d.date);
 		});*/
