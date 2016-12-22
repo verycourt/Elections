@@ -108,6 +108,9 @@ for col in dfF.columns:
         dfF[col] = dfF[col].map(lambda x: x if isinstance(x, float) else np.nan)
 
 
+print(dfF.columns)
+print(anciensCandidats)
+
 dfF2 = dfF
 for col in anciensCandidats:
     dfF2 = dfF2[dfF2[col].isnull()]
@@ -144,6 +147,10 @@ dfF4 = dfF4.set_index("date")
 dfF4 = dfF4.dropna(axis=0, how='all')
 dfF4 = dfF4.dropna(axis=1, how='all')
 
+
+dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
+
+print(dfF4.head())
 
 dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
 
