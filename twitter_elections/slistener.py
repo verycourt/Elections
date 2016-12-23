@@ -20,7 +20,7 @@ class SListener(StreamListener):
         self.api = api
         self.counter = 0
         self.fprefix = fprefix
-        self.delout = open('delete.txt', 'a')
+        self.delout = open('/home/ubuntu/Elections/twitter_elections/delete.txt', 'a')
         # self.sentiment_model = self.load_pkl("sentiment_model")
         self.error = 0
 
@@ -34,7 +34,7 @@ class SListener(StreamListener):
         args = {"x-max-length": 120}
 
         self.channel.queue_declare(queue='twitter', arguments=args)
-        self.text_file = open("tweets_debat_primaire_droite_17112016.txt", "w")
+        self.text_file = open("/home/ubuntu/Elections/twitter_elections/all_tweets.txt", "a")
         self.br = Browser()
 
     def on_data(self, data):
