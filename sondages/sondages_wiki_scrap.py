@@ -11,7 +11,7 @@ import dateparser
 warnings.filterwarnings('ignore')
 
 URL = "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l'%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2017#2016"
-path = "data/"
+path = "/home/ubuntu/Elections/sondages/data/"
 
 def loadHTML(URL):
     resultats = requests.get(URL)
