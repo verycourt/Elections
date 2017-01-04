@@ -10,7 +10,7 @@ from urllib2 import urlopen
 from time import sleep
 import pika
 from unidecode import unidecode
-
+import pymongo as pym
 
 class SListener(StreamListener):
     """Class SListener to deal with Twitter's status."""
@@ -45,6 +45,9 @@ class SListener(StreamListener):
     def on_status(self, status):
         """Deal on tweet (tweepy method)."""
         try:
+            client = pym.MongoClient()
+            db = client.tweet
+            tweets = db.tweet
             if status["lang"] == "fr":
                 if status["text"] is not None:
 
@@ -64,14 +67,16 @@ class SListener(StreamListener):
 
                     self.channel.basic_publish(exchange='', routing_key='twitter', body=json.dumps(tweet_res))
                     print 'tweets slis: ', tweet_res
-                    self.text_file.write(str(tweet_res))
-
+                    #self.text_file.write(str(tweet_res))
+                    tweets.insert_one(tweet_res)
                     self.counter += 1
                     print self.counter
         except Exception, e:
             print str(e)
             print 'ERROR'
         return
+
+    def on_import(self, ):
 
     def on_delete(self, status_id, user_id):
         """Method to delete tweet based on the @status_id and @user_id."""
