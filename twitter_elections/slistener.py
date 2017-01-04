@@ -76,8 +76,6 @@ class SListener(StreamListener):
             print 'ERROR'
         return
 
-    def on_import(self, ):
-
     def on_delete(self, status_id, user_id):
         """Method to delete tweet based on the @status_id and @user_id."""
         self.delout.write(str(status_id) + "\n")
