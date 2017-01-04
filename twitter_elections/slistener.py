@@ -11,7 +11,7 @@ from time import sleep
 import pika
 from unidecode import unidecode
 import pymongo as pym
-
+import pprint
 class SListener(StreamListener):
     """Class SListener to deal with Twitter's status."""
 
@@ -34,7 +34,7 @@ class SListener(StreamListener):
         args = {"x-max-length": 120}
 
         self.channel.queue_declare(queue='twitter', arguments=args)
-        self.text_file = open("/home/ubuntu/Elections/twitter_elections/all_tweets.txt", "a")
+        #self.text_file = open("/home/ubuntu/Elections/twitter_elections/all_tweets.txt", "a")
         self.br = Browser()
 
     def on_data(self, data):
@@ -50,9 +50,7 @@ class SListener(StreamListener):
             tweets = db.tweet
             if status["lang"] == "fr":
                 if status["text"] is not None:
-
                     #print(status)
-
                     if status['user'] is not None:
                         tweet_res = {"t_user": status['user'], "t_text": status["text"].encode('utf8'), "t_time": status['timestamp_ms'],
                                      "t_id": status['id'],
@@ -64,11 +62,12 @@ class SListener(StreamListener):
                                      "t_RT": status['retweet_count'],
                                      "t_lat": 0.0, "t_lng": 0.0,
                                      "t_state": ""}
-
                     self.channel.basic_publish(exchange='', routing_key='twitter', body=json.dumps(tweet_res))
                     print 'tweets slis: ', tweet_res
                     #self.text_file.write(str(tweet_res))
                     tweets.insert_one(tweet_res)
+		    print("Tweet inserted into MongoDB")
+		    pprint.pprint(tweets.find_one())
                     self.counter += 1
                     print self.counter
         except Exception, e:
