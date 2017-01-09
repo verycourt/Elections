@@ -11,7 +11,7 @@ import dateparser
 warnings.filterwarnings('ignore')
 
 URL = "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l'%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2017#2016"
-path = "/var/www/html/1er tour/"
+path1 = "/var/www/html/1er tour/"
 
 def loadHTML(URL):
     resultats = requests.get(URL)
@@ -148,13 +148,13 @@ dfF4 = dfF4.dropna(axis=0, how='all')
 dfF4 = dfF4.dropna(axis=1, how='all')
 
 
-dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
+#dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
 
 print(dfF4.head())
 
-dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
+dfF4.to_csv(path1+"sondages1er.csv", sep="\t", encoding='utf-8')
 
-dfF4.to_csv(path+"data.tsv", sep="\t", encoding='utf-8')
+dfF4.to_csv(path1+"data.tsv", sep="\t", encoding='utf-8')
 
 #print(dfF3[["Manuel Valls", "Date"]])
 
@@ -162,6 +162,7 @@ dfF4.to_csv(path+"data.tsv", sep="\t", encoding='utf-8')
 ########################### 2nd tour ##################################
 #######################################################################
 
+path2 = "/var/www/html/2nd tour/"
 
 dfFs2 = dfFs
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x)>5 else np.nan)
@@ -203,5 +204,5 @@ getDuel(dfFs2, u"Marine Le Pen", u"François Fillon").to_csv(path+"mlpVSff.tsv",
 getDuel(dfFs2, u"Marine Le Pen", u"Manuel Valls").to_csv(path+"mlpVSmv.tsv", sep="\t", encoding='utf-8')
 getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_csv(path+"mlpVSem.tsv", sep="\t", encoding='utf-8')
 
-dfFs2.to_csv(path+"sondages2e.csv", encoding='utf-8')
+dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
 print("Done")
