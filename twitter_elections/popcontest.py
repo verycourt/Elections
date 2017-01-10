@@ -2,7 +2,9 @@
 # -*- coding: latin-1 -*-
 import pymongo
 import json
+import time
 
+now = time.time() * 1000
 from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
@@ -22,10 +24,12 @@ for candidate in candidates:
 		regexp = regexp + p + "|"
 	regexp = regexp[:-1]
 	print(regexp)
-	pipe = [{"$match":{"t_text":{"$regex":regexp}}},{"$group":{"_id":candidate,"total":{"$sum":1}}}]
+	pipe = [{"$match":{"$and":[{"t_text":{"$regex":regexp}},{"t_time":{"$gte":now - 2.592e8}}]}},{"$group":{"_id":candidate,"total":{"$sum":1}}}]
 	result = list(collection.aggregate(pipeline=pipe))
-	data[candidate] = {"name":candidate,"size": result[0]["total"]}
-	print(data[candidate])
+	try :
+		data[candidate] = {"name":candidate,"size": result[0]["total"]}
+		print(data[candidate])
+	except : print("no tweet")
 print(data)
 export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
 print(export)
