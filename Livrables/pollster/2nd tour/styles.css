@@ -5,9 +5,10 @@ body{
 h1 {
     font-family: sans-serif;
 }
+
 path {  stroke: #fff; }
-path:hover {  opacity:0.9; }
-rect:hover {  fill:#B22222; }
+path:hover {  opacity:0.7; }
+rect:hover {  opacity:0.7; }
 .axis {  font: 10px sans-serif; }
 .legend tr{    border-bottom:1px solid grey; }
 .legend tr:first-child{    border-top:1px solid grey; }

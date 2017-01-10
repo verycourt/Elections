@@ -1,8 +1,6 @@
 
 function dashboard2(id, fData){
 	
-
-	
     function segColor(c){ return {
 	"Emmanuel Macron":"#A9A9A9",
 	"Jean-Luc Mélenchon" : "#FF0000",
@@ -14,25 +12,26 @@ function dashboard2(id, fData){
 	var names = d3.keys(fData[0])
 	
 	var barColor = segColor(names[1]);
-
+	
     // compute total for each state.
     fData.forEach(function(d){d.total=(d[names[1]]+d[names[2]]+d[names[3]])/100;});
     
     // function to handle histogram.
     function histoGram(fD){
-        var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
+        var hG={},    hGDim = {t: 60, r: 0, b: 20, l: 30};
         hGDim.w = 350 - hGDim.l - hGDim.r, 
         hGDim.h = 350 - hGDim.t - hGDim.b;
             
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
-            .attr("width", hGDim.w + hGDim.l + hGDim.r)
-            .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
+            .attr("width", hGDim.w + hGDim.l + hGDim.r+30)
+            .attr("height", hGDim.h + hGDim.t + hGDim.b+30).append("g")
             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
 
-        // create function for x-axis mapping.
+		// create function for x-axis mapping.
         var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
                 .domain(fD.map(function(d) { return d[0]; }));
+
 
         // Add x-axis to the histogram svg.
         hGsvg.append("g").attr("class", "x axis")
@@ -46,6 +45,9 @@ function dashboard2(id, fData){
         // Create bars for histogram to contain rectangles and freq labels.
         var bars = hGsvg.selectAll(".bar").data(fD).enter()
                 .append("g").attr("class", "bar");
+				
+
+		
         
         //create the rectangles.
         bars.append("rect")
@@ -64,6 +66,18 @@ function dashboard2(id, fData){
             .attr("y", function(d) { return y(d[1])-5; })
             .attr("text-anchor", "middle");
         
+		
+		bars.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (hGDim.w/2) +","+(hGDim.h+(40))+")")  // centre below axis
+            .style("font-family", "sans-serif").text("Date du sondage");	
+			
+			
+		bars.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (0) +","+(hGDim.h/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .style("font-size","11px").style("font-family", "sans-serif")
+			.text("Intention de vote pour le candidat (en %)");
         function mouseover(d){  // utility function to be called on mouseover.
             // filter for selected state.
             var st = fData.filter(function(s){ return s.date == d[0];})[0],
@@ -104,7 +118,7 @@ function dashboard2(id, fData){
     
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:250, h: 250};
+        var pC ={},    pieDim ={w:250, h: 320};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
          
 		var labelArc = d3.svg.arc()
@@ -144,6 +158,12 @@ function dashboard2(id, fData){
 							.style("font-family", "sans-serif")
 							.text(function(d) {return d.data.type;});
 		
+		svg.append("svg:text")
+			.attr("text-anchor", "middle")// this makes it easy to centre the text as the transform is applied to the anchor
+            .style("font-size","12px")
+			.attr("transform", "translate("+ (0) +","+(pieDim.r+10)+")")  // centre below axis
+            .style("font-family", "sans-serif").text("Intentions de vote à la date sélectionnée");	
+			
 
         // create function to update pie-chart. This will be used by histogram.
         pC.update = function(nD){
