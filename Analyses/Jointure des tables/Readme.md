@@ -5,7 +5,8 @@
 
 Cette base contient pour chaque département toutes les informations disponibles provenant de la Caf et des Impots.
 
-**Granularité** : Départements
+**Granularité** : Départements  
+
 
 
 | Variables       | Descriptions |
