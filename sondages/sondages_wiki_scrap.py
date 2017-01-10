@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: latin-1 -*-
+# coding: utf8
 import requests
 from bs4 import BeautifulSoup
 import numpy as np
@@ -11,7 +11,7 @@ import dateparser
 warnings.filterwarnings('ignore')
 
 URL = "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l'%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2017#2016"
-path = "data/"
+path1 = "/var/www/html/1er tour/"
 
 def loadHTML(URL):
     resultats = requests.get(URL)
@@ -99,13 +99,17 @@ dfF, dfFs = loadPandas(URL)
 
 dfF = dfF.replace(to_replace=["-", "–"], value=" ")
 
-notCandidats = ["Date", "Sondeur", "Échantillon"]
+notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
-anciensCandidats = ["Alain Juppé", "Bruno Le Maire", "Jean-François Copé", "Nicolas Sarkozy", "Éva Joly"]
+anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Éva Joly"]
 
 for col in dfF.columns:
     if col not in notCandidats:
         dfF[col] = dfF[col].map(lambda x: x if isinstance(x, float) else np.nan)
+
+
+print(dfF.columns)
+print(anciensCandidats)
 
 dfF2 = dfF
 for col in anciensCandidats:
@@ -143,9 +147,14 @@ dfF4 = dfF4.set_index("date")
 dfF4 = dfF4.dropna(axis=0, how='all')
 dfF4 = dfF4.dropna(axis=1, how='all')
 
-dfF4.to_csv(path+"sondages1er.csv", sep="\t")
 
-dfF4.to_csv(path+"data.tsv", sep="\t")
+#dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
+
+print(dfF4.head())
+
+dfF4.to_csv(path1+"sondages1er.csv", sep="\t", encoding='utf-8')
+
+dfF4.to_csv(path1+"data.tsv", sep="\t", encoding='utf-8')
 
 #print(dfF3[["Manuel Valls", "Date"]])
 
@@ -153,16 +162,17 @@ dfF4.to_csv(path+"data.tsv", sep="\t")
 ########################### 2nd tour ##################################
 #######################################################################
 
+path2 = "/var/www/html/2nd tour/"
 
 dfFs2 = dfFs
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x)>5 else np.nan)
 dfFs2 = dfFs2[dfFs2["Date"].notnull()]
-dfFs2["Date"] = dfFs2["Date"].map(lambda x : x.replace("-", " ").replace("–", " "))
+dfFs2["Date"] = dfFs2["Date"].map(lambda x : x.replace(u"-", " ").replace(u"–", " "))
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[2:]))
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : dateparser.parse(x).date())
 dfFs2 = dfFs2.sort_values('Date', ascending=1)
 
-notCandidats = ["Date", "Sondeur", "Échantillon"]
+notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
 def dateToString2(date):
     if len(str(date.month))==1:
@@ -190,8 +200,9 @@ dfFs2["date"] = dfFs2["Date"].map(lambda x: dateToString2(x))
 dfFs2 = dfFs2.drop("Date", axis=1)
 
 
-getDuel(dfFs2, "Marine Le Pen", "François Fillon").to_csv(path+"mlpVSff.tsv", sep="\t", encoding="utf-8")
-getDuel(dfFs2, "Marine Le Pen", "Manuel Valls").to_csv(path+"mlpVSmv.tsv", sep="\t")
-getDuel(dfFs2, "Marine Le Pen", "Emmanuel Macron").to_csv(path+"mlpVSem.tsv", sep="\t")
+getDuel(dfFs2, u"Marine Le Pen", u"François Fillon").to_csv(path2+"mlpVSff.tsv", sep="\t", encoding="utf-8")
+getDuel(dfFs2, u"Marine Le Pen", u"Manuel Valls").to_csv(path2+"mlpVSmv.tsv", sep="\t", encoding='utf-8')
+getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_csv(path2+"mlpVSem.tsv", sep="\t", encoding='utf-8')
 
-dfFs2.to_csv(path+"sondages2e.csv")
+dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
+print("Done")
