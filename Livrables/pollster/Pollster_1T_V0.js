@@ -1,3 +1,4 @@
+
 var margin = {top: 50, right: 200, bottom: 100, left: 50},
     margin2 = { top: 430, right: 10, bottom: 20, left: 40 },
     width = 960 - margin.left - margin.right,
@@ -5,6 +6,7 @@ var margin = {top: 50, right: 200, bottom: 100, left: 50},
     height2 = 500 - margin2.top - margin2.bottom;
 
 var parseDate = d3.time.format("%Y%m%d").parse;
+
 var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 var xScale = d3.time.scale()
@@ -36,7 +38,7 @@ var myparty = {"Arnaud Montebourg":"ps","Benoît Hamon":"ps","Cécile Duflot":"e
           "François Hollande" : "ps", "Jacques Cheminade" : "sp",
           "Jean-Luc Mélenchon" : "partie_de_gauche",  "Manuel Valls":"ps","Marine Le Pen":"fn", 
           "Nathalie Arthaud":"lutte ouvriere",
-          "Nicolas Dupont-Aignan":"debout_la_france", "Nicolas Hulot":"", "Philippe Poutou":"npa",
+          "Nicolas Dupont-Aignan":"debout_la_france", "Nicolas Hulot":"empty", "Philippe Poutou":"npa",
           "Sylvia Pinel":"ps",  "Yannick Jadot":"eelv"}
 
 var xAxis = d3.svg.axis()
@@ -52,7 +54,7 @@ var yAxis = d3.svg.axis()
     .orient("left");  
 
 var line = d3.svg.line()
-    .interpolate("basis")
+    .interpolate("linear")
     .x(function(d) { return xScale(d.date); })
     .y(function(d) { return yScale(d.rating); })
     .defined(function(d) { return d.rating; });  // Hiding line value defaults of 0 for missing data
@@ -72,7 +74,59 @@ svg.append("rect")
     .attr("x", 0) 
     .attr("y", 0)
     .attr("id", "mouse-tracker")
-    .style("fill", "white"); 
+    .style("fill", "white");
+
+// Add legend
+   svg.append("text")
+      .attr("y", height + 40)
+      .attr("x", 350)
+      .style("text-anchor", "middle")
+      .style("font-size","10px")
+      .style("fill", "dark")
+      .text("Période de sondage");
+
+   svg.append("text")
+      .attr("y", height + 55)
+      .attr("x", 350)
+      .style("text-anchor", "middle")
+      .style("font-size","7px")
+      .text("Faire glisser pour choisir une période (Ci-dessous)");
+
+   svg.append("text")
+      .attr("y", 0)
+      .attr("x", width + (margin.right/3) - 15)
+      .style("font-size","8px")
+      .text("Cocher pour sélectionner un candidat");  
+ 
+
+   	svg.append("text")
+      .attr("y", -40)
+      .attr("x", -height / 2 )
+      .attr("transform", function(d) {
+                return "rotate(-90)" 
+                })
+      .style("text-anchor", "middle")
+      .style("font-size","10px")
+      .style("fill", "dark")
+      .text("Pourcentage d'intentions de votes");
+
+  svg.append("text")
+      .attr("y", -22)
+      .attr("x", 350)
+      .style("text-anchor", "middle")
+      .style("font-weight","bold")
+      .style("font-size","25px")
+      .style("fill", "dark")
+      .text("Pollster Election Présidentielle");
+
+   	svg.append("text")
+      .attr("y", -10)
+      .attr("x", 350)
+      .style("font-style","italic")
+      .style("text-anchor", "middle")
+      .style("font-size","8px")
+      .style("fill", "dark")
+      .text("Aggrégation des sondages par date de parution");
 
 //for slider part-----------------------------------------------------------------------------------
   
@@ -142,7 +196,7 @@ d3.tsv("data.tsv", function(error, data) {
   context.append("path") // Path is created using svg.area details
     .attr("class", "area")
     .attr("d", contextArea(categories[0].values)) // pass first categories data .values to area path generator 
-    .attr("fill", "#F1F1F2");
+    .attr("fill", "#9e9e9e");
     
   //append the brush for the selection of subsection  
   context.append("g")
@@ -162,15 +216,7 @@ d3.tsv("data.tsv", function(error, data) {
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-    .append("text")
-      .attr("y", -30)
-      .attr("x", 350)
-      .attr("dy", ".71em")
-      .style("text-anchor", "middle")
-      .style("font-weight","bold")
-      .style("font-size","25px")
-      .style("fill", "dark")
-      .text("Pollster Election Présidentielle");
+  
 
 
 
@@ -208,11 +254,13 @@ d3.tsv("data.tsv", function(error, data) {
       .attr("clip-path", "url(#clip)")//use clip path to make irrelevant part invisible
       .style("stroke", function(d) { return color(d.name); });
 
+ 
 
   // draw legend
-  var legendSpace = 450 / categories.length; // 450/number of issues (ex. 40)    
+  var legendSpace = 420 / categories.length; // 450/number of issues (ex. 40)    
 
   issue.append("rect")
+  	  .attr("id", function(d){return "rect_"+d.name.replace(" ","_")})
       .attr("width", 10)
       .attr("height", 10)                                    
       .attr("x", width + (margin.right/3) - 15) 
@@ -294,6 +342,30 @@ d3.tsv("data.tsv", function(error, data) {
       .attr("x", width + (margin.right/3)) 
       .attr("y", function (d, i) { return (legendSpace)+i*(legendSpace); })  // (return (11.25/2 =) 5.625) + i * (5.625) 
       .text(function(d) { return d.name; })
+      .on("click", function(d){ // On click make d.visible 
+        d.visible = !d.visible; // If array key for this data selection is "visible" = true then make it false, if false then make it true
+
+        maxY = findMaxY(categories); // Find max Y rating value categories data with "visible"; true
+        yScale.domain([0,maxY]); // Redefine yAxis domain based on highest y value of categories data with "visible"; true
+        svg.select(".y.axis")
+          .transition()
+          .call(yAxis);   
+
+        issue.select("path")
+          .transition()
+          .attr("d", function(d){
+            return d.visible ? line(d.values) : null; // If d.visible is true then draw line for this d selection
+          })
+
+        issue.select("rect")
+          .transition()
+          .attr("fill", function(d) {
+          return d.visible ? color(d.name) : "#F1F1F2";
+        });
+
+        //ADD Pict appearance when click on names 
+
+      })
       .on("mouseover", function(d){
 
         d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
@@ -326,8 +398,6 @@ d3.tsv("data.tsv", function(error, data) {
           .style("stroke-width", 2);
 
       }) 
-
-
 
 
   // Hover line 
@@ -422,6 +492,8 @@ d3.tsv("data.tsv", function(error, data) {
           .call(xAxis);
 
     maxY = findMaxY(categories); // Find max Y rating value categories data with "visible"; true
+    
+  
     yScale.domain([0,maxY]); // Redefine yAxis domain based on highest y value of categories data with "visible"; true
     
     svg.select(".y.axis") // Redraw yAxis
@@ -438,6 +510,7 @@ d3.tsv("data.tsv", function(error, data) {
 
 }); // End Data callback function
   
+
   function findMaxY(data){  // Define function "findMaxY"
     var maxYValues = data.map(function(d) { 
       if (d.visible){
@@ -445,5 +518,17 @@ d3.tsv("data.tsv", function(error, data) {
           return value.rating; })
       }
     });
-    return d3.max(maxYValues);
+
+     if (d3.max(maxYValues) == null)
+	{
+		return 100
+	} else 
+	{ 
+		return d3.max(maxYValues) + 1
+	} ;
+
+  
   }
+
+
+//d3.select('#rect_Arnaud_Montebourg').dispatch('click');
