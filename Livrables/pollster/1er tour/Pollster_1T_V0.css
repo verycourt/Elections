@@ -1,5 +1,6 @@
 body {
   font: 10px sans-serif;
+
 }
 
 .axis path,
@@ -52,4 +53,30 @@ body {
 .brush .extent {
   stroke: #FFF;
   shape-rendering: crispEdges;
+}
+
+
+.button {
+  padding: 5px 15px;
+  font-size: 10px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #ff3333;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+  float:left;
+  position : absolute;
+  top:20px;
+  left : 810px;
+}
+
+.button:hover {background-color:  #ff9999}
+
+.button:active {
+  background-color:  #ff9999;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

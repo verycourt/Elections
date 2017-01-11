@@ -67,6 +67,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
 // Create invisible rect for mouse tracking
 svg.append("rect")
     .attr("width", width)
@@ -82,22 +83,17 @@ svg.append("rect")
       .attr("x", 350)
       .style("text-anchor", "middle")
       .style("font-size","10px")
-      .style("fill", "dark")
+      .style("fill", "#000000")
       .text("Période de sondage");
+
+
 
    svg.append("text")
       .attr("y", height + 55)
       .attr("x", 350)
       .style("text-anchor", "middle")
       .style("font-size","7px")
-      .text("Faire glisser pour choisir une période (Ci-dessous)");
-
-   svg.append("text")
-      .attr("y", 0)
-      .attr("x", width + (margin.right/3) - 15)
-      .style("font-size","8px")
-      .text("Cocher pour sélectionner un candidat");  
- 
+      .text("Faire glisser pour choisir une période (Ci-dessous)"); 
 
    	svg.append("text")
       .attr("y", -40)
@@ -107,7 +103,7 @@ svg.append("rect")
                 })
       .style("text-anchor", "middle")
       .style("font-size","10px")
-      .style("fill", "dark")
+      .style("fill", "#000000")
       .text("Pourcentage d'intentions de votes");
 
   svg.append("text")
@@ -116,7 +112,7 @@ svg.append("rect")
       .style("text-anchor", "middle")
       .style("font-weight","bold")
       .style("font-size","25px")
-      .style("fill", "dark")
+      .style("fill", "#000000")
       .text("Pollster Election Présidentielle");
 
    	svg.append("text")
@@ -125,8 +121,10 @@ svg.append("rect")
       .style("font-style","italic")
       .style("text-anchor", "middle")
       .style("font-size","8px")
-      .style("fill", "dark")
+      .style("fill", "#000000")
       .text("Aggrégation des sondages par date de parution");
+
+
 
 //for slider part-----------------------------------------------------------------------------------
   
@@ -338,6 +336,9 @@ d3.tsv("data.tsv", function(error, data) {
       
 
 
+
+
+
   issue.append("text")
       .attr("x", width + (margin.right/3)) 
       .attr("y", function (d, i) { return (legendSpace)+i*(legendSpace); })  // (return (11.25/2 =) 5.625) + i * (5.625) 
@@ -398,6 +399,109 @@ d3.tsv("data.tsv", function(error, data) {
           .style("stroke-width", 2);
 
       }) 
+
+
+// Brush par défaut 
+
+
+
+
+// Cocher some rect au chargement de la page 
+array_name_start = ["Arnaud Montebourg", "Benoît Hamon", "Emmanuel Macron",
+          "François Fillon", "Jean-Luc Mélenchon", "Manuel Valls", "Marine Le Pen"]
+
+categories.forEach(function(d){
+
+	if (array_name_start.includes(d.name)){
+
+		d.visible = 1; 
+
+	    maxY = findMaxY(categories); 
+	    yScale.domain([0,maxY]); 
+	    svg.select(".y.axis")
+	      .transition()
+	      .call(yAxis);   
+
+	    issue.select("path")
+	      .transition()
+	      .attr("d", function(d){
+	        return d.visible ? line(d.values) : null; 
+	      });
+
+	    issue.select("rect")
+	      .transition()
+	      .attr("fill", function(d) {
+	      return d.visible ? color(d.name) : "#F1F1F2";
+	    });
+	} ;
+  	
+ }); 
+
+
+
+
+// for coher/décocher ----------------------------------------------
+var value_button = 0 ;
+// Add button cocher / décocher selon que les rect soit déja cocher ou non 
+  d3.select("#button")
+  .on("click",function(){
+  		if(value_button==0){
+  			value_button = 1  ;
+
+  			categories.forEach(function(d){
+
+	      	d.visible = 1; 
+
+	        maxY = findMaxY(categories); 
+	        yScale.domain([0,maxY]); 
+	        svg.select(".y.axis")
+	          .transition()
+	          .call(yAxis);   
+
+	        issue.select("path")
+	          .transition()
+	          .attr("d", function(d){
+	            return d.visible ? line(d.values) : null; 
+	          });
+
+	        issue.select("rect")
+	          .transition()
+	          .attr("fill", function(d) {
+	          return d.visible ? color(d.name) : "#F1F1F2";
+	        });
+	      });
+  		}
+  		else{
+  			value_button = 0;
+  			categories.forEach(function(d){
+
+	      	d.visible = 0; 
+
+	        maxY = findMaxY(categories); 
+	        yScale.domain([0,maxY]); 
+	        svg.select(".y.axis")
+	          .transition()
+	          .call(yAxis);   
+
+	        issue.select("path")
+	          .transition()
+	          .attr("d", function(d){
+	            return d.visible ? line(d.values) : null; 
+	          });
+
+	        issue.select("rect")
+	          .transition()
+	          .attr("fill", function(d) {
+	          return d.visible ? color(d.name) : "#F1F1F2";
+	        });
+	      });
+
+
+  		};
+
+        		
+
+    });
 
 
   // Hover line 
@@ -530,5 +634,3 @@ d3.tsv("data.tsv", function(error, data) {
   
   }
 
-
-//d3.select('#rect_Arnaud_Montebourg').dispatch('click');
