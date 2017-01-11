@@ -92,7 +92,7 @@ svg.append("rect")
       .attr("y", height + 55)
       .attr("x", 350)
       .style("text-anchor", "middle")
-      .style("font-size","7px")
+      .style("font-size","8px")
       .text("Faire glisser pour choisir une période (Ci-dessous)"); 
 
    	svg.append("text")
@@ -174,6 +174,7 @@ d3.tsv("data.tsv", function(error, data) {
   xScale2.domain(xScale.domain()); // Setting a duplicate xdomain for brushing reference later
  
  //for slider part-----------------------------------------------------------------------------------
+
 
  var brush = d3.svg.brush()//for slider bar at the bottom
     .x(xScale2) 
@@ -400,10 +401,17 @@ d3.tsv("data.tsv", function(error, data) {
 
       }) 
 
+// min date 
+var date1 = new Date(2016, 9);
+//search max date 
+array_date = data.map(function(d) { 
+        return d.date ; 
+      });
+var max_date = new Date(Math.max.apply(null, array_date));
 
-// Brush par défaut 
-
-
+svg.select(".brush").
+	call(brush.extent([date1, max_date]))
+	.call(brushed);
 
 
 // Cocher some rect au chargement de la page 
