@@ -174,9 +174,9 @@ class TrendReq(object):
         for row in self.results['table']['rows']:
             row_dict = {}
             for i, value in enumerate(row['c']):
-                row_dict[headers[i]] = value['v']
+                row_dict[headers[i]] = value['f']
             df = df.append(row_dict, ignore_index=True)
-        df['Date'] = pd.to_datetime(df['Date'])
+        # df['Date'] = pd.to_datetime(df['Date'])
         df.set_index('Date', inplace=True)
         self.results = df
         return self.results

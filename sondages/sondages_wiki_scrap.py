@@ -152,6 +152,8 @@ dfF4 = dfF4.dropna(axis=1, how='all')
 
 print(dfF4.head())
 
+dfF4.to_json(path1+"pollster1.json", force_ascii=False)
+
 dfF4.to_csv(path1+"sondages1er.csv", sep="\t", encoding='utf-8')
 
 dfF4.to_csv(path1+"data.tsv", sep="\t", encoding='utf-8')
