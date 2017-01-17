@@ -1,0 +1,52 @@
+Index([u'Alain Juppé', u'Arnaud Montebourg', u'Benoît Hamon',
+       u'Bruno Le Maire', u'Cécile Duflot', u'Date', u'Emmanuel Macron',
+       u'François Asselineau', u'François Bayrou', u'François Fillon',
+       u'François Hollande', u'Jacques Cheminade', u'Jean Lassalle',
+       u'Jean-François Copé', u'Jean-Luc Mélenchon', u'Manuel Valls',
+       u'Marine Le Pen', u'Martine Aubry', u'Nathalie Arthaud',
+       u'Nicolas Dupont-Aignan', u'Nicolas Hulot', u'Nicolas Sarkozy',
+       u'Olivier Besancenot', u'Philippe Poutou', u'Philippe de Villiers',
+       u'Rama Yade', u'Sondeur', u'Sylvia Pinel', u'Vincent Peillon',
+       u'Yannick Jadot', u'Échantillon', u'Éva Joly'],
+      dtype='object')
+[u'Alain Jupp\xe9', u'Bruno Le Maire', u'Jean-Fran\xe7ois Cop\xe9', u'Nicolas Sarkozy', u'\xc9va Joly']
+          Arnaud Montebourg  Benoît Hamon  Cécile Duflot  Emmanuel Macron  \
+date                                                                        
+20140904                NaN           NaN            3.0              NaN   
+20141030                NaN           NaN            4.0              NaN   
+20160131                NaN           NaN            3.0              NaN   
+20160219                NaN           NaN            2.5              NaN   
+20160414                NaN           NaN            1.5              NaN   
+
+          François Bayrou  François Fillon  François Hollande  \
+date                                                            
+20140904             14.0             17.0               17.0   
+20141030             16.0             18.0               14.0   
+20160131             12.0             19.0               20.0   
+20160219             14.5             18.0               18.0   
+20160414             12.0             21.0               16.0   
+
+          Jacques Cheminade  Jean-Luc Mélenchon  Manuel Valls  Marine Le Pen  \
+date                                                                           
+20140904                NaN                10.0           NaN           32.0   
+20141030                NaN                 9.0           NaN           31.0   
+20160131                NaN                 9.0           NaN           29.0   
+20160219                NaN                12.0           NaN           28.0   
+20160414                NaN                12.5           NaN           28.0   
+
+          Nathalie Arthaud  Nicolas Dupont-Aignan  Nicolas Hulot  \
+date                                                               
+20140904               1.0                    3.0            NaN   
+20141030               1.5                    5.0            NaN   
+20160131               1.5                    5.0            NaN   
+20160219               1.0                    5.0            NaN   
+20160414               1.0                    6.0            NaN   
+
+          Philippe Poutou  Sylvia Pinel  Vincent Peillon  Yannick Jadot  
+date                                                                     
+20140904              1.0           NaN              NaN            NaN  
+20141030              1.5           NaN              NaN            NaN  
+20160131              1.5           NaN              NaN            NaN  
+20160219              1.0           NaN              NaN            NaN  
+20160414              1.5           NaN              NaN            NaN  
+Done
