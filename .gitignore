@@ -1,0 +1,8 @@
+# ignore .csv
+*.csv
+
+# ignore .json
+*.json
+
+# ignore .zip
+*.zip
