@@ -448,7 +448,7 @@ categories.forEach(function(d){
 
 
 
-// for coher/décocher ----------------------------------------------
+// for cocher/décocher ----------------------------------------------
 var value_button = 0 ;
 // Add button cocher / décocher selon que les rect soit déja cocher ou non 
   d3.select("#button")
