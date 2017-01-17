@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: latin-1 -*-
+# -*- coding: latin-1 -*-
 import pymongo
 import json
 import time
@@ -33,6 +33,6 @@ for candidate in candidates:
 print(data)
 export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
 print(export)
-file = open('popcontest.json','w')
+file = open('/var/www/html/decompte/popcontest.json','w')
 json.dump(export,file) 
 file.close()

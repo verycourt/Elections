@@ -1,0 +1,44 @@
+Valls
+valls|@manuelvalls|#valls
+{'name': 'Valls', 'size': 29741}
+Macron
+macron|#macron|@EmmanuelMacron
+{'name': 'Macron', 'size': 47675}
+MLP
+@MLP_officiel|#MLP|lepen
+{'name': 'MLP', 'size': 12003}
+Jadot
+Jadot|#Jadot|@yjadot
+{'name': 'Jadot', 'size': 2200}
+Melenchon
+Melenchon|#Melenchon|@JLMelechon
+{'name': 'Melenchon', 'size': 15063}
+Bayrou
+Bayrou|#Bayrou|@bayrou
+{'name': 'Bayrou', 'size': 1309}
+Poutou
+Poutou|#Poutou|@PhilippePoutou
+{'name': 'Poutou', 'size': 733}
+Peillon
+Peillon|#peillon|@Vincent_Peillon
+{'name': 'Peillon', 'size': 25624}
+Rugy
+#Rugy|Rugy|@FdeRugy
+{'name': 'Rugy', 'size': 7420}
+Hamon
+Hamon|#hamon|@benoithamon
+{'name': 'Hamon', 'size': 37022}
+Pinel
+pinel|#pinel|@SylviaPinel
+{'name': 'Pinel', 'size': 3456}
+Bennhamias
+bennhamias|#bennhamias|@JLBennhamias
+{'name': 'Bennhamias', 'size': 46}
+Montebourg
+montebourg|#montebourg|@montebourg
+{'name': 'Montebourg', 'size': 17802}
+Fillon
+Fillon|#Fillon|@FrancoisFillon
+{'name': 'Fillon', 'size': 80145}
+{'Fillon': {'name': 'Fillon', 'size': 80145}, 'Macron': {'name': 'Macron', 'size': 47675}, 'Bennhamias': {'name': 'Bennhamias', 'size': 46}, 'Pinel': {'name': 'Pinel', 'size': 3456}, 'Melenchon': {'name': 'Melenchon', 'size': 15063}, 'Poutou': {'name': 'Poutou', 'size': 733}, 'MLP': {'name': 'MLP', 'size': 12003}, 'Bayrou': {'name': 'Bayrou', 'size': 1309}, 'Rugy': {'name': 'Rugy', 'size': 7420}, 'Montebourg': {'name': 'Montebourg', 'size': 17802}, 'Hamon': {'name': 'Hamon', 'size': 37022}, 'Jadot': {'name': 'Jadot', 'size': 2200}, 'Peillon': {'name': 'Peillon', 'size': 25624}, 'Valls': {'name': 'Valls', 'size': 29741}}
+{'name': 'twitter_mentions', 'children': [{'name': 'Fillon', 'size': 80145}, {'name': 'Macron', 'size': 47675}, {'name': 'Bennhamias', 'size': 46}, {'name': 'Pinel', 'size': 3456}, {'name': 'Melenchon', 'size': 15063}, {'name': 'Poutou', 'size': 733}, {'name': 'MLP', 'size': 12003}, {'name': 'Bayrou', 'size': 1309}, {'name': 'Rugy', 'size': 7420}, {'name': 'Montebourg', 'size': 17802}, {'name': 'Hamon', 'size': 37022}, {'name': 'Jadot', 'size': 2200}, {'name': 'Peillon', 'size': 25624}, {'name': 'Valls', 'size': 29741}]}
