@@ -203,6 +203,7 @@ dfFs2 = dfFs2.drop("Date", axis=1)
 getDuel(dfFs2, u"Marine Le Pen", u"François Fillon").to_csv(path2+"mlpVSff.tsv", sep="\t", encoding="utf-8")
 getDuel(dfFs2, u"Marine Le Pen", u"Manuel Valls").to_csv(path2+"mlpVSmv.tsv", sep="\t", encoding='utf-8')
 getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_csv(path2+"mlpVSem.tsv", sep="\t", encoding='utf-8')
+getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_csv(path2+"emvsff.tsv", sep="\t", encoding="utf-8")
 
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
 print("Done")
