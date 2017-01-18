@@ -1,44 +1,44 @@
 Valls
 valls|@manuelvalls|#valls
-{'name': 'Valls', 'size': 29741}
+{'name': 'Valls', 'size': 37453}
 Macron
 macron|#macron|@EmmanuelMacron
-{'name': 'Macron', 'size': 47675}
+{'name': 'Macron', 'size': 35682}
 MLP
 @MLP_officiel|#MLP|lepen
-{'name': 'MLP', 'size': 12003}
+{'name': 'MLP', 'size': 11880}
 Jadot
 Jadot|#Jadot|@yjadot
-{'name': 'Jadot', 'size': 2200}
+{'name': 'Jadot', 'size': 2082}
 Melenchon
 Melenchon|#Melenchon|@JLMelechon
-{'name': 'Melenchon', 'size': 15063}
+{'name': 'Melenchon', 'size': 14677}
 Bayrou
 Bayrou|#Bayrou|@bayrou
-{'name': 'Bayrou', 'size': 1309}
+{'name': 'Bayrou', 'size': 1693}
 Poutou
 Poutou|#Poutou|@PhilippePoutou
-{'name': 'Poutou', 'size': 733}
+{'name': 'Poutou', 'size': 777}
 Peillon
 Peillon|#peillon|@Vincent_Peillon
-{'name': 'Peillon', 'size': 25624}
+{'name': 'Peillon', 'size': 25427}
 Rugy
 #Rugy|Rugy|@FdeRugy
-{'name': 'Rugy', 'size': 7420}
+{'name': 'Rugy', 'size': 7757}
 Hamon
 Hamon|#hamon|@benoithamon
-{'name': 'Hamon', 'size': 37022}
+{'name': 'Hamon', 'size': 39375}
 Pinel
 pinel|#pinel|@SylviaPinel
-{'name': 'Pinel', 'size': 3456}
+{'name': 'Pinel', 'size': 3852}
 Bennhamias
 bennhamias|#bennhamias|@JLBennhamias
-{'name': 'Bennhamias', 'size': 46}
+{'name': 'Bennhamias', 'size': 42}
 Montebourg
 montebourg|#montebourg|@montebourg
-{'name': 'Montebourg', 'size': 17802}
+{'name': 'Montebourg', 'size': 18555}
 Fillon
 Fillon|#Fillon|@FrancoisFillon
-{'name': 'Fillon', 'size': 80145}
-{'Fillon': {'name': 'Fillon', 'size': 80145}, 'Macron': {'name': 'Macron', 'size': 47675}, 'Bennhamias': {'name': 'Bennhamias', 'size': 46}, 'Pinel': {'name': 'Pinel', 'size': 3456}, 'Melenchon': {'name': 'Melenchon', 'size': 15063}, 'Poutou': {'name': 'Poutou', 'size': 733}, 'MLP': {'name': 'MLP', 'size': 12003}, 'Bayrou': {'name': 'Bayrou', 'size': 1309}, 'Rugy': {'name': 'Rugy', 'size': 7420}, 'Montebourg': {'name': 'Montebourg', 'size': 17802}, 'Hamon': {'name': 'Hamon', 'size': 37022}, 'Jadot': {'name': 'Jadot', 'size': 2200}, 'Peillon': {'name': 'Peillon', 'size': 25624}, 'Valls': {'name': 'Valls', 'size': 29741}}
-{'name': 'twitter_mentions', 'children': [{'name': 'Fillon', 'size': 80145}, {'name': 'Macron', 'size': 47675}, {'name': 'Bennhamias', 'size': 46}, {'name': 'Pinel', 'size': 3456}, {'name': 'Melenchon', 'size': 15063}, {'name': 'Poutou', 'size': 733}, {'name': 'MLP', 'size': 12003}, {'name': 'Bayrou', 'size': 1309}, {'name': 'Rugy', 'size': 7420}, {'name': 'Montebourg', 'size': 17802}, {'name': 'Hamon', 'size': 37022}, {'name': 'Jadot', 'size': 2200}, {'name': 'Peillon', 'size': 25624}, {'name': 'Valls', 'size': 29741}]}
+{'name': 'Fillon', 'size': 80094}
+{'Fillon': {'name': 'Fillon', 'size': 80094}, 'Macron': {'name': 'Macron', 'size': 35682}, 'Bennhamias': {'name': 'Bennhamias', 'size': 42}, 'Pinel': {'name': 'Pinel', 'size': 3852}, 'Melenchon': {'name': 'Melenchon', 'size': 14677}, 'Poutou': {'name': 'Poutou', 'size': 777}, 'MLP': {'name': 'MLP', 'size': 11880}, 'Bayrou': {'name': 'Bayrou', 'size': 1693}, 'Rugy': {'name': 'Rugy', 'size': 7757}, 'Montebourg': {'name': 'Montebourg', 'size': 18555}, 'Hamon': {'name': 'Hamon', 'size': 39375}, 'Jadot': {'name': 'Jadot', 'size': 2082}, 'Peillon': {'name': 'Peillon', 'size': 25427}, 'Valls': {'name': 'Valls', 'size': 37453}}
+{'name': 'twitter_mentions', 'children': [{'name': 'Fillon', 'size': 80094}, {'name': 'Macron', 'size': 35682}, {'name': 'Bennhamias', 'size': 42}, {'name': 'Pinel', 'size': 3852}, {'name': 'Melenchon', 'size': 14677}, {'name': 'Poutou', 'size': 777}, {'name': 'MLP', 'size': 11880}, {'name': 'Bayrou', 'size': 1693}, {'name': 'Rugy', 'size': 7757}, {'name': 'Montebourg', 'size': 18555}, {'name': 'Hamon', 'size': 39375}, {'name': 'Jadot', 'size': 2082}, {'name': 'Peillon', 'size': 25427}, {'name': 'Valls', 'size': 37453}]}

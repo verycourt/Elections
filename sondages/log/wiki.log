@@ -10,43 +10,15 @@ Index([u'Alain Juppé', u'Arnaud Montebourg', u'Benoît Hamon',
        u'Yannick Jadot', u'Échantillon', u'Éva Joly'],
       dtype='object')
 [u'Alain Jupp\xe9', u'Bruno Le Maire', u'Jean-Fran\xe7ois Cop\xe9', u'Nicolas Sarkozy', u'\xc9va Joly']
-          Arnaud Montebourg  Benoît Hamon  Cécile Duflot  Emmanuel Macron  \
-date                                                                        
-20140904                NaN           NaN            3.0              NaN   
-20141030                NaN           NaN            4.0              NaN   
-20160131                NaN           NaN            3.0              NaN   
-20160219                NaN           NaN            2.5              NaN   
-20160414                NaN           NaN            1.5              NaN   
-
-          François Bayrou  François Fillon  François Hollande  \
-date                                                            
-20140904             14.0             17.0               17.0   
-20141030             16.0             18.0               14.0   
-20160131             12.0             19.0               20.0   
-20160219             14.5             18.0               18.0   
-20160414             12.0             21.0               16.0   
-
-          Jacques Cheminade  Jean-Luc Mélenchon  Manuel Valls  Marine Le Pen  \
-date                                                                           
-20140904                NaN                10.0           NaN           32.0   
-20141030                NaN                 9.0           NaN           31.0   
-20160131                NaN                 9.0           NaN           29.0   
-20160219                NaN                12.0           NaN           28.0   
-20160414                NaN                12.5           NaN           28.0   
-
-          Nathalie Arthaud  Nicolas Dupont-Aignan  Nicolas Hulot  \
-date                                                               
-20140904               1.0                    3.0            NaN   
-20141030               1.5                    5.0            NaN   
-20160131               1.5                    5.0            NaN   
-20160219               1.0                    5.0            NaN   
-20160414               1.0                    6.0            NaN   
-
-          Philippe Poutou  Sylvia Pinel  Vincent Peillon  Yannick Jadot  
-date                                                                     
-20140904              1.0           NaN              NaN            NaN  
-20141030              1.5           NaN              NaN            NaN  
-20160131              1.5           NaN              NaN            NaN  
-20160219              1.0           NaN              NaN            NaN  
-20160414              1.5           NaN              NaN            NaN  
-Done
+Traceback (most recent call last):
+  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 217, in <module>
+    dfFs2.to_json(path2+"sondages2e.json", force_ascii=False)
+  File "/usr/local/lib/python2.7/dist-packages/pandas/core/generic.py", line 1089, in to_json
+    lines=lines)
+  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 39, in to_json
+    date_unit=date_unit, default_handler=default_handler).write()
+  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 72, in __init__
+    self._format_axes()
+  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 105, in _format_axes
+    "'%s'." % self.orient)
+ValueError: DataFrame index must be unique for orient='columns'.

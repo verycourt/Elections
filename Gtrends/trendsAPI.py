@@ -10,7 +10,7 @@ if sys.version_info[0] == 2:  # Python 2
 else:  # Python 3
     from urllib.parse import quote
 
-
+print(sys.version_info[0])
 class TrendReq(object):
     """
     Google Trends API
@@ -174,10 +174,17 @@ class TrendReq(object):
         for row in self.results['table']['rows']:
             row_dict = {}
             for i, value in enumerate(row['c']):
-                row_dict[headers[i]] = value['f']
+                try:
+                    if headers[i] == 'Date':
+                        row_dict[headers[i]] = value['f']
+                    else:
+                        row_dict[headers[i]] = value['f']
+                except:
+                    continue
             df = df.append(row_dict, ignore_index=True)
-        # df['Date'] = pd.to_datetime(df['Date'])
-        df.set_index('Date', inplace=True)
+        df.dropna(axis=0, how='any', inplace=True) # dropping NaN values
+        
+        #df.set_index('Date', inplace=True)
         self.results = df
         return self.results
 
