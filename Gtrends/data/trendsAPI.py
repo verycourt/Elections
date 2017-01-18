@@ -175,7 +175,10 @@ class TrendReq(object):
             row_dict = {}
             for i, value in enumerate(row['c']):
                 try:
-                    row_dict[headers[i]] = value['f']
+                    if headers[i] == 'Date':
+                        row_dict[headers[i]] = value['f']
+                    else:
+                        row_dict[headers[i]] = value['f']
                 except:
                     continue
             df = df.append(row_dict, ignore_index=True)
