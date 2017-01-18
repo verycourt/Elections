@@ -74,13 +74,16 @@ def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
 
             df.set_index('Date', inplace=True)
 
-            # reduction du nombre de lignes du dataframe a une trentaine de points
-            # pour la lisibilité du graph
+            # reduction du nombre de lignes du dataframe par un facteur n pour la lisibilité du graph
+            # (on laisse une trentaine de lignes)
             n = {'1h': 2, '4h': 1, '1d': 3, '3d': 2, '7d': 6, '1m': 1, '3m': 3}
+
+            # chemin sur le serveur AWS
+            path_AWS = '/var/www/html/Gtrends/data/'
 
             # Sauvegarde en JSON
             df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
-                query + '_' + periode + '.json', orient='split')
+                path_AWS + query + '_' + periode + '.json', orient='split')
             print('sauvegarde dans : ' + query + '_' + periode + '.json')
             return
 
