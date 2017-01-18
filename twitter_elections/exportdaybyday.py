@@ -76,7 +76,7 @@ for i in range(10):
 	print(data)
 	export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
 	print(export)
-	file = open('/var/www/html/decompte/j-'+str(i)+'.json','w')
+	file = open('/var/www/html/decompte/j-'+str(i+1)+'.json','w')
 	json.dump(export,file) 
 	file.close()
 
