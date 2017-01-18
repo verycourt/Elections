@@ -150,8 +150,6 @@ dfF4 = dfF4.dropna(axis=1, how='all')
 
 #dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
 
-print(dfF4.head())
-
 dfF4.to_json(path1+"pollster1.json", force_ascii=False)
 
 dfF4.to_csv(path1+"sondages1er.csv", sep="\t", encoding='utf-8')
@@ -167,12 +165,15 @@ dfF4.to_csv(path1+"data.tsv", sep="\t", encoding='utf-8')
 path2 = "/var/www/html/2nd tour/"
 
 dfFs2 = dfFs
+
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x)>5 else np.nan)
 dfFs2 = dfFs2[dfFs2["Date"].notnull()]
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x.replace(u"-", " ").replace(u"–", " "))
-dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[2:]))
+dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[-3:]))
+print(dfFs2[["Marine Le Pen", "François Fillon", "Date" ]].dropna())
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : dateparser.parse(x).date())
 dfFs2 = dfFs2.sort_values('Date', ascending=1)
+
 
 notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
@@ -194,18 +195,25 @@ def getDuel(df, nom1, nom2):
 
 for col in dfFs2.columns:
     if col not in notCandidats:
-        dfFs2[col] = dfFs2[col].map(lambda x: x if isinstance(x, float) else np.nan)
         if col != "Abstention, blanc ou nul":
+            dfFs2[col] = dfFs2[col].map(lambda x: x if isinstance(x, float) else np.nan)
             dfFs2[col] = dfFs2[col]*(100-dfFs2["Abstention, blanc ou nul"])/100
+        else :
+            dfFs2[col] = dfFs2[col].map(lambda x: x if isinstance(x, float) else 0)
 
 dfFs2["date"] = dfFs2["Date"].map(lambda x: dateToString2(x))
 dfFs2 = dfFs2.drop("Date", axis=1)
-
 
 getDuel(dfFs2, u"Marine Le Pen", u"François Fillon").to_csv(path2+"mlpVSff.tsv", sep="\t", encoding="utf-8")
 getDuel(dfFs2, u"Marine Le Pen", u"Manuel Valls").to_csv(path2+"mlpVSmv.tsv", sep="\t", encoding='utf-8')
 getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_csv(path2+"mlpVSem.tsv", sep="\t", encoding='utf-8')
 getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_csv(path2+"emvsff.tsv", sep="\t", encoding="utf-8")
 
+getDuel(dfFs2, u"Marine Le Pen", u"Manuel Valls").to_json(path2+"mlpVSmv.json", force_ascii=False)
+getDuel(dfFs2, u"Marine Le Pen", u"François Fillon").to_json(path2+"mlpVSff.json", force_ascii=False)
+getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_json(path2+"mlpVSem.json", force_ascii=False)
+getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_json(path2+"emvsff.json", force_ascii=False)
+
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
+dfFs2.to_json(path2+"sondages2e.json", force_ascii=False)
 print("Done")
