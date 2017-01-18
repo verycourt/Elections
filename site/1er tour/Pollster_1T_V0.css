@@ -1,0 +1,83 @@
+body {
+  font: 10px sans-serif;
+
+}
+
+.axis path,
+.axis line, 
+.axis1 path,
+.axis1 line {
+  fill: none;
+  stroke: #E6E7E8;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path, .x.axis1 path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+.legend-box {
+  cursor: pointer;  
+}
+
+#mouse-tracker {
+  stroke: #E6E7E8;
+  stroke-width: 1px;
+}
+
+.hover-line { 
+  stroke: #E6E7E8;
+  fill: none;
+  stroke-width: 1px;
+  left: 10px;
+  shape-rendering: crispEdges;
+  opacity: 1e-6;
+}
+
+.hover-text {
+  stroke: none;
+  font-size: 30px;
+  font-weight: bold;
+  fill: #000000;
+}
+
+.tooltip {
+  font-weight: normal;
+}
+
+.brush .extent {
+  stroke: #FFF;
+  shape-rendering: crispEdges;
+}
+
+
+.button {
+  margin-top:30px;
+  padding: 5px 15px;
+  font-size: 10px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: red;
+  background-color: #ff3333;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+  float:left;
+  position : absolute;
+  top:100px;
+  left : 810px;
+}
+
+.button:hover {background-color:  #ff9999}
+
+.button:active {
+  background-color:  #ff9999;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
