@@ -82,12 +82,12 @@ def trends_to_json(query='candidats_majeurs', periode='3d'):
 
 			print('Connexion à Google réussie avec le compte ' + user)
 			# chemin sur le serveur AWS
-			path_AWS = '/var/www/html/Gtrends/'
+			path_AWS = '/home/ubuntu/Elections/Gtrends/'
 
 			# Sauvegarde en JSON
 			df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
 				path_AWS + query + '_' + periode + '.json', orient='split')
-			print('Sauvegarde dans : ' + query + '_' + periode + '.json')
+			print('Sauvegarde dans : ' path_AWS + query + '_' + periode + '.json')
 			return
 
 		except:
