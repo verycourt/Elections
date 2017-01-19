@@ -6,3 +6,6 @@
 
 # ignore .zip
 *.zip
+
+# ignore .DS_Store
+.DS_Store
