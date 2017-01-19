@@ -50,10 +50,11 @@ def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
     # se referer a la table de correspondance ci-dessus
     
     if (query not in queries) or (periode not in periodes):
-        print('Erreur de parametre')
+        print('Paramètres invalides... Se référer au fichier readme.txt')
         return
     
     users = ['pfrlepoint@gmail.com', 'pfrlepoint2@gmail.com']
+    # TODO : reconnaître quand l'erreur est un problème de connexion google pour boucler sur le mail suivant
     for user in users:
         # try:
         # Connection to Google (use a valid Google account name for increased query limits)
@@ -85,22 +86,21 @@ def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
         # n = 1 # pour désactiver cette fonction
         
         # Sauvegarde en JSON
+        server_path = '/var/www/html/gtrends/data/' # path complet
         df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
-            query + '_' + periode + '.json', orient='split', date_unit='ms')
+            server_path + query + '_' + periode + '.json', orient='split', date_unit='ms')
         
-        # TODO: préciser le path complet de sauvegarde
-        print('sauvegarde dans : ' + query + '_' + periode + '.json')
+        print('sauvegarde dans : ' + server_path + query + '_' + periode + '.json')
         return
             
         # except:
           #  continue
     
-    # print('Erreur lors de la récupération des données.')
     return
 
 ####################################################################
 # passage des arguments via sys.argv
 if len(sys.argv) != 3:
-	print('Il faut passer deux arguments en paramètre : cf le fichier readme.')
+	print('Il faut passer deux arguments en paramètre... Se référer au fichier readme.txt')
 else:
 	trends_to_json(query=sys.argv[1], periode=sys.argv[2])
