@@ -27,8 +27,8 @@ def convert_date_column(dataframe):
         
     robj = re.compile('|'.join(rdict.keys()))
     
-    for date in dataframe['Date']: # Conversion en timestamp sur le fuseau GMT+1
-        t = datetime.strptime(robj.sub(lambda m: rdict[m.group(0)], date), in_format) + timedelta(hours=9)
+    for date in dataframe['Date']: # Conversion en timestamp sur le fuseau GMT (chart.js affichera GMT+1)
+        t = datetime.strptime(robj.sub(lambda m: rdict[m.group(0)], date), in_format) + timedelta(hours=8)
         # dates.append(datetime.strftime(t, out_format))
         dates.append(t)
         
