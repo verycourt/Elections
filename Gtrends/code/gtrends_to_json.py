@@ -22,7 +22,7 @@ def convert_date_column(dataframe):
                  'nov.': '11', 'déc.': '12'}
         in_format = '%d %m %Y %H:%M' # ex: 18 01 2017 12:00
     
-    else: # si les dates ne contiennent pas l'heure, 
+    else: # si les dates ne contiennent pas l'heure
         return
         
     robj = re.compile('|'.join(rdict.keys()))
@@ -50,52 +50,54 @@ def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
     # se referer a la table de correspondance ci-dessus
     
     if (query not in queries) or (periode not in periodes):
-        print('Paramètres invalides... Se référer au fichier readme.txt')
+        print('Erreur de parametre')
         return
     
     users = ['pfrlepoint@gmail.com', 'pfrlepoint2@gmail.com']
-    # TODO : reconnaître quand l'erreur est un problème de connexion google pour boucler sur le mail suivant
     for user in users:
-        # try:
-        # Connection to Google (use a valid Google account name for increased query limits)
-        pytrend = TrendReq(user, 'projet_fil_rouge', custom_useragent=None)
+        try:
+            # Connection to Google (use a valid Google account name for increased query limits)
+            pytrend = TrendReq(user, 'projet_fil_rouge', custom_useragent=None)
 
-        # Possibilite de periode personnalise : specifier deux dates (ex : 2015-01-01 2015-12-31)
+            # Possibilite de periode personnalise : specifier deux dates (ex : 2015-01-01 2015-12-31)
 
-        # geographie : FR (toute France), FR-A ou B ou C... (region de France par ordre alphabetique)
-        # categorie politique : cat = 396
+            # geographie : FR (toute France), FR-A ou B ou C... (region de France par ordre alphabetique)
+            # categorie politique : cat = 396
 
-        # On fait la requete sur Google avec les parametres choisis
-        payload = {'q': queries[query], 'geo': geo, 'date': periodes[periode]}
-        df = pytrend.trend(payload, return_type='dataframe')
+            # On fait la requete sur Google avec les parametres choisis
+            payload = {'q': queries[query], 'geo': geo, 'date': periodes[periode]}
+            df = pytrend.trend(payload, return_type='dataframe')
 
-        if periode[-1] != 'm':
-            convert_date_column(df) # converts into a standard date format like: 18/01 12:00
-#         else:
-#             df['Date'] = pd.to_datetime(df['Date'], infer_datetime_format=True)
-#             dates = []
-#             for elem in df['Date']:
-#                 dates.append(datetime.strftime(elem, '%d/%m'))
-#             df['Date'] = dates
+            if periode[-1] != 'm':
+                convert_date_column(df) # converts into datetime objects
+                
+    #         else:
+    #             df['Date'] = pd.to_datetime(df['Date'], infer_datetime_format=True)
+    #             dates = []
+    #             for elem in df['Date']:
+    #                 dates.append(datetime.strftime(elem, '%d/%m'))
+    #             df['Date'] = dates
 
-        df.set_index('Date', inplace=True)
+            df.set_index('Date', inplace=True)
 
-        # reduction du nombre de lignes du dataframe a une trentaine de points
-        # pour la lisibilité du graph
-        n = {'1h': 2, '4h': 1, '1d': 3, '3d': 2, '7d': 6, '1m': 1, '3m': 3}
-        # n = 1 # pour désactiver cette fonction
-        
-        # Sauvegarde en JSON
-        server_path = '/var/www/html/gtrends/data/' # path complet
-        df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
-            server_path + query + '_' + periode + '.json', orient='split', date_unit='ms')
-        
-        print('sauvegarde dans : ' + server_path + query + '_' + periode + '.json')
-        return
-            
-        # except:
-          #  continue
+            # reduction du nombre de lignes du dataframe a une trentaine de points
+            # pour la lisibilité du graph
+            n = {'1h': 2, '4h': 1, '1d': 3, '3d': 2, '7d': 6, '1m': 1, '3m': 3}
+            # n = 1 # pour désactiver cette fonction
+
+            # Sauvegarde en JSON
+	        server_path = '/var/www/html/gtrends/data/' # path complet
+            df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
+                server_path + query + '_' + periode + '.json', orient='split', date_unit='ms')
+
+            # TODO: préciser le path complet de sauvegarde
+            print('Enregistrement des données sous : ' + server_path + query + '_' + periode + '.json')
+            return
+
+        except (RateLimitError, ResponseError):
+            print('Limite de requêtes dépassée, tentative avec une autre adresse mail...')
     
+    print('Erreur lors de la récupération des données.')
     return
 
 ####################################################################
