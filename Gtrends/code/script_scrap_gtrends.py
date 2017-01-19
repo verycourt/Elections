@@ -9,6 +9,8 @@ import re
 import sys
 
 # Formattage de la date pour gérer le format heure:minute
+
+# TODO : pas forcément besoin de reconvertir en string à la fin, le chart.js peut lire les timestamps...
 def convert_date_column(dataframe, out='%d/%m %H:%M'):
 	dates = []
 	if 'PST' in dataframe['Date'][0]:  # format de date anglais
@@ -82,12 +84,12 @@ def trends_to_json(query='candidats_majeurs', periode='3d'):
 
 			print('Connexion à Google réussie avec le compte ' + user)
 			# chemin sur le serveur AWS
-			path_AWS = '/home/ubuntu/Elections/Gtrends/'
-
+			# path_AWS = '/home/ubuntu/Elections/Gtrends/'
+			path_AWS = ''
 			# Sauvegarde en JSON
 			df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
 				path_AWS + query + '_' + periode + '.json', orient='split')
-			print('Sauvegarde dans : ' path_AWS + query + '_' + periode + '.json')
+			print('Sauvegarde dans : ' + path_AWS + query + '_' + periode + '.json')
 			return
 
 		except:
