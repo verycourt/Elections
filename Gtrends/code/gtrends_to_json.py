@@ -86,7 +86,7 @@ def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
             # n = 1 # pour désactiver cette fonction
 
             # Sauvegarde en JSON
-	        server_path = '/var/www/html/gtrends/data/' # path complet
+            server_path = '/var/www/html/gtrends/data/' # path complet
             df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
                 server_path + query + '_' + periode + '.json', orient='split', date_unit='ms')
 
@@ -103,6 +103,6 @@ def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
 ####################################################################
 # passage des arguments via sys.argv
 if len(sys.argv) != 3:
-	print('Il faut passer deux arguments en paramètre... Se référer au fichier readme.txt')
+    print('Il faut passer deux arguments en paramètre... Se référer au fichier readme.txt')
 else:
-	trends_to_json(query=sys.argv[1], periode=sys.argv[2])
+    trends_to_json(query=sys.argv[1], periode=sys.argv[2])
