@@ -8,7 +8,6 @@ from datetime import datetime, timedelta
 import re
 import sys
 
-
 # Formattage de la date pour gérer le format heure:minute
 def convert_date_column(dataframe, out='%d/%m %H:%M'):
 	dates = []
@@ -83,7 +82,7 @@ def trends_to_json(query='candidats_majeurs', periode='3d'):
 
 			print('Connexion à Google réussie avec le compte ' + user)
 			# chemin sur le serveur AWS
-			path_AWS = '/var/www/html/Gtrends/data/'
+			path_AWS = '/var/www/html/Gtrends/'
 
 			# Sauvegarde en JSON
 			df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
