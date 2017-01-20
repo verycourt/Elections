@@ -32,10 +32,10 @@ var svghist = d3.select("#histogram").append("svg")
     .attr("transform", "translate(" + marginhist.left + "," + marginhist.top + ")");
 
 var currentJson;
-var currentUrl = "j-4.json";
+var currentUrl = "j-1.json";
 
 var daymax = 10;
-var day = 'currentDay';
+var day = 'yesterday';
 
 var initialize = function() {
 
@@ -70,33 +70,36 @@ var getNewData = function(day) {
 	dayStr = currentUrl.replace('j-', '').replace('.json', '');
 	dayInt = parseInt(dayStr);
 
-  console.log('day', day)
-  console.log('old currentUrl', currentUrl)
+	console.log('day', day)
+	console.log('old currentUrl', currentUrl)
 
-  if ( day == "dayAfter" && dayInt > 1 ) {
+	if ( day == "dayAfter" && dayInt > 1 ) {
 
-    nextDayInt = dayInt - 1;
-    currentUrl = "j-" + nextDayInt.toString() + ".json";
+		nextDayInt = dayInt - 1;
+		currentUrl = "j-" + nextDayInt.toString() + ".json";
 
-  } else if ( day == "dayBefore" && dayInt < daymax ) {
+	} else if ( day == "dayBefore" && dayInt < daymax ) {
 
-    nextDayInt = dayInt + 1;
-    currentUrl = "j-" + nextDayInt.toString() + ".json";
-  }
+		nextDayInt = dayInt + 1;
+		currentUrl = "j-" + nextDayInt.toString() + ".json";
 
-  console.log('new currentUrl', currentUrl)
+	} else {
 
+		currentUrl = "j-1.json"
+	}
 
-  d3.json(currentUrl, function(error, root) {
-    if (error) throw error;
+	console.log('new currentUrl', currentUrl)
 
-    currentJson = root;
-    console.log(currentJson)
-    refresh();
+	d3.json(currentUrl, function(error, root) {
+	if (error) throw error;
 
-    /*partitionhist.nodes(root);
-    xhist.domain([0, root.value]).nice();
-    down(root, 0);*/
+	currentJson = root;
+	console.log(currentJson)
+	refresh();
+
+	/*partitionhist.nodes(root);
+	xhist.domain([0, root.value]).nice();
+	down(root, 0);*/
   });
 }
 
@@ -285,4 +288,4 @@ function stack(i) {
 d3.select(self.frameElement).style("height", "300px");
 
 initialize();
-getNewData('currentDay');
+getNewData('yesterday');
