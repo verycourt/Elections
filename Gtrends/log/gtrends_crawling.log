@@ -1,1 +1,8 @@
-/bin/bash: /home/ubuntu/google_trends/gtrends_to_json.py: /usr/bin/python^M: bad interpreter: No such file or directory
+Response did not parse. See server response for details.
+This page is currently unavailable. Please try again later.Please make sure your query is valid and try again.If you're experiencing long delays, consider reducing your comparison items.Thanks for your patience.
+Traceback (most recent call last):
+  File "/home/ubuntu/Elections/Gtrends/gtrends_to_json.py", line 108, in <module>
+    trends_to_json(query=sys.argv[1], periode=sys.argv[2])
+  File "/home/ubuntu/Elections/Gtrends/gtrends_to_json.py", line 97, in trends_to_json
+    except (RateLimitError, ResponseError):
+NameError: global name 'RateLimitError' is not defined
