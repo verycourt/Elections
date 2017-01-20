@@ -1,12 +1,14 @@
 #!/usr/bin/python
 # coding: utf-8
 
-from trendsAPI import TrendReq # API non officielle
+from trendsAPI import * # API non officielle
 import json
 import pandas as pd
 from datetime import datetime, timedelta
 import re
 import sys
+from numpy.random import rand
+from numpy import sign
 
 
 # Conversion du format de date en timestamp
@@ -38,7 +40,6 @@ def convert_date_column(dataframe):
 
 def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
 
-    # Formats possibles pour la date : now 1-H, now 4-H, now 1-d, now 7-d, today 1-m, today 3-m
     periodes = {'1h': 'now 1-H', '4h': 'now 4-H', '1d': 'now 1-d', '3d': 'now 3-d',
                 '7d': 'now 7-d', '1m': 'today 1-m', '3m': 'today 3-m'}
 
@@ -47,25 +48,21 @@ def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
     queries = {'candidats_majeurs': '/m/047drb0, /m/05zztc0, /m/02rdgs, /m/011ncr8c, /m/0fqmlm',
                'partis_majeurs': '/g/11b7n_r2jq, /m/01qdcv, /m/0hp7g, /m/0h7nzzw',
               'divers_gauche': 'france insoumise, /m/01vvcv, /m/04glk_t, /m/01v8x4'} 
-    # se referer a la table de correspondance ci-dessus
     
     if (query not in queries) or (periode not in periodes):
-        print('Erreur de parametre')
+        print('Erreur de paramètre.')
         return
     
     users = ['pfrlepoint@gmail.com', 'pfrlepoint2@gmail.com']
-    for user in users:
+    for user in users[::int(sign(rand(1) * 2 - 1))]: # une chance sur deux de partir de la fin de la liste
         try:
             # Connection to Google (use a valid Google account name for increased query limits)
             pytrend = TrendReq(user, 'projet_fil_rouge', custom_useragent=None)
-
+            payload = {'q': queries[query], 'geo': geo, 'date': periodes[periode]}
             # Possibilite de periode personnalise : specifier deux dates (ex : 2015-01-01 2015-12-31)
-
             # geographie : FR (toute France), FR-A ou B ou C... (region de France par ordre alphabetique)
             # categorie politique : cat = 396
 
-            # On fait la requete sur Google avec les parametres choisis
-            payload = {'q': queries[query], 'geo': geo, 'date': periodes[periode]}
             df = pytrend.trend(payload, return_type='dataframe')
 
             if periode[-1] != 'm':
@@ -90,8 +87,8 @@ def trends_to_json(query='candidats_majeurs', periode='3d', geo='FR'):
             df[(df.shape[0] - 1) % n[periode]::n[periode]].to_json(
                 server_path + query + '_' + periode + '.json', orient='split', date_unit='ms')
 
-            # TODO: préciser le path complet de sauvegarde
-            print('Enregistrement des données sous : ' + server_path + query + '_' + periode + '.json')
+            print('Connexion réussie avec l\'adresse : ' + user)
+            print('Enregistrement sous : ' + server_path + query + '_' + periode + '.json')
             return
 
         except (RateLimitError, ResponseError):
