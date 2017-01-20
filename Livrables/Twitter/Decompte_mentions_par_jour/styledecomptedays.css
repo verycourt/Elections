@@ -4,7 +4,6 @@
 
 .btn {
 	-webkit-box-shadow:inset 0px 0px 15px 3px #23395e;
-	/*box-shadow:inset 0px 0px 15px 3px #23395e;*/
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 3px 20px 0 rgba(0,0,0,0.19);
 	background-color:#2e466e;
 	-webkit-border-radius:17px;
@@ -34,14 +33,3 @@ text {
 #backmentions {
   fill: white;
 }
-
-/*
-rect {
-	max-width: 50%;
-}
-*/
-/*
-.axis { shape-rendering: crispEdges;}
-
-.axis path,.axis line { fill: none; stroke: #000;}
-*/

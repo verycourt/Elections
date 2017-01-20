@@ -1,8 +1,4 @@
 
-// inspirations: http://stackoverflow.com/questions/18790941/updating-the-data-of-a-pack-layout-from-json-call-and-redrawing
-// inspirations: http://jsfiddle.net/nrndh3cn/
-// inspirations: http://bl.ocks.org/alansmithy/e984477a741bc56db5a5
-
 var marginhist = {top: 60, right: 120, bottom: 0, left: 80},
     widthhist = 1000 - marginhist.left - marginhist.right,
     heighthist = 370 - marginhist.top - marginhist.bottom;
@@ -70,9 +66,6 @@ var getNewData = function(day) {
 	dayStr = currentUrl.replace('j-', '').replace('.json', '');
 	dayInt = parseInt(dayStr);
 
-	console.log('day', day)
-	console.log('old currentUrl', currentUrl)
-
 	if ( day == "dayAfter" && dayInt > 1 ) {
 
 		nextDayInt = dayInt - 1;
@@ -83,87 +76,27 @@ var getNewData = function(day) {
 		nextDayInt = dayInt + 1;
 		currentUrl = "j-" + nextDayInt.toString() + ".json";
 
-	} else {
+	} else if ( day == "yesterday" ) {
 
 		currentUrl = "j-1.json"
 	}
-
-	console.log('new currentUrl', currentUrl)
 
 	d3.json(currentUrl, function(error, root) {
 	if (error) throw error;
 
 	currentJson = root;
-	console.log(currentJson)
 	refresh();
 
-	/*partitionhist.nodes(root);
-	xhist.domain([0, root.value]).nice();
-	down(root, 0);*/
   });
 }
 
 var refresh = function () {
 
-  //svghist = svg.select("g").data(currentJson);
-
   partitionhist.nodes(currentJson);
   xhist.domain([0, currentJson.value]).nice();
   down(currentJson, 0);
 
-  //console.log('currentJson', currentJson)
-
 }
-
-  // LOADING MULTIPLE JSON FILES    WIPPPPPPPPP
-
-  /*
-
-  // we need a function to load files
-  // done is a "callback" function
-  // so you call it once you're finished and pass whatever you want
-  // in this case, we're passing the `responseText` of the XML request
-  var loadFile = function (filePath, done) {
-      var xhr = new XMLHTTPRequest();
-      xhr.onload = function () { return done(this.responseText) }
-      xhr.open("GET", filePath, true);
-      xhr.send();
-  }
-  // paths to all of your files
-  var myFiles = [];
-  for (numTweets=1; numTweets < 19; numTweets++) {
-  	myFiles.push("j-" + numTweets.toString() + ".json")
-  }
-
-  // where you want to store the data
-  var jsonData = [];
-  // loop through each file
-  myFiles.forEach(function (file, i) {
-      // and call loadFile
-      // note how a function is passed as the second parameter
-      // that's the callback function
-      loadFile(file, function (responseText) {
-          // we set jsonData[i] to the parse data since the requests
-          // will not necessarily come in order
-          // so we can't use JSONdata.push(JSON.parse(responseText));
-          // if the order doesn't matter, you can use push
-          jsonData[i] = JSON.parse(responseText);
-          // or you could choose not to store it in an array.
-          // whatever you decide to do with it, it is available as
-          // responseText within this scope (unparsed!)
-          console.log(jsonData[i])
-      })
-  })
-
-  */
-
-  /*d3.json(currentUrl, function(error, root) {
-    if (error) throw error;
-
-    partitionhist.nodes(root);
-    xhist.domain([0, root.value]).nice();
-    down(root, 0);
-  });*/
 
 function down(d, i) {
 
@@ -174,11 +107,6 @@ function down(d, i) {
   var exit = svghist.selectAll(".enter")
       .attr("class", "exit");
 
-  // Entering nodes immediately obscure the clicked-on bar, so hide it.
-  /*exit.selectAll("rect").filter(function(p) { return p === d; })
-      .style("fill-opacity", 1e-6);*/
-
-	//console.log('d.children[0]', d.children[0])
 
   // Enter the new bars for the clicked-on data.
   // Per above, entering bars are immediately visible.
@@ -208,8 +136,6 @@ function down(d, i) {
   // Transition entering text.
   enterTransition.select("text")
       .style("fill-opacity", 1);
-
-  //console.log('currentJson in down', currentJson)
 
   // Transition entering rects to the new x-scale.
   enterTransition.select("rect")
@@ -244,8 +170,6 @@ function bar(d) {
       .data(d.children)
     .enter().append("g")
       .style("cursor", function(d) { return !d.children ? null : "pointer"; });
-      //.on("click", down)
-      //.on("click", getNewData);
 
   bar.append("text")
       .attr("x", -6)
@@ -253,8 +177,6 @@ function bar(d) {
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d.name; });
-
-  //console.log('d.name', d.name)
 
   bar.append("rect")
       .attr("width", function(d) { return xhist(d.value); })
@@ -280,10 +202,6 @@ function stack(i) {
     return tx;
   };
 }
-
-// day after
-/*document.getElementById("add_day")
-  .addEventListener("click", getNewData);*/
 
 d3.select(self.frameElement).style("height", "300px");
 
