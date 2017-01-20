@@ -25,7 +25,7 @@ var xAxishist = d3.svg.axis()
     .scale(xhist)
     .orient("top");
 
-var svghist = d3.select("body").append("svg")
+var svghist = d3.select("#histogram").append("svg")
     .attr("width", widthhist + marginhist.left + marginhist.right)
     .attr("height", heighthist + marginhist.top + marginhist.bottom)
   .append("g")
@@ -34,59 +34,26 @@ var svghist = d3.select("body").append("svg")
 var currentJson;
 var currentUrl = "j-4.json";
 
-var getNewData = function() {
+var daymax = 10;
+var day = 'currentDay';
 
-	//var day = $('input[name=day]:checked').val();
-
-	dayStr = currentUrl.replace('j-', '').replace('.json', '');
-	dayInt = parseInt(dayStr);
-
-    if( dayInt > 1 ) {
-    	nextDayInt = dayInt - 1;
-        currentUrl = "j-" + nextDayInt.toString() + ".json";
-    }
-
-    console.log(currentUrl)
-
-    //currentUrl = day + ".json";
-
-    /*d3.json(currentUrl, function(error, data) {
-        currentJson = data;
-        refresh();
-    });*/
-
-    d3.json(currentUrl, function(error, root) {
-      if (error) throw error;
-
-      currentJson = root;
-      refresh();
-
-      /*partitionhist.nodes(root);
-      xhist.domain([0, root.value]).nice();
-      down(root, 0);*/
-    });
-}
-
-var refresh = function () {
-
-  //svghist = svg.select("g").data(currentJson);
+var initialize = function() {
 
   svghist.append("text")
-    .attr("y", -40)
-    .attr("x", 369)
-    .style("text-anchor", "middle")
-    .style("font-weight","bold")
-    .style("font-size","25px")
-    .style("fill", "#000000")
-    .text("Mentions twitter par candidats sur une journée");
-
+  .attr("y", -40)
+  .attr("x", 369)
+  .style("text-anchor", "middle")
+  .style("font-weight","bold")
+  .style("font-size","25px")
+  .style("fill", "#000000")
+  .text("Mentions twitter par candidats sur une journée");
 
   svghist.append("rect")
-      .attr("class", "background")
-      .attr("id","backmentions")
-      .attr("width", widthhist)
-      .attr("height", heighthist)
-      //.on("click", up);
+    .attr("class", "background")
+    .attr("id","backmentions")
+    .attr("width", widthhist)
+    .attr("height", heighthist);
+    //.on("click", up);
 
   svghist.append("g")
       .attr("class", "x axis");
@@ -95,6 +62,47 @@ var refresh = function () {
       .attr("class", "y axis")
     .append("line")
       .attr("y1", "100%");
+
+}
+
+var getNewData = function(day) {
+
+	dayStr = currentUrl.replace('j-', '').replace('.json', '');
+	dayInt = parseInt(dayStr);
+
+  console.log('day', day)
+  console.log('old currentUrl', currentUrl)
+
+  if ( day == "dayAfter" && dayInt > 1 ) {
+
+    nextDayInt = dayInt - 1;
+    currentUrl = "j-" + nextDayInt.toString() + ".json";
+
+  } else if ( day == "dayBefore" && dayInt < daymax ) {
+
+    nextDayInt = dayInt + 1;
+    currentUrl = "j-" + nextDayInt.toString() + ".json";
+  }
+
+  console.log('new currentUrl', currentUrl)
+
+
+  d3.json(currentUrl, function(error, root) {
+    if (error) throw error;
+
+    currentJson = root;
+    console.log(currentJson)
+    refresh();
+
+    /*partitionhist.nodes(root);
+    xhist.domain([0, root.value]).nice();
+    down(root, 0);*/
+  });
+}
+
+var refresh = function () {
+
+  //svghist = svg.select("g").data(currentJson);
 
   partitionhist.nodes(currentJson);
   xhist.domain([0, currentJson.value]).nice();
@@ -232,9 +240,9 @@ function bar(d) {
     .selectAll("g")
       .data(d.children)
     .enter().append("g")
-      .style("cursor", function(d) { return !d.children ? null : "pointer"; })
-      .on("click", down)
-      .on("click", getNewData);
+      .style("cursor", function(d) { return !d.children ? null : "pointer"; });
+      //.on("click", down)
+      //.on("click", getNewData);
 
   bar.append("text")
       .attr("x", -6)
@@ -270,10 +278,11 @@ function stack(i) {
   };
 }
 
-document.getElementById("add_day")
-	.addEventListener("click", getNewData);
-//document.getElementById("form").addEventListener("click", getNewData);
+// day after
+/*document.getElementById("add_day")
+  .addEventListener("click", getNewData);*/
 
 d3.select(self.frameElement).style("height", "300px");
 
-getNewData();
+initialize();
+getNewData('currentDay');
