@@ -50,7 +50,7 @@ def convert_date_column(dataframe): # Conversion du format en un string court
     return
 
 
-def trends_to_json(query=None, periode=None):
+def trends_to_json(query='', periode=''):
     """
     Télécharge sous format json les données de Google Trends avec les paramètres indiqués.
     Ceux-ci doivent appartenir aux recherches préconfigurées dans les dictionnaires 'queries'
@@ -59,21 +59,21 @@ def trends_to_json(query=None, periode=None):
     Si aucun paramètre n'est spécifié, la fonction va balayer toutes les combinaisons de
     requêtes et de périodes préconfigurées.
     """
-    
+
     # Les termes de recherche (5 au maximum separes par des virgules)
     # On associe a un type de recherche la liste des parametres correspondants
-    queries = {'candidats_1': '/m/047drb0, /m/04zzm99, /m/02rdgs, /m/011ncr8c, /m/0fqmlm',
-               'partis_1': '/g/11b7n_r2jq, /m/01qdcv, /m/0hp7g, /m/0h7nzzw',
+    queries = {'candidats_A': '/m/047drb0, /m/04zzm99, /m/02rdgs, /m/011ncr8c, /m/0fqmlm',
+               'partis_A': '/g/11b7n_r2jq, /m/01qdcv, /m/0hp7g, /m/0h7nzzw',
               'divers_gauche': 'france insoumise, /m/01vvcv, /m/04glk_t, /m/01v8x4'} 
     
     periodes = {'1d': 'now 1-d', '3d': 'now 3-d'}
 
-    if query is None:
+    if query == '':
         query = set([q for q in queries])
     else:
         query = set([query])
     
-    if periode is None:
+    if periode == '':
         periode = set([p for p in periodes])
     else:
         periode = set([periode])
@@ -131,4 +131,7 @@ def trends_to_json(query=None, periode=None):
 
 ####################################################################
 # passage des arguments via sys.argv
-trends_to_json(query=sys.argv[1], periode=sys.argv[2])
+if len(sys.argv) == 3:
+    trends_to_json(query=sys.argv[1], periode=sys.argv[2])
+else:
+    trends_to_json()
