@@ -10,9 +10,9 @@ from pprint import pprint
 from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
-candidates = ['Valls','Macron','MLP','Jadot','Melenchon','Bayrou','Poutou','Peillon','Rugy','Hamon','Pinel','Bennhamias','Montebourg','Fillon']
+candidates = ['Valls','Macron','Le Pen','Jadot','Melenchon','Bayrou','Poutou','Peillon','Rugy','Hamon','Pinel','Bennhamias','Montebourg','Fillon']
 pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@EmmanuelMacron'],'Jadot':['Jadot','#Jadot','@yjadot'],
-'MLP':['@MLP_officiel','#MLP','lepen'],'Melenchon':['Melenchon','#Melenchon','@JLMelechon'],'Bayrou':['Bayrou','#Bayrou','@bayrou'],
+'Le Pen':['@MLP_officiel','#MLP','lepen'],'Melenchon':['Melenchon','#Melenchon','@JLMelechon'],'Bayrou':['Bayrou','#Bayrou','@bayrou'],
 'Poutou':['Poutou','#Poutou','@PhilippePoutou'],'Peillon':['Peillon','#peillon','@Vincent_Peillon'],'Rugy':['#Rugy','Rugy','@FdeRugy'],
 'Hamon':['Hamon','#hamon','@benoithamon'],'Pinel':['pinel','#pinel','@SylviaPinel'],'Bennhamias':['bennhamias','#bennhamias','@JLBennhamias'],
 'Montebourg':['montebourg','#montebourg','@montebourg'],'Fillon':['Fillon','#Fillon','@FrancoisFillon']}
