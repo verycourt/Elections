@@ -15,6 +15,8 @@ Dans ce cas le script va tourner pour chaque couple (argument1, argument2) défin
 	- 3d (trois jours)
 
 Exemple en ligne de commande :
-python script_scrap_gtrends.py "candidats_majeurs" "3d"
+python script_scrap_gtrends.py				=> toutes les recherches sont exécutées
+python script_scrap_gtrends.py "" "1d"			=> tous les arg1, avec la période 1d
+
 
 Un retour console indique le succès ou l'échec du scrapping.

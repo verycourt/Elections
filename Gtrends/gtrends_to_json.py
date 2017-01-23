@@ -14,15 +14,31 @@ import time
 
 def convert_date_column(dataframe): # Conversion du format en un string court
     dates = []
+    rdict = {',': '', ' PST': '', ' à': '', 'janv.': '01', 'févr.': '02', 'mars': '03', 'avr.': '04',
+             'mai': '05', 'juin': '06', 'juil.': '07', 'août': '08', 'sept.': '09', 'oct.': '10',
+             'nov.': '11', 'déc.': '12'}
+    robj = re.compile('|'.join(rdict.keys()))
+    
+    rdict2 = {' 01 ': ' janv. ', ' 02 ': ' févr. ', ' 03 ': ' mars ', ' 04 ': ' avr. ', ' 05 ': ' mai ',
+              ' 06 ': ' juin ', ' 07 ': ' juil. ', ' 08 ': ' août ', ' 09 ': ' sept. ', ' 10 ': ' oct. ',
+              ' 11 ': ' nov. ', ' 12 ': ' déc. '}
+    robj2 = re.compile('|'.join(rdict2.keys()))
+    
     if 'PST' in dataframe['Date'][0]: # format de date anglais avec heure
-        rdict = {',': '', ' PST': ''}
         in_format = '%b %d %Y %H:%M' # type : Jan 18 2017 12:00
+        
+        for date in dataframe['Date']: # Conversion en timestamp sur le fuseau GMT+1
+            t = datetime.strptime(robj.sub(lambda m: rdict[m.group(0)], date), in_format) + timedelta(hours=9)
+            t = datetime.strftime(t, '%d %m %H:%M') # conversion de nouveau en string du type : 18 01 12:00
+            dates.append(robj2.sub(lambda m: rdict2[m.group(0)], t)) # remplacement des mois en toutes lettres
 
     elif 'UTC' in dataframe['Date'][0]: # format de date français avec heure
-        rdict = {' à': '', ' UTC−8': '', 'janv.': '01', 'févr.': '02', 'mars': '03', 'avr.': '04', 
-                 'mai': '05', 'juin': '06', 'juil.': '07', 'août': '08', 'sept.': '09', 'oct.': '10', 
-                 'nov.': '11', 'déc.': '12'}
         in_format = '%d %m %Y %H:%M' # type : 18 01 2017 12:00
+        
+        for date in dataframe['Date']: # Conversion en timestamp sur le fuseau GMT+1
+            t = datetime.strptime(robj.sub(lambda m: rdict[m.group(0)], date[0:-6]), in_format) + timedelta(hours=9)
+            t = datetime.strftime(t, '%d %m %H:%M') # conversion de nouveau en string du type : 18 01 12:00
+            dates.append(robj2.sub(lambda m: rdict2[m.group(0)], t)) # remplacement des mois en toutes lettres
     
     else: # si les dates ne contiennent pas l'heure (ie. recherche sur plus d'un mois)
         rdict = {', ': ' ', 'janvier': 'janv.', 'février': 'févr.', 'avril': 'avr.', 'juillet': 'juil.',
@@ -31,21 +47,7 @@ def convert_date_column(dataframe): # Conversion du format en un string court
         for date in dataframe['Date']:
             t = robj.sub(lambda m: rdict[m.group(0)], date)
             dates.append(' '.join(t.split(' ')[1:-1]))
-        
-        dataframe['Date'] = dates
-        return
     
-    robj = re.compile('|'.join(rdict.keys()))
-    rdict2 = {' 01 ': ' janv. ', ' 02 ': ' févr. ', ' 03 ': ' mars ', ' 04 ': ' avr. ', ' 05 ': ' mai ',
-              ' 06 ': ' juin ', ' 07 ': ' juil. ', ' 08 ': ' août ', ' 09 ': ' sept. ', ' 10 ': ' oct. ', 
-              ' 11 ': ' nov. ', ' 12 ': ' déc. '}
-    robj2 = re.compile('|'.join(rdict2.keys()))
-    
-    for date in dataframe['Date']: # Conversion en timestamp sur le fuseau GMT+1
-        t = datetime.strptime(robj.sub(lambda m: rdict[m.group(0)], date), in_format) + timedelta(hours=9)
-        t = datetime.strftime(t, '%d %m %H:%M') # conversion de nouveau en string du type : 18 01 12:00
-        dates.append(robj2.sub(lambda m: rdict2[m.group(0)], t)) # remplacement des mois en toutes lettres
-
     dataframe['Date'] = dates
     return
 
@@ -105,12 +107,12 @@ def trends_to_json(query='', periode=''):
 
                         # reduction du nombre de lignes du dataframe a une trentaine de points
                         # pour la lisibilité du graph
-                        n = {'4h': 2, '1d': 4, '3d': 3, '7d': 6, '1m': 1, '3m': 2}
+                        n = {'4h': 2, '1d': 4, '3d': 1, '7d': 6, '1m': 1, '3m': 2}
                         # n = 1 # pour désactiver cette fonction
 
                         # Sauvegarde en JSON
-                        server_path = '/var/www/html/gtrends/data/' # path complet
-                        # server_path = ''
+                        # server_path = '/var/www/html/gtrends/data/' # path complet
+                        server_path = ''
                         df[(df.shape[0] - 1) % n[p]::n[p]].to_json(
                             server_path + q + '_' + p + '.json', orient='split', date_unit='ms')
 
