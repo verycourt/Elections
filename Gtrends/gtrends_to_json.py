@@ -112,8 +112,8 @@ def trends_to_json(query='', periode=''):
                         # n = 1 # pour désactiver cette fonction
 
                         # Sauvegarde en JSON
-                        # server_path = '/var/www/html/gtrends/data/' # path complet
-                        server_path = ''
+                        server_path = '/var/www/html/gtrends/data/' # path complet
+                        # server_path = ''
                         df[(df.shape[0] - 1) % n[p]::n[p]].to_json(
                             server_path + q + '_' + p + '.json', orient='split', date_unit='ms')
 
