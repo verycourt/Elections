@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # coding: utf-8
 
-from trendsAPI import * # API non officielle
 from __future__ import unicode_literals
+from trendsAPI import * # API non officielle
 import json
 import pandas as pd
 from datetime import datetime, timedelta
