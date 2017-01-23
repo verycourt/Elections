@@ -18,14 +18,14 @@ def convert_date_column(dataframe): # Conversion du format en un string court
         rdict = {',': '', ' PST': ''}
         in_format = '%b %d %Y %H:%M' # type : Jan 18 2017 12:00
 
-    elif 'UTC−8' in dataframe['Date'][0]: # format de date français avec heure
+    elif 'UTC' in dataframe['Date'][0]: # format de date français avec heure
         rdict = {' à': '', ' UTC−8': '', 'janv.': '01', 'févr.': '02', 'mars': '03', 'avr.': '04', 
                  'mai': '05', 'juin': '06', 'juil.': '07', 'août': '08', 'sept.': '09', 'oct.': '10', 
                  'nov.': '11', 'déc.': '12'}
         in_format = '%d %m %Y %H:%M' # type : 18 01 2017 12:00
     
     else: # si les dates ne contiennent pas l'heure (ie. recherche sur plus d'un mois)
-        rdict = {',': '', 'janvier': 'janv.', 'février': 'févr.', 'avril': 'avr.', 'juillet': 'juil.',
+        rdict = {', ': ' ', 'janvier': 'janv.', 'février': 'févr.', 'avril': 'avr.', 'juillet': 'juil.',
                  'septembre': 'sept.', 'octobre': 'oct.', 'novembre': 'nov.', 'décembre': 'déc.'}
         robj = re.compile('|'.join(rdict.keys()))
         for date in dataframe['Date']:
@@ -53,8 +53,8 @@ def convert_date_column(dataframe): # Conversion du format en un string court
 def trends_to_json(query='', periode=''):
     """
     Télécharge sous format json les données de Google Trends avec les paramètres indiqués.
-    Ceux-ci doivent appartenir aux recherches préconfigurées dans les dictionnaires 'queries'
-    et 'periodes'.
+    Ceux-ci doivent appartenir aux recherches préconfigurées dans les dictionnaires <queries>
+    et <periodes>.
     
     Si aucun paramètre n'est spécifié, la fonction va balayer toutes les combinaisons de
     requêtes et de périodes préconfigurées.
@@ -64,9 +64,9 @@ def trends_to_json(query='', periode=''):
     # On associe a un type de recherche la liste des parametres correspondants
     queries = {'candidats_A': '/m/047drb0, /m/04zzm99, /m/02rdgs, /m/011ncr8c, /m/0fqmlm',
                'partis_A': '/g/11b7n_r2jq, /m/01qdcv, /m/0hp7g, /m/0h7nzzw',
-              'divers_gauche': 'france insoumise, /m/01vvcv, /m/04glk_t, /m/01v8x4'} 
+              'divers_gauche': 'France Insoumise, /m/01vvcv, /m/04glk_t, /m/01v8x4'} 
     
-    periodes = {'1d': 'now 1-d', '3d': 'now 3-d'}
+    periodes = {'3d': 'now 3-d'}
 
     if query == '':
         query = set([q for q in queries])
@@ -87,14 +87,14 @@ def trends_to_json(query='', periode=''):
     for user in users[::int(sign(rand(1) * 2 - 1))]: # une chance sur deux de partir de la fin de la liste
         try:
             # Connection à Google (utiliser une vraie adresse gmail permet plus de requêtes)
-            pytrend = TrendReq(user, 'projet_fil_rouge', custom_useragent=None)
+            pytrend = TrendReq(user, 'projet_fil_rouge', custom_useragent='PFR')
             
             for q in query:
                 for p in periode:
                     if (q, p) in success:
                         continue
                     else:
-                        payload = {'q': queries[q], 'geo': 'FR', 'date': periodes[p]}
+                        payload = {'q': queries[q], 'geo': 'FR', 'date': periodes[p], 'hl': 'fr-FR'}
                         # Possibilite de periode personnalise : specifier deux dates (ex : 2015-01-01 2015-12-31)
                         # geographie : FR (toute France), FR-A ou B ou C... (region de France par ordre alphabetique)
                         # categorie politique : cat = 396
