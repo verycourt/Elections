@@ -16,6 +16,15 @@ pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron'
 'Montebourg':['montebourg','#montebourg','@montebourg'],'Fillon':['Fillon','#Fillon','@FrancoisFillon']}
 
 data = {}
+duplicates = []
+removepipe = [{"$group":{"_id":"$t_id", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
+
+for doc in collection.aggregate(removepipe) :
+	it = iter(doc['dups'])
+	next(it)
+	for id in it :
+		duplicates.append(pymongo.DeleteOne({'_id':id}))
+collection.bulk_write(duplicates)	
 
 for candidate in candidates:
 	print(candidate)
