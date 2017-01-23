@@ -6,7 +6,7 @@ import datetime
 from pprint import pprint
 
 dayStart = "12/01/2017"
-tmpStart = datetime.datetime.strptime(dateStart, "%d/%m/%Y").timestamp() * 1000
+tmpStart = datetime.datetime.strptime(dayStart, "%d/%m/%Y").timestamp() * 1000
 tmpEnd = tmpStart + 8.64e7
 
 client = pymongo.MongoClient()
