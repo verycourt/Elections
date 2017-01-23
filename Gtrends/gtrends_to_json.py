@@ -107,7 +107,7 @@ def trends_to_json(query='', periode=''):
                         df.set_index('Date', inplace=True)
 
                         # reduction du nombre de lignes du dataframe a une trentaine de points
-                        # pour la lisibilité du graph
+                        # pour la lisibilite du graph
                         n = {'4h': 2, '1d': 4, '3d': 1, '7d': 6, '1m': 1, '3m': 2}
                         # n = 1 # pour désactiver cette fonction
 
@@ -117,7 +117,7 @@ def trends_to_json(query='', periode=''):
                         df[(df.shape[0] - 1) % n[p]::n[p]].to_json(
                             server_path + q + '_' + p + '.json', orient='split', date_unit='ms')
 
-                        print("Connexion réussie : " + user)
+                        print("Connexion reussie : " + user)
                         print('Enregistrement sous : ' + server_path + q + '_' + p + '.json')
                         success.append((q, p)) # on garde en mémoire les couples q, p qui ont fonctionné
 
@@ -127,9 +127,9 @@ def trends_to_json(query='', periode=''):
             return
 
         except (RateLimitError, ResponseError):
-            print('Limite de requêtes dépassée, tentative avec une autre adresse mail...')
+            print('Limite de requetes depassee, tentative avec une autre adresse mail...')
 
-    print('Erreur lors de la récupération des données.')
+    print('Erreur lors de la recuperation des donnees.')
     return
 
 ####################################################################
