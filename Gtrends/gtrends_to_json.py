@@ -117,7 +117,7 @@ def trends_to_json(query='', periode=''):
                         df[(df.shape[0] - 1) % n[p]::n[p]].to_json(
                             server_path + q + '_' + p + '.json', orient='split', date_unit='ms')
 
-                        print('Connexion réussie avec l\'adresse : ' + user)
+                        print("Connexion réussie : " + user)
                         print('Enregistrement sous : ' + server_path + q + '_' + p + '.json')
                         success.append((q, p)) # on garde en mémoire les couples q, p qui ont fonctionné
 

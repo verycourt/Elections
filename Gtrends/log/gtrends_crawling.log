@@ -1,12 +1,6 @@
-Connexion réussie avec l'adresse : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/candidats_A_1d.json
-Connexion réussie avec l'adresse : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/candidats_A_3d.json
-Connexion réussie avec l'adresse : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/divers_gauche_1d.json
-Connexion réussie avec l'adresse : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/divers_gauche_3d.json
-Connexion réussie avec l'adresse : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/partis_A_1d.json
-Connexion réussie avec l'adresse : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/partis_A_3d.json
+Traceback (most recent call last):
+  File "/home/ubuntu/Elections/Gtrends/gtrends_to_json.py", line 140, in <module>
+    trends_to_json()
+  File "/home/ubuntu/Elections/Gtrends/gtrends_to_json.py", line 120, in trends_to_json
+    print('Connexion réussie avec l\'adresse : ' + user)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xe9' in position 11: ordinal not in range(128)
