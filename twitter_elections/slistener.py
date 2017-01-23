@@ -52,7 +52,7 @@ class SListener(StreamListener):
                 if status["text"] is not None:
                     #print(status)
                     if status['user'] is not None:
-                        tweet_res = {"t_user": status['user'], "t_text": status["text"].encode('utf8'), "t_time": float(status['timestamp_ms']),
+                        tweet_res = {"t_user": status['user'], "t_text": status["text"].encode('utf8').lower(), "t_time": float(status['timestamp_ms']),
                                      "t_id": status['id'],
                                      "t_RT": status['retweet_count'],
                                      "t_lat": 0.0, "t_lng": 0.0,
