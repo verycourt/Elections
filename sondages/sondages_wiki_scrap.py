@@ -151,7 +151,6 @@ dfF4 = dfF4.set_index("date")
 print(dfF4)
 dfF4 = dfF4.dropna(axis=0, how='all')
 dfF4 = dfF4.dropna(axis=1, how='all')
-dfF4 = dfF4.rename(columns={"Marine Le Pen":"Marine LePen"})
 
 #dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
 
