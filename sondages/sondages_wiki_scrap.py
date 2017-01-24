@@ -102,7 +102,7 @@ dfF = dfF.replace(to_replace=["-", "–"], value=" ")
 
 notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
-anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Éva Joly"]
+anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Éva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
 
 for col in dfF.columns:
     if col not in notCandidats:
@@ -175,7 +175,6 @@ dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x)>5 else np.nan)
 dfFs2 = dfFs2[dfFs2["Date"].notnull()]
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x.replace(u"-", " ").replace(u"–", " "))
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[-3:]))
-print(dfFs2[["Marine Le Pen", "François Fillon", "Date" ]].dropna())
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : dateparser.parse(x).date())
 dfFs2 = dfFs2.sort_values('Date', ascending=1)
 
