@@ -160,6 +160,7 @@ dfF4.to_json(path1+"pollster1.json", force_ascii=False)
 dfF4.to_csv(path1+"sondages1er.csv", sep="\t", encoding='utf-8')
 
 dfF4.to_csv(path1+"data.tsv", sep="\t", encoding='utf-8')
+dfF4.to_csv("data.tsv", sep="\t", encoding='utf-8')
 
 #print(dfF3[["Manuel Valls", "Date"]])
 
@@ -219,5 +220,5 @@ getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_json(path2+"mlpVSem.json
 getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_json(path2+"emvsff.json", force_ascii=False)
 
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
-dfFs2.to_json(path2+"sondages2e.json", force_ascii=False)
+dfFs2.to_json(path2+"sondages2e.json")
 print("Done")
