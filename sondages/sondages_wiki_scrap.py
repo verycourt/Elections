@@ -7,6 +7,7 @@ import pandas as pd
 import sys
 import warnings
 import dateparser
+import datetime
 
 warnings.filterwarnings('ignore')
 
@@ -139,11 +140,15 @@ def dateToString(date):
 dfF3 = dfF3.round(2)
 dfF4 = dfF3
 
+dfF4 = dfF4[dfF4["Date"] > datetime.date(year=2016,month=11,day=20)]
 
-dfF4["date"] = dfF3["Date"].map(lambda x: dateToString(x))
+dfF4 = dfF4.drop([u"Cécile Duflot", u"François Hollande", u"Nicolas Hulot", u"Rama Yade"], axis=1)
+
+dfF4["date"] = dfF4["Date"].map(lambda x: dateToString(x))
 dfF4 = dfF4.drop("Date", axis=1)
 
 dfF4 = dfF4.set_index("date")
+print(dfF4)
 dfF4 = dfF4.dropna(axis=0, how='all')
 dfF4 = dfF4.dropna(axis=1, how='all')
 
@@ -217,4 +222,3 @@ getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_json(path2+"emvsff.js
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
 dfFs2.to_json(path2+"sondages2e.json", force_ascii=False)
 print("Done")
-
