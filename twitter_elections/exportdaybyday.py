@@ -10,12 +10,12 @@ from pprint import pprint
 from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
-candidates = ['Valls','Macron','Le Pen','Jadot','Melenchon','Bayrou','Poutou','Peillon','Rugy','Hamon','Pinel','Bennhamias','Montebourg','Fillon']
-pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@EmmanuelMacron'],'Jadot':['Jadot','#Jadot','@yjadot'],
-'Le Pen':['@MLP_officiel','#MLP','lepen'],'Melenchon':['Melenchon','#Melenchon','@JLMelechon'],'Bayrou':['Bayrou','#Bayrou','@bayrou'],
-'Poutou':['Poutou','#Poutou','@PhilippePoutou'],'Peillon':['Peillon','#peillon','@Vincent_Peillon'],'Rugy':['#Rugy','Rugy','@FdeRugy'],
-'Hamon':['Hamon','#hamon','@benoithamon'],'Pinel':['pinel','#pinel','@SylviaPinel'],'Bennhamias':['bennhamias','#bennhamias','@JLBennhamias'],
-'Montebourg':['montebourg','#montebourg','@montebourg'],'Fillon':['Fillon','#Fillon','@FrancoisFillon']}
+candidates = ['Valls','Macron','Le Pen','Melenchon','Bayrou','Hamon','Fillon']
+pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@emmanuelmacron'],'Jadot':['jadot','#jadot','@yjadot'],
+'Le Pen':['@mlp_officiel','#mlp','lepen'],'Melenchon':['melenchon','#melenchon','@jlmelechon'],'Bayrou':['bayrou','#bayrou','@bayrou'],
+'Poutou':['poutou','#poutou','@philippepoutou'],'Peillon':['peillon','#peillon','@vincent_peillon'],'Rugy':['#rugy','rugy','@fderugy'],
+'Hamon':['hamon','#hamon','@benoithamon'],'Pinel':['pinel','#pinel','@sylviapinel'],'Bennhamias':['bennhamias','#bennhamias','@jlbennhamias'],
+'Montebourg':['montebourg','#montebourg','@montebourg'],'Fillon':['fillon','#fillon','@francoisfillon']}
 
 data = {}
 duplicates = []
