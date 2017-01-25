@@ -19,7 +19,7 @@ api = tweepy.API(auth)
 
 def main():
     """Method to get Twitter status in real time."""
-    track = ['fillon','bayrou', 'macron ','mlp','lepen','melenchon','hamon','valls']
+    track = ['fillon','bayrou', 'macron ','mlp','lepen','melenchon','hamon','valls', 'poutou', 'dupont-aignan', 'dupontaignan']
 
     listen = SListener(api, 'myprefix')
     stream = tweepy.Stream(auth, listen)
