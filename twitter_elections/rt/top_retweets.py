@@ -5,8 +5,12 @@ import json
 import time
 import datetime
 
+dayStart = "12/01/2017"
+tmpStart = datetime.datetime.strptime(dayStart, "%d/%m/%Y").timestamp() * 1000
+tmpEnd = tmpStart + 8.64e7
 
 now = time.time() * 1000
+
 from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
