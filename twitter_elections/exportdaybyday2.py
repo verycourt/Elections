@@ -10,12 +10,12 @@ from pprint import pprint
 from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
-candidates = ['Valls','Macron','Le Pen','Melenchon','Bayrou','Hamon','Fillon']
-pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@emmanuelmacron'],'Jadot':['jadot','#jadot','@yjadot'],
-'Le Pen':['@mlp_officiel','#mlp','lepen'],'Melenchon':['melenchon','#melenchon','@jlmelechon'],'Bayrou':['bayrou','#bayrou','@bayrou'],
-'Poutou':['poutou','#poutou','@philippepoutou'],'Peillon':['peillon','#peillon','@vincent_peillon'],'Rugy':['#rugy','rugy','@fderugy'],
-'Hamon':['hamon','#hamon','@benoithamon'],'Pinel':['pinel','#pinel','@sylviapinel'],'Bennhamias':['bennhamias','#bennhamias','@jlbennhamias'],
-'Montebourg':['montebourg','#montebourg','@montebourg'],'Fillon':['fillon','#fillon','@francoisfillon']}
+candidates = ['Valls','Macron','Le Pen','Jadot','Melenchon','Bayrou','Poutou','Peillon','Rugy','Hamon','Pinel','Bennhamias','Montebourg','Fillon']
+pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@EmmanuelMacron'],'Jadot':['Jadot','#Jadot','@yjadot'],
+'Le Pen':['@MLP_officiel','#MLP','lepen'],'Melenchon':['Melenchon','#Melenchon','@JLMelechon'],'Bayrou':['Bayrou','#Bayrou','@bayrou'],
+'Poutou':['Poutou','#Poutou','@PhilippePoutou'],'Peillon':['Peillon','#peillon','@Vincent_Peillon'],'Rugy':['#Rugy','Rugy','@FdeRugy'],
+'Hamon':['Hamon','#hamon','@benoithamon'],'Pinel':['pinel','#pinel','@SylviaPinel'],'Bennhamias':['bennhamias','#bennhamias','@JLBennhamias'],
+'Montebourg':['montebourg','#montebourg','@montebourg'],'Fillon':['Fillon','#Fillon','@FrancoisFillon']}
 
 data = {}
 duplicates = []
@@ -28,7 +28,7 @@ for doc in collection.aggregate(removepipe) :
 		duplicates.append(pymongo.DeleteOne({'_id':id}))
 collection.bulk_write(duplicates)	
 
-for i in range(18):
+for i in range(10):
 	for candidate in candidates:
 		print(candidate)
 		regexp = ''
@@ -86,7 +86,7 @@ for i in range(18):
 	print(data)
 	export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
 	print(export)
-	file = open('/var/www/html/decompte/j-'+str(i+1)+'.json','w')
+	file = open('/var/www/html/decompte/testj-'+str(i+1)+'.json','w')
 	json.dump(export,file) 
 	file.close()
 

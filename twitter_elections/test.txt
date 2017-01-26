@@ -1,0 +1,9 @@
+MongoDB shell version: 2.4.9
+connecting to: 127.0.0.1/tweet
+Mon Jan 23 14:25:41.504 SyntaxError: Unexpected token :
+MongoDB shell version: 2.4.9
+connecting to: 127.0.0.1/tweet
+Mon Jan 23 14:25:50.643 SyntaxError: Unexpected token :
+MongoDB shell version: 2.4.9
+connecting to: 127.0.0.1/tweet
+Mon Jan 23 14:28:18.812 SyntaxError: Unexpected token :

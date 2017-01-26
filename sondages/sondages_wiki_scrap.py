@@ -7,6 +7,7 @@ import pandas as pd
 import sys
 import warnings
 import dateparser
+import datetime
 
 warnings.filterwarnings('ignore')
 
@@ -101,7 +102,7 @@ dfF = dfF.replace(to_replace=["-", "–"], value=" ")
 
 notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
-anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Éva Joly"]
+anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Éva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
 
 for col in dfF.columns:
     if col not in notCandidats:
@@ -139,14 +140,17 @@ def dateToString(date):
 dfF3 = dfF3.round(2)
 dfF4 = dfF3
 
+dfF4 = dfF4[dfF4["Date"] > datetime.date(year=2016,month=11,day=20)]
 
-dfF4["date"] = dfF3["Date"].map(lambda x: dateToString(x))
+dfF4 = dfF4.drop([u"Cécile Duflot", u"François Hollande", u"Nicolas Hulot", u"Rama Yade"], axis=1)
+
+dfF4["date"] = dfF4["Date"].map(lambda x: dateToString(x))
 dfF4 = dfF4.drop("Date", axis=1)
 
 dfF4 = dfF4.set_index("date")
+print(dfF4)
 dfF4 = dfF4.dropna(axis=0, how='all')
 dfF4 = dfF4.dropna(axis=1, how='all')
-
 
 #dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
 
@@ -155,6 +159,7 @@ dfF4.to_json(path1+"pollster1.json", force_ascii=False)
 dfF4.to_csv(path1+"sondages1er.csv", sep="\t", encoding='utf-8')
 
 dfF4.to_csv(path1+"data.tsv", sep="\t", encoding='utf-8')
+dfF4.to_csv("data.tsv", sep="\t", encoding='utf-8')
 
 #print(dfF3[["Manuel Valls", "Date"]])
 
@@ -170,7 +175,6 @@ dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x)>5 else np.nan)
 dfFs2 = dfFs2[dfFs2["Date"].notnull()]
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x.replace(u"-", " ").replace(u"–", " "))
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[-3:]))
-print(dfFs2[["Marine Le Pen", "François Fillon", "Date" ]].dropna())
 dfFs2["Date"] = dfFs2["Date"].map(lambda x : dateparser.parse(x).date())
 dfFs2 = dfFs2.sort_values('Date', ascending=1)
 
@@ -215,6 +219,5 @@ getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_json(path2+"mlpVSem.json
 getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_json(path2+"emvsff.json", force_ascii=False)
 
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
-dfFs2.to_json(path2+"sondages2e.json", force_ascii=False)
+dfFs2.to_json(path2+"sondages2e.json")
 print("Done")
-
