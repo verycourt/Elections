@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<title>DataPrez Le Point</title>
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="http://static.lpnt.fr/static/favicon.png?1437658152"
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/1er tour/Pollster_1T_V0.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<header style="background-color:#B20F0F; padding-top:0.1%; padding-bottom:0%;">
+	<h1 class="text-center" style="margin-top:0%;background-color:#B20F0F; color:white; font-size:600%;">DataPrez Le Point</h1>
+
+<nav class="navbar navbar-inverse" style="color:white;background-color:#B20F0F; border-style:none; border-radius:0;">
+	 <div class="container-fluid">
+	  <div class="navbar-header">
+	   <a class="navbar-brand" style="color:white;" href="#">DataPrez Le Point</a>
+	 </div>
+	<ul class="nav navbar-nav">
+		<li><a href="#" style="color:white; font-size:150%;">Accueil</a></li>
+		<li class="dropdown">
+		<a class="dropdown-toggle" style="color:white; font-size:150%;" data-toggle="dropdown" href="#">Duels<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li><a href="/2nd tour/testemvsmlp.html" style="color:black; font-size:150%;">Duel Macron vs Le Pen</a></li>
+			<li><a href="/2nd tour/testffvsmlp.html" style="color:block; font-size:150%;">Duel Fillon vs Le Pen</a></li>
+			<li><a href="/2nd tour/testmvvsmlp.html" style="color:block; font-size:150%;">Duel Valls vs Le Pen</a></li>
+		</ul>
+		</li>
+		<li><a href="#" style="color:white; font-size:150%;">Analyses</a></li>
+	</ul>
+      </nav>
+</header>
+<body>
+      <div class="col-md-16 panel panel-default"><div class="col-md-16 panel-heading text-center"><h2>#Dashboard</h2></div>
+      <div id="dashboard-pollster" class="panel-body">
+	<button type="button" id="button" class="button-success" style="position:absolute;left:840px;">Cocher/Décocher</button>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<script src="/1er tour/Pollster_1T_V0.js"></script>
+     </div>
+     <div id="twittermentions" class="panel-body">
+     <link rel="stylesheet" href="/decompte/styledecompte.css"> 
+     <script src="/decompte/histo_count.js"></script> 
+
+
+     </div>
+     </div>
+     </div>
+</body>
