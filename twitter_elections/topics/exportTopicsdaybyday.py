@@ -17,7 +17,7 @@ from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
 candidates = ['Valls','Hamon','Fillon']
-topicsWords = ['travail']
+topics = ['travail']
 # les mots-clés dans les listes doivent rester en lower case
 pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Hamon':['hamon','#hamon','@benoithamon'],'Fillon':['fillon','#fillon','@francoisfillon']}
 topicsWords = {'travail':['#revenuuniversel','revenu', 'universel', 'salaire', 'minimum', 'pauvrete', 'seuil', 'pouvoir d\'achat', 'made in france', 'frenchtech']}
@@ -59,11 +59,11 @@ for i in range(18):
 
 		# regex on a topic
 		regexTopic = ''
-		for p in pseudo[candidate]:
+		for p in topicsWords[topics]:
 			regexTopic = regexTopic + p.lower() + "|"
 		# get rid of last pipe
 		regexTopic = regexTopic[:-1]
-
+		print(regexTopic)
 		
 		pipe = [
 		{
