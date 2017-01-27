@@ -6,7 +6,7 @@ import time
 import datetime
 
 now = time.time() * 1000
-dayNow = datetime.datetime.fromtimestamp(int(time.time())).strftime('%Y-%m-%d')
+dayNow = datetime.datetime.fromtimestamp(int(time.time())).strftime('%d/%m/%Y')
 nowMidnightTmp = datetime.datetime.strptime(dayNow, "%d/%m/%Y").timestamp() * 1000
 
 from pprint import pprint
