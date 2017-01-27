@@ -68,22 +68,23 @@ for i in range(18):
 			"$match":
 				{
 					"$and":
-					[
-						"$and":
-							[
-							{
-								"t_text":
-									{
-										"$regex":regexp
-									}
-							},
-
-							{	"t_text":
-									{
-										"$regex":regexTopic
-									}
-							}
-							],
+						[
+						{
+							"$and":
+								[
+								{
+									"t_text":
+										{
+											"$regex":regexp
+										}
+								},
+								{	"t_text":
+										{
+											"$regex":regexTopic
+										}
+								}
+								]
+						},
 						{
 							"$and":
 								[
@@ -101,7 +102,7 @@ for i in range(18):
 								}
 								]
 						}
-					]
+						]
 				}
 		},
 		{
