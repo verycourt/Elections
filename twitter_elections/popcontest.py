@@ -19,18 +19,21 @@ data = {}
 duplicates = []
 removepipe = [{"$group":{"_id":"$t_id", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
 
-for doc in collection.aggregate(removepipe) :
-	it = iter(doc['dups'])
-	next(it)
-	for id in it :
-		duplicates.append(pymongo.DeleteOne({'_id':id}))
-collection.bulk_write(duplicates)	
+try :
+	for doc in collection.aggregate(removepipe) :
+		it = iter(doc['dups'])
+		next(it)
+		for id in it :
+			duplicates.append(pymongo.DeleteOne({'_id':id}))
+	collection.bulk_write(duplicates)	
+except:
+	pass
 
 for candidate in candidates:
 	print(candidate)
 	regexp = ''
 	for p in pseudo[candidate]:
-		regexp = regexp + p + "|"
+		regexp = regexp + p.lower() + "|"
 	regexp = regexp[:-1]
 	print(regexp)
 	pipe = [{"$match":{"$and":[{"t_text":{"$regex":regexp}},{"t_time":{"$gte":now - 2.592e8}}]}},{"$group":{"_id":candidate,"total":{"$sum":1}}}]
