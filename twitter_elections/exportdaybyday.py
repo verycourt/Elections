@@ -11,6 +11,7 @@ from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
 candidates = ['Valls','Macron','Le Pen','Melenchon','Bayrou','Hamon','Fillon']
+# les mots-clés dans les listes doivent rester en lower case
 pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@emmanuelmacron'],'Jadot':['jadot','#jadot','@yjadot'],
 'Le Pen':['@mlp_officiel','#mlp','lepen'],'Melenchon':['melenchon','#melenchon','@jlmelechon'],'Bayrou':['bayrou','#bayrou','@bayrou'],
 'Poutou':['poutou','#poutou','@philippepoutou'],'Peillon':['peillon','#peillon','@vincent_peillon'],'Rugy':['#rugy','rugy','@fderugy'],
@@ -21,19 +22,22 @@ data = {}
 duplicates = []
 removepipe = [{"$group":{"_id":"$t_id", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
 
-for doc in collection.aggregate(removepipe) :
-	it = iter(doc['dups'])
-	next(it)
-	for id in it :
-		duplicates.append(pymongo.DeleteOne({'_id':id}))
-collection.bulk_write(duplicates)	
+try:
+	for doc in collection.aggregate(removepipe) :
+		it = iter(doc['dups'])
+		next(it)
+		for id in it :
+			duplicates.append(pymongo.DeleteOne({'_id':id}))
+	collection.bulk_write(duplicates)
+except:
+	pass
 
 for i in range(18):
 	for candidate in candidates:
 		print(candidate)
 		regexp = ''
 		for p in pseudo[candidate]:
-			regexp = regexp + p + "|"
+			regexp = regexp + p.lower() + "|"
 		regexp = regexp[:-1]
 		print(regexp)
 		pipe = [
