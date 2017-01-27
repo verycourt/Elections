@@ -59,7 +59,7 @@ for i in range(18):
 
 		# regex on a topic
 		regexTopic = ''
-		for p in topicsWords[topics]:
+		for p in topicsWords['travail']:
 			regexTopic = regexTopic + p.lower() + "|"
 		# get rid of last pipe
 		regexTopic = regexTopic[:-1]
