@@ -65,7 +65,7 @@ def trends_to_json(query='', periode=''):
 
     # Les termes de recherche (5 au maximum separes par des virgules)
     # On associe a un type de recherche la liste des parametres correspondants
-    queries = {'candidats_A': '/m/047drb0, /m/04zzm99, /m/02rdgs, /m/011ncr8c, /m/0fqmlm',
+    queries = {'candidats_A': '/m/047drb0, /m/0551nw, /m/02rdgs, /m/011ncr8c, /m/0fqmlm',
                'partis_A': '/g/11b7n_r2jq, /m/01qdcv, /m/0hp7g, /m/0h7nzzw',
               'divers_gauche': 'France Insoumise, /m/01vvcv, /m/04glk_t, /m/01v8x4'} 
     
