@@ -5,11 +5,13 @@ import json
 import time
 import datetime
 
-now = time.time() * 1000
+now = int(time.time()) * 1000
 #dayNow = datetime.datetime.fromtimestamp(int(time.time())).strftime('%d/%m/%Y')
-dayNow = time.localtime(int(time.time()))
-nowMidnightTmp = (int(time.mktime(dayNow)) + 3600) * 1000
+#dayNow = time.localtime(int(time.time()))
+#nowMidnightTmp = int(time.mktime(dayNow)) * 1000
 #nowMidnightTmp = datetime.datetime.strptime(dayNow, "%d/%m/%Y").timestamp() * 1000
+
+#print(dayNow)
 
 from pprint import pprint
 
@@ -36,15 +38,18 @@ try:
 except:
 	pass
 
-for i in range(18):
+for i in range(6):
+
+	startTmp = now - (i+1)*8.64e7
+	endTmp = now - i*8.64e7
 	
-	startTmp = nowMidnightTmp - (i+1)*8.64e7
-	endTmp = nowMidnightTmp - i*8.64e7
+	#startTmp = nowMidnightTmp - (i+1)*8.64e7
+	#endTmp = nowMidnightTmp - i*8.64e7
 
 	# take the time of execution to get the current days' data
-	if i == 0:
-		startTmp = nowMidnightTmp
-		endTmp = now
+	#if i == 0:
+		#startTmp = nowMidnightTmp
+		#endTmp = now
 
 	for candidate in candidates:
 		print(candidate)
