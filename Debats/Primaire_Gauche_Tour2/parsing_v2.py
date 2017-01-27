@@ -102,12 +102,11 @@ create_tag_image(tags,'TEST_valls_cloud.png',layout=2, size=(700,400),  fontname
 
 
 # Essayer merger 2 images
+"""
+dict_c = list()
+for index in range(len(list_color_hamon["r"])):
+	colors = list_color_hamon
+	dict_c.append( ((colors["r"][index], colors["g"][index], colors["g"][index] )))
 
-
-for i in range(list_color_hamon):
-	dict_c = 
-
-a=np.outer(np.arange(0,1,0.01),np.ones(10))
-my_cmap2 = matplotlib.colors.LinearSegmentedColormap('my_colormap2',list_color_hamon)
-plt.imshow(a,aspect='auto', cmap =my_cmap2)                   
+plt.plot(np.arange(1, 15),np.arange(1,15),c = dict_c)
 plt.show()
