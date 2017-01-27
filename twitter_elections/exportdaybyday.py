@@ -22,12 +22,15 @@ data = {}
 duplicates = []
 removepipe = [{"$group":{"_id":"$t_id", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
 
-for doc in collection.aggregate(removepipe) :
-	it = iter(doc['dups'])
-	next(it)
-	for id in it :
-		duplicates.append(pymongo.DeleteOne({'_id':id}))
-collection.bulk_write(duplicates)	
+try:
+	for doc in collection.aggregate(removepipe) :
+		it = iter(doc['dups'])
+		next(it)
+		for id in it :
+			duplicates.append(pymongo.DeleteOne({'_id':id}))
+	collection.bulk_write(duplicates)
+except:
+	pass
 
 for i in range(18):
 	for candidate in candidates:
