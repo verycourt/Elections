@@ -55,20 +55,17 @@ def convert_date_column(dataframe): # Conversion du format en un string court
 
 def trends_to_json(query='', periode=''):
     """
-    Télécharge sous format json les données de Google Trends avec les paramètres indiqués.
+    Télécharge sous format json les données de Google Trends avec les parametres indiqués.
     Ceux-ci doivent appartenir aux recherches préconfigurées dans les dictionnaires <queries>
     et <periodes>.
     
-    Si aucun paramètre n'est spécifié, la fonction va balayer toutes les combinaisons de
-    requêtes et de périodes préconfigurées.
+    Si aucun parametre n'est spécifié, la fonction va balayer toutes les combinaisons de
+    requetes et de périodes préconfigurées.
     """
 
     # Les termes de recherche (5 au maximum separes par des virgules)
     # On associe a un type de recherche la liste des parametres correspondants
-    queries = {'candidats_A': '/m/047drb0, /m/0551nw, /m/02rdgs, /m/011ncr8c, /m/0fqmlm',
-               'partis_A': '/g/11b7n_r2jq, /m/01qdcv, /m/0hp7g, /m/0h7nzzw',
-              'divers_gauche': 'France Insoumise, /m/01vvcv, /m/04glk_t, /m/01v8x4'} 
-    
+    queries = {'candidats_A': '/m/047drb0, /m/0551nw, /m/02rdgs, /m/011ncr8c, /m/0fqmlm'}  
     periodes = {'3d': 'now 3-d'}
 
     if query == '':
@@ -89,7 +86,7 @@ def trends_to_json(query='', periode=''):
     users = ['pfrlepoint@gmail.com', 'pfrlepoint2@gmail.com']
     for user in users[::int(sign(rand(1) * 2 - 1))]: # une chance sur deux de partir de la fin de la liste
         try:
-            # Connection à Google (utiliser une vraie adresse gmail permet plus de requêtes)
+            # Connection à Google (utiliser une vraie adresse gmail permet plus de requetes)
             pytrend = TrendReq(user, 'projet_fil_rouge', custom_useragent='PFR')
             
             for q in query:
@@ -119,17 +116,17 @@ def trends_to_json(query='', periode=''):
 
                         print("Connexion reussie : " + user)
                         print('Enregistrement sous : ' + server_path + q + '_' + p + '.json')
-                        success.append((q, p)) # on garde en mémoire les couples q, p qui ont fonctionné
+                        success.append((q, p)) # on garde en mémoire les couples q, p qui ont fonctionne
 
-                        # espacement des requêtes pour ne pas dépasser la limite
+                        # espacement des requetes pour ne pas depasser la limite
                         time.sleep(6)
                     
             return
 
         except (RateLimitError, ResponseError):
-            print('Limite de requetes depassee, tentative avec une autre adresse mail...')
+            print('Essai avec une autre adresse...')
+            continue
 
-    print('Erreur lors de la recuperation des donnees.')
     return
 
 ####################################################################
