@@ -207,8 +207,8 @@ class ResponseError(Error):
     """Exception raised for exceeding rate limit"""
 
     def __init__(self, content):
-        self.message = "Response did not parse. See server response for details."
-        self.server_error = BeautifulSoup(content, "lxml").findAll("div", {"class": "errorSubTitle"})[0].get_text()
+        self.message = "Response did not parse. Rate limit probably reached."
+        # self.server_error = BeautifulSoup(content, "lxml").findAll("div", {"class": "errorSubTitle"})[0].get_text()
         print(self.message)
-        print(self.server_error)
+        # print(self.server_error)
 
