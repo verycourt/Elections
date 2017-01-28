@@ -1,5 +1,5 @@
 var data_json;
-$.getJSON("./data/candidats_A_3d.json", function(json) {
+$.getJSON("./data/Hamon_Valls_7jours.json", function(json) {
 	// Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
 	data_json = json; 
 
@@ -74,7 +74,7 @@ $.getJSON("./data/candidats_A_3d.json", function(json) {
 			legend: {
 				labels: {
 					boxWidth: 15,
-					fontSize: 12,
+					fontSize: 14,
 					padding: 20
 				}
 			},
