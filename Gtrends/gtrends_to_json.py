@@ -53,48 +53,40 @@ def convert_date_column(dataframe): # Conversion du format en un string court
     return
 
 
-def trends_to_json(query='', periode=''):
+def trends_to_json(queries='candidats_A', periodes='3d'):
     """
-    Télécharge sous format json les données de Google Trends avec les parametres indiqués.
+    Télécharge sous format json les données de Google Trends avec les paramètres indiqués.
     Ceux-ci doivent appartenir aux recherches préconfigurées dans les dictionnaires <queries>
     et <periodes>.
     
-    Si aucun parametre n'est spécifié, la fonction va balayer toutes les combinaisons de
-    requetes et de périodes préconfigurées.
+    Si aucun paramètre n'est spécifié, la fonction va balayer toutes les combinaisons de
+    requêtes et de périodes préconfigurées.
     """
 
     # Les termes de recherche (5 au maximum separes par des virgules)
     # On associe a un type de recherche la liste des parametres correspondants
-    queries = {'candidats_A': '/m/047drb0, /m/0551nw, /m/02rdgs, /m/011ncr8c, /m/0fqmlm'}  
-    periodes = {'3d': 'now 3-d'}
-
-    if query == '':
-        query = set([q for q in queries])
-    else:
-        query = set([query])
+    all_queries = {'candidats_A': '/m/047drb0, /m/04zzm99, /m/02rdgs, /m/011ncr8c, /m/0fqmlm'} 
+    all_periodes = {'3d': 'now 3-d', '7d': 'now 7-d'}
     
-    if periode == '':
-        periode = set([p for p in periodes])
-    else:
-        periode = set([periode])
-        
-    if not (query.issubset(queries) and periode.issubset(periodes)):
-        print('Erreur de parametre')
-        return
+    queries = set(queries.replace(', ', ',').split(','))
+    periodes = set(periodes.replace(', ', ',').split(','))
     
     success = []
-    users = ['pfrlepoint@gmail.com', 'pfrlepoint2@gmail.com']
-    for user in users[::int(sign(rand(1) * 2 - 1))]: # une chance sur deux de partir de la fin de la liste
+    # adresse mail et mot de passe associé
+    users = {'pfrlepoint@gmail.com': 'projet_fil_rouge', 'pfrlepoint2@gmail.com': 'pytrends_2'}
+    
+    for user in list(users.keys())[::int(sign(rand(1) * 2 - 1))]:
+        # une chance sur deux de partir de la fin de la liste des adresses gmail
         try:
-            # Connection à Google (utiliser une vraie adresse gmail permet plus de requetes)
-            pytrend = TrendReq(user, 'projet_fil_rouge', custom_useragent='PFR')
+            # Connection à Google (utiliser une vraie adresse gmail permet plus de requêtes)
+            pytrend = TrendReq(user, users[user], custom_useragent='PFR')
             
-            for q in query:
-                for p in periode:
-                    if (q, p) in success:
+            for q in queries & set(all_queries): # éléments communs aux deux ensembles
+                for p in periodes & set(all_periodes):
+                    if (q, p) in success: # si cette requête a déjà été réalisée avec une autre adresse, on itère
                         continue
                     else:
-                        payload = {'q': queries[q], 'geo': 'FR', 'date': periodes[p], 'hl': 'fr-FR'}
+                        payload = {'q': all_queries[q], 'geo': 'FR', 'date': all_periodes[p], 'hl': 'fr-FR'}
                         # Possibilite de periode personnalise : specifier deux dates (ex : 2015-01-01 2015-12-31)
                         # geographie : FR (toute France), FR-A ou B ou C... (region de France par ordre alphabetique)
                         # categorie politique : cat = 396
@@ -104,7 +96,7 @@ def trends_to_json(query='', periode=''):
                         df.set_index('Date', inplace=True)
 
                         # reduction du nombre de lignes du dataframe a une trentaine de points
-                        # pour la lisibilite du graph
+                        # pour la lisibilité du graph
                         n = {'4h': 2, '1d': 4, '3d': 1, '7d': 6, '1m': 1, '3m': 2}
                         # n = 1 # pour désactiver cette fonction
 
@@ -112,22 +104,25 @@ def trends_to_json(query='', periode=''):
                         server_path = '/var/www/html/gtrends/data/' # path complet
                         # server_path = ''
                         df[(df.shape[0] - 1) % n[p]::n[p]].to_json(
-                            server_path + q + '_' + p + '.json', orient='split', date_unit='ms')
+                            server_path + q + '_' + p + '.json', orient='split')
 
-                        print("Connexion reussie : " + user)
+                        print('Connexion réussie avec l\'adresse : ' + user)
                         print('Enregistrement sous : ' + server_path + q + '_' + p + '.json')
-                        success.append((q, p)) # on garde en mémoire les couples q, p qui ont fonctionne
+                        success.append((q, p)) # on garde en mémoire les couples q, p qui ont fonctionné
 
-                        # espacement des requetes pour ne pas depasser la limite
-                        time.sleep(6)
-                    
+                        # espacement des requêtes pour ne pas dépasser la limite
+                        time.sleep(10)
             return
 
-        except (RateLimitError, ResponseError):
-            print('Essai avec une autre adresse...')
-            continue
+        except RateLimitError:
+            print('Limite de requêtes dépassée, tentative avec une autre adresse mail...')
+            
+        except ResponseError:
+            print('Connexion bloquée, tentative avec une autre adresse mail...')
 
+    print('Erreur lors de la récupération des données.')
     return
+
 
 ####################################################################
 # passage des arguments via sys.argv
