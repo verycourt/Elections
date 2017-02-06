@@ -1,0 +1,29 @@
+header
+{
+	background-color:#B20F0F;
+	padding-top:0.2%;
+	padding-bottom:0%;
+}
+.text-center /* Titre du bandeau */
+{
+	background-color:#B20F0F;
+	color:white;
+	font-size:300%;
+}
+.navbar-inverse
+{
+	color: white;
+	background-color: #B20F0F;
+	border-style: none;
+	border-radius: 0;
+}
+.navbar-nav
+{
+	color: white;
+	font-size: 150%;
+}
+.dropdown-menu li 
+{
+	color: black;
+	font-size: 100%;
+}
