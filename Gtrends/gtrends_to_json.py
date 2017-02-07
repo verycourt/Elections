@@ -2,6 +2,7 @@
 # coding: utf-8
 
 from pytrends.request import TrendReq
+import sys
 import pandas as pd
 from datetime import timedelta
 from numpy.random import rand
@@ -88,6 +89,6 @@ def trends_to_json(queries='candidats_A', periodes='7d'):
 ####################################################################
 # passage des arguments via sys.argv
 if len(sys.argv) == 3:
-    trends_to_json(query=sys.argv[1], periode=sys.argv[2])
+    trends_to_json(queries=sys.argv[1], periodes=sys.argv[2])
 else:
     trends_to_json()
