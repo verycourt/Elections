@@ -1,0 +1,23 @@
+Valls
+valls|@manuelvalls|#valls
+{'name': 'Valls', 'size': 22614}
+Macron
+macron|#macron|@emmanuelmacron
+{'name': 'Macron', 'size': 262954}
+MLP
+@mlp_officiel|#mlp|lepen
+{'name': 'MLP', 'size': 25863}
+Melenchon
+melenchon|#melenchon|@jlmelechon
+{'name': 'Melenchon', 'size': 23662}
+Bayrou
+bayrou|#bayrou|@bayrou
+{'name': 'Bayrou', 'size': 18602}
+Hamon
+hamon|#hamon|@benoithamon
+{'name': 'Hamon', 'size': 68316}
+Fillon
+fillon|#fillon|@francoisfillon
+{'name': 'Fillon', 'size': 458517}
+{'Macron': {'name': 'Macron', 'size': 262954}, 'Melenchon': {'name': 'Melenchon', 'size': 23662}, 'Fillon': {'name': 'Fillon', 'size': 458517}, 'MLP': {'name': 'MLP', 'size': 25863}, 'Bayrou': {'name': 'Bayrou', 'size': 18602}, 'Hamon': {'name': 'Hamon', 'size': 68316}, 'Valls': {'name': 'Valls', 'size': 22614}}
+{'name': 'twitter_mentions', 'children': [{'name': 'Macron', 'size': 262954}, {'name': 'Melenchon', 'size': 23662}, {'name': 'Fillon', 'size': 458517}, {'name': 'MLP', 'size': 25863}, {'name': 'Bayrou', 'size': 18602}, {'name': 'Hamon', 'size': 68316}, {'name': 'Valls', 'size': 22614}]}

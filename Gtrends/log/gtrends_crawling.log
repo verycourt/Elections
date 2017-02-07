@@ -1,6 +1,7 @@
-Connexion reussie : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/candidats_A_3d.json
-Connexion reussie : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/divers_gauche_3d.json
-Connexion reussie : pfrlepoint2@gmail.com
-Enregistrement sous : /var/www/html/gtrends/data/partis_A_3d.json
+Response did not parse. Rate limit probably reached.
+Traceback (most recent call last):
+  File "/home/ubuntu/Elections/Gtrends/gtrends_to_json.py", line 132, in <module>
+    trends_to_json()
+  File "/home/ubuntu/Elections/Gtrends/gtrends_to_json.py", line 121, in trends_to_json
+    print('Connexion bloquée, tentative avec une autre adresse mail...')
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xe9' in position 15: ordinal not in range(128)

@@ -5,7 +5,7 @@ import json
 import time
 import datetime
 
-now = int(time.time()) * 1000
+now = int(time.time()) * 1000 - 8.64e7
 #dayNow = datetime.datetime.fromtimestamp(int(time.time())).strftime('%d/%m/%Y')
 #dayNow = time.localtime(int(time.time()))
 #nowMidnightTmp = int(time.mktime(dayNow)) * 1000
@@ -22,7 +22,7 @@ candidates = ['Valls','Hamon','Fillon']
 topics = ['travail']
 # les mots-clés dans les listes doivent rester en lower case
 pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Hamon':['hamon','#hamon','@benoithamon'],'Fillon':['fillon','#fillon','@francoisfillon']}
-topicsWords = {'travail':['#revenuuniversel','revenu', 'universel', 'salaire', 'minimum', 'pauvrete', 'seuil', 'pouvoir d\'achat', 'made in france', 'frenchtech']}
+topicsWords = {'Europe':['brexit', 'ue', 'union europeenne', 'europe', 'euro']}
 
 data = {}
 duplicates = []
@@ -64,7 +64,7 @@ for i in range(6):
 
 		# regex on a topic
 		regexTopic = ''
-		for p in topicsWords['travail']:
+		for p in topicsWords['Europe']:
 			regexTopic = regexTopic + p.lower() + "|"
 		# get rid of last pipe
 		regexTopic = regexTopic[:-1]
@@ -130,7 +130,7 @@ for i in range(6):
 	print(data)
 	export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
 	print(export)
-	file = open('/var/www/html/decompte/topics/j-'+str(i+1)+'.json','w')
+	file = open('/var/www/html/decompte/topics/europe/j-'+str(i+1)+'.json','w')
 	json.dump(export,file) 
 	file.close()
 
