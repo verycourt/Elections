@@ -8,7 +8,7 @@ from datetime import timedelta
 from numpy.random import rand
 from numpy import sign
 
-def trends_to_json(queries='candidats_A', periodes='7d'):
+def trends_to_json(queries='candidats_A', periodes='1d'):
     """
     Télécharge sous format json les données de Google Trends avec les paramètres indiqués.
     Ceux-ci doivent appartenir aux recherches préconfigurées dans les dictionnaires
@@ -54,8 +54,8 @@ def trends_to_json(queries='candidats_A', periodes='7d'):
                         df = pytrend.interest_over_time()
                         df.rename(columns=trad, inplace=True) # Nom des champs de recherche en colonne
                         
-                        if p in ['1h', '4h', '1d', '7d']: # lorsque la fenetre de temps renvoie un format heure...
-                            df.index = [date + timedelta(hours=1) for date in df.index] # on convertit les dates en GMT+1
+                        # if p in ['1h', '4h', '1d', '7d']: # lorsque la fenetre de temps renvoie un format heure...
+                        #     df.index = [date + timedelta(hours=1) for date in df.index] # on convertit les dates en GMT+1
 
                         # reduction du nombre de lignes du dataframe a une trentaine de points
                         # pour la lisibilité du graph
