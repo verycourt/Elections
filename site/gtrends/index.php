@@ -4,7 +4,7 @@
 	<head>
 		<title>Google Trends</title>
 		<?php include "/var/www/html/site_head.html";?>
-		<style><?php include "/var/www/html/site_style.css";?></style>
+		<style><?php include "/var/www/html/header_style.css";?></style>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 
@@ -21,7 +21,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<p> Source des données : Google Trends (www.google.com/trends). </p>
-		<script src="js/linechart_5candidats.js" type="text/javascript"></script>
+		<script src="js/candidats_A.js" type="text/javascript"></script>
 
 	</body>
 </html>

@@ -1,5 +1,8 @@
 var data_json;
-$.getJSON("./data/candidats_A_3d.json", function(json) {
+var fname = "candidats_A_1d.json"
+var linechart_title = "La tendance en live"
+
+$.getJSON("./data/" + fname, function(json) {
 	// Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
 	data_json = json; 
 
@@ -60,8 +63,8 @@ $.getJSON("./data/candidats_A_3d.json", function(json) {
 	Chart.defaults.global.elements.line.borderWidth = 2;
 
 	Chart.defaults.global.elements.point.radius = 2;
-	Chart.defaults.global.elements.point.hoverBorderWidth = 6; // taille du point survolé
-	Chart.defaults.global.elements.point.hitRadius = 10; // distance pour déclencher le tooltip
+	Chart.defaults.global.elements.point.hoverBorderWidth = 10; // taille du point survolé
+	Chart.defaults.global.elements.point.hitRadius = 14; // distance pour déclencher le tooltip
 
 	var ctx = document.getElementById("myChart").getContext("2d");
 	var myLineChart = new Chart(ctx, {
@@ -69,13 +72,13 @@ $.getJSON("./data/candidats_A_3d.json", function(json) {
 		data: data,
 		options: {
 			layout: {
-				padding: 30
+				padding: 40
 			},
 			legend: {
 				labels: {
 					boxWidth: 15,
 					fontSize: 14,
-					padding: 20
+					padding: 15
 				}
 			},
 			responsive: true,
@@ -87,17 +90,27 @@ $.getJSON("./data/candidats_A_3d.json", function(json) {
 						autoSkipPadding: 30,
 						fontSize: 12,
 						maxRotation: 0,
-						reverse: true
+					},
+					type: 'time',
+					time: {
+						displayFormats: {
+							hour: 'DD/MM à H:mm',
+							day: 'DD/MM'
+						},
+						tooltipFormat: 'DD/MM à H:mm'
 					}
 				}],
 				yAxes: [{
-					position: 'right'
+					position: 'right',
+					ticks: {
+						fontSize: 12
+					}
 				}]
 			},
 			title: {
 				display: true,
 				fontSize: 16,
-				text: 'Recherches sur Google'
+				text: linechart_title
 			},
 			tooltips: {
 				backgroundColor: 'rgba(0,0,0,0.6)',

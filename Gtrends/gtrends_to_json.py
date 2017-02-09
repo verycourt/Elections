@@ -8,7 +8,7 @@ from datetime import timedelta
 from numpy.random import rand
 from numpy import sign
 
-def trends_to_json(queries='candidats_A', periodes='1d'):
+def trends_to_json(queries='candidats_A', periodes='1d, 7d'):
     """
     Télécharge sous format json les données de Google Trends avec les paramètres indiqués.
     Ceux-ci doivent appartenir aux recherches préconfigurées dans les dictionnaires
@@ -22,11 +22,11 @@ def trends_to_json(queries='candidats_A', periodes='1d'):
     all_queries = {'candidats_A': ['/m/0fqmlm', '/m/0551nw', '/m/02rdgs', '/m/011ncr8c', '/m/04zzm99']}
     all_periodes = {'1h': 'now 1-H', '4h': 'now 4-H', '1d': 'now 1-d', '7d': 'now 7-d', '1m': 'today 1-m'}
     
-    trad = {'/m/061czc': 'Michèle Alliot-Marie', '/m/0h3t838': 'Nathalie Artaud', '/m/02y2cb': 'François Bayrou',
-            '/m/047fzn': 'Jacques Cheminade', '/m/0f6b18': 'Nicolas Dupont-Aignan', '/m/0fqmlm': 'François Fillon',
-            '/m/0551nw': 'Benoît Hamon', '/m/05zztc0': 'Yannick Jadot', '/m/02rdgs': 'Marine Le Pen',
-            '/m/011ncr8c': 'Emmanuel Macron', '/m/04zzm99': 'Jean-Luc Mélanchon', '/m/0gxyxxy': 'Philippe Poutou',
-            '/m/047drb0': 'Manuel Valls'}
+    trad = {'/m/061czc': 'M. Alliot-Marie', '/m/0h3t838': 'N. Artaud', '/m/02y2cb': 'F. Bayrou',
+            '/m/047fzn': 'J. Cheminade', '/m/0f6b18': 'N. Dupont-Aignan', '/m/0fqmlm': 'F. Fillon',
+            '/m/0551nw': 'B. Hamon', '/m/05zztc0': 'Y. Jadot', '/m/02rdgs': 'M. Le Pen',
+            '/m/011ncr8c': 'E. Macron', '/m/04zzm99': 'J.-L. Mélenchon', '/m/0gxyxxy': 'P. Poutou',
+            '/m/047drb0': 'M. Valls'}
     
     queries, periodes = set(queries.replace(', ', ',').split(',')), set(periodes.replace(', ', ',').split(','))
     
@@ -50,26 +50,23 @@ def trends_to_json(queries='candidats_A', periodes='1d'):
                         # categorie politique : cat = 396
                         # Create payload and capture API tokens. Only needed for interest_over_time(), interest_by_region() & related_queries()
                         pytrend.build_payload(kw_list=all_queries[q], timeframe=all_periodes[p], cat=0, geo='FR')
-                        
                         df = pytrend.interest_over_time()
                         df.rename(columns=trad, inplace=True) # Nom des champs de recherche en colonne
                         
                         # if p in ['1h', '4h', '1d', '7d']: # lorsque la fenetre de temps renvoie un format heure...
                         #     df.index = [date + timedelta(hours=1) for date in df.index] # on convertit les dates en GMT+1
 
-                        # reduction du nombre de lignes du dataframe a une trentaine de points
-                        # pour la lisibilité du graph
-                        n = {'1h': 2, '4h': 5, '1d': 5, '3d': 1, '7d': 6, '1m': 1, '3m': 2}
-                        # n = 1 # pour désactiver cette fonction
+                        # reduction du nombre de lignes du dataframe a une trentaine pour la lisibilité du graph
+                        n = {'1h': 2, '4h': 5, '1d': 2, '7d': 6, '1m': 1, '3m': 2}
                         
                         # TODO: automatiser le n en calculant automatiquement le ratio qui convient
                         # pour obtenir une trentaine de points
 
-                        # Sauvegarde en JSON
+                        # Sauvegarde en JSON ######################
                         server_path = '/var/www/html/gtrends/data/' # path complet AWS
                         # server_path = ''
-                        df[(df.shape[0] - 1) % n[p]::n[p]].to_json(
-                            server_path + q + '_' + p + '.json', orient='split')
+
+                        df[(df.shape[0] - 1) % n[p]::n[p]].to_json(server_path + q + '_' + p + '.json', orient='split')
 
                         print('Connexion réussie avec l\'adresse : ' + user)
                         print('Enregistrement sous : ' + server_path + q + '_' + p + '.json')
@@ -80,7 +77,7 @@ def trends_to_json(queries='candidats_A', periodes='1d'):
             return
 
         except:
-            pass
+            print('Limite atteinte avec cette adresse.')
 
     print('Erreur lors de la recuperation des donnees.')
     return
