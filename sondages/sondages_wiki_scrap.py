@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding: utf8
+# coding: utf-8
 import requests
 from bs4 import BeautifulSoup
 import numpy as np
@@ -102,7 +102,7 @@ dfF = dfF.replace(to_replace=["-", "–"], value=" ")
 
 notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
-anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Éva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
+anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Eva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
 
 for col in dfF.columns:
     if col not in notCandidats:
