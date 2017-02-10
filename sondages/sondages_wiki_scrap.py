@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding: utf8
+# coding: utf-8
 import requests
 from bs4 import BeautifulSoup
 import numpy as np
@@ -102,7 +102,7 @@ dfF = dfF.replace(to_replace=["-", "–"], value=" ")
 
 notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
-anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Éva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
+anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Eva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
 
 for col in dfF.columns:
     if col not in notCandidats:
@@ -149,12 +149,12 @@ dfF4 = dfF4.drop("Date", axis=1)
 
 dfF4 = dfF4.set_index("date")
 print(dfF4)
-dfF4 = dfF4.dropna(axis=0, how='all')
 dfF4 = dfF4.dropna(axis=1, how='all')
-
+dfF4 = dfF4.dropna(axis=0, how='all')
+print(dfF4)
 #dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
 
-dfF4.to_json(path1+"pollster1.json", force_ascii=False)
+#dfF4.to_json(path1+"pollster1.json", force_ascii=False)
 
 dfF4.to_csv(path1+"sondages1er.csv", sep="\t", encoding='utf-8')
 
@@ -219,5 +219,5 @@ getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_json(path2+"mlpVSem.json
 getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_json(path2+"emvsff.json", force_ascii=False)
 
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
-dfFs2.to_json(path2+"sondages2e.json")
+#dfFs2.to_json(path2+"sondages2e.json")
 print("Done")
