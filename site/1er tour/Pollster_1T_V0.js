@@ -1,9 +1,31 @@
 
 var margin = {top: 50, right: 200, bottom: 100, left: 50},
-    margin2 = { top: 430, right: 20, bottom: 20, left: 40 },
-    width = 960 - margin.left - margin.right,
+    margin2 = { top: 430, right: 20, bottom: 20, left: 40 }, width = 960 - margin.left - margin.right, 
     height = 500 - margin.top - margin.bottom,
     height2 = 500 - margin2.top - margin2.bottom;
+
+
+function resize() {
+/* Find the new window dimensions */
+var width = parseInt(d3.select("graph").style("width")) - margin*2,
+height = parseInt(d3.select("graph").style("height")) - margin*2;
+/* Update the range of the scale with new width/height */
+xScale.range([0, width]).nice(d3.time.year);
+yScale.range([height, 0]).nice();
+
+/* Update the axis with the new scale */
+/*graph.select('.x.axis')
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+*/
+graph.select('.y.axis')
+  .call(yAxis);
+
+/* Force D3 to recalculate and update the line */
+graph.selectAll('.line')
+  .attr("d", line);
+console.log(width,height);
+}
 
 var parseDate = d3.time.format("%Y%m%d").parse;
 
@@ -62,10 +84,15 @@ var line = d3.svg.line()
 var maxY; // Defined later to update yAxis
 
 var svg = d3.select("#dashboard-pollster").append("svg")
-    .attr("width", width + margin.left + margin.right + 300)
-    .attr("height", height + margin.top + margin.bottom) //height + margin.top + margin.bottom
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("id","graph")
+    //.attr("width", width + margin.left + margin.right + 300)
+    //.attr("height", height + margin.top + margin.bottom) //height + margin.top + margin.bottom
+    .attr("role","img")
+    //.attr("viewPort","0 0 "+1260+" "+ 800)
+    .attr("viewBox","0 0 "+ 1260 + " " + 800,"preserveAspectRatio", "xMidYMid")
+    .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+//svg.transition().attrTween("transform", function(d, i, a){return d3.interpolateString(a, 'scale(0.8)');});
 
 
 // Create invisible rect for mouse tracking
@@ -82,7 +109,7 @@ svg.append("rect")
       .attr("y", height + 40)
       .attr("x", 350)
       .style("text-anchor", "middle")
-      .style("font-size","10px")
+      .style("font-size","0.8vw")
       .style("fill", "#000000")
       .text("Période de sondage");
 
@@ -92,7 +119,7 @@ svg.append("rect")
       .attr("y", height + 55)
       .attr("x", 350)
       .style("text-anchor", "middle")
-      .style("font-size","8px")
+      .style("font-size","1.1vw")
       .text("Faire glisser pour choisir une période (Ci-dessous)"); 
 
    	svg.append("text")
@@ -111,7 +138,7 @@ svg.append("rect")
       .attr("x", 350)
       .style("text-anchor", "middle")
       .style("font-weight","bold")
-      .style("font-size","25px")
+      .style("font-size","2vw")
       .style("fill", "#000000")
       .text("Pollster Election Présidentielle");
 
@@ -120,7 +147,7 @@ svg.append("rect")
       .attr("x", 350)
       .style("font-style","italic")
       .style("text-anchor", "middle")
-      .style("font-size","8px")
+      .style("font-size","1vw")
       .style("fill", "#000000")
       .text("Aggrégation des sondages par date de parution");
 
@@ -180,11 +207,11 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
     .x(xScale2) 
     .on("brush", brushed);
 
-  context.append("g") // Create brushing xAxis
+  /*context.append("g") // Create brushing xAxis
       .attr("class", "x axis1")
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
-
+*/
   var contextArea = d3.svg.area() // Set attributes for area chart in brushing context graph
     .interpolate("monotone")
     .x(function(d) { return xScale2(d.date); }) // x is scaled to xScale2
@@ -230,14 +257,14 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
       .attr("id","pict_ID")
       .attr("width", 133)
       .attr("height", 200)
-      .attr("x", 980)
+      .attr("x", 900)
       .attr("y",0);
 
   issue.append("svg:image")
       .attr("id","party_ID")
       .attr("width", 133)
       .attr("height", 200)
-      .attr("x", 980)
+      .attr("x", 900)
       .attr("y",0);
 
 
@@ -245,7 +272,7 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
       .attr("class", "line")
       .style("pointer-events", "none") // Stop line interferring with cursor
       .attr("id", function(d) {
-        return "line-" + d.name.replace(" ", "").replace("/", ""); // Give line id of line-(insert issue name, with any spaces replaced with no spaces)
+        return "line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""); // Give line id of line-(insert issue name, with any spaces replaced with no spaces)
       })
       .attr("d", function(d) { 
         return d.visible ? line(d.values) : null; // If array key "visible" = true then draw line, if not then don't 
@@ -297,7 +324,7 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
           .transition()
           .attr("fill", function(d) { return color(d.name); });
 
-        d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
+        d3.select("#line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""))
           .transition()
           .style("stroke-width", 5);  
 
@@ -305,18 +332,18 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
 
       d3.select("#pict_ID")
         .transition()
-      .attr("xlink:href", "/1er tour/attachment_pollster/pict_"+d.name.replace(" ", "_")+".jpeg")
+      .attr("xlink:href", "attachment_pollster/pict_"+d.name.replace(" ", "_").replace(" ","")+".jpeg")
       .attr("width", 133)
       .attr("height", 200)
-      .attr("x", 980)
+      .attr("x", 900)
       .attr("y",0);
 
     d3.select("#party_ID")
       .transition()
-      .attr("xlink:href", "/1er tour/attachment_pollster/myparty_"+myparty[d.name].replace(" ", "_")+".jpeg")
+      .attr("xlink:href", "attachment_pollster/myparty_"+myparty[d.name].replace(" ", "_")+".jpeg")
       .attr("width", 135)
       .attr("height", 126)
-      .attr("x", 980)
+      .attr("x", 900)
       .attr("y",250);
 
 
@@ -329,7 +356,7 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
           .attr("fill", function(d) {
           return d.visible ? color(d.name) : "#F1F1F2";});
 
-        d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
+        d3.select("#line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""))
           .transition()
           .style("stroke-width", 2);
 
@@ -370,24 +397,24 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
       })
       .on("mouseover", function(d){
 
-        d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
+        d3.select("#line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""))
           .transition()
           .style("stroke-width", 5);  
 
       d3.select("#pict_ID")
         .transition()
-      .attr("xlink:href", "/1er tour/attachment_pollster/pict_"+d.name.replace(" ", "_")+".jpeg")
+      .attr("xlink:href", "attachment_pollster/pict_"+d.name.replace(" ", "_").replace(" ","_")+".jpeg")
       .attr("width", 133)
       .attr("height", 200)
-      .attr("x", 980)
+      .attr("x", 900)
       .attr("y",0);
 
     d3.select("#party_ID")
       .transition()
-      .attr("xlink:href", "/1er tour/attachment_pollster/myparty_"+myparty[d.name].replace(" ", "_")+".jpeg")
+      .attr("xlink:href", "attachment_pollster/myparty_"+myparty[d.name].replace(" ", "_")+".jpeg")
       .attr("width", 135)
       .attr("height", 126)
-      .attr("x", 980)
+      .attr("x", 900)
       .attr("y",250);
 
 
@@ -395,14 +422,14 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
 
       .on("mouseout", function(d){
 
-        d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
+        d3.select("#line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""))
           .transition()
           .style("stroke-width", 2);
 
       }) 
 
 // min date 
-var date1 = new Date(2016, 9);
+var date1 = new Date(2016, 10, 25);
 //search max date 
 array_date = data.map(function(d) { 
         return d.date ; 
@@ -639,6 +666,7 @@ var value_button = 0 ;
 		return d3.max(maxYValues) + 1
 	} ;
 
+d3.select(window).on('resize',resize);
   
   }
 

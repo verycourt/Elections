@@ -2,13 +2,19 @@ var marginhist = {top: 60, right: 120, bottom: 0, left: 80},
     widthhist = 1000 - marginhist.left - marginhist.right,
     heighthist = 370 - marginhist.top - marginhist.bottom;
 
+var colorhist = d3.scale.ordinal()
+     .domain(["Hamon","Macron","Bayrou","Fillon",
+	"Melenchon","Valls","MLP"])
+     .range(["#CC3399","#A9A9A9","#A9A9A9","#0000CC",
+	  "#FF0000",  "#CC3399","#000066"]);
+
 var xhist = d3.scale.linear()
     .range([0, widthhist]);
 
 var barhistHeight = 20;
 
-var colorhist = d3.scale.ordinal()
-    .range(["steelblue", "#336ac4"]);
+
+
 
 var durationhist = 750,
     delay = 25;
@@ -20,7 +26,7 @@ var xAxishist = d3.svg.axis()
     .scale(xhist)
     .orient("top");
 
-var svghist = d3.select("#twittermentions").append("svg")
+var svghist = d3.select("body").append("svg")
     .attr("width", widthhist + marginhist.left + marginhist.right)
     .attr("height", heighthist + marginhist.top + marginhist.bottom)
   .append("g")
@@ -106,7 +112,7 @@ function down(d, i) {
   // Transition entering rects to the new x-scale.
   enterTransition.select("rect")
       .attr("width", function(d) { return xhist(d.value); })
-      .style("fill", function(d) { return colorhist(!!d.children); });
+      .style("fill", function(d) { return colorhist(d.name); });
 
   // Transition exiting bars to fade out.
   var exitTransition = exit.transition()
@@ -214,6 +220,14 @@ function bar(d) {
   bar.append("rect")
       .attr("width", function(d) { return xhist(d.value); })
       .attr("height", barhistHeight);
+
+	bar.append("text")
+	  .attr("x", function(d) { return xhist(d.value); })
+	  .attr("y", barhistHeight / 2)
+	  .attr("dy", ".35em")
+	  .style("font-weight", "bold")
+	  .style("text-anchor", "auto")
+	  .text(function(d) { return d.value; });
 
   return bar;
 }
