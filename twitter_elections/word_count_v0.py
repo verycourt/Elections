@@ -6,9 +6,9 @@ import re
 import unicodedata
 from nltk import word_tokenize
 import string
+import tokenizer
 from collections import Counter 
 from nltk.corpus import stopwords
-import tokenizer 
 from stop_words import get_stop_words
 from pytagcloud import create_tag_image, make_tags
 import time

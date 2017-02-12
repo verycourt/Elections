@@ -2,7 +2,7 @@ var data_json;
 var fname = "candidats_A_1d.json"
 var linechart_title = "La tendance en live"
 
-$.getJSON("./data/" + fname, function(json) {
+$.getJSON("/gtrends/data/" + fname, function(json) {
 	// Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
 	data_json = json; 
 
@@ -135,10 +135,10 @@ $.getJSON("./data/" + fname, function(json) {
 		legend: {
 			display: false
 		},
-		responsive: false,
+		responsive: true,
 		scales: {
 			xAxes: [{
-				display: false
+				display: true
 			}],
 			yAxes: [{
 				ticks: {

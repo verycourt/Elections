@@ -24,10 +24,10 @@ function dashboard2(id, fData){
             
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
-            //.attr("width", hGDim.w + hGDim.l + hGDim.r+30)
-            //.attr("height", hGDim.h + hGDim.t + hGDim.b+30).append("g")
-            .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")")
-            .attr("viewBox","0 0 2400 700","preserveAspectRatio", "xMidYMid")
+            .attr("width", "50%")
+            .attr("height", "50%")
+            .attr("viewBox","-25 -20 600 400","preserveAspectRatio", "xminYmin")
+	    .append("g")
 	    .attr("id","histo")	    
 		// create function for x-axis mapping.
         var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
@@ -37,13 +37,13 @@ function dashboard2(id, fData){
         // Add x-axis to the histogram svg.
         hGsvg.append("g").attr("class", "x axis")
             .attr("transform", "translate(0," + hGDim.h + ")")
-	    .style("font-size","0.7vw")
-            .call(d3.svg.axis().scale(x).orient("bottom"));
-
-	hGsvg.select("x axis")
+            .call(d3.svg.axis().scale(x)) 
 	     .selectAll("text")
-             .attr("transform","rotate(-65)")
-	     .style("font-size","0.7vw");
+	     .style("text-anchor","end")
+	     .attr("dx","-2em")
+  	     //.attr("dy",".1em")
+             .attr("transform",function(d) { return "rotate(-65)"})
+	     .style("font-size","1vw");
 
         // Create function for y-axis map.
         var y = d3.scale.linear().range([hGDim.h, 0])
@@ -63,12 +63,12 @@ function dashboard2(id, fData){
             .attr("width", x.rangeBand())
             .attr("height", function(d) { return hGDim.h - y(d[1]); })
             .attr('fill',barColor)
+      	    .style("stroke-linecap","round")
             .on("mouseover",mouseover)// mouseover is defined below.
             .on("mouseout",mouseout);// mouseout is defined below.
             
         //Create the frequency labels above the rectangles.
         bars.append("text").text(function(d){ return d3.format(",")(d[1])})
-			.style("font-family", "sans-serif")
             .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
             .attr("y", function(d) { return y(d[1])-5; })
             .attr("text-anchor", "middle");
@@ -76,14 +76,14 @@ function dashboard2(id, fData){
 		
 		bars.append("text")
             .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (hGDim.w/2) +","+(hGDim.h+(40))+")")  // centre below axis
-            .style("font-family", "sans-serif").text("Date du sondage");	
+            .attr("transform", "translate("+ (hGDim.w/2) +","+(hGDim.h+(20))+")")  // centre below axis
+            .style("font-family", "arial").text("Date du sondage");	
 			
 			
 		bars.append("text")
             .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (0) +","+(hGDim.h/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
-            .style("font-size","0.8vw").style("font-family", "sans-serif")
+            .attr("transform", "translate("+ (-10) +","+(hGDim.h/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .style("font-size","1.1vw").style("font-family", "arial")
 			.text("Intention de vote pour le candidat (en %)");
         function mouseover(d){  // utility function to be called on mouseover.
             // filter for selected state.
@@ -92,7 +92,7 @@ function dashboard2(id, fData){
                
             // call update functions of pie-chart and legend.    
             pC.update(nD);
-            leg.update(nD);
+            //leg.update(nD);
         }
         
         function mouseout(d){    // utility function to be called on mouseout.
@@ -134,9 +134,9 @@ function dashboard2(id, fData){
 	
         // create svg for pie chart.
         var piesvg = d3.select(id).append("svg")
-            .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
-            .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
-        
+        	.attr("width","45%").attr("height", "50%").attr("viewBox","-300 -350 600 600","preserveAspectRatio","xminYmin")
+		.append("g")
+	//.attr("transform", "translate("+"300"+","+"50"+")");
         // create function to draw the arcs of the pie slices.
         var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
 
@@ -157,8 +157,7 @@ function dashboard2(id, fData){
 										d.innerRadius = 40;
 										d.outerRadius = 40;
 										var c  =arc.centroid(d);
-										return "translate(" + c[0] + "," + c[1] + ")";
-									})
+										return "translate(" + c[0] + "," + c[1] + ")";									})
 							.attr("text-anchor","middle")
 							.style("font-size","0.8vw")
 							.style("font-weight", "bold")
@@ -167,7 +166,7 @@ function dashboard2(id, fData){
 		
 		svg.append("svg:text")
 			.attr("text-anchor", "middle")// this makes it easy to centre the text as the transform is applied to the anchor
-            .style("font-size","0.9vw")
+            .style("font-size","1.1vw")
 			.attr("transform", "translate("+ (0) +","+(pieDim.r+10)+")")  // centre below axis
             .style("font-family", "sans-serif").text("Intentions de vote à la date sélectionnée");	
 			
@@ -204,10 +203,12 @@ function dashboard2(id, fData){
         var leg = {};
             
         // create table for legend.
-        var legend = d3.select(id).append("table").attr('class','legend');
+        var legend = d3.select(id).append("table")
+        .attr("transform", "translate(15%,-500)")
+	.attr('class','legend');
         
         // create one row per segment.
-        var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
+   //     var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
             
 		
         // create the first column for each segment.
@@ -215,7 +216,7 @@ function dashboard2(id, fData){
             .attr("width", '16').attr("height", '16')
 			.attr("fill",function(d){ return segColor(d.type); })
 			.on("mouseover",mouseover);
-            
+         
         // create the second column for each segment.
         //tr.append("td").text(function(d){ return d.type;});
 
@@ -249,7 +250,7 @@ function dashboard2(id, fData){
 				
         }
 
-        return leg;
+   //     return leg;
     }
     
     // calculate total frequency by segment for all state.
@@ -261,8 +262,8 @@ function dashboard2(id, fData){
     var sF = fData.map(function(d){return [d.date,d[names[1]]];});
 
     var hG = histoGram(sF), // create the histogram.
-        pC = pieChart(tF), // create the pie-chart.
-        leg= legend(tF);  // create the legend.
+        pC = pieChart(tF); // create the pie-chart.
+        //leg= legend(tF);  // create the legend.
 }
 
 

@@ -13,9 +13,6 @@ var xhist = d3.scale.linear()
 
 var barhistHeight = 20;
 
-
-
-
 var durationhist = 750,
     delay = 25;
 
@@ -26,23 +23,12 @@ var xAxishist = d3.svg.axis()
     .scale(xhist)
     .orient("top");
 
-var svghist = d3.select("body").append("svg")
-    .attr("width", widthhist + marginhist.left + marginhist.right)
-    .attr("height", heighthist + marginhist.top + marginhist.bottom)
-  .append("g")
-    .attr("transform", "translate(" + marginhist.left + "," + marginhist.top + ")");
-
-
-  svghist.append("text")
-      .attr("y", -40)
-      .attr("x", 369)
-      .style("text-anchor", "middle")
-      .style("font-weight","bold")
-      .style("font-size","25px")
-      .style("fill", "#000000")
-      .text("Mentions twitter par candidats sur 3 jours glissants");
-
-
+var svghist = d3.select("#twittermentions").append("svg")
+    .attr("width", "100%")
+    .attr("height", "50%")
+    .attr("viewBox","10 0 800 200")
+    .append("g")
+    .attr("transform", "translate(" + marginhist.left + "," + "5" + ")");
 
 
 svghist.append("rect")
@@ -74,7 +60,7 @@ function down(d, i) {
 
   // Mark any currently-displayed bars as exiting.
   var exit = svghist.selectAll(".enter")
-      .attr("class", "exit");
+      .attr("class", "exit").style("font-size","1.5vmin");
 
   // Entering nodes immediately obscure the clicked-on bar, so hide it.
   exit.selectAll("rect").filter(function(p) { return p === d; })
@@ -225,6 +211,7 @@ function bar(d) {
 	  .attr("x", function(d) { return xhist(d.value); })
 	  .attr("y", barhistHeight / 2)
 	  .attr("dy", ".35em")
+	  .style("font-size","2vmin")
 	  .style("font-weight", "bold")
 	  .style("text-anchor", "auto")
 	  .text(function(d) { return d.value; });
