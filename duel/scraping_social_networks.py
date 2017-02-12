@@ -26,7 +26,7 @@ def FacebookPageData(page_id, access_token):
     data = json.loads(response.read().decode('utf-8'))
     
     print('Facebook page :', data['name'])
-    return [data[metric] for metric in ['fan_count', 'talking_about_count']]
+    return [int(data[metric]) for metric in ['fan_count', 'talking_about_count']]
 
 def YoutubePageData(page_id, access_token):
     base = 'https://www.googleapis.com/youtube/v3/channels'
@@ -38,7 +38,7 @@ def YoutubePageData(page_id, access_token):
     data = json.loads(response.read().decode('utf-8'))
     statistics = data['items'][0]['statistics']
 
-    return [statistics[metric] for metric in ['subscriberCount', 'viewCount', 'videoCount']]
+    return [int(statistics[metric]) for metric in ['subscriberCount', 'viewCount', 'videoCount']]
 
 def YoutubeVideosData(page_id, access_token):
     base = 'https://www.googleapis.com/youtube/v3/search'
