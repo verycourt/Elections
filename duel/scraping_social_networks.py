@@ -100,7 +100,7 @@ for candidate in accounts:
     print('-' * 20)
 
     try: # Load or create DataFrame
-        df = pd.read_json('data/' + accounts[candidate][3] + '.json', orient='split')
+        df = pd.read_json(path + accounts[candidate][3] + '.json', orient='split')
     except:
         df = pd.DataFrame()
 
