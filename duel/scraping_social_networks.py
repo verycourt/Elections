@@ -42,7 +42,7 @@ def YoutubePageData(page_id, access_token):
 
 def YoutubeVideosData(page_id, access_token):
     base = 'https://www.googleapis.com/youtube/v3/search'
-    parameters = '?order=date&part=snippet&channelId=' + page_id + '&maxResults=5&key=' + access_token
+    parameters = '?order=date&part=snippet&channelId=' + page_id + '&maxResults=10&key=' + access_token
     url = base + parameters
     
     # retrieve list of the most recently published videos on the channel
@@ -131,7 +131,7 @@ for candidate in accounts:
             stats_yt, stats_yt2 = [0, 0, 0], [0, 0, 0]
 
         stats['yt_subscribers'], stats['yt_views'], stats['yt_videos'] = stats_yt
-        stats['yt_views_avg5'], stats['yt_likes_avg5'], stats['yt_dislikes_avg5'] = stats_yt2
+        stats['yt_views_avg'], stats['yt_likes_avg'], stats['yt_dislikes_avg'] = stats_yt2
             
         try: # Facebook : [likes, people talking about this]
             stats_fb = FacebookPageData(accounts[candidate][1], access_token)
