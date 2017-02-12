@@ -1,9 +1,31 @@
 
 var margin = {top: 50, right: 200, bottom: 100, left: 50},
-    margin2 = { top: 430, right: 20, bottom: 20, left: 40 },
-    width = 960 - margin.left - margin.right,
+    margin2 = { top: 430, right: 20, bottom: 20, left: 40 }, width = 1160 - margin.left - margin.right, 
     height = 500 - margin.top - margin.bottom,
     height2 = 500 - margin2.top - margin2.bottom;
+
+
+function resize() {
+/* Find the new window dimensions */
+var width = parseInt(d3.select("graph").style("width")) - margin*2,
+height = parseInt(d3.select("graph").style("height")) - margin*2;
+/* Update the range of the scale with new width/height */
+xScale.range([0, width]).nice(d3.time.year);
+yScale.range([height, 0]).nice();
+
+/* Update the axis with the new scale */
+/*graph.select('.x.axis')
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+*/
+graph.select('.y.axis')
+  .call(yAxis);
+
+/* Force D3 to recalculate and update the line */
+graph.selectAll('.line')
+  .attr("d", line);
+console.log(width,height);
+}
 
 var parseDate = d3.time.format("%Y%m%d").parse;
 
@@ -20,15 +42,14 @@ var yScale = d3.scale.linear()
 
 // 40 Custom DDV colors 
 var color = d3.scale.ordinal()
-      .domain(["Arnaud Montebourg", "Benoît Hamon","Cécile Duflot", "Emmanuel Macron",
-          "François Bayrou",  "François Fillon",  "François Hollande",  "Jacques Cheminade",
+      .domain(["Absention","Benoît Hamon", "Emmanuel Macron",
+          "François Bayrou",  "François Fillon", "Jacques Cheminade",
           "Jean-Luc Mélenchon", "Manuel Valls", "Marine Le Pen",  "Nathalie Arthaud",
-          "Nicolas Dupont-Aignan",  "Nicolas Hulot",  "Philippe Poutou",
-          "Sylvia Pinel", "Yannick Jadot"])
+          "Nicolas Dupont-Aignan",  "Philippe Poutou", "Yannick Jadot"])
 
-      .range(["#CC0066", "#CC3399","#008000", "#A9A9A9",
-          "#FF6600",  "#000080","#FF9999",  "#CC0000",
-          "#FF0000",  "#FF6699",  "#3399FF",  "#CC0033",
+      .range(["", "#b5059d","#4c474b", "#d6620a",
+          "#0a1bd6",  "#000080","#c60303",  "#b5059d",
+          "#05021e",  "#FF6699",  "#0f0259",  "#CC0033",
           "#0000CC",  "#66CC00",  "#990033",
           "#FF0066",  "#339900"]);
 
@@ -62,10 +83,15 @@ var line = d3.svg.line()
 var maxY; // Defined later to update yAxis
 
 var svg = d3.select("#dashboard-pollster").append("svg")
-    .attr("width", width + margin.left + margin.right + 300)
-    .attr("height", height + margin.top + margin.bottom) //height + margin.top + margin.bottom
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("id","graph")
+    //.attr("width", width + margin.left + margin.right + 300)
+    //.attr("height", height + margin.top + margin.bottom) //height + margin.top + margin.bottom
+    .attr("role","img")
+    //.attr("viewPort","0 0 "+1260+" "+ 800)
+    .attr("viewBox","0 0 "+ 1260 + " " + 550,"preserveAspectRatio", "xMidYMid")
+    .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+//svg.transition().attrTween("transform", function(d, i, a){return d3.interpolateString(a, 'scale(0.8)');});
 
 
 // Create invisible rect for mouse tracking
@@ -78,58 +104,42 @@ svg.append("rect")
     .style("fill", "white");
 
 // Add legend
-   svg.append("text")
-      .attr("y", height + 40)
-      .attr("x", 350)
-      .style("text-anchor", "middle")
-      .style("font-size","10px")
-      .style("fill", "#000000")
-      .text("Période de sondage");
 
 
 
    svg.append("text")
-      .attr("y", height + 55)
-      .attr("x", 350)
+      .attr("y", height + 65)
+      .attr("x", "40%")
       .style("text-anchor", "middle")
-      .style("font-size","8px")
+      .style("font-size","2.3vmax")
       .text("Faire glisser pour choisir une période (Ci-dessous)"); 
 
    	svg.append("text")
-      .attr("y", -40)
+      .attr("y", -35)
       .attr("x", -height / 2 )
       .attr("transform", function(d) {
                 return "rotate(-90)" 
                 })
       .style("text-anchor", "middle")
-      .style("font-size","10px")
+      .style("font-size","1.6vmax")
       .style("fill", "#000000")
-      .text("Pourcentage d'intentions de votes");
-
-  svg.append("text")
-      .attr("y", -22)
-      .attr("x", 350)
-      .style("text-anchor", "middle")
-      .style("font-weight","bold")
-      .style("font-size","25px")
-      .style("fill", "#000000")
-      .text("Pollster Election Présidentielle");
+      .text("Intentions de votes (%)");
 
    	svg.append("text")
-      .attr("y", -10)
-      .attr("x", 350)
+      .attr("y", "-3%")
+      .attr("x","40%")
       .style("font-style","italic")
       .style("text-anchor", "middle")
-      .style("font-size","8px")
+      .style("font-size","2vmax")
       .style("fill", "#000000")
-      .text("Aggrégation des sondages par date de parution");
+      .text("Agrégation des sondages par date de parution");
 
 
 
 //for slider part-----------------------------------------------------------------------------------
   
 var context = svg.append("g") // Brushing context box container
-    .attr("transform", "translate(" + 0 + "," + 410 + ")")
+    .attr("transform", "translate(" + 0 + "," + 450 + ")")
     .attr("class", "context");
 
 //append clip path for lines plotted, hiding those part out of bounds
@@ -180,11 +190,11 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
     .x(xScale2) 
     .on("brush", brushed);
 
-  context.append("g") // Create brushing xAxis
+  /*context.append("g") // Create brushing xAxis
       .attr("class", "x axis1")
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
-
+*/
   var contextArea = d3.svg.area() // Set attributes for area chart in brushing context graph
     .interpolate("monotone")
     .x(function(d) { return xScale2(d.date); }) // x is scaled to xScale2
@@ -209,11 +219,13 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
   // draw line graph
   svg.append("g")
       .attr("class", "x axis")
+      .style("font-size","1.6vmax")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
   svg.append("g")
       .attr("class", "y axis")
+      .style("font-size","1.4vmax")
       .call(yAxis)
   
 
@@ -228,16 +240,16 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
   // we create an empty object 
   issue.append("svg:image")
       .attr("id","pict_ID")
-      .attr("width", 133)
-      .attr("height", 200)
-      .attr("x", 980)
+      .attr("width", "5%")
+      .attr("height", "20%")
+      .attr("x", "90%")
       .attr("y",0);
 
   issue.append("svg:image")
       .attr("id","party_ID")
-      .attr("width", 133)
-      .attr("height", 200)
-      .attr("x", 980)
+      .attr("width", "5%")
+      .attr("height", "0%")
+      .attr("x", "80%")
       .attr("y",0);
 
 
@@ -245,7 +257,7 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
       .attr("class", "line")
       .style("pointer-events", "none") // Stop line interferring with cursor
       .attr("id", function(d) {
-        return "line-" + d.name.replace(" ", "").replace("/", ""); // Give line id of line-(insert issue name, with any spaces replaced with no spaces)
+        return "line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""); // Give line id of line-(insert issue name, with any spaces replaced with no spaces)
       })
       .attr("d", function(d) { 
         return d.visible ? line(d.values) : null; // If array key "visible" = true then draw line, if not then don't 
@@ -297,7 +309,7 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
           .transition()
           .attr("fill", function(d) { return color(d.name); });
 
-        d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
+        d3.select("#line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""))
           .transition()
           .style("stroke-width", 5);  
 
@@ -305,19 +317,19 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
 
       d3.select("#pict_ID")
         .transition()
-      .attr("xlink:href", "/1er tour/attachment_pollster/pict_"+d.name.replace(" ", "_")+".jpeg")
-      .attr("width", 133)
-      .attr("height", 200)
-      .attr("x", 980)
+      .attr("xlink:href", "/1er tour/attachment_pollster/pict_"+d.name.replace(" ", "_").replace(" ","")+".jpeg")
+      .attr("width", "10%")
+      .attr("height", "20%")
+      .attr("x", "90%")
       .attr("y",0);
 
     d3.select("#party_ID")
       .transition()
       .attr("xlink:href", "/1er tour/attachment_pollster/myparty_"+myparty[d.name].replace(" ", "_")+".jpeg")
-      .attr("width", 135)
-      .attr("height", 126)
-      .attr("x", 980)
-      .attr("y",250);
+      .attr("width", "10%")
+      .attr("height", "10%")
+      .attr("x","80%")
+      .attr("y","10%");
 
 
       })
@@ -329,7 +341,7 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
           .attr("fill", function(d) {
           return d.visible ? color(d.name) : "#F1F1F2";});
 
-        d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
+        d3.select("#line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""))
           .transition()
           .style("stroke-width", 2);
 
@@ -370,39 +382,39 @@ d3.tsv("/1er tour/data.tsv", function(error, data) {
       })
       .on("mouseover", function(d){
 
-        d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
+        d3.select("#line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""))
           .transition()
           .style("stroke-width", 5);  
 
       d3.select("#pict_ID")
         .transition()
-      .attr("xlink:href", "/1er tour/attachment_pollster/pict_"+d.name.replace(" ", "_")+".jpeg")
-      .attr("width", 133)
-      .attr("height", 200)
-      .attr("x", 980)
+      .attr("xlink:href", "/1er tour/attachment_pollster/pict_"+d.name.replace(" ", "_").replace(" ","_")+".jpeg")
+      .attr("width", "15%")
+      .attr("height", "20%")
+      .attr("x", "84%")
       .attr("y",0);
 
     d3.select("#party_ID")
       .transition()
       .attr("xlink:href", "/1er tour/attachment_pollster/myparty_"+myparty[d.name].replace(" ", "_")+".jpeg")
-      .attr("width", 135)
-      .attr("height", 126)
-      .attr("x", 980)
-      .attr("y",250);
+      .attr("width", "7%")
+      .attr("height", "10%")
+      .attr("x", "88%")
+      .attr("y","25%");
 
 
       })
 
       .on("mouseout", function(d){
 
-        d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
+        d3.select("#line-" + d.name.replace(" ", "").replace(" ","").replace("/", ""))
           .transition()
           .style("stroke-width", 2);
 
       }) 
 
 // min date 
-var date1 = new Date(2016, 9);
+var date1 = new Date(2016, 10, 25);
 //search max date 
 array_date = data.map(function(d) { 
         return d.date ; 
@@ -415,8 +427,8 @@ svg.select(".brush").
 
 
 // Cocher some rect au chargement de la page 
-array_name_start = ["Arnaud Montebourg", "Benoît Hamon", "Emmanuel Macron",
-          "François Fillon", "Jean-Luc Mélenchon", "Manuel Valls", "Marine Le Pen"]
+array_name_start = ["François Bayrou", "Benoît Hamon", "Emmanuel Macron",
+          "François Fillon", "Jean-Luc Mélenchon", "Marine Le Pen"]
 
 categories.forEach(function(d){
 
@@ -639,6 +651,7 @@ var value_button = 0 ;
 		return d3.max(maxYValues) + 1
 	} ;
 
+d3.select(window).on('resize',resize);
   
   }
 

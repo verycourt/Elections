@@ -10,22 +10,141 @@ Index([u'Abstention', u'Alain Juppé', u'Arnaud Montebourg', u'Benoît Hamon',
        u'Sondeur', u'Sylvia Pinel', u'Vincent Peillon', u'Yannick Jadot',
        u'Échantillon'],
       dtype='object')
-[u'Alain Jupp\xe9', u'Bruno Le Maire', u'Jean-Fran\xe7ois Cop\xe9', u'Nicolas Sarkozy', u'\xc9va Joly', u'Sylvia Pinel', u'Vincent Peillon', u'Arnaud Montebourg']
+[u'Alain Jupp\xe9', u'Bruno Le Maire', u'Jean-Fran\xe7ois Cop\xe9', u'Nicolas Sarkozy', u'Eva Joly', u'Sylvia Pinel', u'Vincent Peillon', u'Arnaud Montebourg']
+          Abstention  Benoît Hamon  Emmanuel Macron  François Asselineau  \
+date                                                                       
+20161125         NaN           NaN            13.00                  NaN   
+20161127         NaN           NaN            13.50                  NaN   
+20161129         NaN           NaN            15.00                  NaN   
+20170104         NaN          6.00            19.50                  NaN   
+20170106         NaN          6.00            18.00                  NaN   
+20170108         NaN          6.00            18.00                  NaN   
+20170115         NaN          7.00            19.00                  NaN   
+20170120         NaN          8.00            19.00                  NaN   
+20170127         NaN         14.00            20.50                  NaN   
+20170131         NaN         16.50            22.50                  NaN   
+20170201        37.0         18.00            20.00                  NaN   
+20170202         NaN         16.50            21.50                  NaN   
+20170205         NaN         14.00            23.00                  NaN   
+20170206        39.0         15.50            20.50                  NaN   
+20170208        36.0         15.25            22.75                  NaN   
+20170208         NaN         15.00            21.00                  NaN   
+20170209        38.0         15.00            21.00                  NaN   
+20170210         NaN           NaN              NaN                  NaN   
+
+          François Bayrou  François Fillon  Jacques Cheminade  Jean Lassalle  \
+date                                                                           
+20161125             6.00            32.00                NaN            NaN   
+20161127             6.50            26.00                NaN            NaN   
+20161129             5.50            30.50                NaN            NaN   
+20170104             7.75            24.75                NaN            NaN   
+20170106             6.25            24.25               0.25            NaN   
+20170108             5.50            24.00                NaN            NaN   
+20170115             5.00            24.00               0.50            NaN   
+20170120              NaN            25.50               0.50            NaN   
+20170127             5.00            21.50               0.50            NaN   
+20170131             4.00            19.50                NaN            NaN   
+20170201             4.50            21.00               0.50            NaN   
+20170202             5.00            19.00                NaN            NaN   
+20170205              NaN            20.00                NaN            NaN   
+20170206             5.00            18.50               0.00            NaN   
+20170208             5.00            17.50                NaN            NaN   
+20170208             5.00            19.50                NaN            NaN   
+20170209             5.50            17.50               0.00            NaN   
+20170210              NaN              NaN                NaN            NaN   
+
+          Jean-Luc Mélenchon  Manuel Valls  Marine Le Pen  Martine Aubry  \
+date                                                                       
+20161125               12.00           NaN          22.00            NaN   
+20161127               14.00           9.0          24.00            NaN   
+20161129               12.00           9.0          24.00            NaN   
+20170104               13.88          12.5          23.00            NaN   
+20170106               11.75          10.5          26.00            NaN   
+20170108               12.75          11.0          25.50            NaN   
+20170115               14.33           9.5          25.33            NaN   
+20170120               14.00           9.0          27.00            NaN   
+20170127               10.00           NaN          25.00            NaN   
+20170131               10.00           NaN          26.50            NaN   
+20170201                9.00           NaN          24.00            NaN   
+20170202               11.25           NaN          25.00            NaN   
+20170205               11.00           NaN          26.00            NaN   
+20170206               10.00           NaN          25.50            NaN   
+20170208               12.50           NaN          25.75            NaN   
+20170208               12.50           NaN          24.00            NaN   
+20170209               10.50           NaN          26.00            NaN   
+20170210                 NaN           NaN            NaN            NaN   
+
+          Nathalie Arthaud  Nicolas Dupont-Aignan  Olivier Besancenot  \
+date                                                                    
+20161125              2.00                   2.00                 NaN   
+20161127              1.00                   2.50                 NaN   
+20161129              0.50                   2.00                 NaN   
+20170104              1.00                   1.50                 NaN   
+20170106              0.75                   1.50                 NaN   
+20170108              1.00                   1.50                 NaN   
+20170115              1.00                   2.50                 NaN   
+20170120              1.00                   2.00                 NaN   
+20170127              0.50                   3.25                 NaN   
+20170131              0.50                   1.00                 NaN   
+20170201              0.50                   2.00                 NaN   
+20170202              0.50                   2.00                 NaN   
+20170205              0.00                   3.00                 NaN   
+20170206              0.50                   2.50                 NaN   
+20170208              0.50                   1.75                 NaN   
+20170208              0.25                   3.00                 NaN   
+20170209              0.50                   2.50                 NaN   
+20170210               NaN                    NaN                 NaN   
+
+          Philippe Poutou  Philippe de Villiers  Pourrait changer d'avis  \
+date                                                                       
+20161125             1.00                   NaN                      NaN   
+20161127             1.00                   NaN                      NaN   
+20161129             1.00                   NaN                      NaN   
+20170104             2.00                   NaN                      NaN   
+20170106             1.00                   NaN                      NaN   
+20170108             0.75                   NaN                      NaN   
+20170115             1.00                   NaN                      NaN   
+20170120             1.00                   NaN                      NaN   
+20170127             0.50                   NaN                      NaN   
+20170131             0.50                   NaN                      NaN   
+20170201             0.50                   NaN                      NaN   
+20170202             0.50                   NaN                      NaN   
+20170205             1.00                   NaN                      NaN   
+20170206             1.00                   NaN                      NaN   
+20170208             0.50                   NaN                      NaN   
+20170208             1.00                   NaN                      NaN   
+20170209             0.00                   NaN                      NaN   
+20170210              NaN                   NaN                      NaN   
+
+          Yannick Jadot  
+date                     
+20161125           2.00  
+20161127           2.50  
+20161129           1.50  
+20170104           1.25  
+20170106           2.00  
+20170108           2.50  
+20170115           2.50  
+20170120           2.00  
+20170127           2.00  
+20170131           1.00  
+20170201           1.00  
+20170202           1.25  
+20170205           2.00  
+20170206           1.00  
+20170208           1.00  
+20170208           1.50  
+20170209           1.50  
+20170210            NaN  
 Traceback (most recent call last):
-  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 117, in <module>
-    dfF2 = dfF2[dfF2[col].isnull()]
-  File "/usr/local/lib/python2.7/dist-packages/pandas/core/frame.py", line 2059, in __getitem__
-    return self._getitem_column(key)
-  File "/usr/local/lib/python2.7/dist-packages/pandas/core/frame.py", line 2066, in _getitem_column
-    return self._get_item_cache(key)
-  File "/usr/local/lib/python2.7/dist-packages/pandas/core/generic.py", line 1386, in _get_item_cache
-    values = self._data.get(item)
-  File "/usr/local/lib/python2.7/dist-packages/pandas/core/internals.py", line 3541, in get
-    loc = self.items.get_loc(item)
-  File "/usr/local/lib/python2.7/dist-packages/pandas/indexes/base.py", line 2136, in get_loc
-    return self._engine.get_loc(self._maybe_cast_indexer(key))
-  File "pandas/index.pyx", line 139, in pandas.index.IndexEngine.get_loc (pandas/index.c:4443)
-  File "pandas/index.pyx", line 161, in pandas.index.IndexEngine.get_loc (pandas/index.c:4289)
-  File "pandas/src/hashtable_class_helper.pxi", line 732, in pandas.hashtable.PyObjectHashTable.get_item (pandas/hashtable.c:13733)
-  File "pandas/src/hashtable_class_helper.pxi", line 740, in pandas.hashtable.PyObjectHashTable.get_item (pandas/hashtable.c:13687)
-KeyError: u'\xc9va Joly'
+  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 157, in <module>
+    dfF4.to_json(path1+"pollster1.json", force_ascii=False)
+  File "/usr/local/lib/python2.7/dist-packages/pandas/core/generic.py", line 1089, in to_json
+    lines=lines)
+  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 39, in to_json
+    date_unit=date_unit, default_handler=default_handler).write()
+  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 72, in __init__
+    self._format_axes()
+  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 105, in _format_axes
+    "'%s'." % self.orient)
+ValueError: DataFrame index must be unique for orient='columns'.

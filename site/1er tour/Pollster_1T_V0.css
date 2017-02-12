@@ -3,6 +3,12 @@ body {
 
 }
 
+graph {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
 .axis path,
 .axis line, 
 .axis1 path,
@@ -58,20 +64,12 @@ body {
 
 .button {
   margin-top:30px;
-  padding: 5px 15px;
-  font-size: 10px;
-  text-align: center;
   cursor: pointer;
   outline: none;
-  color: red;
   background-color: #ff3333;
   border: none;
   border-radius: 15px;
   box-shadow: 0 5px #999;
-  float:left;
-  position : absolute;
-  top:100px;
-  left : 810px;
 }
 
 .button:hover {background-color:  #ff9999}

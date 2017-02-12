@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+	
+	<head>
+		<title>2nd tour Marine Le Pen vs Emmanuel Macron</title>
+		<!-- si besoin, rajouter une feuille de style css via une balise link ici -->
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+	</head>
 
-<head>
-<link rel="stylesheet" type="text/css" href="styles.css">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-
-<h1 style="font-family: sans-serif">Second tour : hypotèse Marine Le Pen VS Emmanuel Macron</h1>
-
-<body>
-<div id='dashboard'>
-</div>
-
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
-
-<script src="graphes.js"> </script>
-
-
-<script>afficher('mlpVSem.tsv')</script>
+	<body>	
+		<div class="col-md-16 panel panel-default">
+			<div class="col-md-16 panel-heading" style="text-align:center;">
+				<h2 class="text-center"> Second tour : hypothèse Marine Le Pen VS Emmanuel Macron</h2></div>
+				<div class="col-md-16 panel panel-body" id="dashboard" style="text-align:left;">
+				<script src="graphes.js"> </script>
+				<script>afficher("mlpVSem.tsv")</script>
+				</div>
+		</div>
+	</body>
+</html>

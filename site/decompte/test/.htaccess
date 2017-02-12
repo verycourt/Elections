@@ -1,4 +1,0 @@
-AuthUserFile /var/www/html/decompte/test/.htpasswd
-AuthName "Accès protégé"
-AuthType Basic
-Require valid-user
