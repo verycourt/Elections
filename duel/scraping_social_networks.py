@@ -67,19 +67,19 @@ def YoutubeVideosData(page_id, access_token):
     return [videoStats[metric] for metric in ['viewCount', 'likeCount', 'dislikeCount']]
 
 
-# Youtube, Facebook, Twitter, fichier .json de sauvegarde
-accounts = {'Alliot-Marie': [None, 'MAlliotMarie', 'MAlliotMarie', 'MAM'],
-           'Arthaud': ['UCZsh-MrJftAOP_-ZgRgLScw', 'nathaliearthaud', 'n_arthaud', 'NAR'],
-           'Bayrou': [None, 'bayrou', 'bayrou', 'FBA'],
-           'Cheminade': ['UCCPw8MX-JcsiTzItY-qq1Fg', 'Jcheminade', 'Jcheminade', 'JCH'],
-           'Dupont-Aignan': ['UCfA5DnCDX3Ixy5QOAMGtBlA', 'nicolasdupontaignan', 'dupontaignan', 'NDA'],
-           'Fillon': ['UCp1R4BFJrKw34PfUc3GDLkw', 'FrancoisFillon', 'francoisfillon', 'FFI'],
-           'Hamon': ['UCcMryUp6ME3BvP2alkS1dKg', 'hamonbenoit', 'benoithamon', 'BHA'],
-           'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot', 'YJA'],
-           'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel', 'MLP'],
-           'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EnMarche', 'enmarchefr', 'EMA'],
-           'Melenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon', 'JLM'],
-           'Poutou': [None, 'poutou.philippe', 'PhilippePoutou', 'PPO']}
+# {Candidat : [Chaine Youtube, Compte Facebook, Compte Twitter]}
+accounts = {'Alliot-Marie': [None, 'MAlliotMarie', 'MAlliotMarie'],
+           'Arthaud': ['UCZsh-MrJftAOP_-ZgRgLScw', 'nathaliearthaud', 'n_arthaud'],
+           'Bayrou': [None, 'bayrou', 'bayrou'],
+           'Cheminade': ['UCCPw8MX-JcsiTzItY-qq1Fg', 'Jcheminade', 'Jcheminade'],
+           'Dupont-Aignan': ['UCfA5DnCDX3Ixy5QOAMGtBlA', 'nicolasdupontaignan', 'dupontaignan'],
+           'Fillon': ['UCp1R4BFJrKw34PfUc3GDLkw', 'FrancoisFillon', 'francoisfillon'],
+           'Hamon': ['UCcMryUp6ME3BvP2alkS1dKg', 'hamonbenoit', 'benoithamon'],
+           'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot'],
+           'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel'],
+           'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EnMarche', 'enmarchefr'],
+           'Melenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
+           'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']}
 
 app_id = "615202351999343"
 app_secret = "ea787efd843d1de746817ec6e9bf7e94"
@@ -99,13 +99,14 @@ for candidate in accounts:
     print('-' * 20)
 
     stats = {}
-    try: # Twitter : [tweets, following, followers]
+    try: # Twitter : [tweets, followers]
         print('Analyzing Twitter account', accounts[candidate][2])
         soup = BeautifulSoup(requests.get('https://twitter.com/' + accounts[candidate][2] + '?lang=en').text, 'lxml')
         stats_tw = [int(tag.attrs['title'].replace(',', '').split(' ')[0])
                     for tag in soup.find_all(class_='ProfileNav-stat', limit=3) if 'title' in tag.attrs]
     except:
         stats_tw = ['-', '-', '-']
+        print('Profil Twitter : une erreur est survenue...')
 
     stats['1_tw_tweets'], _, stats['0_tw_followers'] = stats_tw
 
@@ -115,10 +116,12 @@ for candidate in accounts:
             stats_yt = YoutubePageData(accounts[candidate][0], google_key)
         except:
             stats_yt = ['-', '-', '-']
+            print('Page Youtube : une erreur est survenue...')
         try: # Youtube [moyenne vues 5 vidéos, moyenne likes 5 vidéos, moyenne dislikes 5 vidéos]
             stats_yt2 = YoutubeVideosData(accounts[candidate][0], google_key)
         except:
             stats_yt2 = ['-', '-', '-']
+            print('Vidéos Youtube : une erreur est survenue...')
     else:
         print('No Youtube Channel')
         stats_yt, stats_yt2 = [0, 0, 0], [0, 0, 0]
@@ -130,17 +133,16 @@ for candidate in accounts:
         stats_fb = FacebookPageData(accounts[candidate][1], access_token)
     except:
         stats_fb = ['-', '-']
+        print('Page Facebook : une erreur est survenue...')
 
     stats['8_fb_likes'], stats['9_fb_talking_about'] = stats_fb
 
     print()
-    print('Collected data')
     print(stats)
-    print()
     
     # ajout de la ligne du candidat dans le dataframe
-    rec = pd.DataFrame([stats.values()], columns=stats.keys(), index=[accounts[candidate][3]])
+    rec = pd.DataFrame([stats.values()], columns=stats.keys(), index=[candidate])
     df = df.append(rec, verify_integrity=False)
 
-# sauvegarde des données (les colonnes de la table sont trièes par ordre alphabétique)
-df.sort_index(axis=1).to_json(path + str(today) + '.json', orient='split')
+# sauvegarde des données
+df.sort_index(axis=0).sort_index(axis=1).to_json(path + str(today) + '.json', orient='split')
