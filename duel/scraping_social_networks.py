@@ -87,10 +87,8 @@ access_token = app_id + "|" + app_secret
 google_key = 'AIzaSyBkRrj_kFDUv-T76CJaI3Pd-g3v7UY4GMA'
 
 today = date.today()
-print(today)
-
-path = 'data/' # save path
-# path = '/var/www/html/duel/data/'
+# path = 'data/' # save path
+path = '/var/www/html/duel/data/'
 
 df = pd.DataFrame()
 print('Maj du', today)
@@ -109,7 +107,7 @@ for candidate in accounts:
     except:
         stats_tw = ['-', '-', '-']
 
-    stats['tw_tweets'], stats['tw_following'], stats['tw_followers'] = stats_tw
+    stats['1_tw_tweets'], _, stats['0_tw_followers'] = stats_tw
 
     if accounts[candidate][0] is not None:
         print('Scanning Youtube Channel')
@@ -125,15 +123,15 @@ for candidate in accounts:
         print('No Youtube Channel')
         stats_yt, stats_yt2 = [0, 0, 0], [0, 0, 0]
 
-    stats['yt_subscribers'], stats['yt_views'], stats['yt_videos'] = stats_yt
-    stats['yt_views_avg'], stats['yt_likes_avg'], stats['yt_dislikes_avg'] = stats_yt2
+    stats['2_yt_subscribers'], stats['6_yt_views'], stats['7_yt_videos'] = stats_yt
+    stats['3_yt_views_avg'], stats['4_yt_likes_avg'], stats['5_yt_dislikes_avg'] = stats_yt2
 
     try: # Facebook : [likes, people talking about this]
         stats_fb = FacebookPageData(accounts[candidate][1], access_token)
     except:
         stats_fb = ['-', '-']
 
-    stats['fb_likes'], stats['fb_talking_about'] = stats_fb
+    stats['8_fb_likes'], stats['9_fb_talking_about'] = stats_fb
 
     print()
     print('Collected data')
@@ -144,5 +142,5 @@ for candidate in accounts:
     rec = pd.DataFrame([stats.values()], columns=stats.keys(), index=[accounts[candidate][3]])
     df = df.append(rec, verify_integrity=False)
 
-# sauvegarde des données
-df.to_json(path + str(today) + '.json', orient='split')
+# sauvegarde des données (les colonnes de la table sont trièes par ordre alphabétique)
+df.sort_index(axis=1).to_json(path + str(today) + '.json', orient='split')
