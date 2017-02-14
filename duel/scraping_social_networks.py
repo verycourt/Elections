@@ -87,8 +87,8 @@ access_token = app_id + "|" + app_secret
 google_key = 'AIzaSyBkRrj_kFDUv-T76CJaI3Pd-g3v7UY4GMA'
 
 today = (datetime.utcnow() + timedelta(hours=1)).date()
-path = 'data/' # save path
-# path = '/var/www/html/duel/data/'
+# path = 'data/' # save path
+path = '/var/www/html/duel/data/'
 
 df = pd.DataFrame()
 print('Maj du', today)
