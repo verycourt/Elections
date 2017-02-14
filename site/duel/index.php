@@ -11,7 +11,10 @@
 
 	<body>	
 		<header><?php include "/var/www/html/site_header.html";?></header>
+		<div>
+			<canvas id="myChart" width="350" height="200"></canvas>
+		</div>
 
-		<!-- rajouter le body souhaite ici -->
+		<script src="radar.js" type="text/javascript"></script>
 	</body>
 </html>

@@ -18,8 +18,6 @@
 			<canvas id="myBarChart" width="150" height="200"></canvas>
 		</div>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<p> Source des données : Google Trends (www.google.com/trends). </p>
 		<script src="js/candidats_A.js" type="text/javascript"></script>
 

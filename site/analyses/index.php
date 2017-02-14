@@ -2,9 +2,9 @@
 <html>
 
 	<head>
-		<title>DataPrez Le Point</title>
+		<title>Les Articles et Analyses</title>
 		<?php include "/var/www/html/site_head.html";?>
-		<style><?php include "/var/www/html/site_style.css";?></style>
+		<style><?php include "/var/www/html/header_style.css";?></style>
 	</head>
 
 	<body>	

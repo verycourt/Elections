@@ -135,7 +135,7 @@ $.getJSON("/gtrends/data/" + fname, function(json) {
 		legend: {
 			display: false
 		},
-		responsive: true,
+		responsive: false,
 		scales: {
 			xAxes: [{
 				display: true

@@ -13,13 +13,13 @@
 		<div class="col-md-16 panel panel-default">
 			<div class="panel panel-heading text-center"><h5>Pollster</h5></div>
 			<div class="panel panel-body wrapper" style="text-align:center">
-			<link rel="stylesheet" type="text/css" href="1er tour/Pollster_1T_V0.css">
-			<div id="dashboard-pollster">
-			<button  id="button" class="btn-danger btn-responsive" style="text-align:center;padding-bottom:0.2%; 
-			font-size:0.7vw;width:10%;max-height:7%;position:relative;left:35%;bottom:25%;">Tout sélectionner</button>
-			<script src="https://d3js.org/d3.v3.min.js"></script>
-			<script src="1er tour/Pollster_1T_V0.js"></script>
-			</div>				
+				<link rel="stylesheet" type="text/css" href="1er tour/Pollster_1T_V0.css">
+				<div id="dashboard-pollster">
+					<button  id="button" class="btn-danger btn-responsive" style="text-align:center;padding-bottom:0.2%; 
+					font-size:0.7vw;width:10%;max-height:7%;position:relative;left:35%;bottom:25%;">Tout sélectionner</button>
+					<script src="https://d3js.org/d3.v3.min.js"></script>
+					<script src="1er tour/Pollster_1T_V0.js"></script>
+				</div>				
 			</div>
 		</div>
 		<div class="col-md-16 panel panel-default">
@@ -36,15 +36,13 @@
 			<div class="col-md-16 panel-heading text-center">
 			<h5> Suivi des recherches google par candidat</h5></div>
 			<div class="col-md-16 panel panel-body">
-			<div class="line">
-			<canvas id="myChart" width="1%" height="1%"></canvas>
-			</div>
-			<div class="bar" style="text-align:center;">
-			<canvas id="myBarChart" width="15%" height="5%"></canvas>
-			</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="gtrends/js/candidats_A.js" type="text/javascript"></script>
+				<div class="line">
+					<canvas id="myChart" width=900 height=500></canvas>
+				</div>
+				<div class="bar" style="text-align:center;">
+					<canvas id="myBarChart" width=250 height=300></canvas>
+				</div>
+				<script src="gtrends/js/candidats_A.js" type="text/javascript"></script>
 			</div>
 		</div>
 		<div class="col-md-16 panel panel-default">
