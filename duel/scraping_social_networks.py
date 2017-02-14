@@ -3,6 +3,7 @@
 
 import sys
 import requests
+import numpy as np
 from datetime import date, datetime, timedelta
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -130,8 +131,8 @@ for candidate in accounts:
     stats['3_yt_views_avg'], _, _ = stats_yt2
     
     try:
-        stats['4_yt_likes_rate'] = round((stats_yt2[1] / stats_yt2[0]) * 100, 1)
-        stats['5_yt_dislikes_rate'] = round((stats_yt2[2] / stats_yt2[0]) * 100, 1)
+        stats['4_yt_likes_rate'] = np.round((stats_yt2[1] / stats_yt2[0]) * 100, 1)
+        stats['5_yt_dislikes_rate'] = np.round((stats_yt2[2] / stats_yt2[0]) * 100, 1)
     except:
         stats['4_yt_likes_rate'] = 0
         stats['5_yt_dislikes_rate'] = 0
