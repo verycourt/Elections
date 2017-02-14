@@ -86,9 +86,9 @@ app_secret = "ea787efd843d1de746817ec6e9bf7e94"
 access_token = app_id + "|" + app_secret
 google_key = 'AIzaSyBkRrj_kFDUv-T76CJaI3Pd-g3v7UY4GMA'
 
-today = date.today()
-# path = 'data/' # save path
-path = '/var/www/html/duel/data/'
+today = (datetime.utcnow() + timedelta(hours=1)).date()
+path = 'data/' # save path
+# path = '/var/www/html/duel/data/'
 
 df = pd.DataFrame()
 print('Maj du', today)
@@ -126,16 +126,23 @@ for candidate in accounts:
         print('No Youtube Channel')
         stats_yt, stats_yt2 = [0, 0, 0], [0, 0, 0]
 
-    stats['2_yt_subscribers'], stats['6_yt_views'], stats['7_yt_videos'] = stats_yt
-    stats['3_yt_views_avg'], stats['4_yt_likes_avg'], stats['5_yt_dislikes_avg'] = stats_yt2
-
+    stats['2_yt_subscribers'], _, _ = stats_yt
+    stats['3_yt_views_avg'], _, _ = stats_yt2
+    
+    try:
+        stats['4_yt_likes_rate'] = round((stats_yt2[1] / stats_yt2[0]) * 100, 1)
+        stats['5_yt_dislikes_rate'] = round((stats_yt2[2] / stats_yt2[0]) * 100, 1)
+    except:
+        stats['4_yt_likes_rate'] = 0
+        stats['5_yt_dislikes_rate'] = 0
+    
     try: # Facebook : [likes, people talking about this]
         stats_fb = FacebookPageData(accounts[candidate][1], access_token)
     except:
         stats_fb = ['-', '-']
         print('Page Facebook : une erreur est survenue...')
 
-    stats['8_fb_likes'], stats['9_fb_talking_about'] = stats_fb
+    stats['6_fb_likes'], stats['7_fb_talking_about'] = stats_fb
 
     print()
     print(stats)
