@@ -131,7 +131,7 @@ for candidate in accounts:
     
     try:
         stats['4_yt_likes_rate'] = round((float(stats_yt2[1]) / stats_yt2[0]) * 100, 1)
-        stats['5_yt_dislikes_rate'] = round(float((stats_yt2[2]) / stats_yt2[0]) * 100, 1)
+        stats['5_yt_dislikes_rate'] = round((float(stats_yt2[2]) / stats_yt2[0]) * 100, 1)
     except:
         stats['4_yt_likes_rate'] = 0
         stats['5_yt_dislikes_rate'] = 0
@@ -153,3 +153,5 @@ for candidate in accounts:
 
 # sauvegarde des données
 df.sort_index(axis=0).sort_index(axis=1).to_json(path + str(today) + '.json', orient='split')
+
+print('Data saved as ' + path + str(today))
