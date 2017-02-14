@@ -3,7 +3,7 @@
 
 import sys
 import requests
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 import pandas as pd
 from bs4 import BeautifulSoup
 if sys.version_info[0] == 2:
