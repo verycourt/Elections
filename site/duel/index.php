@@ -16,5 +16,6 @@
 		</div>
 
 		<script src="radar.js" type="text/javascript"></script>
+		<p> Sources : Facebook, Twitter, Youtube. Données actualisées tous les jours. </p>
 	</body>
 </html>
