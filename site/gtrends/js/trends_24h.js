@@ -153,7 +153,7 @@ $.getJSON("/gtrends/data/" + fname, function(json) {
 		title: {
 				display: true,
 				fontSize: 12,
-				text: 'Moyenne'
+				text: 'Moyenne de recherches sur 24h'
 		}
 	}
 });
