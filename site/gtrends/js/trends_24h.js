@@ -1,10 +1,9 @@
-var data_json;
 var fname = "candidats_A_1d.json"
-var linechart_title = "La tendance sur 24h"
 
 $.getJSON("/gtrends/data/" + fname, function(json) {
+	var linechart_title = "La tendance sur 24h"
 	// Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
-	data_json = json; 
+	var data_json = json; 
 
 	// Prédéfinition des attributs pour 10 jeux de données au maximum (ajouter des elements a la liste si besoin)
 	// couleur sous la courbe

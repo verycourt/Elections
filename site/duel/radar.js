@@ -1,11 +1,10 @@
-var linechart_title = "Veille réseaux sociaux"
 var today = new Date();
 var fname = today.getFullYear() + "-" + (((today.getMonth()+1) < 10)?"0":"") + (today.getMonth()+1) + "-" + ((today.getDate() < 10)?"0":"") + today.getDate();
-console.log(fname);
 
 $.getJSON("/duel/data/" + fname + ".json", function(json) {
+    var linechart_title = "Veille réseaux sociaux du " + today.toLocaleDateString();
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
-    data_json = json; 
+    var data_json = json; 
 
     // Prédéfinition des attributs pour 10 jeux de données au maximum (ajouter des elements a la liste si besoin)
     // couleur sous la courbe

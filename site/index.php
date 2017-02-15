@@ -10,6 +10,7 @@
 
 	<body>	
 		<header><?php include "/var/www/html/site_header.html";?></header>
+
 		<div class="col-md-16 panel panel-default">
 			<div class="panel panel-heading text-center"><h2>Pollster</h2></div>
 			<div class="panel panel-body wrapper" style="text-align:center">
@@ -22,14 +23,26 @@
 				</div>				
 			</div>
 		</div>
+
+		<div class="col-md-16 panel panel-default">
+			<div class="col-md-16 panel-heading text-center"><h2>Veille réseaux sociaux</h2></div>
+			<div class="col-md-16 panel panel-body">
+				<div>
+					<canvas id="radar" width="700" height="450"></canvas>
+				</div>
+
+				<script src="/duel/radar.js" type="text/javascript"></script>
+				<p> Sources : Facebook, Twitter, Youtube. Données actualisées tous les jours. </p>
+			</div>
+		</div>
+
 		<div class="col-md-16 panel panel-default">
 			<div class="col-md-16 panel-heading text-center"><h2>Second tour : hypothèse Marine Le Pen VS Emmanuel Macron</h2></div>
-				<div class="col-md-16 panel panel-body" id="dashboard">
+			<div class="col-md-16 panel panel-body" id="dashboard">
 				<script src="2nd tour/graphes.js"> </script>
 				<script>afficher("2nd tour/mlpVSem.tsv")</script>
-				</div>
 			</div>
-                </div>
+		</div>
 	
 		<div class="col-md-16 panel panel-default">
 			<div class="col-md-16 panel-heading text-center"><h2>Evolution des recherches Google par candidat sur 24h</h2></div>
