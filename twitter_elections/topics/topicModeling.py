@@ -12,7 +12,7 @@ import wordcloud
 
 def getBagOfWords(text):
     stopwords = [u"enculé",u"bite",u"chatte",u"cul",u"con",u"connard", u"rt",u"alors",u"aucuns",u"pute",u"salope",
-    u"aussi",u"autre",u"avant",u"avec",u"avoir",u"bon",u"car",u"ce",u"cela",u"ces",u"&amp"
+    u"aussi",u"autre",u"avant",u"avec",u"avoir",u"bon",u"car",u"ce",u"cela",u"ces",u"&amp",u"gtgt"
     u"ceux",u"chaque",u"ci",u"comme",u"comment",u"dans",u"de",u"des",u"d",u"dedans",u"dehors",u"depuis",u"devrait",u"doit",u"donc",
     u"dos",u"début",u"elle",u"elles",u"en",u"encore",u"essai",u"est",u"et",u"e",u"fait",u"faites",u"fois",u"font",u"hors",u"ici",
     u"il",u"ils",u"je",u"juste",u"la",u"le",u"les",u"leur",u"là",u"ma",u"maintenant",u"mais",u"mes",u"mine",u"moins",u"mon",u"mot",
@@ -23,7 +23,7 @@ def getBagOfWords(text):
     u"a",u"à",u"avais",u"étais",u"d'",u"qui",u"quoi",u"q",u"ont",u"as",u"avait",u"avaient",u"avez",u"étaient",u"était",u"étiez",u"y",
     u"leurs",u"leur",u"t",u"m",u"https",u"co",u"sera",u"aura",u"seraient",u"serais",u"auraient",u"un",u"une",u"le",u"les",u"la",u"&gt"]
     filtered = []
-    punctuation = re.compile('[%s]' % re.escape('!"%&()*+-=,.:/;<>[\]^_`{|}~'))
+    punctuation = re.compile('[%s]' % re.escape('!"%&()*+-=,.:/;<>[\]^_`{|}~...'))
     for word in text.lower().strip().split():
         word = punctuation.sub('',word.rstrip().lstrip())
         if not re.match(r'^https.*', word) and not re.match('^@.*', word) and not re.match('\s', word) \
