@@ -40,7 +40,7 @@
 				<div class="bar" style="text-align:center;">
 					<canvas id="myBarChart" width=250 height=300></canvas>
 				</div>
-				<script src="gtrends/js/candidats_A.js" type="text/javascript"></script>
+				<script src="gtrends/js/trends_24h.js" type="text/javascript"></script>
 			</div>
 		</div>
 		<div class="col-md-16 panel panel-default">
