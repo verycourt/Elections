@@ -55,7 +55,7 @@ $.getJSON("/duel/data/" + fname + ".json", function(json) {
     Chart.defaults.global.elements.point.radius = 0;
     Chart.defaults.global.elements.point.hitRadius = 14; // distance pour déclencher le tooltip
 
-    var ctx = document.getElementById("myChart").getContext("2d");
+    var ctx = document.getElementById("radar").getContext("2d");
     var myLineChart = new Chart(ctx, {
         type: 'radar',
         data: data,

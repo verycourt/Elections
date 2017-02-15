@@ -12,7 +12,7 @@
 	<body>	
 		<header><?php include "/var/www/html/site_header.html";?></header>
 		<div>
-			<canvas id="myChart" width="700" height="450"></canvas>
+			<canvas id="radar" width="700" height="450"></canvas>
 		</div>
 
 		<script src="radar.js" type="text/javascript"></script>
