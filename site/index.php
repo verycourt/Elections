@@ -64,6 +64,12 @@
 			</div>
 		</div>
 		<div class="col-md-16 panel panel-default">
+			<div class="panel panel-heading text-center"><h2>Décompte de mentions Twitter sur 1 journée</h2></div>
+			<iframe src="http://34.193.36.41/decompte/indexdays.html" width="100%" height="100%">
+  				<p>Your browser does not support iframes.</p>
+			</iframe>			
+		</div>
+		<div class="col-md-16 panel panel-default">
 			<div class="panel panel-heading text-center"><h2>Analyse sémantique automatique sur Twitter</div>
 			<div class="panel panel-body" style="text-align:center">
 				<img width="30%" height="25%" src="decompte/topics/twitter_topic0.png">
@@ -72,6 +78,7 @@
                                 <img width="30%" height="25%" src="decompte/topics/twitter_topic3.png">
                                 <img width="30%" height="25%" src="decompte/topics/twitter_topic4.png">
                                 <img width="30%" height="25%" src="decompte/topics/twitter_topic5.png">
+				<p class="text center">Détection automatique des clusters de mots les plus associés dans les 200 000 derniers tweets récupérés : un nuage par cluster</p>
 			</div>
 		</div>
 	</body>
