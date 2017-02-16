@@ -32,11 +32,19 @@ dico_couleurs_candidats = {u"Arnaud Montebourg":"#CC0066", u"Benoît Hamon":"#CC
           u"Nicolas Dupont-Aignan":"#0000CC",  u"Nicolas Hulot":"#66CC00", u"Philippe Poutou":"#990033",
           u"Sylvia Pinel":"#FF0066", u"Yannick Jadot":"#339900"}
 
+<<<<<<< Updated upstream
 dico_candidat_parti = {u"Arnaud Montebourg":"ps",u"Benoît Hamon":"ps",u"Cécile Duflot":"eelv",
         u"Emmanuel Macron" : "en marche",
           u"François Bayrou" : "modem",  u"François Fillon":"les republicains",
           u"François Hollande" : "ps", u"Jacques Cheminade" : "sp",
           u"Jean-Luc Mélenchon" : "partie_de_gauche",  u"Manuel Valls":"ps",u"Marine Le Pen":"fn",
+=======
+dico_candidat_parti = {u"Arnaud Montebourg":"ps",u"Benoît Hamon":"ps",u"Cécile Duflot":"eelv", 
+        u"Emmanuel Macron" : "en marche",
+          u"François Bayrou" : "modem",  u"François Fillon":"les republicains", 
+          u"François Hollande" : "ps", u"Jacques Cheminade" : "sp",
+          u"Jean-Luc Mélenchon" : "partie_de_gauche",  u"Manuel Valls":"ps",u"Marine Le Pen":"fn", 
+>>>>>>> Stashed changes
           u"Nathalie Arthaud":"lutte ouvriere",
           u"Nicolas Dupont-Aignan":"debout_la_france", u"Nicolas Hulot":"empty", u"Philippe Poutou":"npa",
           u"Sylvia Pinel":"ps",  u"Yannick Jadot":"eelv"}
@@ -104,15 +112,23 @@ def loadPandas(URL):
                     line[i] = (float(elem.text.replace("%", "").replace(",",".").replace("<","")))
                 except Exception as e :
                     line[i] = (elem.text.replace("%", "").replace(",",".").replace("<",""))
-
+                
             if len(line) > len(colonnes) - 3 :
                 df.loc[j] = line
             #print(df)
+<<<<<<< Updated upstream
 
         df = df[df["Date"] != "/"]
         if idx >= 4 and idx <= 16:
             df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx])
 
+=======
+        
+        df = df[df["Date"] != "/"]
+        if idx >= 4 and idx <= 16:
+            df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx]) 
+        
+>>>>>>> Stashed changes
         #2ème tour :
         if len(colonnes) < 7  :
             dfFs = dfFs.append(df)
@@ -133,6 +149,11 @@ dfF = dfF.replace(to_replace=["-", "–"], value=" ")
 
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : (str(x).split("[")[0].strip()))
 
+<<<<<<< Updated upstream
+=======
+print([repr(x[:1]) for x in list(dfF["Pourrait changer d'avis"])])
+
+>>>>>>> Stashed changes
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : 0 if x == "nan" or x == "" else float(x[:2]))
 
 
@@ -141,6 +162,7 @@ notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
 anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Eva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
 
+print(dfF["Pourrait changer d'avis"])
 for col in dfF.columns:
     if col not in notCandidats:
         dfF[col] = dfF[col].map(lambda x: x if isinstance(x, float) else np.nan)
@@ -152,11 +174,20 @@ for col in anciensCandidats:
     dfF2 = dfF2.drop(col, axis=1)
 
 dfF2["Pourrait changer d'avis"] = dfF2["Pourrait changer d'avis"].map(lambda x : np.nan if x==0 else x)
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 #print(dfF)
 dfF3 = dfF2
 
+<<<<<<< Updated upstream
+=======
+#print(dfF)
+dfF3 = dfF2
+
+>>>>>>> Stashed changes
 dfF3["Date"] = dfF3["Date"].map(lambda x : x.replace("1er", "1").replace("fév.", ""))
 dfF3["Date"] = dfF3["Date"].map(lambda x : ' '.join(x.split()))
 dfF3["Date"] = dfF3["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[-3:]))
@@ -193,7 +224,11 @@ dfF4 = dfF4.dropna(axis=0, how='all')
 
 # --- To json --- #
 to_json = []
+<<<<<<< Updated upstream
 dico_sondage = {}
+=======
+dico_sondage = {} 
+>>>>>>> Stashed changes
 dico_sondage["id"] = "Tour 1"
 dico_sondage["refresh"] = {}
 dico_sondage["refresh"]["last"] = time.time()
@@ -207,6 +242,7 @@ dico_sondage["unit"] = "%"
 dico_sondage["dataset"] = []
 
 
+<<<<<<< Updated upstream
 for col in dfF4.columns:
 
     dico_temp = {}
@@ -221,6 +257,22 @@ for col in dfF4.columns:
     else :
         dico_temp["color"] = "#ffffff"
 
+=======
+for col in dfF4.columns: 
+
+    dico_temp = {}
+    dico_temp["title"] = col
+    if col in dico_candidat_parti.keys(): 
+        dico_temp["subtitle"] = dico_candidat_parti[col]
+    else :
+        dico_temp["subtitle"] = ""
+        
+    if col in dico_couleurs_candidats.keys(): 
+        dico_temp["color"] = dico_couleurs_candidats[col]
+    else :
+        dico_temp["color"] = "#ffffff"
+    
+>>>>>>> Stashed changes
     dico_temp["data"] = list(dfF4[col].map(lambda x : "null" if np.isnan(x) else x))
     dico_sondage["dataset"].append(dico_temp)
 to_json.append(dico_sondage)
@@ -310,3 +362,4 @@ getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_json(path2+"emvsff.js
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
 #dfFs2.to_json(path2+"sondages2e.json")
 print("Done")
+
