@@ -1,11 +1,10 @@
-var linechart_title = "Veille réseaux sociaux"
 var today = new Date();
 var fname = today.getFullYear() + "-" + (((today.getMonth()+1) < 10)?"0":"") + (today.getMonth()+1) + "-" + ((today.getDate() < 10)?"0":"") + today.getDate();
-console.log(fname);
 
 $.getJSON("/duel/data/" + fname + ".json", function(json) {
+    var linechart_title = "Veille réseaux sociaux du " + today.toLocaleDateString();
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
-    data_json = json; 
+    var data_json = json; 
 
     // Prédéfinition des attributs pour 10 jeux de données au maximum (ajouter des elements a la liste si besoin)
     // couleur sous la courbe
@@ -55,7 +54,7 @@ $.getJSON("/duel/data/" + fname + ".json", function(json) {
     Chart.defaults.global.elements.point.radius = 0;
     Chart.defaults.global.elements.point.hitRadius = 14; // distance pour déclencher le tooltip
 
-    var ctx = document.getElementById("myChart").getContext("2d");
+    var ctx = document.getElementById("radar").getContext("2d");
     var myLineChart = new Chart(ctx, {
         type: 'radar',
         data: data,
