@@ -117,24 +117,24 @@ for candidate in accounts:
         except:
             stats_yt = ['-', '-', '-']
             print('Page Youtube : une erreur est survenue...')
-        try: # Youtube [moyenne vues 5 vidéos, moyenne likes 5 vidéos, moyenne dislikes 5 vidéos]
+        try: # Youtube [moyenne vues 10 vidéos, moyenne likes 10 vidéos, moyenne dislikes 10 vidéos]
             stats_yt2 = YoutubeVideosData(accounts[candidate][0], google_key)
         except:
             stats_yt2 = ['-', '-', '-']
             print('Vidéos Youtube : une erreur est survenue...')
     else:
         print('No Youtube Channel')
-        stats_yt, stats_yt2 = [0, 0, 0], [0, 0, 0]
+        stats_yt, stats_yt2 = ['-', '-', '-'], ['-', '-', '-']
 
     stats['2_yt_subscribers'], _, _ = stats_yt
     stats['3_yt_views_avg'], _, _ = stats_yt2
     
     try:
-        stats['4_yt_likes_rate'] = round((float(stats_yt2[1]) / stats_yt2[0]) * 100, 1)
-        stats['5_yt_dislikes_rate'] = round((float(stats_yt2[2]) / stats_yt2[0]) * 100, 1)
+        stats['4_yt_reaction_rate'] = round((float(stats_yt2[1] + stats_yt2[2]) / stats_yt2[0]) * 100, 1)
+        stats['5_yt_satisfaction_rate'] = round((float(stats_yt2[1]) / (stats_yt2[2] + stats_yt2[1])) * 100, 1)
     except:
-        stats['4_yt_likes_rate'] = 0
-        stats['5_yt_dislikes_rate'] = 0
+        stats['4_yt_likes_rate'] = '-'
+        stats['5_yt_dislikes_rate'] = '-'
     
     try: # Facebook : [likes, people talking about this]
         stats_fb = FacebookPageData(accounts[candidate][1], access_token)

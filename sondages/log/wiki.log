@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
     Abstention, blanc ou nul  Alain Juppé  Bruno Le Maire        Date  \
 1                        0.0          NaN             NaN  2014-09-04   
 2                        0.0          NaN             NaN  2016-04-14   
@@ -189,3 +190,27 @@
 
 [112 rows x 12 columns]
 Done
+=======
+Index([u'Abstention', u'Alain Juppé', u'Arnaud Montebourg', u'Benoît Hamon',
+       u'Bruno Le Maire', u'Cécile Duflot', u'Date', u'Emmanuel Macron',
+       u'Eva Joly', u'François Asselineau', u'François Bayrou',
+       u'François Fillon', u'François Hollande', u'Jacques Cheminade',
+       u'Jean Lassalle', u'Jean-François Copé', u'Jean-Luc Mélenchon',
+       u'Manuel Valls', u'Marine Le Pen', u'Martine Aubry',
+       u'Nathalie Arthaud', u'Nicolas Dupont-Aignan', u'Nicolas Hulot',
+       u'Nicolas Sarkozy', u'Olivier Besancenot', u'Philippe Poutou',
+       u'Philippe de Villiers', u'Pourrait changer d'avis', u'Rama Yade',
+       u'Sondeur', u'Sylvia Pinel', u'Vincent Peillon', u'Yannick Jadot',
+       u'Échantillon'],
+      dtype='object')
+[u'Alain Jupp\xe9', u'Bruno Le Maire', u'Jean-Fran\xe7ois Cop\xe9', u'Nicolas Sarkozy', u'Eva Joly', u'Sylvia Pinel', u'Vincent Peillon', u'Arnaud Montebourg']
+Traceback (most recent call last):
+  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 125, in <module>
+    dfF3["Date"] = dfF3["Date"].map(lambda x : dateparser.parse(x).date())
+  File "/usr/local/lib/python2.7/dist-packages/pandas/core/series.py", line 2175, in map
+    new_values = map_f(values, arg)
+  File "pandas/src/inference.pyx", line 1207, in pandas.lib.map_infer (pandas/lib.c:66116)
+  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 125, in <lambda>
+    dfF3["Date"] = dfF3["Date"].map(lambda x : dateparser.parse(x).date())
+AttributeError: 'NoneType' object has no attribute 'date'
+>>>>>>> Stashed changes

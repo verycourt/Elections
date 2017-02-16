@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ('Maj du', datetime.date(2017, 2, 16))
 --------------------
 Le Pen
@@ -105,3 +106,6 @@ Scanning Youtube Channel
 ()
 {'1_tw_tweets': 9213, '0_tw_followers': 87745, '2_yt_subscribers': 3231, '5_yt_dislikes_rate': 0.1, '3_yt_views_avg': 985, '7_fb_talking_about': 8636, '6_fb_likes': 64452, '4_yt_likes_rate': 3.0}
 Data saved as /var/www/html/duel/data/2017-02-16
+=======
+/bin/bash: /home/ubuntu/Elections/duel/scraping_social_networks.py: Permission non accordée
+>>>>>>> Stashed changes
