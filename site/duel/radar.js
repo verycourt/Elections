@@ -45,8 +45,8 @@ $.getJSON("/duel/data/" + fname + ".json", function(json) {
     }
 
     var data = {
-        labels: ['Followers Twitter', 'Total tweets', 'Abonnés YouTube', 'Vues en moyenne',
-    '% de "j\'aime" des vidéos', '% de "je n\'aime pas" des vidéos', '"Likes" Facebook', 'En parlent sur Facebook'],
+        labels: ['Followers Twitter', 'Total tweets', 'Abonnés YouTube', 'YouTube : vues en moyenne',
+    'YouTube : taux de "j\'aime"', 'YouTube : taux de "je n\'aime pas"', '"Likes" Facebook', 'Mentions sur Facebook'],
         datasets: webs
     };
 
