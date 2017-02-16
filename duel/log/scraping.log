@@ -1,0 +1,107 @@
+('Maj du', datetime.date(2017, 2, 16))
+--------------------
+Le Pen
+--------------------
+('Analyzing Twitter account', 'MLP_officiel')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Marine Le Pen')
+()
+{'1_tw_tweets': 12465, '0_tw_followers': 1274975, '2_yt_subscribers': 11912, '5_yt_dislikes_rate': 0.3, '3_yt_views_avg': 1017, '7_fb_talking_about': 202981, '6_fb_likes': 1201332, '4_yt_likes_rate': 7.7}
+--------------------
+Macron
+--------------------
+('Analyzing Twitter account', 'emmanuelmacron')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Emmanuel Macron')
+()
+{'1_tw_tweets': 1739, '0_tw_followers': 497937, '2_yt_subscribers': 7124, '5_yt_dislikes_rate': 3.1, '3_yt_views_avg': 1318, '7_fb_talking_about': 55330, '6_fb_likes': 162358, '4_yt_likes_rate': 3.4}
+--------------------
+Melenchon
+--------------------
+('Analyzing Twitter account', 'JLMelenchon')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Jean-Luc M\xe9lenchon')
+()
+{'1_tw_tweets': 19292, '0_tw_followers': 965786, '2_yt_subscribers': 213845, '5_yt_dislikes_rate': 0.2, '3_yt_views_avg': 172963, '7_fb_talking_about': 137876, '6_fb_likes': 653875, '4_yt_likes_rate': 7.0}
+--------------------
+Cheminade
+--------------------
+('Analyzing Twitter account', 'Jcheminade')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Jacques Cheminade')
+()
+{'1_tw_tweets': 6597, '0_tw_followers': 3849, '2_yt_subscribers': 856, '5_yt_dislikes_rate': 0.1, '3_yt_views_avg': 1443, '7_fb_talking_about': 252, '6_fb_likes': 5335, '4_yt_likes_rate': 1.2}
+--------------------
+Poutou
+--------------------
+('Analyzing Twitter account', 'PhilippePoutou')
+No Youtube Channel
+('Facebook page :', u'Philippe Poutou')
+()
+{'1_tw_tweets': 2975, '0_tw_followers': 96718, '2_yt_subscribers': 0, '5_yt_dislikes_rate': 0, '3_yt_views_avg': 0, '7_fb_talking_about': 1619, '6_fb_likes': 10565, '4_yt_likes_rate': 0}
+--------------------
+Hamon
+--------------------
+('Analyzing Twitter account', 'benoithamon')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 9, 'videos of the channel')
+('Facebook page :', u'Beno\xeet Hamon')
+()
+{'1_tw_tweets': 7136, '0_tw_followers': 328504, '2_yt_subscribers': 4369, '5_yt_dislikes_rate': 1.1, '3_yt_views_avg': 2218, '7_fb_talking_about': 50143, '6_fb_likes': 122412, '4_yt_likes_rate': 3.9}
+--------------------
+Jadot
+--------------------
+('Analyzing Twitter account', 'yjadot')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 9, 'videos of the channel')
+('Facebook page :', u'Yannick Jadot')
+()
+{'1_tw_tweets': 22107, '0_tw_followers': 27635, '2_yt_subscribers': 693, '5_yt_dislikes_rate': 0.0, '3_yt_views_avg': 323, '7_fb_talking_about': 17221, '6_fb_likes': 25075, '4_yt_likes_rate': 3.1}
+--------------------
+Arthaud
+--------------------
+('Analyzing Twitter account', 'n_arthaud')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Nathalie Arthaud')
+()
+{'1_tw_tweets': 594, '0_tw_followers': 1800, '2_yt_subscribers': 176, '5_yt_dislikes_rate': 0.0, '3_yt_views_avg': 205, '7_fb_talking_about': 460, '6_fb_likes': 1775, '4_yt_likes_rate': 4.9}
+--------------------
+Alliot-Marie
+--------------------
+('Analyzing Twitter account', 'MAlliotMarie')
+No Youtube Channel
+('Facebook page :', u'Mich\xe8le ALLIOT-MARIE')
+()
+{'1_tw_tweets': 1622, '0_tw_followers': 26469, '2_yt_subscribers': 0, '5_yt_dislikes_rate': 0, '3_yt_views_avg': 0, '7_fb_talking_about': 517, '6_fb_likes': 11898, '4_yt_likes_rate': 0}
+--------------------
+Fillon
+--------------------
+('Analyzing Twitter account', 'francoisfillon')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Fran\xe7ois Fillon')
+()
+{'1_tw_tweets': 15887, '0_tw_followers': 424607, '2_yt_subscribers': 4032, '5_yt_dislikes_rate': 2.6, '3_yt_views_avg': 9086, '7_fb_talking_about': 71597, '6_fb_likes': 279161, '4_yt_likes_rate': 2.4}
+--------------------
+Bayrou
+--------------------
+('Analyzing Twitter account', 'bayrou')
+No Youtube Channel
+('Facebook page :', u'Fran\xe7ois Bayrou')
+()
+{'1_tw_tweets': 4022, '0_tw_followers': 549923, '2_yt_subscribers': 0, '5_yt_dislikes_rate': 0, '3_yt_views_avg': 0, '7_fb_talking_about': 6655, '6_fb_likes': 69929, '4_yt_likes_rate': 0}
+--------------------
+Dupont-Aignan
+--------------------
+('Analyzing Twitter account', 'dupontaignan')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 9, 'videos of the channel')
+('Facebook page :', u'Nicolas Dupont-Aignan')
+()
+{'1_tw_tweets': 9213, '0_tw_followers': 87745, '2_yt_subscribers': 3231, '5_yt_dislikes_rate': 0.1, '3_yt_views_avg': 985, '7_fb_talking_about': 8636, '6_fb_likes': 64452, '4_yt_likes_rate': 3.0}
+Data saved as /var/www/html/duel/data/2017-02-16

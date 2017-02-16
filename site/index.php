@@ -64,9 +64,14 @@
 			</div>
 		</div>
 		<div class="col-md-16 panel panel-default">
-			<div class="panel panel-heading text-center"><h2>WordCloud Twitter par candidat sur 3 jours glissants</h2></div>
+			<div class="panel panel-heading text-center"><h2>Analyse sémantique automatique sur Twitter</div>
 			<div class="panel panel-body" style="text-align:center">
-				<img width="80%" height="80%" src="decompte/hamon_cloud.png">
+				<img width="30%" height="25%" src="decompte/topics/twitter_topic0.png">
+                                <img width="30%" height="25%" src="decompte/topics/twitter_topic1.png">
+                                <img width="30%" height="25%" src="decompte/topics/twitter_topic2.png">
+                                <img width="30%" height="25%" src="decompte/topics/twitter_topic3.png">
+                                <img width="30%" height="25%" src="decompte/topics/twitter_topic4.png">
+                                <img width="30%" height="25%" src="decompte/topics/twitter_topic5.png">
 			</div>
 		</div>
 	</body>

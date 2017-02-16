@@ -108,11 +108,13 @@ svg.append("rect")
 
 
    svg.append("text")
-      .attr("y", height + 65)
+      .attr("y", height + 85)
       .attr("x", "40%")
       .style("text-anchor", "middle")
-      .style("font-size","2.3vmax")
-      .text("Faire glisser pour choisir une période (Ci-dessous)"); 
+      .style("font-size","1.5vmax")
+      .style("font-weight","bold")
+      .style("fill", "#696969")
+      .text("Faire glisser pour choisir une période"); 
 
    	svg.append("text")
       .attr("y", -35)
@@ -128,11 +130,12 @@ svg.append("rect")
    	svg.append("text")
       .attr("y", "-3%")
       .attr("x","40%")
-      .style("font-style","italic")
+      //.style("font-style","italic")
       .style("text-anchor", "middle")
-      .style("font-size","2vmax")
-      .style("fill", "#000000")
-      .text("Agrégation des sondages par date de parution");
+      .style("font-size","1.5vmax")
+      .style("font-weight","bold")
+      .style("fill", "#696969")
+      .text("Agrégation des sondages par date de parution (en %)");
 
 
 

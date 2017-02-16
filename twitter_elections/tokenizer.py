@@ -14,8 +14,8 @@ For emoticon and URL recognition, this code uses parts of TweetMotif (https://gi
 
 import re
 import sys
-from aux import url
-from aux import emoticon
+from tokaux import url
+from tokaux import emoticon
 
 def unicode_compile(regexp):
     return re.compile(ur'%s' % regexp.decode("utf-8"), re.U|re.I)
