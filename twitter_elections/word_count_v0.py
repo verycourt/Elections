@@ -1,19 +1,13 @@
 #!/usr/bin/python
-#coding=latin-1
+#coding=utf-8
 #export PYTHONWARNINGS="ignore"
 import pymongo as pym
 import re
-import unicodedata
-from nltk import word_tokenize
 import string
-import tokenizer
 from collections import Counter 
-from nltk.corpus import stopwords
-from stop_words import get_stop_words
-from pytagcloud import create_tag_image, make_tags
 import time
-import source as source
-
+import pandas as pd
+import wordcloud
 now = time.time()*1000
 
 def removeDuplicates(c):
@@ -29,54 +23,36 @@ def removeDuplicates(c):
 	except:
 		pass
 
-def normalize_sw(word):
-	return unicodedata.normalize('NFKD', word).encode('ascii', 'ignore').lower()
-
-def tokenize(s):
-        regex_str = r"(?:[a-z][a-z'\-_]+[a-z]+\D)"
-        tokens_re = re.compile(regex_str, re.VERBOSE | re.IGNORECASE)
-	return tokens_re.findall(word_tokenize(s))
-
-def preprocess(s, lowercase=True):
-	tokens = tokenizer.tokenize(s)
-        if lowercase:
-        	tokens = [token.lower() for token in tokens]
-    	return tokens
-
-def count_word(corpus):
-	stop2 = [normalize_sw(w) for w in set(get_stop_words('fr'))]
-	french_stopwords = [normalize_sw(w) for w in set(stopwords.words('french'))]
-	custom_stops = ['rt','&gt;','manuel','benoit','arnaud','francois','marine','hamon','valls','hollande','montebourg','fillon'
-	,'macron','pen','bayrou','pinel','bennhamias','jadot','rugy','sarkozy','melanchon','@']
-	custom_regex = re.compile('|'.join(custom_stops)+'|'+'\d')
-	stoplists = stop2+custom_stops+list(string.punctuation)+french_stopwords+[str(x) for x in range(1000)]
-	word_list = list()
-	nb_tweet = len(corpus)
-
-	for i in range(nb_tweet):
-		m_string = unicodedata.normalize('NFKD', corpus[i]["t_text"]).encode('ascii', 'ignore').lower()
-		tokens = preprocess(m_string.strip())
-		tokens_n = [token for token in tokens if token not in stoplists and re.search(custom_regex,token) is None]
-		word_list += tokens_n 
-	return word_list
+def preprocess(text):
+    stopwords = [u"enculé",u"bite",u"chatte",u"cul",u"con",u"connard", u"rt",u"alors",u"aucuns",u"pute",u"salope",
+    u"aussi",u"autre",u"avant",u"avec",u"avoir",u"bon",u"car",u"ce",u"cela",u"ces",u"&amp",u"gtgt"
+    u"ceux",u"chaque",u"ci",u"comme",u"comment",u"dans",u"de",u"des",u"d",u"dedans",u"dehors",u"depuis",u"devrait",u"doit",u"donc",
+    u"dos",u"début",u"elle",u"elles",u"en",u"encore",u"essai",u"est",u"et",u"e",u"fait",u"faites",u"fois",u"font",u"hors",u"ici",
+    u"il",u"ils",u"je",u"juste",u"la",u"le",u"les",u"leur",u"là",u"ma",u"maintenant",u"mais",u"mes",u"mine",u"moins",u"mon",u"mot",
+    u"même",u"ni",u"nommés",u"notre",u"nous",u"o",u"où",u"par",u"parce",u"pas",u"peut",u"pe",u"plupart",u"pour",u"pourquoi",u"quand",
+    u"que",u"quel",u"quelle",u"quelles",u"quels",u"qui",u"sa",u"sans",u"ses",u"seulement",u"si",u"sien",u"son",u"sont",u"sous",u"soyez",
+    u"sujet",u"sur",u"ta",u"tandis",u"tellement",u"tels",u"tes",u"ton",u"tous",u"tout",u"trop",u"très",u"t",u"voient",u"vont",u"votre",
+    u"vous",u"v",u"ça",u"étaient",u"état",u"étions",u"été",u"être",u"or",u"c'",u"se",u"ses",u"sa",u"ce",u"ces",u"ca",u"s'",u"l'",u"qu'",
+    u"a",u"à",u"avais",u"étais",u"d'",u"qui",u"quoi",u"q",u"ont",u"as",u"avait",u"avaient",u"avez",u"étaient",u"était",u"étiez",u"y",
+    u"leurs",u"leur",u"t",u"m",u"https",u"co",u"sera",u"aura",u"seraient",u"serais",u"auraient",u"un",u"une",u"le",u"les",u"la",u"&gt"]
+    filtered = []
+    punctuation = re.compile('[%s]' % re.escape('!"%&()*+-=,.:/;<>[\]^_`{|}~...'))
+    for word in text:
+        word = punctuation.sub('',word.lower().rstrip().lstrip())
+        if not re.match(r'^https.*', word) and not re.match('^@.*', word) and not re.match('\s', word) \
+        and word not in stopwords : filtered.append(punctuation.sub('',word.rstrip().lstrip()))
+    return filtered
 
 def get_wordcloud(candidate):
 	client = pym.MongoClient()
 	c = client.tweet.tweet
-	removeDuplicates(c)
+#	removeDuplicates(c)
 	words = {}
-	words[candidate] = list(c.find({'t_time':{'$lte':now - 3.456e8},"t_text": re.compile((candidate), re.I)},{'t_text':1}))
+	df = pd.DataFrame([tweet for tweet in c.find({'t_time':{'$lte':now - 3.456e8},"t_text": re.compile((candidate), re.I)},
+        {'t_text':1}).limit(100)])
 	client.close()
-	words[candidate] = Counter(count_word(words[candidate]))
-	TAG_PADDING = 0.01
-	ECCENTRICITY = 0.01
-	tags, list_color_hamon = source.my_make_tags(words[candidate].most_common(50), minsize=20, maxsize=50)
-	create_tag_image(tags,'/var/www/html/decompte/'+candidate+'_cloud.png', layout=2, size=(960,600), fontname='Philosopher')
-	f = open('/var/www/html/decompte/listwords'+str(now)+'.txt','a')
-	f.write(candidate+' :')
-	for word in words[candidate].most_common(50) : f.write(' '+word[0]+' ')
-	f.close()
-
-candidates = ['hamon','macron','fillon','Le Pen']
+	words[candidate] = Counter(preprocess(df['t_text']))
+        wc = wordcloud.WordCloud(max_font_size = 30, background_color="white").generate(' '.join(words[candidate])).to_file("/var/www/html/decompte/cloud_"+candidate+".png")
+candidates = ['hamon','macron','fillon','Le Pen','mélenchon']
 for candidate in candidates :
 	get_wordcloud(candidate)
