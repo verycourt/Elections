@@ -49,7 +49,7 @@ def get_wordcloud(candidate):
 #	removeDuplicates(c)
 	words = {}
 	df = pd.DataFrame([tweet for tweet in c.find({'t_time':{'$lte':now - 3.456e8},"t_text": re.compile((candidate), re.I)},
-        {'t_text':1}).limit(100)])
+        {'t_text':1}).limit(200000)])
 	client.close()
 	words[candidate] = Counter(preprocess(df['t_text']))
         wc = wordcloud.WordCloud(max_font_size = 30, background_color="white").generate(' '.join(words[candidate])).to_file("/var/www/html/decompte/cloud_"+candidate+".png")
