@@ -16,6 +16,8 @@
 		</div>
 
 		<script src="radar.js" type="text/javascript"></script>
-		<p> Sources : Facebook, Twitter, Youtube. Données actualisées tous les jours. </p>
+		<p>Les 3 indicateurs YouTube prennent en compte les 10 dernières vidéos publiées sur les chaînes officielles de chaque candidat. Le taux de satisfaction correspond au rapport Likes/(Likes+Dislikes) de ces vidéos. </p>
+		<p>Le total tweets sont les tweets envoyés par le candidat depuis la création de son compte. </p>
+		<p>Sources : Facebook, Twitter, Youtube. Données actualisées tous les jours. </p>
 	</body>
 </html>
