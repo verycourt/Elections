@@ -7,7 +7,7 @@ from collections import Counter
 import time
 import numpy as np
 import tweepy
-
+from sklearn import mixture
 
 def removeDuplicates():
     client = pym.MongoClient()
@@ -42,6 +42,25 @@ def getUsers(collection):
     ids = DF['id']
     return cleanDF, ids
 
+def kmeansClustering(users, ids, api):
+    kmeans = KMeans(n_clusters=100, verbose=0).fit(users)
+    cnt = Counter(kmeans.labels_)
+    for i,c in enumerate(kmeans.cluster_centers_):
+        print("Centre du cluster : ","Followers / Following : %.1f |" %(c[3]/c[4]), "tweets / days : %d | " %(c[6]/c[8]), "count %d" %cnt[i])
+        for p in ids[np.where(kmeans.labels_ == i)[0][:3]] :
+            try :
+                profile = api.get_user(p)
+                print("Profils du cluster\n", "Followers : ", profile.followers_count, "\n","Friends : ", 
+                profile.friends_count, "\n", "Verified : ", profile.verified, "\n",
+                "tweets : ", profile.statuses_count, "\n","Location : ", profile.location, "\n",
+                "Date Création : ", profile.created_at, "\n","URL : https://twitter.com/intent/user?user_id="+str(p))
+            except : continue
+
+
+def mixtureClustering(data, indexes) :
+    gmm = mixture.GaussianMixture(n_components=5, covariance_type='full').fit(data)
+    print("Weights : ", gmm.weights_, "\n", "means : ", gmm.means_, "\n","Covariances : ", gmm.covariances_,"\n")
+
 def main():
     auth = tweepy.OAuthHandler("38wnscCtD7hDZwGX4slpNAACW", "BxZ3HF9km43U14qYkcX3vxxpXUeFiWQppPHhWDgsaVDOcPkPUD")
     auth.set_access_token("334722973-NY6Dm1sQn8pHAlNMQhkn6L7uP4rYngY1qqCvBpmt", "Qp8aiuHCzDGudIGeD29TZ99bOOn3wYQXAPSCnAblyCIeS")
@@ -49,17 +68,8 @@ def main():
     client = pym.MongoClient('localhost',27017)
     users, ids = getUsers(client.tweet.tweet)
     client.close()
-    kmeans = KMeans(n_clusters=100, verbose=0).fit(users)
-    cnt = Counter(kmeans.labels_)
-    for i,c in enumerate(kmeans.cluster_centers_):
-        print("Centre du cluster : ","Followers / Following : %.1f |" %(c[3]/c[4]), "tweets / days : %d | " %(c[6]/c[8]), "count %d" %cnt[i])
-        for p in ids[np.where(kmeans.labels_ == i)[0][:10]] :
-            profile = api.get_user(p)
-            print("Profils du cluster\n", "Followers : ", profile.followers_count, "\n","Friends : ", 
-            profile.friends_count, "\n", "Verified : ", profile.verified, "\n",
-            "tweets : ", profile.statuses_count, "\n","Location : ", profile.location, "\n",
-            "Date Création : ", profile.created_at, "\n","URL : https://twitter.com/intent/user?user_id="+str(p))
-
+    kmeansClustering(users, ids, api)
+    mixtureClustering(users, ids)
 
 removeDuplicates()
 main()
