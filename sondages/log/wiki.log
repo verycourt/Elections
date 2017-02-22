@@ -1,216 +1,131 @@
-<<<<<<< Updated upstream
-    Abstention, blanc ou nul  Alain Juppé  Bruno Le Maire        Date  \
-1                        0.0          NaN             NaN  2014-09-04   
-2                        0.0          NaN             NaN  2016-04-14   
-3                       33.0          NaN             NaN  2016-04-17   
-4                       30.0          NaN             NaN  2016-05-16   
-5                       32.0          NaN             NaN  2016-06-12   
-6                        0.0          NaN             NaN  2016-06-17   
-7                       36.0          NaN             NaN  2016-09-11   
-8                        0.0          NaN             NaN  2016-11-25   
-9                        0.0          NaN             NaN  2016-11-27   
-10                       0.0          NaN             NaN  2016-11-28   
-11                       0.0          NaN             NaN  2016-11-29   
-12                       0.0          NaN             NaN  2016-12-03   
-13                      33.0          NaN             NaN  2016-12-04   
-14                       0.0          NaN             NaN  2017-01-06   
-15                      28.0          NaN             NaN  2017-01-08   
-16                      29.0          NaN             NaN  2017-01-20   
-17                       0.0          NaN             NaN  2017-01-27   
-18                       0.0          NaN             NaN  2017-01-31   
-19                       0.0          NaN             NaN  2017-02-01   
-20                      34.0          NaN             NaN  2017-02-02   
-21                       0.0          NaN             NaN  2017-02-05   
-22                       0.0          NaN             NaN  2017-02-07   
-23                       0.0          NaN             NaN  2017-02-08   
-1                       28.0          NaN             NaN  2016-01-15   
-2                       34.0          NaN             NaN  2016-04-15   
-3                        0.0          NaN             NaN  2016-12-03   
-4                        0.0          NaN             NaN  2017-01-06   
-5                       20.0          NaN             NaN  2017-01-20   
-6                        0.0          NaN             NaN  2017-01-27   
-7                        0.0          NaN             NaN  2017-01-31   
-..                       ...          ...             ...         ...   
-9                        0.0          NaN             NaN  2015-12-13   
-10                      44.0          NaN             NaN  2015-12-15   
-11                      43.0          NaN             NaN  2016-01-15   
-12                      45.0          NaN             NaN  2016-04-15   
-13                       0.0          NaN             NaN  2016-04-14   
-14                      38.0          NaN             NaN  2016-04-17   
-15                      39.0          NaN             NaN  2016-05-16   
-16                      40.0          NaN             NaN  2016-06-12   
-17                       0.0          NaN             NaN  2016-06-17   
-18                       0.0          NaN             NaN  2016-07-10   
-19                      46.0          NaN             NaN  2016-09-11   
-1                       32.0          NaN             NaN  2015-04-30   
-1                       36.0          NaN             NaN  2016-01-15   
-1                        0.0          NaN            60.0  2016-04-14   
-2                       39.0          NaN            61.0  2016-04-17   
-3                       38.0          NaN            58.0  2016-05-16   
-4                       36.0          NaN            63.0  2016-06-12   
-5                        0.0          NaN            57.0  2016-06-17   
-6                       41.0          NaN            58.0  2016-09-11   
-1                        0.0          NaN             NaN  2014-09-04   
-1                       36.0          NaN             NaN  2014-04-13   
-2                        0.0          NaN             NaN  2014-09-04   
-3                        0.0          NaN             NaN  2015-01-23   
-4                       37.0          NaN             NaN  2015-01-29   
-5                       33.0          NaN             NaN  2015-04-16   
-6                       30.0          NaN             NaN  2015-04-30   
-7                        0.0          NaN             NaN  2015-12-13   
-8                       35.0          NaN             NaN  2016-01-15   
-9                       42.0          NaN             NaN  2016-04-15   
-10                       0.0          NaN             NaN  2016-04-14   
+           Benoît Hamon Emmanuel Macron François Bayrou François Fillon  \
+2016-11-25          NaN              13               6              32   
+2016-11-26         null            null            null            null   
+2016-11-27          NaN            13.5             6.5              26   
+2016-11-28         null            null            null            null   
+2016-11-29          NaN              15             5.5            30.5   
+2016-11-30         null            null            null            null   
+2016-12-01         null            null            null            null   
+2016-12-02         null            null            null            null   
+2016-12-03         null            null            null            null   
+2016-12-04         null            null            null            null   
+2016-12-05         null            null            null            null   
+2016-12-06         null            null            null            null   
+2016-12-07         null            null            null            null   
+2016-12-08         null            null            null            null   
+2016-12-09         null            null            null            null   
+2016-12-10         null            null            null            null   
+2016-12-11         null            null            null            null   
+2016-12-12         null            null            null            null   
+2016-12-13         null            null            null            null   
+2016-12-14         null            null            null            null   
+2016-12-15         null            null            null            null   
+2016-12-16         null            null            null            null   
+2016-12-17         null            null            null            null   
+2016-12-18         null            null            null            null   
+2016-12-19         null            null            null            null   
+2016-12-20         null            null            null            null   
+2016-12-21         null            null            null            null   
+2016-12-22         null            null            null            null   
+2016-12-23         null            null            null            null   
+2016-12-24         null            null            null            null   
+...                 ...             ...             ...             ...   
+2017-01-23         null            null            null            null   
+2017-01-24         null            null            null            null   
+2017-01-25         null            null            null            null   
+2017-01-26         null            null            null            null   
+2017-01-27           14            20.5               5            21.5   
+2017-01-28         null            null            null            null   
+2017-01-29         null            null            null            null   
+2017-01-30         null            null            null            null   
+2017-01-31         16.5            22.5               4            19.5   
+2017-02-01           18              20             4.5              21   
+2017-02-02         16.5            21.5               5              19   
+2017-02-03         null            null            null            null   
+2017-02-04         null            null            null            null   
+2017-02-05           14              23             NaN              20   
+2017-02-06         15.5            20.5               5            18.5   
+2017-02-07         null            null            null            null   
+2017-02-08           15            21.7            5.17            18.4   
+2017-02-09         null            null            null            null   
+2017-02-10         null            null            null            null   
+2017-02-11         null            null            null            null   
+2017-02-12        14.25            21.5               6              18   
+2017-02-13        14.75           20.75             5.5            19.5   
+2017-02-14         16.7           22.15             4.9           17.25   
+2017-02-15         null            null            null            null   
+2017-02-16           15           20.25               5           19.25   
+2017-02-17         null            null            null            null   
+2017-02-18         null            null            null            null   
+2017-02-19         null            null            null            null   
+2017-02-20         13.5           19.17               6           20.33   
+2017-02-21           14              19             5.5              19   
 
-    Emmanuel Macron  François Fillon  François Hollande  Manuel Valls  \
-1               NaN             57.0                NaN           NaN   
-2               NaN             63.0                NaN           NaN   
-3               NaN             64.0                NaN           NaN   
-4               NaN             65.0                NaN           NaN   
-5               NaN             65.0                NaN           NaN   
-6               NaN             60.0                NaN           NaN   
-7               NaN             61.0                NaN           NaN   
-8               NaN             71.0                NaN           NaN   
-9               NaN             67.0                NaN           NaN   
-10              NaN             66.0                NaN           NaN   
-11              NaN             66.0                NaN           NaN   
-12              NaN             65.0                NaN           NaN   
-13              NaN             67.0                NaN           NaN   
-14              NaN             64.0                NaN           NaN   
-15              NaN             63.0                NaN           NaN   
-16              NaN             62.0                NaN           NaN   
-17              NaN             60.0                NaN           NaN   
-18              NaN             59.0                NaN           NaN   
-19              NaN             60.0                NaN           NaN   
-20              NaN             60.0                NaN           NaN   
-21              NaN             61.0                NaN           NaN   
-22              NaN             62.0                NaN           NaN   
-23              NaN             56.0                NaN           NaN   
-1              65.0              NaN                NaN           NaN   
-2              61.0              NaN                NaN           NaN   
-3              62.0              NaN                NaN           NaN   
-4              65.0              NaN                NaN           NaN   
-5              64.0              NaN                NaN           NaN   
-6              65.0              NaN                NaN           NaN   
-7              65.0              NaN                NaN           NaN   
-..              ...              ...                ...           ...   
-9               NaN              NaN                NaN           NaN   
-10              NaN              NaN                NaN           NaN   
-11              NaN              NaN                NaN           NaN   
-12              NaN              NaN                NaN           NaN   
-13              NaN              NaN                NaN           NaN   
-14              NaN              NaN                NaN           NaN   
-15              NaN              NaN                NaN           NaN   
-16              NaN              NaN                NaN           NaN   
-17              NaN              NaN                NaN           NaN   
-18              NaN              NaN                NaN           NaN   
-19              NaN              NaN                NaN           NaN   
-1               NaN              NaN                NaN          48.0   
-1              64.0              NaN                NaN           NaN   
-1               NaN              NaN                NaN           NaN   
-2               NaN              NaN                NaN           NaN   
-3               NaN              NaN                NaN           NaN   
-4               NaN              NaN                NaN           NaN   
-5               NaN              NaN                NaN           NaN   
-6               NaN              NaN                NaN           NaN   
-1               NaN             62.0               38.0           NaN   
-1               NaN              NaN               54.0           NaN   
-2               NaN              NaN               46.0           NaN   
-3               NaN              NaN               55.0           NaN   
-4               NaN              NaN               51.0           NaN   
-5               NaN              NaN               52.0           NaN   
-6               NaN              NaN               48.0           NaN   
-7               NaN              NaN               60.0           NaN   
-8               NaN              NaN               54.0           NaN   
-9               NaN              NaN               47.0           NaN   
-10              NaN              NaN               47.0           NaN   
+           Jean-Luc Mélenchon Marine Le Pen Philippe Poutou      date  
+2016-11-25                 12            22               1  20161125  
+2016-11-26               null          null            null      null  
+2016-11-27                 14            24               1  20161127  
+2016-11-28               null          null            null      null  
+2016-11-29                 12            24               1  20161129  
+2016-11-30               null          null            null      null  
+2016-12-01               null          null            null      null  
+2016-12-02               null          null            null      null  
+2016-12-03               null          null            null      null  
+2016-12-04               null          null            null      null  
+2016-12-05               null          null            null      null  
+2016-12-06               null          null            null      null  
+2016-12-07               null          null            null      null  
+2016-12-08               null          null            null      null  
+2016-12-09               null          null            null      null  
+2016-12-10               null          null            null      null  
+2016-12-11               null          null            null      null  
+2016-12-12               null          null            null      null  
+2016-12-13               null          null            null      null  
+2016-12-14               null          null            null      null  
+2016-12-15               null          null            null      null  
+2016-12-16               null          null            null      null  
+2016-12-17               null          null            null      null  
+2016-12-18               null          null            null      null  
+2016-12-19               null          null            null      null  
+2016-12-20               null          null            null      null  
+2016-12-21               null          null            null      null  
+2016-12-22               null          null            null      null  
+2016-12-23               null          null            null      null  
+2016-12-24               null          null            null      null  
+...                       ...           ...             ...       ...  
+2017-01-23               null          null            null      null  
+2017-01-24               null          null            null      null  
+2017-01-25               null          null            null      null  
+2017-01-26               null          null            null      null  
+2017-01-27                 10            25             0.5  20170127  
+2017-01-28               null          null            null      null  
+2017-01-29               null          null            null      null  
+2017-01-30               null          null            null      null  
+2017-01-31                 10          26.5             0.5  20170131  
+2017-02-01                  9            24             0.5  20170201  
+2017-02-02              11.25            25             0.5  20170202  
+2017-02-03               null          null            null      null  
+2017-02-04               null          null            null      null  
+2017-02-05                 11            26               1  20170205  
+2017-02-06                 10          25.5               1  20170206  
+2017-02-07               null          null            null      null  
+2017-02-08               12.1          25.1             0.7  20170208  
+2017-02-09               null          null            null      null  
+2017-02-10               null          null            null      null  
+2017-02-11               null          null            null      null  
+2017-02-12              11.75          25.5             0.5  20170212  
+2017-02-13              11.25            26            0.25  20170213  
+2017-02-14               12.9         22.35            0.65  20170214  
+2017-02-15               null          null            null      null  
+2017-02-16               11.5            26            0.25  20170216  
+2017-02-17               null          null            null      null  
+2017-02-18               null          null            null      null  
+2017-02-19               null          null            null      null  
+2017-02-20              12.33         26.83            0.83  20170220  
+2017-02-21               11.5            26               1  20170221  
 
-    Marine Le Pen  Nicolas Sarkozy                   Sondeur Échantillon  
-1            43.0              NaN                      Ifop         994  
-2            37.0              NaN                      Ifop       1 876  
-3            36.0              NaN                       BVA         949  
-4            35.0              NaN                       BVA         927  
-5            35.0              NaN                       BVA         910  
-6            40.0              NaN                      Ifop       1 858  
-7            39.0              NaN                       BVA         912  
-8            29.0              NaN                     Odoxa         998  
-9            33.0              NaN        Harris Interactive       6 093  
-10           34.0              NaN  Kantar Sofres - OnePoint       1 011  
-11           34.0              NaN                     Elabe       1 000  
-12           35.0              NaN                      Ifop       3 283  
-13           33.0              NaN                       BVA         934  
-14           36.0              NaN             Ifop-Fiducial       1 860  
-15           37.0              NaN                       BVA         946  
-16           38.0              NaN                     Ipsos       1 443  
-17           40.0              NaN  Kantar Sofres - OnePoint       1 032  
-18           41.0              NaN                     Elabe         993  
-19           40.0              NaN             Ifop-Fiducial       1 409  
-20           40.0              NaN                       BVA         475  
-21           39.0              NaN                OpinionWay       1 700  
-22           38.0              NaN                OpinionWay       1 487  
-23           44.0              NaN                     Elabe         961  
-1            35.0              NaN                     Odoxa       1 011  
-2            39.0              NaN                     Odoxa         949  
-3            38.0              NaN                      Ifop       3 283  
-4            35.0              NaN             Ifop-Fiducial       1 860  
-5            36.0              NaN                     Ipsos       1 443  
-6            35.0              NaN  Kantar Sofres - OnePoint       1 032  
-7            35.0              NaN                     Elabe         993  
-..            ...              ...                       ...         ...  
-9            38.0             62.0        Harris Interactive       1 020  
-10           36.0             64.0                TNS Sofres       1 000  
-11           44.0             56.0                     Odoxa       1 011  
-12           45.0             55.0                     Odoxa         949  
-13           42.0             58.0                      Ifop       1 876  
-14           40.0             60.0                       BVA         949  
-15           44.0             56.0                       BVA         927  
-16           39.0             61.0                       BVA         910  
-17           43.0             57.0                      Ifop       1 858  
-18           42.0             58.0                       BVA         936  
-19           44.0             56.0                       BVA         912  
-1             NaN             52.0                     Odoxa       1 021  
-1             NaN             36.0                     Odoxa       1 011  
-1            40.0              NaN                      Ifop       1 876  
-2            39.0              NaN                       BVA         949  
-3            42.0              NaN                       BVA         927  
-4            37.0              NaN                       BVA         910  
-5            43.0              NaN                      Ifop       1 858  
-6            42.0              NaN                       BVA         912  
-1             NaN              NaN                      Ifop         994  
-1            46.0              NaN               Opinion Way       1 023  
-2            54.0              NaN                      Ifop         994  
-3            45.0              NaN                      Ifop         983  
-4            49.0              NaN                       CSA         951  
-5            48.0              NaN               Opinion Way       1 016  
-6            52.0              NaN                     Odoxa       1 021  
-7            40.0              NaN        Harris Interactive       1 020  
-8            46.0              NaN                     Odoxa       1 011  
-9            53.0              NaN                     Odoxa         949  
-10           53.0              NaN                      Ifop       1 876  
-
-[112 rows x 12 columns]
-Done
-=======
-Index([u'Abstention', u'Alain Juppé', u'Arnaud Montebourg', u'Benoît Hamon',
-       u'Bruno Le Maire', u'Cécile Duflot', u'Date', u'Emmanuel Macron',
-       u'Eva Joly', u'François Asselineau', u'François Bayrou',
-       u'François Fillon', u'François Hollande', u'Jacques Cheminade',
-       u'Jean Lassalle', u'Jean-François Copé', u'Jean-Luc Mélenchon',
-       u'Manuel Valls', u'Marine Le Pen', u'Martine Aubry',
-       u'Nathalie Arthaud', u'Nicolas Dupont-Aignan', u'Nicolas Hulot',
-       u'Nicolas Sarkozy', u'Olivier Besancenot', u'Philippe Poutou',
-       u'Philippe de Villiers', u'Pourrait changer d'avis', u'Rama Yade',
-       u'Sondeur', u'Sylvia Pinel', u'Vincent Peillon', u'Yannick Jadot',
-       u'Échantillon'],
-      dtype='object')
-[u'Alain Jupp\xe9', u'Bruno Le Maire', u'Jean-Fran\xe7ois Cop\xe9', u'Nicolas Sarkozy', u'Eva Joly', u'Sylvia Pinel', u'Vincent Peillon', u'Arnaud Montebourg']
+[89 rows x 8 columns]
 Traceback (most recent call last):
-  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 125, in <module>
-    dfF3["Date"] = dfF3["Date"].map(lambda x : dateparser.parse(x).date())
-  File "/usr/local/lib/python2.7/dist-packages/pandas/core/series.py", line 2175, in map
-    new_values = map_f(values, arg)
-  File "pandas/src/inference.pyx", line 1207, in pandas.lib.map_infer (pandas/lib.c:66116)
-  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 125, in <lambda>
-    dfF3["Date"] = dfF3["Date"].map(lambda x : dateparser.parse(x).date())
-AttributeError: 'NoneType' object has no attribute 'date'
->>>>>>> Stashed changes
+  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 216, in <module>
+    print(max(dfF5.index).timestamp())
+AttributeError: 'Timestamp' object has no attribute 'timestamp'

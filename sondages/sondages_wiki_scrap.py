@@ -20,7 +20,8 @@ import json
 warnings.filterwarnings('ignore')
 
 URL = "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l'%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2017#2016"
-path1 = "/var/www/html/1er tour/"
+path1 = "/var/www/html/1ertour/"
+path2 = "/var/www/html/2ndtour/"
 
 dicoTableMois = {4:"Janvier 2016", 5:"Février 2016", 6:"Mars 2016", 7:"Avril 2016", 8:"Mai 2016", 9:"Juin 2016",\
                  10:"Juillet 2016", 11:"Septembre 2016", 12:"Octobre 2016", 13:"Novembre 2016", 14:"Décembre 2016", \
@@ -32,11 +33,11 @@ dico_couleurs_candidats = {u"Arnaud Montebourg":"#CC0066", u"Benoît Hamon":"#CC
           u"Nicolas Dupont-Aignan":"#0000CC",  u"Nicolas Hulot":"#66CC00", u"Philippe Poutou":"#990033",
           u"Sylvia Pinel":"#FF0066", u"Yannick Jadot":"#339900"}
 
-dico_candidat_parti = {u"Arnaud Montebourg":"ps",u"Benoît Hamon":"ps",u"Cécile Duflot":"eelv", 
+dico_candidat_parti = {u"Arnaud Montebourg":"ps",u"Benoît Hamon":"ps",u"Cécile Duflot":"eelv",
         u"Emmanuel Macron" : "en marche",
-          u"François Bayrou" : "modem",  u"François Fillon":"les republicains", 
+          u"François Bayrou" : "modem",  u"François Fillon":"les republicains",
           u"François Hollande" : "ps", u"Jacques Cheminade" : "sp",
-          u"Jean-Luc Mélenchon" : "partie_de_gauche",  u"Manuel Valls":"ps",u"Marine Le Pen":"fn", 
+          u"Jean-Luc Mélenchon" : "partie_de_gauche",  u"Manuel Valls":"ps",u"Marine Le Pen":"fn",
           u"Nathalie Arthaud":"lutte ouvriere",
           u"Nicolas Dupont-Aignan":"debout_la_france", u"Nicolas Hulot":"empty", u"Philippe Poutou":"npa",
           u"Sylvia Pinel":"ps",  u"Yannick Jadot":"eelv"}
@@ -104,14 +105,14 @@ def loadPandas(URL):
                     line[i] = (float(elem.text.replace("%", "").replace(",",".").replace("<","")))
                 except Exception as e :
                     line[i] = (elem.text.replace("%", "").replace(",",".").replace("<",""))
-                
+
             if len(line) > len(colonnes) - 3 :
                 df.loc[j] = line
             #print(df)
-        
+
         df = df[df["Date"] != "/"]
         if idx >= 4 and idx <= 16:
-            df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx]) 
+            df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx])
 
         #2ème tour :
         if len(colonnes) < 7  :
@@ -139,7 +140,6 @@ notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
 anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Eva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
 
-print(dfF["Pourrait changer d'avis"])
 for col in dfF.columns:
     if col not in notCandidats:
         dfF[col] = dfF[col].map(lambda x: x if isinstance(x, float) else np.nan)
@@ -176,11 +176,18 @@ def dateToString(date):
     return str(date.year)+month+day
 
 dfF3 = dfF3.round(2)
+
+dfF3 = dfF3[dfF3["Date"] > datetime.date(year=2016,month=11,day=20)]
 dfF4 = dfF3
 
-dfF4 = dfF4[dfF4["Date"] > datetime.date(year=2016,month=11,day=20)]
-
 dfF4 = dfF4.drop([u"Cécile Duflot", u"François Hollande", u"Nicolas Hulot", u"Rama Yade"], axis=1)
+
+for col in dfF4.columns:
+    if col not in [u"Benoît Hamon", u"Emmanuel Macron", u"Date", u"François Fillon",\
+                   u"Jean-Luc Mélenchon", u"Marine Le Pen", u"François Bayrou", u"Philippe Poutou"]:
+        dfF4 = dfF4.drop(col, axis=1)
+
+dfF5 = dfF4
 
 dfF4["date"] = dfF4["Date"].map(lambda x: dateToString(x))
 dfF4 = dfF4.drop("Date", axis=1)
@@ -189,12 +196,29 @@ dfF4 = dfF4.set_index("date")
 dfF4 = dfF4.dropna(axis=1, how='all')
 dfF4 = dfF4.dropna(axis=0, how='all')
 
+
+
 # --- To json --- #
+
+
+dfF5 = dfF5.dropna(axis=1, how='all')
+dfF5 = dfF5.dropna(axis=0, how='all')
+dfF5 = dfF5.set_index("Date")
+idx = pd.date_range(min(dfF5.index), max(dfF5.index))
+dfF5 = dfF5.reindex(idx, fill_value="null")
+
+print(dfF5)
+
 to_json = []
-dico_sondage = {} 
-dico_sondage["id"] = "Tour 1"
+dico_sondage = {}
+dico_sondage["id"] = 1
 dico_sondage["refresh"] = {}
-dico_sondage["refresh"]["last"] = time.time()
+dfF5 = dfF5.drop("date", axis=1)
+print(dfF5.columns)
+
+dfF5 = dfF5.fillna("null")
+
+dico_sondage["refresh"]["last"] = time.mktime((max(dfF5.index).to_datetime()).timetuple())
 
 dico_sondage["refresh"]["dayInterval"] = 1
 
@@ -205,8 +229,8 @@ dico_sondage["unit"] = "%"
 dico_sondage["dataset"] = []
 
 
-for col in dfF4.columns:
-
+for col in dfF5.columns:
+    #On garde les candidats demandés :
     dico_temp = {}
     dico_temp["title"] = col
     if col in dico_candidat_parti.keys():
@@ -219,12 +243,12 @@ for col in dfF4.columns:
     else :
         dico_temp["color"] = "#ffffff"
 
-    dico_temp["data"] = list(dfF4[col].map(lambda x : "null" if np.isnan(x) else x))
+    dico_temp["data"] = list(dfF5[col])
     dico_sondage["dataset"].append(dico_temp)
 to_json.append(dico_sondage)
 
 with open(path1+'data.json', 'w') as fp:
-    json.dump(dico_sondage, fp)
+    json.dump(dico_sondage, fp, ensure_ascii=False)
 
 #dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
 
@@ -243,8 +267,6 @@ dfF4.to_csv("data.tsv", sep="\t", encoding='utf-8')
 #######################################################################
 ########################### 2nd tour ##################################
 #######################################################################
-
-path2 = "/var/www/html/2nd tour/"
 
 dfFs2 = dfFs
 
@@ -290,8 +312,6 @@ for col in dfFs2.columns:
 
 
 
-print(dfFs2)
-
 dfFs2["date"] = dfFs2["Date"].map(lambda x: dateToString2(x))
 dfFs2 = dfFs2.drop("Date", axis=1)
 
@@ -308,4 +328,3 @@ getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_json(path2+"emvsff.js
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
 #dfFs2.to_json(path2+"sondages2e.json")
 print("Done")
-
