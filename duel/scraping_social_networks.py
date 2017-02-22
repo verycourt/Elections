@@ -45,7 +45,7 @@ def YoutubeVideosData(page_id, access_token):
     parameters = '?order=date&part=snippet&channelId=' + page_id + '&maxResults=10&key=' + access_token
     url = base + parameters
     
-    # retrieve list of the most recently published videos on the channel
+    # retrieve list of the most recently published videos on the channel (10 or less)
     response = ul.urlopen(url)
     data = json.loads(response.read().decode('utf-8'))
     videoIds = [e['id']['videoId'] for e in data['items'] if 'videoId' in e['id']]
@@ -87,6 +87,7 @@ access_token = app_id + "|" + app_secret
 google_key = 'AIzaSyBkRrj_kFDUv-T76CJaI3Pd-g3v7UY4GMA'
 
 today = (datetime.utcnow() + timedelta(hours=1)).date()
+fname = str(today) + '.json'
 # path = 'data/' # save path
 path = '/var/www/html/duel/data/'
 
@@ -151,7 +152,12 @@ for candidate in accounts:
     rec = pd.DataFrame([stats.values()], columns=stats.keys(), index=[candidate])
     df = df.append(rec, verify_integrity=False)
 
-# sauvegarde des données
-df.sort_index(axis=0).sort_index(axis=1).to_json(path + str(today) + '.json', orient='split')
+# Sauvegarde des données depuis le dataFrame vers le fichier JSON
+df.sort_index(axis=0).sort_index(axis=1).to_json(path + fname, orient='split')
 
-print('Data saved as ' + path + str(today))
+# Enregistre le nom du fichier JSON le plus à jour dans la base de données
+f = open(path + 'latest_file.txt', 'w')
+f.write(fname)
+f.close()
+
+print('Data saved as ' + path + fname)
