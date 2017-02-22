@@ -2,9 +2,9 @@
 <html>
 	
 	<head>
-		<title>Google Trends</title>
+		<title>Valls vs. Le Pen</title>
 		<?php include "/var/www/html/site_head.html";?>
-		<style><?php include "/var/www/html/site_style.css";?></style>
+		<style><?php include "/var/www/html/header_style.css";?></style>
 		<!-- si besoin, rajouter une feuille de style css via une balise link ici -->
 	</head>
 
@@ -13,7 +13,7 @@
 
 		<div class="col-md-16 panel panel-default">
 			<div class="col-md-16 panel-heading text-center">
-				<h2>Second tour : hypothèse Marine Le Pen VS Manuel Valls</h2>
+				<h2>Hypothèse Marine Le Pen VS Manuel Valls</h2>
 				<script src="graphes.js"> </script>
 				<script>afficher("mlpVSmv.tsv")</script>
 			</div>

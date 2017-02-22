@@ -5,7 +5,7 @@
 		<title>Titre ici</title>
 
 		<?php include "/var/www/html/site_head.html";?>
-		<style><?php include "/var/www/html/site_style.css";?></style>
+		<style><?php include "/var/www/html/header_style.css";?></style>
 		<!-- si besoin, rajouter une feuille de style css via une balise link ici -->
 	</head>
 

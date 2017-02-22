@@ -2,26 +2,25 @@
 <html>
 	
 	<head>
-		<title>Google Trends</title>
+		<title>Live Google Trends</title>
+
 		<?php include "/var/www/html/site_head.html";?>
 		<style><?php include "/var/www/html/header_style.css";?></style>
+		<!-- si besoin, rajouter une feuille de style css via une balise link ici -->
 		<link rel="stylesheet" href="style.css" />
 	</head>
 
 	<body>	
 		<header><?php include "/var/www/html/site_header.html";?></header>
 
+		<!-- rajouter le body souhaite ici -->
 		<div class="line">
-			<canvas id="myChart" width="350" height="200"></canvas>
+			<canvas id="myChart" width="900" height="500"></canvas>
 		</div>
 		<div class="bar">
-			<canvas id="myBarChart" width="150" height="200"></canvas>
+			<canvas id="myBarChart" width="300" height="350"></canvas>
 		</div>
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="js/trends_24h.js" type="text/javascript"></script>
 		<p> Source des données : Google Trends (www.google.com/trends). </p>
-		<script src="js/candidats_A.js" type="text/javascript"></script>
-
 	</body>
 </html>

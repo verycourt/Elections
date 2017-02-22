@@ -1,150 +1,131 @@
-Index([u'Abstention', u'Alain Juppé', u'Arnaud Montebourg', u'Benoît Hamon',
-       u'Bruno Le Maire', u'Cécile Duflot', u'Date', u'Emmanuel Macron',
-       u'Eva Joly', u'François Asselineau', u'François Bayrou',
-       u'François Fillon', u'François Hollande', u'Jacques Cheminade',
-       u'Jean Lassalle', u'Jean-François Copé', u'Jean-Luc Mélenchon',
-       u'Manuel Valls', u'Marine Le Pen', u'Martine Aubry',
-       u'Nathalie Arthaud', u'Nicolas Dupont-Aignan', u'Nicolas Hulot',
-       u'Nicolas Sarkozy', u'Olivier Besancenot', u'Philippe Poutou',
-       u'Philippe de Villiers', u'Pourrait changer d'avis', u'Rama Yade',
-       u'Sondeur', u'Sylvia Pinel', u'Vincent Peillon', u'Yannick Jadot',
-       u'Échantillon'],
-      dtype='object')
-[u'Alain Jupp\xe9', u'Bruno Le Maire', u'Jean-Fran\xe7ois Cop\xe9', u'Nicolas Sarkozy', u'Eva Joly', u'Sylvia Pinel', u'Vincent Peillon', u'Arnaud Montebourg']
-          Abstention  Benoît Hamon  Emmanuel Macron  François Asselineau  \
-date                                                                       
-20161125         NaN           NaN            13.00                  NaN   
-20161127         NaN           NaN            13.50                  NaN   
-20161129         NaN           NaN            15.00                  NaN   
-20170104         NaN          6.00            19.50                  NaN   
-20170106         NaN          6.00            18.00                  NaN   
-20170108         NaN          6.00            18.00                  NaN   
-20170115         NaN          7.00            19.00                  NaN   
-20170120         NaN          8.00            19.00                  NaN   
-20170127         NaN         14.00            20.50                  NaN   
-20170131         NaN         16.50            22.50                  NaN   
-20170201        37.0         18.00            20.00                  NaN   
-20170202         NaN         16.50            21.50                  NaN   
-20170205         NaN         14.00            23.00                  NaN   
-20170206        39.0         15.50            20.50                  NaN   
-20170208        36.0         15.25            22.75                  NaN   
-20170208         NaN         15.00            21.00                  NaN   
-20170209        38.0         15.00            21.00                  NaN   
-20170210         NaN           NaN              NaN                  NaN   
+           Benoît Hamon Emmanuel Macron François Bayrou François Fillon  \
+2016-11-25          NaN              13               6              32   
+2016-11-26         null            null            null            null   
+2016-11-27          NaN            13.5             6.5              26   
+2016-11-28         null            null            null            null   
+2016-11-29          NaN              15             5.5            30.5   
+2016-11-30         null            null            null            null   
+2016-12-01         null            null            null            null   
+2016-12-02         null            null            null            null   
+2016-12-03         null            null            null            null   
+2016-12-04         null            null            null            null   
+2016-12-05         null            null            null            null   
+2016-12-06         null            null            null            null   
+2016-12-07         null            null            null            null   
+2016-12-08         null            null            null            null   
+2016-12-09         null            null            null            null   
+2016-12-10         null            null            null            null   
+2016-12-11         null            null            null            null   
+2016-12-12         null            null            null            null   
+2016-12-13         null            null            null            null   
+2016-12-14         null            null            null            null   
+2016-12-15         null            null            null            null   
+2016-12-16         null            null            null            null   
+2016-12-17         null            null            null            null   
+2016-12-18         null            null            null            null   
+2016-12-19         null            null            null            null   
+2016-12-20         null            null            null            null   
+2016-12-21         null            null            null            null   
+2016-12-22         null            null            null            null   
+2016-12-23         null            null            null            null   
+2016-12-24         null            null            null            null   
+...                 ...             ...             ...             ...   
+2017-01-23         null            null            null            null   
+2017-01-24         null            null            null            null   
+2017-01-25         null            null            null            null   
+2017-01-26         null            null            null            null   
+2017-01-27           14            20.5               5            21.5   
+2017-01-28         null            null            null            null   
+2017-01-29         null            null            null            null   
+2017-01-30         null            null            null            null   
+2017-01-31         16.5            22.5               4            19.5   
+2017-02-01           18              20             4.5              21   
+2017-02-02         16.5            21.5               5              19   
+2017-02-03         null            null            null            null   
+2017-02-04         null            null            null            null   
+2017-02-05           14              23             NaN              20   
+2017-02-06         15.5            20.5               5            18.5   
+2017-02-07         null            null            null            null   
+2017-02-08           15            21.7            5.17            18.4   
+2017-02-09         null            null            null            null   
+2017-02-10         null            null            null            null   
+2017-02-11         null            null            null            null   
+2017-02-12        14.25            21.5               6              18   
+2017-02-13        14.75           20.75             5.5            19.5   
+2017-02-14         16.7           22.15             4.9           17.25   
+2017-02-15         null            null            null            null   
+2017-02-16           15           20.25               5           19.25   
+2017-02-17         null            null            null            null   
+2017-02-18         null            null            null            null   
+2017-02-19         null            null            null            null   
+2017-02-20         13.5           19.17               6           20.33   
+2017-02-21           14              19             5.5              19   
 
-          François Bayrou  François Fillon  Jacques Cheminade  Jean Lassalle  \
-date                                                                           
-20161125             6.00            32.00                NaN            NaN   
-20161127             6.50            26.00                NaN            NaN   
-20161129             5.50            30.50                NaN            NaN   
-20170104             7.75            24.75                NaN            NaN   
-20170106             6.25            24.25               0.25            NaN   
-20170108             5.50            24.00                NaN            NaN   
-20170115             5.00            24.00               0.50            NaN   
-20170120              NaN            25.50               0.50            NaN   
-20170127             5.00            21.50               0.50            NaN   
-20170131             4.00            19.50                NaN            NaN   
-20170201             4.50            21.00               0.50            NaN   
-20170202             5.00            19.00                NaN            NaN   
-20170205              NaN            20.00                NaN            NaN   
-20170206             5.00            18.50               0.00            NaN   
-20170208             5.00            17.50                NaN            NaN   
-20170208             5.00            19.50                NaN            NaN   
-20170209             5.50            17.50               0.00            NaN   
-20170210              NaN              NaN                NaN            NaN   
+           Jean-Luc Mélenchon Marine Le Pen Philippe Poutou      date  
+2016-11-25                 12            22               1  20161125  
+2016-11-26               null          null            null      null  
+2016-11-27                 14            24               1  20161127  
+2016-11-28               null          null            null      null  
+2016-11-29                 12            24               1  20161129  
+2016-11-30               null          null            null      null  
+2016-12-01               null          null            null      null  
+2016-12-02               null          null            null      null  
+2016-12-03               null          null            null      null  
+2016-12-04               null          null            null      null  
+2016-12-05               null          null            null      null  
+2016-12-06               null          null            null      null  
+2016-12-07               null          null            null      null  
+2016-12-08               null          null            null      null  
+2016-12-09               null          null            null      null  
+2016-12-10               null          null            null      null  
+2016-12-11               null          null            null      null  
+2016-12-12               null          null            null      null  
+2016-12-13               null          null            null      null  
+2016-12-14               null          null            null      null  
+2016-12-15               null          null            null      null  
+2016-12-16               null          null            null      null  
+2016-12-17               null          null            null      null  
+2016-12-18               null          null            null      null  
+2016-12-19               null          null            null      null  
+2016-12-20               null          null            null      null  
+2016-12-21               null          null            null      null  
+2016-12-22               null          null            null      null  
+2016-12-23               null          null            null      null  
+2016-12-24               null          null            null      null  
+...                       ...           ...             ...       ...  
+2017-01-23               null          null            null      null  
+2017-01-24               null          null            null      null  
+2017-01-25               null          null            null      null  
+2017-01-26               null          null            null      null  
+2017-01-27                 10            25             0.5  20170127  
+2017-01-28               null          null            null      null  
+2017-01-29               null          null            null      null  
+2017-01-30               null          null            null      null  
+2017-01-31                 10          26.5             0.5  20170131  
+2017-02-01                  9            24             0.5  20170201  
+2017-02-02              11.25            25             0.5  20170202  
+2017-02-03               null          null            null      null  
+2017-02-04               null          null            null      null  
+2017-02-05                 11            26               1  20170205  
+2017-02-06                 10          25.5               1  20170206  
+2017-02-07               null          null            null      null  
+2017-02-08               12.1          25.1             0.7  20170208  
+2017-02-09               null          null            null      null  
+2017-02-10               null          null            null      null  
+2017-02-11               null          null            null      null  
+2017-02-12              11.75          25.5             0.5  20170212  
+2017-02-13              11.25            26            0.25  20170213  
+2017-02-14               12.9         22.35            0.65  20170214  
+2017-02-15               null          null            null      null  
+2017-02-16               11.5            26            0.25  20170216  
+2017-02-17               null          null            null      null  
+2017-02-18               null          null            null      null  
+2017-02-19               null          null            null      null  
+2017-02-20              12.33         26.83            0.83  20170220  
+2017-02-21               11.5            26               1  20170221  
 
-          Jean-Luc Mélenchon  Manuel Valls  Marine Le Pen  Martine Aubry  \
-date                                                                       
-20161125               12.00           NaN          22.00            NaN   
-20161127               14.00           9.0          24.00            NaN   
-20161129               12.00           9.0          24.00            NaN   
-20170104               13.88          12.5          23.00            NaN   
-20170106               11.75          10.5          26.00            NaN   
-20170108               12.75          11.0          25.50            NaN   
-20170115               14.33           9.5          25.33            NaN   
-20170120               14.00           9.0          27.00            NaN   
-20170127               10.00           NaN          25.00            NaN   
-20170131               10.00           NaN          26.50            NaN   
-20170201                9.00           NaN          24.00            NaN   
-20170202               11.25           NaN          25.00            NaN   
-20170205               11.00           NaN          26.00            NaN   
-20170206               10.00           NaN          25.50            NaN   
-20170208               12.50           NaN          25.75            NaN   
-20170208               12.50           NaN          24.00            NaN   
-20170209               10.50           NaN          26.00            NaN   
-20170210                 NaN           NaN            NaN            NaN   
-
-          Nathalie Arthaud  Nicolas Dupont-Aignan  Olivier Besancenot  \
-date                                                                    
-20161125              2.00                   2.00                 NaN   
-20161127              1.00                   2.50                 NaN   
-20161129              0.50                   2.00                 NaN   
-20170104              1.00                   1.50                 NaN   
-20170106              0.75                   1.50                 NaN   
-20170108              1.00                   1.50                 NaN   
-20170115              1.00                   2.50                 NaN   
-20170120              1.00                   2.00                 NaN   
-20170127              0.50                   3.25                 NaN   
-20170131              0.50                   1.00                 NaN   
-20170201              0.50                   2.00                 NaN   
-20170202              0.50                   2.00                 NaN   
-20170205              0.00                   3.00                 NaN   
-20170206              0.50                   2.50                 NaN   
-20170208              0.50                   1.75                 NaN   
-20170208              0.25                   3.00                 NaN   
-20170209              0.50                   2.50                 NaN   
-20170210               NaN                    NaN                 NaN   
-
-          Philippe Poutou  Philippe de Villiers  Pourrait changer d'avis  \
-date                                                                       
-20161125             1.00                   NaN                      NaN   
-20161127             1.00                   NaN                      NaN   
-20161129             1.00                   NaN                      NaN   
-20170104             2.00                   NaN                      NaN   
-20170106             1.00                   NaN                      NaN   
-20170108             0.75                   NaN                      NaN   
-20170115             1.00                   NaN                      NaN   
-20170120             1.00                   NaN                      NaN   
-20170127             0.50                   NaN                      NaN   
-20170131             0.50                   NaN                      NaN   
-20170201             0.50                   NaN                      NaN   
-20170202             0.50                   NaN                      NaN   
-20170205             1.00                   NaN                      NaN   
-20170206             1.00                   NaN                      NaN   
-20170208             0.50                   NaN                      NaN   
-20170208             1.00                   NaN                      NaN   
-20170209             0.00                   NaN                      NaN   
-20170210              NaN                   NaN                      NaN   
-
-          Yannick Jadot  
-date                     
-20161125           2.00  
-20161127           2.50  
-20161129           1.50  
-20170104           1.25  
-20170106           2.00  
-20170108           2.50  
-20170115           2.50  
-20170120           2.00  
-20170127           2.00  
-20170131           1.00  
-20170201           1.00  
-20170202           1.25  
-20170205           2.00  
-20170206           1.00  
-20170208           1.00  
-20170208           1.50  
-20170209           1.50  
-20170210            NaN  
+[89 rows x 8 columns]
 Traceback (most recent call last):
-  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 157, in <module>
-    dfF4.to_json(path1+"pollster1.json", force_ascii=False)
-  File "/usr/local/lib/python2.7/dist-packages/pandas/core/generic.py", line 1089, in to_json
-    lines=lines)
-  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 39, in to_json
-    date_unit=date_unit, default_handler=default_handler).write()
-  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 72, in __init__
-    self._format_axes()
-  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 105, in _format_axes
-    "'%s'." % self.orient)
-ValueError: DataFrame index must be unique for orient='columns'.
+  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 216, in <module>
+    print(max(dfF5.index).timestamp())
+AttributeError: 'Timestamp' object has no attribute 'timestamp'
