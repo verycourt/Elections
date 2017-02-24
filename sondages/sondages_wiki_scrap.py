@@ -14,6 +14,8 @@ import dateparser
 import datetime
 import time
 import json
+from json import encoder
+encoder.FLOAT_REPR = lambda o: format(o, '.1f')
 
 
 
@@ -177,14 +179,14 @@ def dateToString(date):
 
 dfF3 = dfF3.round(2)
 
-dfF3 = dfF3[dfF3["Date"] > datetime.date(year=2016,month=11,day=20)]
+dfF3 = dfF3[dfF3["Date"] > datetime.date(year=2017,month=01,day=01)]
 dfF4 = dfF3
 
 dfF4 = dfF4.drop([u"Cécile Duflot", u"François Hollande", u"Nicolas Hulot", u"Rama Yade"], axis=1)
 
 for col in dfF4.columns:
     if col not in [u"Benoît Hamon", u"Emmanuel Macron", u"Date", u"François Fillon",\
-                   u"Jean-Luc Mélenchon", u"Marine Le Pen", u"François Bayrou", u"Philippe Poutou"]:
+                   u"Jean-Luc Mélenchon", u"Marine Le Pen", u"Philippe Poutou"]:
         dfF4 = dfF4.drop(col, axis=1)
 
 dfF5 = dfF4
@@ -205,22 +207,34 @@ dfF5 = dfF5.dropna(axis=1, how='all')
 dfF5 = dfF5.dropna(axis=0, how='all')
 dfF5 = dfF5.set_index("Date")
 idx = pd.date_range(min(dfF5.index), max(dfF5.index))
+
 dfF5 = dfF5.reindex(idx, fill_value="null")
 
+########################
+# Agrégats sur 6 jours #
+########################
+dfF5 = dfF5.drop("date", axis=1)
+dfF5 = dfF5.replace(to_replace=["null"], value=np.nan)
+
+dfF5 = dfF5.groupby(pd.TimeGrouper('6D')).mean()
+
+for col in dfF5.columns :
+    dfF5[col] = np.round(dfF5[col], 1)
 print(dfF5)
+
+
 
 to_json = []
 dico_sondage = {}
 dico_sondage["id"] = 1
 dico_sondage["refresh"] = {}
-dfF5 = dfF5.drop("date", axis=1)
 print(dfF5.columns)
 
 dfF5 = dfF5.fillna("null")
 
 dico_sondage["refresh"]["last"] = time.mktime((max(dfF5.index).to_datetime()).timetuple())
 
-dico_sondage["refresh"]["dayInterval"] = 1
+dico_sondage["refresh"]["dayInterval"] = 6
 
 dico_sondage["title"] = "Pollster sondage 1er tour"
 
@@ -320,11 +334,12 @@ getDuel(dfFs2, u"Marine Le Pen", u"Manuel Valls").to_csv(path2+"mlpVSmv.tsv", se
 getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_csv(path2+"mlpVSem.tsv", sep="\t", encoding='utf-8')
 getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_csv(path2+"emvsff.tsv", sep="\t", encoding="utf-8")
 
+'''
 getDuel(dfFs2, u"Marine Le Pen", u"Manuel Valls").to_json(path2+"mlpVSmv.json", force_ascii=False)
 getDuel(dfFs2, u"Marine Le Pen", u"François Fillon").to_json(path2+"mlpVSff.json", force_ascii=False)
 getDuel(dfFs2, u"Marine Le Pen", u"Emmanuel Macron").to_json(path2+"mlpVSem.json", force_ascii=False)
 getDuel(dfFs2, u"Emmanuel Macron", u"François Fillon").to_json(path2+"emvsff.json", force_ascii=False)
-
+'''
 dfFs2.to_csv(path2+"sondages2e.csv", encoding='utf-8')
 #dfFs2.to_json(path2+"sondages2e.json")
 print("Done")
