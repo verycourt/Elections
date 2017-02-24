@@ -153,7 +153,7 @@ for candidate in accounts:
     df = df.append(rec, verify_integrity=False)
 
 # ajout de la colonne des mentions twitter sur 3 jours
-b = pd.read_json('popcontest.json', orient='column')
+b = pd.read_json('/var/www/html/decompte/popcontest.json', orient='column')
 names, counts = [e['name'] for e in b['children']], [e['size'] for e in b['children']]
 names = [n.replace('MLP', 'Le Pen') for n in names]
 
