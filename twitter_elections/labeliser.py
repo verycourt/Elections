@@ -31,7 +31,8 @@ session = int(input("Combien de tweets à labeliser pour cette session ?\n"))
 if session == 0 : exit()
 client = pym.MongoClient('localhost',27017)
 collection = client.tweet.tweet
-corpus = collection.find({'t_text':{'$regex':'^(?!.*rt).*$'},'t_id':{'$gte':rd.random()*collection.count()-session}},{'t_text':1})[:session]
+#corpus = collection.find({'t_text':{'$regex':'^(?!.*rt).*$'},'t_id':{'$gte':rd.random()*collection.count()-session}},{'t_text':1})[:session]
+corpus = collection.aggregate([{'$sample':{'size':session}},{'$project':{'t_text':1}}])
 client.close()
 sentimentmap = {'a':1,'z':0,'e':-1}
 for i, tweet in enumerate(corpus):
