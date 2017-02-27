@@ -7,6 +7,7 @@ prendre en input le sentiment
 insérer le tweet labelisé dans une autre collection'''
 f = open('indexlabelised','r')
 session = int(input("Combien de tweets à labeliser pour cette session ?"))
+if session == 0 : exit()
 index = int(f.read()[0])
 f.close()
 client = pym.MongoClient('localhost',27017)
@@ -15,12 +16,13 @@ corpus = collection.find({'t_text':{'$regex':'^(?!.*rt).*$'}},{'t_text':1})[inde
 client.close()
 sentimentmap = {'a':1,'z':0,'e':-1}
 for i, tweet in enumerate(corpus[:10]):
+    currtweet = {}
     print(tweet['t_text'])
-    tweet['sentiment'] = input('Sentiment ? Positif : a , Négatif : e, Neutre : z ')
-    while(tweet['sentiment'] not in ['a','z','e']) :
+    sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z ')
+    while(sentiment not in ['a','z','e']) :
         print("erreur\n")
-        tweet['sentiment'] = input('Sentiment ? Positif : a , Négatif : e, Neutre : z ')
-    labeled = {'text':tweet['t_text'],'sentiment':sentimentmap[tweet['sentiment']]}
+        sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z ')
+    labeled = {'text':tweet['t_text'],'sentiment':sentimentmap[sentiment]}
     f = open('indexlabelised','w')
     f.write(str(int(index)+i))
     f.close()
