@@ -109,7 +109,7 @@ for candidate in accounts:
         stats_tw = ['-', '-', '-']
         print('Profil Twitter : une erreur est survenue...')
 
-    stats['1_tw_tweets'], _, stats['0_tw_followers'] = stats_tw
+    _, _, stats['0_tw_followers'] = stats_tw
 
     if accounts[candidate][0] is not None:
         print('Scanning Youtube Channel')
@@ -152,12 +152,19 @@ for candidate in accounts:
     rec = pd.DataFrame([stats.values()], columns=stats.keys(), index=[candidate])
     df = df.append(rec, verify_integrity=False)
 
-# Sauvegarde des données depuis le dataFrame vers le fichier JSON
-df.sort_index(axis=0).sort_index(axis=1).to_json(path + fname, orient='split')
+# ajout de la colonne des mentions twitter sur 3 jours
+b = pd.read_json('/var/www/html/decompte/popcontest.json', orient='column')
+names, counts = [e['name'] for e in b['children']], [e['size'] for e in b['children']]
+names = [n.replace('MLP', 'Le Pen') for n in names]
 
-# Enregistre le nom du fichier JSON le plus à jour dans la base de données
-f = open(path + 'latest_file.txt', 'w')
-f.write(fname)
-f.close()
+b = pd.DataFrame(counts, columns=['1_tw_mentions'], index=names)
+c = pd.concat([df,b], axis=1, join_axes=[df.index])
+
+df_final = c.sort_index(axis=0).sort_index(axis=1)
+df_final.fillna(value='-', inplace=True)
+
+# Sauvegarde des données depuis le dataFrame vers le fichier JSON
+df_final.to_json(path + fname, orient='split')
+df_final.to_json(path + 'radar.json', orient='split')
 
 print('Data saved as ' + path + fname)

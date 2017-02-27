@@ -27,17 +27,17 @@ def removeDuplicates():
         client.close()
 
 def preprocess(text):
-    stopwords = [u"son",u"enculé",u"bite",u"chatte",u"cul",u"con",u"connard", "rt",u"alors",u"aucuns",u"pute",u"salope",
+    stopwords = [u"dtype",u"name",u"son",u"enculé",u"bite",u"chatte",u"cul",u"con",u"connard", "rt",u"alors",u"aucuns",u"pute",u"salope",
     u"aussi",u"autre",u"avant",u"avec",u"avoir",u"bon",u"car",u"ce",u"cela",u"ces",u"&amp",u"gtgt",u"gt",
-    u"ceux",u"chaque",u"ci",u"comme",u"comment",u"dans",u"de",u"des",u"d",u"dedans",u"dehors",u"depuis",u"devrait",u"doit",u"donc",
+    u"ceux",u"chaque",u"ci",u"comme",u"comment",u"dans",u"de",u"des",u"dedans",u"dehors",u"depuis",u"devrait",u"doit",u"donc",
     u"des",u"début",u"elle",u"elles",u"en",u"encore",u"essai",u"est",u"et",u"e",u"fait",u"faites",u"fois",u"font",u"hors",u"ici",
     u"il",u"ils",u"je",u"juste",u"la",u"le",u"les",u"leur",u"là",u"ma",u"maintenant",u"mais",u"mes",u"mine",u"moins",u"mon",u"mot",
-    u"même",u"ni",u"nommés",u"notre",u"nous",u"o",u"où",u"par",u"parce",u"pas",u"peut",u"pe",u"plupart",u"pour",u"pourquoi",u"quand",
+    u"même",u"ni",u"nommés",u"notre",u"nous",u"où",u"par",u"parce",u"pas",u"peut",u"plupart",u"pour",u"pourquoi",u"quand",
     u"que",u"quel",u"quelle",u"quelles",u"quels",u"qui",u"sa",u"sans",u"ses",u"seulement",u"si",u"sien",u"son",u"sont",u"sous",u"soyez",
     u"sujet",u"sur",u"ta",u"tandis",u"tellement",u"tels",u"tes",u"ton",u"tous",u"tout",u"trop",u"très",u"t",u"voient",u"vont",u"votre",
-    u"vous",u"v",u"ça",u"étaient",u"état",u"étions",u"été",u"être",u"or",u"c'",u"se",u"ses",u"sa",u"ce",u"ces",u"ca",u"s'",u"l'",u"qu'",
-    u"a",u"à",u"avais",u"étais",u"d'",u"qui",u"quoi",u"q",u"ont",u"as",u"avait",u"avaient",u"avez",u"étaient",u"était",u"étiez",u"y",
-    u"leurs",u"leur",u"t'",u"m'",u"https",u"co",u"sera",u"aura",u"seraient",u"serais",u"auraient",u"un",u"une",u"le",u"les",u"la",u"&gt"]
+    u"vous",u"ça",u"étaient",u"état",u"étions",u"été",u"être",u"or",u"c'",u"se",u"ses",u"sa",u"ce",u"ces",u"ca",u"s'",u"l'",u"qu'",
+    u"avais",u"étais",u"d'",u"qui",u"quoi",u"ont",u"as",u"avait",u"avaient",u"avez",u"étaient",u"était",u"étiez",u"y",
+    u"leurs",u"leur",u"t'",u"m'",u"sera",u"aura",u"seraient",u"serais",u"auraient",u"un",u"une",u"le",u"les",u"la",u"&gt"]
     filtered = []
     stops = re.compile('|'.join(stopwords))
     punctuation = re.compile('[%s]' % re.escape('!"%&()*+-=,.:/;<>[\]^_`{|}~...'))
@@ -55,8 +55,9 @@ def get_wordcloud(candidate):
         {'t_text':1}).limit(200000)])
 	client.close()
 	words[candidate] = Counter(preprocess(df['t_text']))
-        wc = wordcloud.WordCloud(max_font_size = 30, background_color="white").generate(' '.join(words[candidate])).to_file("/var/www/html/decompte/cloud_"+candidate+".png")
-candidates = ['hamon','macron','fillon','Le Pen','mélenchon']
+        wc = wordcloud.WordCloud(max_font_size = 30, max_words=20, relative_scaling=0.75, color_func=wordcloud.get_single_color_func('#590000'),
+	 background_color="white").generate(' '.join(words[candidate])).to_file("/var/www/html/decompte/cloud_"+candidate.replace(" ", "")+".png")
+candidates = ['hamon','macron','fillon','le pen','mélenchon']
 removeDuplicates()
 for candidate in candidates :
 	get_wordcloud(candidate)

@@ -1,6 +1,9 @@
 # ignore .csv
 *.csv
 
+# ignore .tsv
+*.tsv
+
 # ignore .json
 *.json
 

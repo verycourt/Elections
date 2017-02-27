@@ -1,13 +1,12 @@
-function readStringFromFileAtPath(pathOfFileToReadFrom) {
+/*function readStringFromFileAtPath(pathOfFileToReadFrom) {
         var request = new XMLHttpRequest();
         request.open("GET", pathOfFileToReadFrom, false);
         request.send(null);
         var returnValue = request.responseText;
         return returnValue;
-}
+}*/
 
-var fname = readStringFromFileAtPath("/duel/data/latest_file.txt");
-var today = new Date();
+var fname = "radar.json";
 
 $.getJSON("/duel/data/" + fname, function(json) {
     var linechart_title = "Veille réseaux sociaux";
@@ -53,8 +52,8 @@ $.getJSON("/duel/data/" + fname, function(json) {
     }
 
     var data = {
-        labels: ['Followers Twitter', 'Total tweets', 'Abonnés YouTube', 'YouTube : vues en moyenne',
-    'YouTube : taux de réactions', 'YouTube : taux de satisfaction', '"Likes" Facebook', 'Mentions sur Facebook'],
+        labels: ['Twitter : followers', 'Twitter : mentions sur 3 jours', 'YouTube : abonnés', 'YouTube : vues en moyenne',
+    'YouTube : taux de réactions', 'YouTube : taux de satisfaction', 'Facebook : likes page officielle', 'Facebook : mentions'],
         datasets: webs
     };
 
