@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Index([u'Abstention', u'Alain Juppé', u'Arnaud Montebourg', u'Benoît Hamon',
        u'Bruno Le Maire', u'Cécile Duflot', u'Date', u'Emmanuel Macron',
        u'Eva Joly', u'François Asselineau', u'François Bayrou',
@@ -48,3 +49,307 @@ Index([u'Benoît Hamon', u'Emmanuel Macron', u'François Fillon',
       dtype='object')
 Done
 >>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
+=======
+Index([u'Abstention', u'Arnaud Montebourg', u'Benoît Hamon', u'Date',
+       u'Emmanuel Macron', u'François Bayrou', u'François Fillon',
+       u'Jacques Cheminade', u'Jean-Luc Mélenchon', u'Manuel Valls',
+       u'Marine Le Pen', u'Nathalie Arthaud', u'Nicolas Dupont-Aignan',
+       u'Philippe Poutou', u'Pourrait changer d'avis', u'Sondeur',
+       u'Sylvia Pinel', u'Vincent Peillon', u'Yannick Jadot', u'Échantillon'],
+      dtype='object')
+    Abstention  Benoît Hamon                             Date  \
+0          NaN           NaN           du 3 au 4 Janvier 2017   
+2          NaN           6.0           du 3 au 4 Janvier 2017   
+4          NaN           NaN           du 3 au 4 Janvier 2017   
+6          NaN           6.0           du 3 au 4 Janvier 2017   
+8          NaN           NaN           du 3 au 6 Janvier 2017   
+10         NaN           6.0           du 3 au 6 Janvier 2017   
+12         NaN           NaN           du 6 au 8 Janvier 2017   
+14         NaN           6.0           du 6 au 8 Janvier 2017   
+16         NaN           NaN         du 10 au 15 Janvier 2017   
+17         NaN           NaN         du 10 au 15 Janvier 2017   
+20         NaN           7.0         du 10 au 15 Janvier 2017   
+21         NaN           8.0               le 20 Janvier 2017   
+22         NaN           NaN               le 20 Janvier 2017   
+25         NaN          13.0         du 26 au 27 Janvier 2017   
+26         NaN          15.0         du 26 au 27 Janvier 2017   
+28         NaN          16.0         du 30 au 31 Janvier 2017   
+29         NaN          17.0         du 30 au 31 Janvier 2017   
+0         37.0          18.0  29 janv - 1er fév. Février 2017   
+1          NaN          16.0         du 1er au 2 Février 2017   
+2          NaN          17.0         du 1er au 2 Février 2017   
+3          NaN          14.0           du 3 au 5 Février 2017   
+4         39.0          15.5           du 2 au 6 Février 2017   
+5          NaN          15.0           du 7 au 8 Février 2017   
+6          NaN          15.5           du 7 au 8 Février 2017   
+7          NaN          14.0           du 6 au 8 Février 2017   
+8          NaN          16.0           du 6 au 8 Février 2017   
+9         38.0          14.5           du 6 au 8 Février 2017   
+10         NaN          14.5          du 7 au 12 Février 2017   
+11         NaN          14.0          du 7 au 12 Février 2017   
+12         NaN          15.0          du 9 au 13 Février 2017   
+13        37.0          14.5          du 9 au 13 Février 2017   
+14        23.7          16.4         du 10 au 14 Février 2017   
+15        24.9          17.0         du 10 au 14 Février 2017   
+16         NaN          16.0         du 14 au 16 Février 2017   
+17         NaN          14.0         du 14 au 16 Février 2017   
+18         NaN          15.5         du 17 au 20 Février 2017   
+19         NaN          12.0         du 18 au 20 Février 2017   
+20         NaN          13.0         du 18 au 20 Février 2017   
+21        27.0          17.0         du 19 au 20 Février 2017   
+22        38.0          14.0         du 17 au 21 Février 2017   
+23         NaN          14.0         du 20 au 22 Février 2017   
+24         NaN          13.0         du 20 au 22 Février 2017   
+26        39.5          13.0         Du 21 au 24 Février 2017   
+27         NaN          13.0         Du 22 au 23 Février 2017   
+28         NaN          14.0         Du 23 au 24 Février 2017   
+30        39.5          13.5         Du 23 au 27 Février 2017   
+
+    Emmanuel Macron  François Bayrou  François Fillon  Jacques Cheminade  \
+0              16.0              7.5             23.0                NaN   
+2              21.0              8.0             24.0                NaN   
+4              18.0              NaN             26.0                NaN   
+6              23.0              NaN             26.0                NaN   
+8              17.0              5.5             24.0                0.0   
+10             19.0              7.0             24.5                0.5   
+12             16.0              5.0             24.0                NaN   
+14             20.0              6.0             24.0                NaN   
+16             17.0              5.0             23.0                0.5   
+17             19.0              NaN             24.0                0.5   
+20             21.0              NaN             25.0                0.5   
+21             20.0              NaN             26.0                0.5   
+22             18.0              NaN             25.0                0.5   
+25             20.0              5.0             21.0                0.5   
+26             21.0              NaN             22.0                0.5   
+28             22.0              4.0             19.0                NaN   
+29             23.0              NaN             20.0                NaN   
+0              20.0              4.5             21.0                0.5   
+1              21.0              5.0             18.0                NaN   
+2              22.0              NaN             20.0                NaN   
+3              23.0              NaN             20.0                NaN   
+4              20.5              5.0             18.5                0.0   
+5              22.0              5.0             17.0                NaN   
+6              23.5              NaN             18.0                NaN   
+7              21.0              5.0             19.0                NaN   
+8              21.0              NaN             20.0                NaN   
+9              21.0              5.5             18.0                0.0   
+10             23.0              NaN             18.5                0.0   
+11             20.0              6.0             17.5                0.0   
+12             22.0              NaN             21.0                NaN   
+13             19.5              5.5             18.0                0.0   
+14             21.3              4.9             16.7                NaN   
+15             23.0              NaN             17.8                NaN   
+16             21.0              NaN             20.0                NaN   
+17             19.5              5.0             18.5                0.0   
+18             22.0              NaN             20.0                0.0   
+19             17.0              6.0             20.0                NaN   
+20             18.5              NaN             21.0                NaN   
+21             21.0              NaN             19.0                NaN   
+22             19.0              5.5             19.0                0.0   
+23             20.0              NaN             21.0                NaN   
+24             22.0              NaN             21.0                NaN   
+26             23.5              NaN             20.5                0.5   
+27             25.0              NaN             19.0                NaN   
+28             25.0              NaN             20.0                NaN   
+30             24.5              NaN             20.0                0.5   
+
+    Jean-Luc Mélenchon  Manuel Valls  Marine Le Pen  Nathalie Arthaud  \
+0                 14.0          12.0           22.0               1.0   
+2                 13.0           NaN           23.0               0.5   
+4                 14.0          13.0           23.0               1.0   
+6                 14.5           NaN           24.0               1.5   
+8                 12.0          10.5           26.0               0.5   
+10                11.5           NaN           26.0               1.0   
+12                13.0          11.0           25.0               1.0   
+14                12.5           NaN           26.0               1.0   
+16                14.0           9.0           25.0               1.0   
+17                15.0          10.0           25.0               1.0   
+20                14.0           NaN           26.0               1.0   
+21                13.0           NaN           27.0               1.0   
+22                15.0           9.0           27.0               1.0   
+25                10.0           NaN           25.0               0.5   
+26                10.0           NaN           25.0               0.5   
+28                10.0           NaN           26.0               0.5   
+29                10.0           NaN           27.0               0.5   
+0                  9.0           NaN           24.0               0.5   
+1                 11.0           NaN           25.0               0.5   
+2                 11.5           NaN           25.0               0.5   
+3                 11.0           NaN           26.0               0.0   
+4                 10.0           NaN           25.5               0.5   
+5                 12.0           NaN           25.5               0.5   
+6                 13.0           NaN           26.0               0.5   
+7                 12.0           NaN           24.0               0.5   
+8                 13.0           NaN           24.0               0.0   
+9                 10.5           NaN           26.0               0.5   
+10                12.0           NaN           26.0               0.5   
+11                11.5           NaN           25.0               0.5   
+12                11.0           NaN           26.0               0.0   
+13                11.5           NaN           26.0               0.5   
+14                12.7           NaN           22.1               1.4   
+15                13.1           NaN           22.6               1.4   
+16                12.0           NaN           26.0               0.0   
+17                11.0           NaN           26.0               0.5   
+18                12.0           NaN           25.5               0.5   
+19                12.0           NaN           27.0               1.0   
+20                13.0           NaN           28.0               1.0   
+21                10.5           NaN           27.5               0.5   
+22                11.5           NaN           26.0               0.5   
+23                13.0           NaN           25.0               1.0   
+24                11.0           NaN           26.0               0.5   
+26                11.0           NaN           26.0               0.5   
+27                12.0           NaN           27.0               0.0   
+28                10.0           NaN           27.0               1.0   
+30                11.5           NaN           26.0               1.0   
+
+    Nicolas Dupont-Aignan  Philippe Poutou  Pourrait changer d'avis  \
+0                     1.0              2.5                      NaN   
+2                     1.5              2.0                      NaN   
+4                     1.5              2.0                      NaN   
+6                     2.0              1.5                      NaN   
+8                     1.5              1.0                      NaN   
+10                    1.5              1.0                      NaN   
+12                    1.5              1.0                      NaN   
+14                    1.5              0.5                      NaN   
+16                    2.5              1.0                      NaN   
+17                    2.5              1.0                      NaN   
+20                    2.5              1.0                      NaN   
+21                    2.0              1.0                      NaN   
+22                    2.0              1.0                      NaN   
+25                    3.0              0.5                      NaN   
+26                    3.5              0.5                      NaN   
+28                    1.0              0.5                      NaN   
+29                    1.0              0.5                      NaN   
+0                     2.0              0.5                      NaN   
+1                     2.0              0.5                      NaN   
+2                     2.0              0.5                      NaN   
+3                     3.0              1.0                      NaN   
+4                     2.5              1.0                      NaN   
+5                     1.5              0.5                      NaN   
+6                     2.0              0.5                      NaN   
+7                     2.0              1.0                      NaN   
+8                     4.0              1.0                      NaN   
+9                     2.0              0.5                      NaN   
+10                    3.0              0.5                      NaN   
+11                    3.0              0.5                      NaN   
+12                    3.0              0.0                      NaN   
+13                    2.5              0.5                      NaN   
+14                    1.9              0.6                      NaN   
+15                    2.2              0.7                      NaN   
+16                    3.0              0.0                      NaN   
+17                    3.0              0.5                      NaN   
+18                    2.0              0.5                      NaN   
+19                    3.0              1.0                      NaN   
+20                    3.5              1.0                      NaN   
+21                    2.0              0.5                      NaN   
+22                    2.0              1.0                      NaN   
+23                    3.0              1.0                      NaN   
+24                    4.0              1.0                      NaN   
+26                    2.5              0.5                      NaN   
+27                    2.0              1.0                      NaN   
+28                    2.5              0.5                      NaN   
+30                    2.5              0.5                      NaN   
+
+                       Sondeur  Yannick Jadot     Échantillon  
+0                        Elabe            1.0             925  
+2                        Elabe            1.0             925  
+4                        Elabe            1.5             925  
+6                        Elabe            1.5             925  
+8                Ifop-Fiducial            2.0           1 860  
+10               Ifop-Fiducial            2.0           1 860  
+12                         BVA            2.5             946  
+14                         BVA            2.5             946  
+16  Cevipof Ipsos-Sopra Steria            2.5          15 921  
+17  Cevipof Ipsos-Sopra Steria            2.5          15 921  
+20  Cevipof Ipsos-Sopra Steria            2.5          15 921  
+21                       Ipsos            2.0           1 443  
+22                       Ipsos            2.0           1 443  
+25    Kantar Sofres - OnePoint            2.0           1 032  
+26    Kantar Sofres - OnePoint            2.0           1 032  
+28                       Elabe            1.0             993  
+29                       Elabe            1.0             993  
+0                Ifop-Fiducial            1.0           1 409  
+1                          BVA            1.0         640-646  
+2                          BVA            1.5         640-646  
+3                   OpinionWay            2.0           1 700  
+4                Ifop-Fiducial            1.0           1 433  
+5                        Elabe            1.0             961  
+6                        Elabe            1.0             961  
+7           Harris Interactive            2.0           5 432  
+8                   OpinionWay            1.0           1 454  
+9                Ifop-Fiducial            1.5           1 409  
+10  Cevipof Ipsos-Sopra Steria            2.0          15 874  
+11  Cevipof Ipsos-Sopra Steria            2.0          15 874  
+12                  OpinionWay            2.0           1 422  
+13               Ifop-Fiducial            1.5           1 392  
+14  Dedicated Research[note 9]            2.1  2 066[note 10]  
+15  Dedicated Research[note 9]            2.3  2 066[note 10]  
+16                  OpinionWay            2.0           1 602  
+17               Ifop-Fiducial            2.0           1 396  
+18               Ifop-Fiducial            2.0           1 838  
+19                       Elabe            1.0           1 051  
+20                       Elabe            1.0           1 051  
+21                         BVA            2.0             628  
+22               Ifop-Fiducial            1.5           1 386  
+23          Harris Interactive            2.0           5 249  
+24                  OpinionWay            2.0           1 615  
+26               Ifop-Fiducial            2.0           1 417  
+27                       Odoxa            1.0             920  
+28    Kantar Sofres - OnePoint            NaN           1 005  
+30               Ifop-Fiducial            NaN           1 404  
+0             4 Janvier 2017
+2             4 Janvier 2017
+4             4 Janvier 2017
+6             4 Janvier 2017
+8             6 Janvier 2017
+10            6 Janvier 2017
+12            8 Janvier 2017
+14            8 Janvier 2017
+16           15 Janvier 2017
+17           15 Janvier 2017
+20           15 Janvier 2017
+21           20 Janvier 2017
+22           20 Janvier 2017
+25           27 Janvier 2017
+26           27 Janvier 2017
+28           31 Janvier 2017
+29           31 Janvier 2017
+0             1 Février 2017
+1             2 Février 2017
+2             2 Février 2017
+3     du 3 au 5 Février 2017
+4             6 Février 2017
+5             8 Février 2017
+6             8 Février 2017
+7             8 Février 2017
+8             8 Février 2017
+9             8 Février 2017
+10           12 Février 2017
+11           12 Février 2017
+12           13 Février 2017
+13           13 Février 2017
+14           14 Février 2017
+15           14 Février 2017
+16           16 Février 2017
+17           16 Février 2017
+18           20 Février 2017
+19           20 Février 2017
+20           20 Février 2017
+21           20 Février 2017
+22           21 Février 2017
+23           22 Février 2017
+24           22 Février 2017
+26           24 Février 2017
+27           23 Février 2017
+28           24 Février 2017
+30           27 Février 2017
+Name: Date, dtype: object
+Traceback (most recent call last):
+  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 164, in <module>
+    dfF3["Date"] = dfF3["Date"].map(lambda x : dateparser.parse(x).date())
+  File "/usr/local/lib/python2.7/dist-packages/pandas/core/series.py", line 2175, in map
+    new_values = map_f(values, arg)
+  File "pandas/src/inference.pyx", line 1207, in pandas.lib.map_infer (pandas/lib.c:66116)
+  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 164, in <lambda>
+    dfF3["Date"] = dfF3["Date"].map(lambda x : dateparser.parse(x).date())
+AttributeError: 'NoneType' object has no attribute 'date'
+>>>>>>> 585d7ee50bcbab64cbd5e4e9f83039cc2e5f970d

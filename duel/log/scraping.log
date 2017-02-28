@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /bin/bash: /home/ubuntu/Elections/duel/scraping_social_networks.py: Permission non accordée
 =======
 ('Maj du', datetime.date(2017, 2, 27))
+=======
+('Maj du', datetime.date(2017, 2, 28))
+>>>>>>> 585d7ee50bcbab64cbd5e4e9f83039cc2e5f970d
 --------------------
 Le Pen
 --------------------
@@ -10,16 +14,7 @@ Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Marine Le Pen')
 ()
-{'0_tw_followers': 1295057, '2_yt_subscribers': 13596, '4_yt_reaction_rate': 7.4, '5_yt_satisfaction_rate': 95.1, '3_yt_views_avg': 4973, '7_fb_talking_about': 196996, '6_fb_likes': 1229583}
---------------------
-Macron
---------------------
-('Analyzing Twitter account', 'emmanuelmacron')
-Scanning Youtube Channel
-('Getting average metrics for the latest', 10, 'videos of the channel')
-('Facebook page :', u'Emmanuel Macron')
-()
-{'0_tw_followers': 523451, '2_yt_subscribers': 7678, '4_yt_reaction_rate': 4.4, '5_yt_satisfaction_rate': 52.6, '3_yt_views_avg': 5370, '7_fb_talking_about': 85210, '6_fb_likes': 182851}
+{'0_tw_followers': 1296482, '2_yt_subscribers': 13868, '4_yt_reaction_rate': 5.3, '5_yt_satisfaction_rate': 93.4, '3_yt_views_avg': 8184, '7_fb_talking_about': 207101, '6_fb_likes': 1231227}
 --------------------
 Melenchon
 --------------------
@@ -28,13 +23,49 @@ Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Jean-Luc M\xe9lenchon')
 ()
-{'0_tw_followers': 976963, '2_yt_subscribers': 223612, '4_yt_reaction_rate': 9.7, '5_yt_satisfaction_rate': 98.5, '3_yt_views_avg': 22544, '7_fb_talking_about': 114487, '6_fb_likes': 667213}
+{'0_tw_followers': 977777, '2_yt_subscribers': 224928, '4_yt_reaction_rate': 11.6, '5_yt_satisfaction_rate': 98.7, '3_yt_views_avg': 32614, '7_fb_talking_about': 112220, '6_fb_likes': 668118}
 --------------------
-Cheminade
+Macron
 --------------------
+('Analyzing Twitter account', 'emmanuelmacron')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Emmanuel Macron')
+()
+{'0_tw_followers': 525408, '2_yt_subscribers': 7704, '4_yt_reaction_rate': 4.3, '5_yt_satisfaction_rate': 52.3, '3_yt_views_avg': 5577, '7_fb_talking_about': 86633, '6_fb_likes': 183922}
+--------------------
+Fillon
+--------------------
+('Analyzing Twitter account', 'francoisfillon')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Fran\xe7ois Fillon')
+()
+{'0_tw_followers': 434568, '2_yt_subscribers': 4201, '4_yt_reaction_rate': 5.4, '5_yt_satisfaction_rate': 82.2, '3_yt_views_avg': 2802, '7_fb_talking_about': 46733, '6_fb_likes': 287073}
+--------------------
+Poutou
+--------------------
+('Analyzing Twitter account', 'PhilippePoutou')
+No Youtube Channel
+('Facebook page :', u'Philippe Poutou')
+()
+{'0_tw_followers': 97894, '2_yt_subscribers': '-', '4_yt_reaction_rate': '-', '5_yt_satisfaction_rate': '-', '3_yt_views_avg': '-', '7_fb_talking_about': 2231, '6_fb_likes': 11328}
+--------------------
+Hamon
+--------------------
+<<<<<<< HEAD
 ('Analyzing Twitter account', 'Jcheminade')
 Traceback (most recent call last):
   File "/home/ubuntu/Elections/duel/scraping_social_networks.py", line 112, in <module>
     _, _, stats['0_tw_followers'] = stats_tw
 ValueError: need more than 0 values to unpack
 >>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
+=======
+('Analyzing Twitter account', 'benoithamon')
+Scanning Youtube Channel
+('Getting average metrics for the latest', 10, 'videos of the channel')
+('Facebook page :', u'Beno\xeet Hamon')
+()
+{'0_tw_followers': 335317, '2_yt_subscribers': 4930, '4_yt_reaction_rate': 5.4, '5_yt_satisfaction_rate': 73.2, '3_yt_views_avg': 1316, '7_fb_talking_about': 37598, '6_fb_likes': 129889}
+Data saved as /var/www/html/duel/data/2017-02-28.json
+>>>>>>> 585d7ee50bcbab64cbd5e4e9f83039cc2e5f970d
