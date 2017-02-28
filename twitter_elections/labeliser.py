@@ -38,10 +38,12 @@ sentimentmap = {'a':1,'z':0,'e':-1}
 for i, tweet in enumerate(corpus):
     currtweet = {}
     print(tweet['t_text'])
-    sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z ')
-    while(sentiment not in ['a','z','e']) :
+    sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z, Ne Sais Pas : r ')
+    if sentiment == 'r' : continue
+    while(sentiment not in ['a','z','e','r']) :
         print("erreur\n")
-        sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z ')
+        sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z, Ne Sais Pas : r ')
+    if sentiment == 'r' : continue
     labeled = {'text':tweet['t_text'],'sentiment':sentimentmap[sentiment]}
     client = pym.MongoClient('localhost',27017)
     collection = client.tweet.train
