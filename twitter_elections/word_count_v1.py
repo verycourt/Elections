@@ -4,6 +4,9 @@
 import pymongo as pym
 import re
 import string
+import numpy as np
+from PIL import Image
+from os import path
 from collections import Counter 
 import time
 import pandas as pd
@@ -47,6 +50,8 @@ def preprocess(text):
              filtered.append(word)
     return filtered
 
+alice_mask = np.array(Image.open("cloud-images/cheval-aile-mask.png"))
+
 def get_wordcloud(candidate):
 	client = pym.MongoClient()
 	c = client.tweet.tweet
@@ -55,9 +60,9 @@ def get_wordcloud(candidate):
         {'t_text':1}).limit(200000)])
 	client.close()
 	words[candidate] = Counter(preprocess(df['t_text']))
-        wc = wordcloud.WordCloud(max_font_size = 30, max_words=20, relative_scaling=0.75, color_func=wordcloud.get_single_color_func('#590000'),
+        wc = wordcloud.WordCloud(max_font_size = 30, max_words=200, mask=alice_mask, relative_scaling=0.75, color_func=wordcloud.get_single_color_func('#590000'),
 	 background_color="white").generate(' '.join(words[candidate])).to_file("/var/www/html/decompte/cloud_"+candidate.replace(" ", "")+".png")
-candidates = ['hamon','macron','fillon','le pen','mélenchon']
+candidates = ['hamon']
 removeDuplicates()
 for candidate in candidates :
 	get_wordcloud(candidate)

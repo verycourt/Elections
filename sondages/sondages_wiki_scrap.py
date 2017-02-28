@@ -236,7 +236,7 @@ dico_sondage["refresh"]["last"] = time.mktime((max(dfF5.index).to_datetime()).ti
 
 dico_sondage["refresh"]["dayInterval"] = 6
 
-dico_sondage["title"] = "Pollster sondage 1er tour"
+dico_sondage["title"] = "POLLSTER : Agrégation des sondages sur le 1er tour (en %)"
 
 dico_sondage["unit"] = "%"
 
