@@ -32,7 +32,8 @@
 				</div>
 
 				<script src="/duel/radar.js" type="text/javascript"></script>
-				<p> Sources : Facebook, Twitter, Youtube. Données actualisées tous les jours. </p>
+				<p>Les 3 indicateurs YouTube prennent en compte les 10 dernières vidéos publiées sur les chaînes officielles de chaque candidat. Le taux de satisfaction correspond au rapport Likes/(Likes+Dislikes) de ces vidéos. </p>
+				<p>Sources : Facebook, Twitter, Youtube. Données actualisées tous les jours. </p>
 			</div>
 		</div>
 
