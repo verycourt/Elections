@@ -35,13 +35,13 @@ dico_couleurs_candidats = {u"Arnaud Montebourg":"#CC0066", u"Benoît Hamon":"#CC
           u"Nicolas Dupont-Aignan":"#0000CC",  u"Nicolas Hulot":"#66CC00", u"Philippe Poutou":"#990033",
           u"Sylvia Pinel":"#FF0066", u"Yannick Jadot":"#339900"}
 
-dico_candidat_parti = {u"Arnaud Montebourg":"ps",u"Benoît Hamon":"ps",u"Cécile Duflot":"eelv",
-        u"Emmanuel Macron" : "en marche",
-          u"François Bayrou" : "modem",  u"François Fillon":"les republicains",
-          u"François Hollande" : "ps", u"Jacques Cheminade" : "sp",
-          u"Jean-Luc Mélenchon" : "partie_de_gauche",  u"Manuel Valls":"ps",u"Marine Le Pen":"fn",
+dico_candidat_parti = {u"Arnaud Montebourg":"PS",u"Benoît Hamon":"PS",u"Cécile Duflot":"eelv",
+        u"Emmanuel Macron" : "En Marche",
+          u"François Bayrou" : "MoDem",  u"François Fillon":"Les Républicains",
+          u"François Hollande" : "PS", u"Jacques Cheminade" : "sp",
+          u"Jean-Luc Mélenchon" : "Parti de Gauche",  u"Manuel Valls":"PS",u"Marine Le Pen":"FN",
           u"Nathalie Arthaud":"lutte ouvriere",
-          u"Nicolas Dupont-Aignan":"debout_la_france", u"Nicolas Hulot":"empty", u"Philippe Poutou":"npa",
+          u"Nicolas Dupont-Aignan":"debout_la_france", u"Nicolas Hulot":"empty", u"Philippe Poutou":"NPA",
           u"Sylvia Pinel":"ps",  u"Yannick Jadot":"eelv"}
 
 def loadHTML(URL):
@@ -236,8 +236,11 @@ dico_sondage["refresh"]["last"] = time.mktime((max(dfF5.index).to_datetime()).ti
 
 dico_sondage["refresh"]["dayInterval"] = 6
 
-dico_sondage["title"] = "POLLSTER : Agrégation des sondages sur le 1er tour (en %)"
+dico_sondage["title"] = "Agrégation des sondages sur le 1er tour de 11 instituts*"
 
+dico_sondage["legende"] = "* Les données de ce graphique sont les moyennes des sondages de 11 instituts sur six jours. \
+Plus précisément, pour chaque jour affiché, il fait la moyenne sur les six derniers jours. \
+Les instituts sont : Ifop-Fiducial, OpinionWay, CSA, Future Thinking - SSI, BVA, Odoxa, Harris Interactive, TNS Sofres, Cevipof Ipsos-Sopra Steria, Elabe, Dedicated Research."
 dico_sondage["unit"] = "%"
 
 dico_sondage["dataset"] = []
