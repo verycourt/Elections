@@ -8,7 +8,7 @@ now = time.time() * 1000
 from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
-candidates = ['Valls','Macron','Le Pen','Melenchon','Bayrou','Hamon','Fillon']
+candidates = ['Macron','Le Pen','Melenchon','Bayrou','Hamon','Fillon']
 pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@EmmanuelMacron'],'Jadot':['Jadot','#Jadot','@yjadot'],
 'Le Pen':['mlp','lepen'],'Melenchon':['Melenchon','#Melenchon','@JLMelechon'],'Bayrou':['Bayrou','#Bayrou','@bayrou'],
 'Poutou':['Poutou','#Poutou','@PhilippePoutou'],'Peillon':['Peillon','#peillon','@Vincent_Peillon'],'Rugy':['#Rugy','Rugy','@FdeRugy'],
