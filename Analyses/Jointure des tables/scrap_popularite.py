@@ -25,7 +25,7 @@ print(code_prez)
 
 url_code = "http://www.tns-sofres.com/dataviz?type=1&code_nom="
 
-dfF = pd.DataFrame(columns=["Président", "Confiance", "Pas Confiance"])
+dfF = pd.DataFrame(columns=["President", "Confiance", "Pas Confiance"])
 
 for code in code_prez:
     df = pd.DataFrame(columns=["Date", "Confiance", "Pas Confiance"])
@@ -46,7 +46,7 @@ for code in code_prez:
     df = df[df["Date"] == max_date - relativedelta.relativedelta(months=5)]
     df = df.drop_duplicates()
     df["Date"] = code
-    df = df.rename(columns={'Date': 'Président'})
+    df = df.rename(columns={'Date': 'President'})
 
     dfF = pd.concat([dfF, df])
 print(dfF)

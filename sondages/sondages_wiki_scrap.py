@@ -14,11 +14,8 @@ import dateparser
 import datetime
 import time
 import json
-<<<<<<< HEAD
-=======
 from json import encoder
 encoder.FLOAT_REPR = lambda o: format(o, '.1f')
->>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
 
 
 
@@ -133,19 +130,12 @@ def loadPandas(URL):
             if len(line) > len(colonnes) - 3 :
                 df.loc[j] = line
             #print(df)
-<<<<<<< HEAD
         
-        df = df[df["Date"] != "/"]
-        if idx >= 4 and idx <= 16:
-            df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx]) 
-        
-=======
 
         df = df[df["Date"] != "/"]
         if idx >= 4 and idx <= 16:
             df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx])
 
->>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
         #2ème tour :
         if len(colonnes) < 7  :
             dfFs = dfFs.append(df)
@@ -166,13 +156,9 @@ dfF = dfF.replace(to_replace=["-", "–"], value=" ")
 
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : (str(x).split("[")[0].strip()))
 
-<<<<<<< HEAD
-print([repr(x[:1]) for x in list(dfF["Pourrait changer d'avis"])])
 
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : 0 if x == "nan" or x == "" else float(x[:2]))
 
-=======
->>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
 
 
 notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
@@ -195,12 +181,6 @@ dfF2["Pourrait changer d'avis"] = dfF2["Pourrait changer d'avis"].map(lambda x :
 #print(dfF)
 dfF3 = dfF2
 
-<<<<<<< HEAD
-#print(dfF)
-dfF3 = dfF2
-
-=======
->>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
 dfF3["Date"] = dfF3["Date"].map(lambda x : x.replace("1er", "1").replace("fév.", ""))
 dfF3["Date"] = dfF3["Date"].map(lambda x : ' '.join(x.split()))
 dfF3["Date"] = dfF3["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[-3:]))
