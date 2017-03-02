@@ -13,7 +13,7 @@ collection = client.tweet.tweet
 candidates = ['Valls','Macron','Le Pen','Melenchon','Bayrou','Hamon','Fillon']
 # les mots-clés dans les listes doivent rester en lower case
 pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@emmanuelmacron'],'Jadot':['jadot','#jadot','@yjadot'],
-'Le Pen':['@mlp_officiel','#mlp','lepen'],'Melenchon':['melenchon','#melenchon','@jlmelechon'],'Bayrou':['bayrou','#bayrou','@bayrou'],
+'Le Pen':['le pen','mlp','lepen'],'Melenchon':['melenchon','#melenchon','@jlmelechon'],'Bayrou':['bayrou','#bayrou','@bayrou'],
 'Poutou':['poutou','#poutou','@philippepoutou'],'Peillon':['peillon','#peillon','@vincent_peillon'],'Rugy':['#rugy','rugy','@fderugy'],
 'Hamon':['hamon','#hamon','@benoithamon'],'Pinel':['pinel','#pinel','@sylviapinel'],'Bennhamias':['bennhamias','#bennhamias','@jlbennhamias'],
 'Montebourg':['montebourg','#montebourg','@montebourg'],'Fillon':['fillon','#fillon','@francoisfillon']}
