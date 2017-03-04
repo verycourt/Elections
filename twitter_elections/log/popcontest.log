@@ -1,20 +1,20 @@
 Macron
 macron|#macron|@emmanuelmacron
-{'name': 'Macron', 'size': 229386}
+{'name': 'Macron', 'size': 52698}
 Le Pen
-mlp|lepen
-{'name': 'Le Pen', 'size': 43778}
+le pen|mlp|lepen
+{'name': 'Le Pen', 'size': 21196}
 Melenchon
 melenchon|#melenchon|@jlmelechon
-{'name': 'Melenchon', 'size': 11526}
+{'name': 'Melenchon', 'size': 3464}
 Bayrou
 bayrou|#bayrou|@bayrou
-{'name': 'Bayrou', 'size': 40342}
+{'name': 'Bayrou', 'size': 5397}
 Hamon
 hamon|#hamon|@benoithamon
-{'name': 'Hamon', 'size': 50644}
+{'name': 'Hamon', 'size': 8797}
 Fillon
 fillon|#fillon|@francoisfillon
-{'name': 'Fillon', 'size': 379928}
-{'Le Pen': {'name': 'Le Pen', 'size': 43778}, 'Macron': {'name': 'Macron', 'size': 229386}, 'Melenchon': {'name': 'Melenchon', 'size': 11526}, 'Fillon': {'name': 'Fillon', 'size': 379928}, 'Bayrou': {'name': 'Bayrou', 'size': 40342}, 'Hamon': {'name': 'Hamon', 'size': 50644}}
-{'name': 'twitter_mentions', 'children': [{'name': 'Le Pen', 'size': 43778}, {'name': 'Macron', 'size': 229386}, {'name': 'Melenchon', 'size': 11526}, {'name': 'Fillon', 'size': 379928}, {'name': 'Bayrou', 'size': 40342}, {'name': 'Hamon', 'size': 50644}]}
+{'name': 'Fillon', 'size': 272079}
+{'Le Pen': {'name': 'Le Pen', 'size': 21196}, 'Macron': {'name': 'Macron', 'size': 52698}, 'Melenchon': {'name': 'Melenchon', 'size': 3464}, 'Fillon': {'name': 'Fillon', 'size': 272079}, 'Bayrou': {'name': 'Bayrou', 'size': 5397}, 'Hamon': {'name': 'Hamon', 'size': 8797}}
+{'name': 'twitter_mentions', 'children': [{'name': 'Le Pen', 'size': 21196}, {'name': 'Macron', 'size': 52698}, {'name': 'Melenchon', 'size': 3464}, {'name': 'Fillon', 'size': 272079}, {'name': 'Bayrou', 'size': 5397}, {'name': 'Hamon', 'size': 8797}]}

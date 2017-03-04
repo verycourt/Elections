@@ -1,4 +1,4 @@
-('Maj du', datetime.date(2017, 3, 1))
+('Maj du', datetime.date(2017, 3, 4))
 --------------------
 Le Pen
 --------------------
@@ -7,7 +7,7 @@ Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Marine Le Pen')
 ()
-{'0_tw_followers': 1298431, '2_yt_subscribers': 14010, '4_yt_reaction_rate': 4.7, '5_yt_satisfaction_rate': 91.4, '3_yt_views_avg': 10005, '7_fb_talking_about': 212188, '6_fb_likes': 1232945}
+{'0_tw_followers': 1307405, '2_yt_subscribers': 14499, '4_yt_reaction_rate': 4.7, '5_yt_satisfaction_rate': 90.9, '3_yt_views_avg': 14184, '7_fb_talking_about': 242511, '6_fb_likes': 1241918}
 --------------------
 Melenchon
 --------------------
@@ -16,7 +16,7 @@ Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Jean-Luc M\xe9lenchon')
 ()
-{'0_tw_followers': 978777, '2_yt_subscribers': 226007, '4_yt_reaction_rate': 11.3, '5_yt_satisfaction_rate': 98.7, '3_yt_views_avg': 45948, '7_fb_talking_about': 113809, '6_fb_likes': 669181}
+{'0_tw_followers': 982342, '2_yt_subscribers': 227961, '4_yt_reaction_rate': 10.0, '5_yt_satisfaction_rate': 98.7, '3_yt_views_avg': 60237, '7_fb_talking_about': 113938, '6_fb_likes': 672082}
 --------------------
 Macron
 --------------------
@@ -25,7 +25,7 @@ Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Emmanuel Macron')
 ()
-{'0_tw_followers': 527519, '2_yt_subscribers': 7754, '4_yt_reaction_rate': 4.2, '5_yt_satisfaction_rate': 54.1, '3_yt_views_avg': 5505, '7_fb_talking_about': 96401, '6_fb_likes': 185128}
+{'0_tw_followers': 536339, '2_yt_subscribers': 8251, '4_yt_reaction_rate': 4.8, '5_yt_satisfaction_rate': 35.2, '3_yt_views_avg': 12338, '7_fb_talking_about': 117598, '6_fb_likes': 196463}
 --------------------
 Fillon
 --------------------
@@ -34,7 +34,7 @@ Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Fran\xe7ois Fillon')
 ()
-{'0_tw_followers': 436265, '2_yt_subscribers': 4217, '4_yt_reaction_rate': 5.3, '5_yt_satisfaction_rate': 81.9, '3_yt_views_avg': 3000, '7_fb_talking_about': 48591, '6_fb_likes': 288381}
+{'0_tw_followers': 441508, '2_yt_subscribers': 4277, '4_yt_reaction_rate': 5.2, '5_yt_satisfaction_rate': 80.5, '3_yt_views_avg': 3170, '7_fb_talking_about': 111351, '6_fb_likes': 293766}
 --------------------
 Poutou
 --------------------
@@ -42,7 +42,7 @@ Poutou
 No Youtube Channel
 ('Facebook page :', u'Philippe Poutou')
 ()
-{'0_tw_followers': 98005, '2_yt_subscribers': '-', '4_yt_reaction_rate': '-', '5_yt_satisfaction_rate': '-', '3_yt_views_avg': '-', '7_fb_talking_about': 2803, '6_fb_likes': 11465}
+{'0_tw_followers': 98230, '2_yt_subscribers': '-', '4_yt_reaction_rate': '-', '5_yt_satisfaction_rate': '-', '3_yt_views_avg': '-', '7_fb_talking_about': 41565, '6_fb_likes': 14990}
 --------------------
 Hamon
 --------------------
@@ -51,5 +51,5 @@ Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Beno\xeet Hamon')
 ()
-{'0_tw_followers': 335861, '2_yt_subscribers': 4992, '4_yt_reaction_rate': 6.4, '5_yt_satisfaction_rate': 78.1, '3_yt_views_avg': 1149, '7_fb_talking_about': 34014, '6_fb_likes': 130378}
-Data saved as /var/www/html/duel/data/2017-03-01.json
+{'0_tw_followers': 337563, '2_yt_subscribers': 5106, '4_yt_reaction_rate': 6.8, '5_yt_satisfaction_rate': 77.6, '3_yt_views_avg': 721, '7_fb_talking_about': 33200, '6_fb_likes': 132091}
+Data saved as /var/www/html/duel/data/2017-03-04.json

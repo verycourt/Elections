@@ -25,10 +25,11 @@ URL = "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l'%C3%A9lection_pr%C3
 path1 = "/var/www/html/1ertour/"
 path2 = "/var/www/html/2ndtour/"
 
-dicoTableMois = {4:"Janvier 2016", 5:"Février 2016", 6:"Mars 2016", 7:"Avril 2016", 8:"Mai 2016", 9:"Juin 2016",\
+'''dicoTableMois = {4:"Janvier 2016", 5:"Février 2016", 6:"Mars 2016", 7:"Avril 2016", 8:"Mai 2016", 9:"Juin 2016",\
                  10:"Juillet 2016", 11:"Septembre 2016", 12:"Octobre 2016", 13:"Novembre 2016", 14:"Décembre 2016", \
                 15:"Janvier 2017", 16:"Février 2017"}
-
+'''
+dicoTableMois = {0:"Mars 2017", 1:"Février 2017", 2:"Janvier 2017"}
 dico_couleurs_candidats = {u"Arnaud Montebourg":"#CC0066", u"Benoît Hamon":"#CC3399",u"Cécile Duflot":"#008000", u"Emmanuel Macron":"#A9A9A9",
           u"François Bayrou":"#FF6600", u"François Fillon":"#000080", u"François Hollande":"#FF9999",  u"Jacques Cheminade":"#CC0000",
           u"Jean-Luc Mélenchon":"#FF0000", u"Manuel Valls":"#FF6699", u"Marine Le Pen":"#3399FF",  u"Nathalie Arthaud":"#CC0033",
@@ -115,14 +116,16 @@ def loadPandas(URL):
 
 
         df = df[df["Date"] != "/"]
-        if idx >= 4 and idx <= 16:
+        if idx >= 0 and idx <= 2:
+            print(dicoTableMois[idx].lower()[:-5])
+            df["Date"] = df["Date"].map(lambda x : x.lower().replace(dicoTableMois[idx].lower()[:-5],""))
             df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx])
 
         #2ème tour :
         if len(colonnes) < 7  :
             dfFs = dfFs.append(df)
         #1er tour :
-        else :
+        elif idx >= 0 and idx <= 2:
             dfF = dfF.append(df)
 
     return (dfF, dfFs)
@@ -154,8 +157,9 @@ for col in dfF.columns:
 
 dfF2 = dfF
 for col in anciensCandidats:
-    dfF2 = dfF2[dfF2[col].isnull()]
-    dfF2 = dfF2.drop(col, axis=1)
+    if col in dfF2.columns :
+        dfF2 = dfF2[dfF2[col].isnull()]
+        dfF2 = dfF2.drop(col, axis=1)
 
 dfF2["Pourrait changer d'avis"] = dfF2["Pourrait changer d'avis"].map(lambda x : np.nan if x==0 else x)
 
@@ -165,6 +169,7 @@ dfF3 = dfF2
 dfF3["Date"] = dfF3["Date"].map(lambda x : x.replace("1er", "1").replace("fév.", ""))
 dfF3["Date"] = dfF3["Date"].map(lambda x : ' '.join(x.split()))
 dfF3["Date"] = dfF3["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[-3:]))
+print(dfF3.Date)
 dfF3["Date"] = dfF3["Date"].map(lambda x : dateparser.parse(x).date())
 
 dfF3 = dfF3.groupby(["Date"]).mean().reset_index()
@@ -187,7 +192,7 @@ dfF3 = dfF3.round(2)
 dfF3 = dfF3[dfF3["Date"] > datetime.date(year=2017,month=01,day=01)]
 dfF4 = dfF3
 
-dfF4 = dfF4.drop([u"Cécile Duflot", u"François Hollande", u"Nicolas Hulot", u"Rama Yade"], axis=1)
+#dfF4 = dfF4.drop([u"Cécile Duflot", u"François Hollande", u"Nicolas Hulot", u"Rama Yade"], axis=1)
 
 for col in dfF4.columns:
     if col not in [u"Benoît Hamon", u"Emmanuel Macron", u"Date", u"François Fillon",\
