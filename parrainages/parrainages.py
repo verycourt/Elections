@@ -19,9 +19,9 @@ def extractSponsoring(url):
         name = row .findAll('td')[0].text.split(' ')[0]
         if name not in candOfInterest : continue
         currcand['Nom'] = name
-        currcand['1er mars'] = row.findAll('td')[2].text
-        currcand['3 mars'] = row.findAll('td')[3].text
-        currcand['7 mars'] = row.findAll('td')[4].text
+        currcand['01 mars'] = row.findAll('td')[2].text
+        currcand['03 mars'] = row.findAll('td')[3].text
+        currcand['07 mars'] = row.findAll('td')[4].text
         currcand['10 mars'] = row.findAll('td')[5].text
         currcand['14 mars'] = row.findAll('td')[6].text
         currcand['18 mars'] = row.findAll('td')[7].text
