@@ -2,7 +2,7 @@
 <html>
 	
 	<head>
-		<title>Parrainages</title>
+		<title>Parrainages par candidat</title>
 
 		<?php include "/var/www/html/site_head.html";?>
 		<style><?php include "/var/www/html/header_style.css";?></style>
@@ -15,9 +15,10 @@
 		<!-- rajouter le body souhaite ici -->
 
 		<div class="bar">
-			<canvas id="chartParrainages" width="650" height="400"></canvas>
+			<canvas id="chartParrainages" width="550" height="300"></canvas>
 		</div>
 		<script src="parrainages.js" type="text/javascript"></script>
+		<p> Le niveau de dégradé indique la date d'obtention des parrainages. Plus il est foncé plus il est récent. </p>
 		<p> Source des données : conseil constitutionnel. </p>
 	</body>
 </html>

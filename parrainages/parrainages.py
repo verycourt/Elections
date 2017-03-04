@@ -12,7 +12,7 @@ def loadHTML(url):
 def extractSponsoring(url):
     table = loadHTML(url).find("table")
     rows = table.findAll('tr')
-    candOfInterest = ['ARTHAUD','MACRON','MELENCHON','LE PEN','HAMON','FILLON','DUPONT-AIGNAN','POUTOU','JUPPE']
+    candOfInterest = ['ARTHAUD','MACRON','MELENCHON','LE PEN','HAMON','FILLON','DUPONT-AIGNAN','POUTOU','JUPPE', 'CHEMINADE']
     candidates = []
     for row in rows[1:] :
         currcand = {}
