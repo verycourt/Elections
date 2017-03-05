@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+var today = new Date();
+var fname = today.getFullYear() + "-" + (((today.getMonth()+1) < 10)?"0":"") + (today.getMonth()+1) + "-" + ((today.getDate() < 10)?"0":"") + today.getDate();
+
+$.getJSON("/duel/data/" + fname + ".json", function(json) {
+    var linechart_title = "Veille réseaux sociaux du " + today.toLocaleDateString();
+    // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
+=======
 /*function readStringFromFileAtPath(pathOfFileToReadFrom) {
         var request = new XMLHttpRequest();
         request.open("GET", pathOfFileToReadFrom, false);
@@ -11,17 +19,20 @@ var fname = "radar.json";
 $.getJSON("/duel/data/" + fname, function(json) {
     var linechart_title = "Veille réseaux sociaux";
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split'
+>>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
     var data_json = json; 
 
     // Prédéfinition des attributs pour 10 jeux de données au maximum (ajouter des elements a la liste si besoin)
     // couleur sous la courbe
-    var backgroundColors = ["rgba(80,170,230,0.1)", "rgba(50,50,50,0.1)", "rgba(240,140,10,0.1)", "rgba(230,220,5,0.1)",
+    /*var backgroundColors = ["rgba(80,170,230,0.1)", "rgba(50,50,50,0.1)", "rgba(240,140,10,0.1)", "rgba(230,220,5,0.1)",
     "rgba(60,20,60,0.1)", "rgba(30,40,180,0.1)", "rgba(250,100,170,0.1)", "rgba(15,130,10,0.1)",
-    "rgba(20,70,95,0.1)", "rgba(110,50,10,0.1)", "rgba(225,5,5,0.1)", "rgba(160,10,10,0.1)"];
+    "rgba(20,70,95,0.1)", "rgba(110,50,10,0.1)", "rgba(225,5,5,0.1)", "rgba(160,10,10,0.1)"];*/
+    var backgroundColors = ["rgba(30,40,180,0.2)", "rgba(250,100,170,0.2)", "rgba(20,70,95,0.2)", "rgba(110,50,10,0.2)", "rgba(225,5,5,0.1)", "rgba(160,10,10,0.1)"];
     // couleur de la courbe
-    var borderColors = ["rgba(80,170,230,0.9)", "rgba(50,50,50,0.9)", "rgba(240,140,10,0.9)", "rgba(230,220,5,0.9)",
+    /*var borderColors = ["rgba(80,170,230,0.9)", "rgba(50,50,50,0.9)", "rgba(240,140,10,0.9)", "rgba(230,220,5,0.9)",
     "rgba(60,20,60,0.9)", "rgba(30,40,180,0.9)", "rgba(250,100,170,0.9)", "rgba(15,130,10,0.9)",
-    "rgba(20,70,95,0.9)", "rgba(110,50,10,0.9)", "rgba(225,5,5,0.9)", "rgba(160,10,10,0.9)"];
+    "rgba(20,70,95,0.9)", "rgba(110,50,10,0.9)", "rgba(225,5,5,0.9)", "rgba(160,10,10,0.9)"];*/
+    var borderColors = ["rgba(30,40,180,0.9)", "rgba(250,100,170,0.9)", "rgba(20,70,95,0.9)", "rgba(110,50,10,0.9)", "rgba(225,5,5,0.9)", "rgba(160,10,10,0.9)"];
 
     var values = [];
     var webs = [], temp = [], max = [];

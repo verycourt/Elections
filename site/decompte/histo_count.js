@@ -4,7 +4,7 @@ var marginhist = {top: 60, right: 120, bottom: 0, left: 80},
 
 var colorhist = d3.scale.ordinal()
      .domain(["Hamon","Macron","Bayrou","Fillon",
-	"Melenchon","Valls","MLP"])
+	"Melenchon","Valls","Le Pen"])
      .range(["#CC3399","#A9A9A9","#A9A9A9","#0000CC",
 	  "#FF0000",  "#CC3399","#000066"]);
 

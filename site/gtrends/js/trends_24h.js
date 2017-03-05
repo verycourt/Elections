@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <<<<<<< Updated upstream
 var fname = "candidats_A_1d.json"
 
@@ -161,6 +163,7 @@ $.getJSON("/gtrends/data/" + fname, function(json) {
 });
 
 =======
+>>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
 var fname = "candidats_A_1d.json"
 
 $.getJSON("/gtrends/data/" + fname, function(json) {

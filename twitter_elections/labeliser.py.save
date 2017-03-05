@@ -1,6 +1,5 @@
 # coding: utf-8
 import pymongo as pym
-import random as rd
 
 ''' Récupérer X tweets à labelliser
 afficher les tweets un par un,  
@@ -27,24 +26,28 @@ print("Removing duplicates....\n")
 removeDuplicates()
 print("Done\n")
 
-session = int(input("Combien de tweets à labeliser pour cette session ?\n"))
+f = open('indexlabelised','r')
+session = int(input("Combien de tweets à labeliser pour cette session ?"))
 if session == 0 : exit()
+index = int(f.read()[0])
+f.close()
+print("Index : " + str(index) +'\n')
 client = pym.MongoClient('localhost',27017)
 collection = client.tweet.tweet
-#corpus = collection.find({'t_text':{'$regex':'^(?!.*rt).*$'},'t_id':{'$gte':rd.random()*collection.count()-session}},{'t_text':1})[:session]
-corpus = collection.aggregate([{'$sample':{'size':session}},{'$project':{'t_text':1}}])
+corpus = collection.find({'t_text':{'$regex':'^(?!.*rt).*$'}},{'t_text':1})[index+1:index+session]
 client.close()
-sentimentmap = {'A':2, 'a':1,'z':0,'e':-1, 'E':-2}
+sentimentmap = {'a':1,'z':0,'e':-1}
 for i, tweet in enumerate(corpus):
     currtweet = {}
-    print(tweet['t_text'])
-    sentiment = raw_input('Sentiment ? Très Positif : A, Positif : a , Négatif : e, Très Négatif : E, Neutre : z, Ne Sais Pas : r ')
-    if sentiment == 'r' : continue
-    while(sentiment not in ['A','a','z','e','E','r']) :
+   print(tweet['t_text'])
+    sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z ')
+    while(sentiment not in ['a','z','e']) :
         print("erreur\n")
-        sentiment = raw_input('Sentiment ? Très Positif : A,  Positif : a , Négatif : e, Très Négatif : E, Neutre : z, Ne Sais Pas : r ')
-    if sentiment == 'r' : continue
+        sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z ')
     labeled = {'text':tweet['t_text'],'sentiment':sentimentmap[sentiment]}
+    f = open('indexlabelised','w')
+    f.write(str(int(index)+i))
+    f.close()
     client = pym.MongoClient('localhost',27017)
     collection = client.tweet.train
     collection.insert_one(labeled)
