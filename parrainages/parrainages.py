@@ -34,4 +34,3 @@ def extractSponsoring(url):
 dump = pd.DataFrame(extractSponsoring(url))
 dump.set_index('Nom', inplace=True)
 dump.to_json('/var/www/html/parrainages/parrainages.json', orient='split')
-

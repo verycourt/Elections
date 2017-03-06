@@ -1,0 +1,2 @@
+db.tweet.aggregate([ { : {t_text:/valls/}}, { $group: {_id:"$t_id", total:{$sum:1}}}])
+
