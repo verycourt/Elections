@@ -63,7 +63,7 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
 candidates = ['fillon','macron','le pen','hamon','melenchon']
 
 aliases = {'fillon':'fillon | ff | lr | republicains | républicains', 'macron':'macron | enmarche',
-'le pen':'mlp | marine | lepen | fn | front national','hamon':'benoit | hamon | ps | socialiste',
+'le pen':'mlp | marine | lepen | fn | front national | le pen','hamon':'benoit | hamon | ps | socialiste',
 'melenchon':'mélenchon | jlm | jean-luc | melenchon'}  
 
 negatives = {'fillon':'#penelopegate | #fillongate | #penelope','macron':'#stopmacron | #levraimacron | #lepionmacron | #macrongate',
@@ -73,7 +73,8 @@ neutrals = {'fillon':'#confpressfillon | #conffillon | #franceinfo','macron':'#i
 'hamon':'#primairesgauche | #grandjury','melenchon':'#ifop | sondage'}
 
 positives = {'fillon':'#fillon2017 | #stopchassealhomme | #fillonpresident | #projetfillon', 'macron':'#enmarche | #teammacron',
-'hamon':'#avenirencommun | #rassemblement', 'melenchon':'#presidentielle2017 | #franceinsoumise | #jlm2017 | #placeaupeuple'}
+'hamon':'#avenirencommun | #rassemblement', 'le pen' : 'patriote | #aunomdupeuple | #marine2017',
+ 'melenchon':'#presidentielle2017 | #franceinsoumise | #jlm2017 | #placeaupeuple'}
 
 getTweets(candidates, aliases, negatives, -1)
 getTweets(candidates, aliases, neutrals, 0)
