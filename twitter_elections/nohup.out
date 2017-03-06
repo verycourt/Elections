@@ -1,0 +1,79 @@
+Removing duplicates....
+
+Done
+
+Looking for fillon | ff | lr | republicains | républicains
+
+('sentiment : ', '#penelopegate | #fillongate | #penelope')
+Without macron | enmarche | mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon
+
+Looking for macron | enmarche
+
+('sentiment : ', '#stopmacron | #levraimacron | #lepionmacron | #macrongate')
+Without mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains
+
+Looking for mlp | marine | lepen | fn | front national | le pen
+
+('sentiment : ', '#lepengate | #fngate | nazi | facho')
+Without benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains | macron | enmarche
+
+Looking for benoit | hamon | ps | socialiste
+
+('sentiment : ', '#bilalhamon | #plusjamaisps')
+Without mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains | macron | enmarche | mlp | marine | lepen | fn | front national | le pen
+
+Looking for mélenchon | jlm | jean-luc | melenchon
+
+('sentiment : ', ' goulag | bolchevisme | ruine | dictateur')
+Without fillon | ff | lr | republicains | républicains | macron | enmarche | mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste
+
+Looking for fillon | ff | lr | republicains | républicains
+
+('sentiment : ', '#confpressfillon | #conffillon | #franceinfo')
+Without macron | enmarche | mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon
+
+Looking for macron | enmarche
+
+('sentiment : ', '#ifop | #match | #macronlyon')
+Without mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains
+
+Looking for mlp | marine | lepen | fn | front national | le pen
+
+('sentiment : ', '#rolling | #ifop')
+Without benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains | macron | enmarche
+
+Looking for benoit | hamon | ps | socialiste
+
+('sentiment : ', '#primairesgauche | #grandjury')
+Without mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains | macron | enmarche | mlp | marine | lepen | fn | front national | le pen
+
+Looking for mélenchon | jlm | jean-luc | melenchon
+
+('sentiment : ', '#ifop | sondage')
+Without fillon | ff | lr | republicains | républicains | macron | enmarche | mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste
+
+Looking for fillon | ff | lr | republicains | républicains
+
+('sentiment : ', '#fillon2017 | #stopchassealhomme | #fillonpresident | #projetfillon')
+Without macron | enmarche | mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon
+
+Looking for macron | enmarche
+
+('sentiment : ', '#enmarche | #teammacron')
+Without mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains
+
+Looking for mlp | marine | lepen | fn | front national | le pen
+
+('sentiment : ', 'patriote | #aunomdupeuple | #marine2017')
+Without benoit | hamon | ps | socialiste | mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains | macron | enmarche
+
+Looking for benoit | hamon | ps | socialiste
+
+('sentiment : ', '#avenirencommun | #rassemblement')
+Without mélenchon | jlm | jean-luc | melenchon | fillon | ff | lr | republicains | républicains | macron | enmarche | mlp | marine | lepen | fn | front national | le pen
+
+Looking for mélenchon | jlm | jean-luc | melenchon
+
+('sentiment : ', '#presidentielle2017 | #franceinsoumise | #jlm2017 | #placeaupeuple')
+Without fillon | ff | lr | republicains | républicains | macron | enmarche | mlp | marine | lepen | fn | front national | le pen | benoit | hamon | ps | socialiste
+
