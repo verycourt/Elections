@@ -3,7 +3,7 @@ import re
 
 def removeDuplicates():
     client = pym.MongoClient()
-        c = client.tweet.tweet
+    c = client.tweet.tweet
     duplicates = []
     removepipe = [{"$group":{"_id":"$t_id", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
     try :
@@ -73,7 +73,7 @@ positives = {'fillon':'#fillon2017 | #stopchassealhomme | #fillonpresident | #pr
 'hamon':'#avenirencommun | #rassemblement', 'melenchon':'#presidentielle2017 | #franceinsoumise | #jlm2017 | #placeaupeuple'}
 
 getTweets(candidates, aliases, negatives, -1)
-getTweets(candidate, aliases, neutrals, 0)
-getTweets(candidate, aliases, positives, 1)
+getTweets(candidates, aliases, neutrals, 0)
+getTweets(candidates, aliases, positives, 1)
 
 
