@@ -7,7 +7,7 @@ $.getJSON("/parrainages/parrainages.json", function(json) {
     // couleur sous la courbe
     var backgroundColors = ["rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)", "rgba(0,0,0,0)"];
     // couleur de la courbe
-    var listColors = ["rgba(80,170,230,0.9)", "rgba(110,50,10,0.9)", "rgba(60,60,60,0.9)", "rgba(20,70,95,0.9)", "rgba(200,30,5,0.9)", "rgba(15,130,10,0.9)", "rgba(230,220,5,0.9)", "rgba(80,170,230,0.9)", "rgba(110,50,10,0.9)", "rgba(60,60,60,0.9)", "rgba(250,100,170,0.9)", "rgba(240,140,10,0.9)", "rgba(60,20,60,0.9)"];
+    var listColors = ["rgba(80,170,230,0.9)", "rgba(110,50,10,0.9)", "rgba(60,60,60,0.9)", "rgba(200,30,5,0.9)", "rgba(20,70,95,0.9)", "rgba(80,170,230,0.9)", "rgba(80,170,230,0.9)", "rgba(60,20,60,0.9)", "rgba(15,130,10,0.9)", "rgba(230,220,5,0.9)", "rgba(15,130,10,0.9)", "rgba(110,50,10,0.9)", "rgba(60,60,60,0.9)", "rgba(250,100,170,0.9)", "rgba(240,140,10,0.9)", "rgba(240,140,10,0.9)"];
 
     var values = [], borderColors = [];
     var bars = [];
@@ -72,7 +72,7 @@ $.getJSON("/parrainages/parrainages.json", function(json) {
             title: {
                     display: true,
                     fontSize: 16,
-                    text: 'Parrainages obtenus'
+                    text: ''
             },
             events: false,
             hover: {

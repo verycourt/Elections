@@ -2,7 +2,7 @@
 <html>
 	
 	<head>
-		<title>Parrainages par candidat</title>
+		<title></title>
 
 		<?php include "/var/www/html/site_head.html";?>
 		<style><?php include "/var/www/html/header_style.css";?></style>
