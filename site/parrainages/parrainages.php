@@ -15,14 +15,14 @@
 		<!-- rajouter le body souhaite ici -->
 		<div style="margin-left:10%">
 		<div class="bar">
-			<canvas id="chartParrainages" width="550" height="300"></canvas>
+			<canvas id="chartParrainages" width="700" height="400"></canvas>
 		</div>
 		<script src="parrainages.js" type="text/javascript"></script>
-		<p> Le nombre de parrainages obtenus est mis à jour périodiquement, aux dates suivantes (indiquées par le dégradé de couleur)  :</p>
+		<p> Le nombre de parrainages obtenus est mis à jour aux dates suivantes (indiquées par le dégradé de couleur) :</p>
 		<ul> 
 			<li>1er mars</li>
 			<li>3 mars</li>
-			<li>7 mars (à venir) </li>
+			<li>7 mars</li>
 			<li>10 mars (à venir)</li>
 			<li>14 mars (à venir)</li>
 			<li>18 mars (à venir)</li>

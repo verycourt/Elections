@@ -21,7 +21,7 @@ $.getJSON("/parrainages/parrainages.json", function(json) {
             values[i].push(parseInt(data_json.data[j][i], 10));
 
             // dégradé de couleurs
-            borderColors.push(listColors[j].substring(0, listColors[j].indexOf(".") + 1) + (i + 3).toString() + ")");
+            borderColors.push(listColors[j].substring(0, listColors[j].indexOf(".") + 1) + (i + 4).toString() + ")");
         }
 
         bars.push({
@@ -44,7 +44,7 @@ $.getJSON("/parrainages/parrainages.json", function(json) {
         data: dataBar,
         options: {
             layout: {
-                    padding: 5
+                    padding: 30
                 },
             legend: {
                 display: false
