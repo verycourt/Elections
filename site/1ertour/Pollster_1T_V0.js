@@ -301,6 +301,8 @@ d3.tsv("/1ertour/data.tsv", function(error, data) {
         });
       })
 
+	// Add picture when clicking on legend box
+
       .on("mouseover", function(d){
 
         d3.select(this)
@@ -311,8 +313,23 @@ d3.tsv("/1ertour/data.tsv", function(error, data) {
           .transition()
           .style("stroke-width", 5);
 
+      d3.select("#pict_ID")
+        .transition()
+      .attr("xlink:href", "/1ertour/attachment_pollster/pict_"+d.name.replace(" ", "_").replace(" ","_")+".jpeg")
+      .attr("width", "15%")
+      .attr("height", "20%")
+      .attr("x", "84%")
+      .attr("y",0);
 
+    d3.select("#party_ID")
+      .transition()
+      .attr("xlink:href", "/1ertour/attachment_pollster/myparty_"+myparty[d.name].replace(" ", "_")+".jpeg")
+      .attr("width", "7%")
+      .attr("height", "10%")
+      .attr("x", "88%")
+      .attr("y","25%");
 
+/*
       d3.select("#pict_ID")
         .transition()
       .attr("xlink:href", "/1ertour/attachment_pollster/pict_"+d.name.replace(" ", "_").replace(" ","")+".jpeg")
@@ -328,7 +345,7 @@ d3.tsv("/1ertour/data.tsv", function(error, data) {
       .attr("height", "10%")
       .attr("x","80%")
       .attr("y","10%");
-
+*/
 
       })
 
@@ -412,7 +429,7 @@ d3.tsv("/1ertour/data.tsv", function(error, data) {
       })
 
 // min date
-var date1 = new Date(2016, 10, 25);
+var date1 = new Date(2016, 12, 01);
 //search max date
 array_date = data.map(function(d) {
         return d.date ;
