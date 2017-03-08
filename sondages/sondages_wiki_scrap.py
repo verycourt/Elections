@@ -117,7 +117,6 @@ def loadPandas(URL):
 
         df = df[df["Date"] != "/"]
         if idx >= 0 and idx <= 2:
-            print(dicoTableMois[idx].lower()[:-5])
             df["Date"] = df["Date"].map(lambda x : x.lower().replace(dicoTableMois[idx].lower()[:-5],""))
             df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx])
 
@@ -149,7 +148,6 @@ notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
 
 anciensCandidats = [u"Alain Juppé", u"Bruno Le Maire", u"Jean-François Copé", u"Nicolas Sarkozy", u"Eva Joly", u"Sylvia Pinel", u"Vincent Peillon", u"Arnaud Montebourg"]
 
-print(dfF["Pourrait changer d'avis"])
 for col in dfF.columns:
     if col not in notCandidats:
         dfF[col] = dfF[col].map(lambda x: x if isinstance(x, float) else np.nan)
@@ -169,7 +167,6 @@ dfF3 = dfF2
 dfF3["Date"] = dfF3["Date"].map(lambda x : x.replace("1er", "1").replace("fév.", ""))
 dfF3["Date"] = dfF3["Date"].map(lambda x : ' '.join(x.split()))
 dfF3["Date"] = dfF3["Date"].map(lambda x : x if len(x.split(" ")) < 4 else " ".join(x.split(" ")[-3:]))
-print(dfF3.Date)
 dfF3["Date"] = dfF3["Date"].map(lambda x : dateparser.parse(x).date())
 
 dfF3 = dfF3.groupby(["Date"]).mean().reset_index()
@@ -208,22 +205,8 @@ dfF4 = dfF4.set_index("date")
 dfF4 = dfF4.dropna(axis=1, how='all')
 dfF4 = dfF4.dropna(axis=0, how='all')
 
-# --- To json --- #
-to_json = []
-dico_sondage = {}
-dico_sondage["id"] = "Tour 1"
-dico_sondage["refresh"] = {}
-dico_sondage["refresh"]["last"] = time.time()
-
-dico_sondage["refresh"]["dayInterval"] = 1
-
-dico_sondage["title"] = "Pollster sondage 1er tour"
-
-
 
 # --- To json --- #
-
-
 dfF5 = dfF5.dropna(axis=1, how='all')
 dfF5 = dfF5.dropna(axis=0, how='all')
 dfF5 = dfF5.set_index("Date")
@@ -236,24 +219,30 @@ dfF5 = dfF5.reindex(idx, fill_value="null")
 ########################
 dfF5 = dfF5.drop("date", axis=1)
 dfF5 = dfF5.replace(to_replace=["null"], value=np.nan)
+diffDaysLast = (datetime.datetime.now()-max(dfF5.index).to_datetime()).days
+#dfF5.index = dfF5.index.map(lambda x : x.to_datetime() + datetime.timedelta(days=diffDaysLast))
 
+#dfF5 = dfF5.map(lambda x : )
+
+
+lastsondages = max(dfF5.index)
+to_add = (max(dfF5.index) - (max(dfF5.groupby(pd.TimeGrouper('6D')).mean().index))).days
+dfF5.index = dfF5.index.map(lambda x : (x + datetime.timedelta(days=to_add)) )
 dfF5 = dfF5.groupby(pd.TimeGrouper('6D')).mean()
-
+#dfF5 = dfF5.index.map(lambda x : x.to_datetime() + datetime.timedelta(days=6))
+print(dfF5)
 for col in dfF5.columns :
     dfF5[col] = np.round(dfF5[col], 1)
-print(dfF5)
-
 
 
 to_json = []
 dico_sondage = {}
 dico_sondage["id"] = 1
 dico_sondage["refresh"] = {}
-print(dfF5.columns)
 
 dfF5 = dfF5.fillna("null")
 
-dico_sondage["refresh"]["last"] = time.mktime((max(dfF5.index).to_datetime()).timetuple())
+dico_sondage["refresh"]["last"] = time.mktime((lastsondages.to_datetime()).timetuple())
 
 dico_sondage["refresh"]["dayInterval"] = 6
 

@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-var today = new Date();
-var fname = today.getFullYear() + "-" + (((today.getMonth()+1) < 10)?"0":"") + (today.getMonth()+1) + "-" + ((today.getDate() < 10)?"0":"") + today.getDate();
-
-$.getJSON("/duel/data/" + fname + ".json", function(json) {
-    var linechart_title = "Veille réseaux sociaux du " + today.toLocaleDateString();
-    // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
-=======
 /*function readStringFromFileAtPath(pathOfFileToReadFrom) {
         var request = new XMLHttpRequest();
         request.open("GET", pathOfFileToReadFrom, false);
@@ -19,7 +11,6 @@ var fname = "radar.json";
 $.getJSON("/duel/data/" + fname, function(json) {
     var linechart_title = "Veille réseaux sociaux";
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split'
->>>>>>> 1c6c84f84b7ef68e15cda912dfc2a522e14dccf9
     var data_json = json; 
 
     // Prédéfinition des attributs pour 10 jeux de données au maximum (ajouter des elements a la liste si besoin)
