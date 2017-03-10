@@ -1,6 +1,6 @@
 # coding: utf-8
 import pymongo as pym
-import random as rd
+import re
 
 ''' Récupérer X tweets à labelliser
 afficher les tweets un par un,  
@@ -32,7 +32,7 @@ if session == 0 : exit()
 client = pym.MongoClient('localhost',27017)
 collection = client.tweet.tweet
 #corpus = collection.find({'t_text':{'$regex':'^(?!.*rt).*$'},'t_id':{'$gte':rd.random()*collection.count()-session}},{'t_text':1})[:session]
-corpus = collection.aggregate([{'$sample':{'size':session}},{'$project':{'t_text':1}}])
+corpus = collection.aggregate([{'$match':{'t_text':{'$not':re.compile('rt @')}}},{'$sample':{'size':session}},{'$project':{'t_text':1}}])
 client.close()
 sentimentmap = {'A':2, 'a':1,'z':0,'e':-1, 'E':-2}
 for i, tweet in enumerate(corpus):
