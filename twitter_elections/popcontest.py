@@ -8,7 +8,9 @@ now = time.time() * 1000
 from pprint import pprint
 client = pymongo.MongoClient()
 collection = client.tweet.tweet
-candidates = ['Macron','Le Pen','Melenchon','Bayrou','Hamon','Fillon']
+candidates = ['Fillon','Hamon','Le Pen','Macron','Melenchon']
+parties = ['LR','PS','FN','En Marche!','PG']
+colors = ["#000080", "#CC3399", "#3399FF", "#A9A9A9", "#FF0000"]
 pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron','@EmmanuelMacron'],'Jadot':['Jadot','#Jadot','@yjadot'],
 'Le Pen':['le pen', 'mlp','lepen'],'Melenchon':['Melenchon','#Melenchon','@JLMelechon'],'Bayrou':['Bayrou','#Bayrou','@bayrou'],'Arthaud':['arthaud'],
 'Poutou':['Poutou','#Poutou','@PhilippePoutou'],'Peillon':['Peillon','#peillon','@Vincent_Peillon'],'Rugy':['#Rugy','Rugy','@FdeRugy'],
@@ -16,6 +18,7 @@ pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Macron':['macron','#macron'
 'Montebourg':['montebourg','#montebourg','@montebourg'],'Fillon':['Fillon','#Fillon','@FrancoisFillon']}
 
 data = {}
+dataLePoint = {}
 duplicates = []
 removepipe = [{"$group":{"_id":"$t_id", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
 
@@ -29,7 +32,7 @@ try :
 except:
 	pass
 
-for candidate in candidates:
+for idx, candidate in enumerate(candidates):
 	print(candidate)
 	regexp = ''
 	for p in pseudo[candidate]:
@@ -40,11 +43,25 @@ for candidate in candidates:
 	result = list(collection.aggregate(pipeline=pipe))
 	try :
 		data[candidate] = {"name":candidate,"size": result[0]["total"]}
+		dataLePoint[candidate] = {"title":candidate,"subtitle":parties[idx],"data": result[0]["total"],"color": colors[idx]}
 		print(data[candidate])
 	except : print("no tweet")
-print(data)
+#print(data)
+print(dataLePoint)
 export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
-print(export)
+exportLePoint = {
+	"title":"Décompte de mentions Twitter par candidat sur 3 jours glissants",
+	"legend":"",
+    "id": 1,
+    "unit": "nombre de tweets",
+	"dataset":[entry for entry in data.values()]
+	}
+print(exportLePoint)
+
 file = open('/var/www/html/decompte/popcontest.json','w')
-json.dump(export,file) 
+json.dump(export,file)
 file.close()
+
+fileLePoint = open('/var/www/html/decompte/dataTwitter3jours.json','w')
+json.dump(exportLePoint,fileLePoint)
+fileLePoint.close()
