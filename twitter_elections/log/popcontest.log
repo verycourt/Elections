@@ -1,20 +1,17 @@
-Macron
-macron|#macron|@emmanuelmacron
-{'name': 'Macron', 'size': 255066}
-Le Pen
-le pen|mlp|lepen
-{'name': 'Le Pen', 'size': 127733}
-Melenchon
-melenchon|#melenchon|@jlmelechon
-{'name': 'Melenchon', 'size': 13614}
-Bayrou
-bayrou|#bayrou|@bayrou
-{'name': 'Bayrou', 'size': 14290}
-Hamon
-hamon|#hamon|@benoithamon
-{'name': 'Hamon', 'size': 59428}
-Fillon
+François Fillon
 fillon|#fillon|@francoisfillon
-{'name': 'Fillon', 'size': 645008}
-{'Le Pen': {'name': 'Le Pen', 'size': 127733}, 'Macron': {'name': 'Macron', 'size': 255066}, 'Melenchon': {'name': 'Melenchon', 'size': 13614}, 'Fillon': {'name': 'Fillon', 'size': 645008}, 'Bayrou': {'name': 'Bayrou', 'size': 14290}, 'Hamon': {'name': 'Hamon', 'size': 59428}}
-{'name': 'twitter_mentions', 'children': [{'name': 'Le Pen', 'size': 127733}, {'name': 'Macron', 'size': 255066}, {'name': 'Melenchon', 'size': 13614}, {'name': 'Fillon', 'size': 645008}, {'name': 'Bayrou', 'size': 14290}, {'name': 'Hamon', 'size': 59428}]}
+{'color': '#000080', 'data': 190524, 'subtitle': u'LR', 'title': u'Fran\xe7ois Fillon'}
+Benoît Hamon
+hamon|#hamon|@benoithamon
+{'color': '#CC3399', 'data': 60295, 'subtitle': u'PS', 'title': u'Beno\xeet Hamon'}
+Marine Le Pen
+le pen|mlp|lepen
+{'color': '#3399FF', 'data': 84887, 'subtitle': u'FN', 'title': u'Marine Le Pen'}
+Emmanuel Macron
+macron|#macron|@emmanuelmacron
+{'color': '#A9A9A9', 'data': 277432, 'subtitle': u'En Marche!', 'title': u'Emmanuel Macron'}
+Jean-Luc Mélenchon
+melenchon|#melenchon|@jlmelechon
+{'color': '#FF0000', 'data': 11879, 'subtitle': u'PG', 'title': u'Jean-Luc M\xe9lenchon'}
+{u'Beno\xeet Hamon': {'color': '#CC3399', 'data': 60295, 'subtitle': u'PS', 'title': u'Beno\xeet Hamon'}, u'Fran\xe7ois Fillon': {'color': '#000080', 'data': 190524, 'subtitle': u'LR', 'title': u'Fran\xe7ois Fillon'}, 'Marine Le Pen': {'color': '#3399FF', 'data': 84887, 'subtitle': u'FN', 'title': u'Marine Le Pen'}, u'Jean-Luc M\xe9lenchon': {'color': '#FF0000', 'data': 11879, 'subtitle': u'PG', 'title': u'Jean-Luc M\xe9lenchon'}, 'Emmanuel Macron': {'color': '#A9A9A9', 'data': 277432, 'subtitle': u'En Marche!', 'title': u'Emmanuel Macron'}}
+{'id': 1, 'dataset': [{'color': '#CC3399', 'data': 60295, 'subtitle': u'PS', 'title': u'Beno\xeet Hamon'}, {'color': '#000080', 'data': 190524, 'subtitle': u'LR', 'title': u'Fran\xe7ois Fillon'}, {'color': '#3399FF', 'data': 84887, 'subtitle': u'FN', 'title': u'Marine Le Pen'}, {'color': '#FF0000', 'data': 11879, 'subtitle': u'PG', 'title': u'Jean-Luc M\xe9lenchon'}, {'color': '#A9A9A9', 'data': 277432, 'subtitle': u'En Marche!', 'title': u'Emmanuel Macron'}], 'legend': '', 'unit': 'nombre de tweets', 'title': u'D\xe9compte de mentions Twitter par candidat sur 3 jours glissants'}

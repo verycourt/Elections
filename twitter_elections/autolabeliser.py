@@ -38,7 +38,7 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
         sentRegex = ''.join(s for s in sentimentlist[currcand])
         print('sentiment : ', sentRegex)
         sentRegex = re.compile(sentRegex)
-        notSeekedRegex = ' | '.join([aliases[cand] for cand in candidates])
+        notSeekedRegex = '| rt @| '.join([aliases[cand] for cand in candidates])
         print('Without '+ notSeekedRegex + '\n')
         notSeekedRegex = re.compile(notSeekedRegex)
         aggregation = [{'$match':{'$and':[{'t_text':candRegex},{'t_text' :{'$not':notSeekedRegex}},

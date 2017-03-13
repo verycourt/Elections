@@ -47,7 +47,7 @@ for idx, candidate in enumerate(candidates):
 	pipe = [{"$match":{"$and":[{"t_text":{"$regex":regexp}},{"t_time":{"$gte":now - 2.592e8}}]}},{"$group":{"_id":candidate,"total":{"$sum":1}}}]
 	result = list(collection.aggregate(pipeline=pipe))
 	try :
-		data[candidate] = {"name":unicode(candidate),"size": result[0]["total"]}
+		data[candidate] = {"name":unicode(" ".join(candidate.split()[1:])),"size": result[0]["total"]}
 		dataLePoint[candidate] = {"title":unicode(candidate),"subtitle":unicode(parties[idx]),"data": result[0]["total"],"color": colors[idx]}
 		print(dataLePoint[candidate])
 	except : print("no tweet")
@@ -55,8 +55,8 @@ for idx, candidate in enumerate(candidates):
 print(dataLePoint)
 export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
 exportLePoint = {
-	"title":u"Décompte de mentions Twitter par candidat sur 3 jours glissants",
-	"legend":"",
+	"title":u"Les candidats les plus mentionnés sur Twitter",
+	"legend":"Nombre de mentions Twitter par candidat sur 3 jours glissants, rafraîchi tous les jours à 8h.",
     "id": 1,
     "unit": "nombre de tweets",
 	"dataset":[entry for entry in dataLePoint.values()]
