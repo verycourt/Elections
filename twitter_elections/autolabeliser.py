@@ -24,11 +24,6 @@ print("Removing duplicates....\n")
 removeDuplicates()
 print("Done\n")
 
-
-def labelise():
-    return
-
-
 def getTweets(candidates, aliases, sentimentlist, sentiment):
     '''Echelle de classification -1 Négatif 0 Neutre 1 Positif critère de sélection d'un tweet : ne doit pas être un retweet, ne doit contenir le nom 
     que d'un seul candidat'''
@@ -47,15 +42,17 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
         print('Without '+ notSeekedRegex + '\n')
         notSeekedRegex = re.compile(notSeekedRegex)
         aggregation = [{'$match':{'$and':[{'t_text':candRegex},{'t_text' :{'$not':notSeekedRegex}},
-	{'t_text':sentRegex}]}},{'$sort':{'t_time':-1}},{'$limit':1000},{'$project':{'t_text':1,'_id':False}}]
+		{'t_text':sentRegex}]}},{'$sort':{'t_time':-1}},{'$limit':1000},{'$project':{'t_text':1, 't_id':1,'_id':False}}]
         corpus = list(source.aggregate(aggregation))
         client.close()
+
         for t in corpus : 
             t['sentiment'] = sentiment
             t['candidat'] = currcand
+
         client = pym.MongoClient()
         labelisedCollection = client.tweet.labelised
-        labelisedCollection.insert_many(corpus)
+        labelisedCollection.update_many(corpus)
         client.close()
         candidates.append(currcand)
 

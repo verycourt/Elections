@@ -34,18 +34,21 @@ collection = client.tweet.tweet
 #corpus = collection.find({'t_text':{'$regex':'^(?!.*rt).*$'},'t_id':{'$gte':rd.random()*collection.count()-session}},{'t_text':1})[:session]
 corpus = collection.aggregate([{'$match':{'t_text':{'$not':re.compile('rt @')}}},{'$sample':{'size':session}},{'$project':{'t_text':1}}])
 client.close()
-sentimentmap = {'A':2, 'a':1,'z':0,'e':-1, 'E':-2}
+sentimentmap = {'a':1,'z':0,'e':-1}
+
+collection = client.tweet.train
 for i, tweet in enumerate(corpus):
     currtweet = {}
     print(tweet['t_text'])
-    sentiment = raw_input('Sentiment ? Très Positif : A, Positif : a , Négatif : e, Très Négatif : E, Neutre : z, Ne Sais Pas : r ')
-    if sentiment == 'r' : continue
-    while(sentiment not in ['A','a','z','e','E','r']) :
+    sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z, Ne Sais Pas : r ')
+    
+    while(sentiment not in ['a','z','e','r']) :
         print("erreur\n")
-        sentiment = raw_input('Sentiment ? Très Positif : A,  Positif : a , Négatif : e, Très Négatif : E, Neutre : z, Ne Sais Pas : r ')
+        sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z, Ne Sais Pas : r')
+
     if sentiment == 'r' : continue
+
     labeled = {'text':tweet['t_text'],'sentiment':sentimentmap[sentiment]}
-    client = pym.MongoClient('localhost',27017)
-    collection = client.tweet.train
     collection.insert_one(labeled)
-    client.close()
+
+client.close()
