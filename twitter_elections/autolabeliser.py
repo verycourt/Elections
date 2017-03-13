@@ -30,7 +30,7 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
     client = pym.MongoClient()
     source = client.tweet.tweet
     numbcand = len(candidates)
-    for _ in range(numbcand) :
+    for _ in range(numbcand):
         currcand = candidates.pop(0)
         candRegex = ''.join(a for a in aliases[currcand])
         print('Looking for '+ candRegex + '\n')
@@ -52,7 +52,11 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
 
         client = pym.MongoClient()
         labelisedCollection = client.tweet.labelised
-        labelisedCollection.update_many(corpus)
+        labelisedCollection.insert_many(corpus)
+
+        # retrait des eventuels doublons
+        labelisedCollection.create_index('t_id', unique=True)
+
         client.close()
         candidates.append(currcand)
 
