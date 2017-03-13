@@ -25,7 +25,8 @@ removeDuplicates()
 print("Done\n")
 
 def getTweets(candidates, aliases, sentimentlist, sentiment):
-    '''Echelle de classification -1 Négatif 0 Neutre 1 Positif critère de sélection d'un tweet : ne doit pas être un retweet, ne doit contenir le nom 
+    '''Echelle de classification -1 Négatif 0 Neutre 1 Positif
+    Critère de sélection d'un tweet : ne doit pas être un retweet, ne doit contenir le nom 
     que d'un seul candidat'''
     client = pym.MongoClient()
     source = client.tweet.tweet
@@ -39,7 +40,7 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
         sentRegex = ''.join(s for s in sentimentlist[currcand])
         print('sentiment : ', sentRegex)
         sentRegex = re.compile(sentRegex)
-        notSeekedRegex = '| rt @| '.join([aliases[cand] for cand in candidates])
+        notSeekedRegex = '|rt @| '.join([aliases[cand] for cand in candidates])
         print('Without '+ notSeekedRegex + '\n')
         notSeekedRegex = re.compile(notSeekedRegex)
         aggregation = [{'$match':{'$and':[{'t_text':candRegex},{'t_text' :{'$not':notSeekedRegex}},
