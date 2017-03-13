@@ -30,6 +30,7 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
     client = pym.MongoClient()
     source = client.tweet.tweet
     numbcand = len(candidates)
+
     for _ in range(numbcand):
         currcand = candidates.pop(0)
         candRegex = ''.join(a for a in aliases[currcand])
@@ -42,7 +43,7 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
         print('Without '+ notSeekedRegex + '\n')
         notSeekedRegex = re.compile(notSeekedRegex)
         aggregation = [{'$match':{'$and':[{'t_text':candRegex},{'t_text' :{'$not':notSeekedRegex}},
-		{'t_text':sentRegex}]}},{'$sort':{'t_time':-1}},{'$limit':1000},{'$project':{'t_text':1, 't_id':1,'_id':False}}]
+        {'t_text':sentRegex}]}},{'$sort':{'t_time':-1}},{'$limit':1000},{'$project':{'t_text':1, 't_id':1,'_id':False}}]
         corpus = list(source.aggregate(aggregation))
         client.close()
 
@@ -54,11 +55,11 @@ def getTweets(candidates, aliases, sentimentlist, sentiment):
         labelisedCollection = client.tweet.labelised
         labelisedCollection.insert_many(corpus)
 
-        # retrait des eventuels doublons
-        labelisedCollection.create_index('t_id', unique=True)
-
-        client.close()
         candidates.append(currcand)
+
+    # retrait des eventuels doublons
+    labelisedCollection.create_index('t_id', unique=True)
+    client.close()
 
         
 candidates = ['fillon','macron','le pen','hamon','melenchon']
