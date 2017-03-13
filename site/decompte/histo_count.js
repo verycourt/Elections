@@ -8,7 +8,18 @@ var xhist = d3.scale.linear()
 var barhistHeight = 20;
 
 var colorhist = d3.scale.ordinal()
-    .range(["steelblue", "#336ac4"]);
+      .domain(["Arnaud Montebourg", "Benoît Hamon","Cécile Duflot", "Emmanuel Macron",
+          "François Bayrou",  "François Fillon",  "François Hollande",  "Jacques Cheminade",
+          "Jean-Luc Mélenchon", "Manuel Valls", "Marine Le Pen",  "Nathalie Arthaud",
+          "Nicolas Dupont-Aignan",  "Nicolas Hulot",  "Philippe Poutou",
+          "Sylvia Pinel", "Yannick Jadot"])
+
+      .range(["#CC0066", "#CC3399","#008000", "#A9A9A9",
+          "#FF6600",  "#000080","#FF9999",  "#CC0000",
+          "#FF0000",  "#FF6699",  "#3399FF",  "#CC0033",
+          "#0000CC",  "#66CC00",  "#990033",
+          "#FF0066",  "#339900"]);
+
 
 var durationhist = 750,
     delay = 25;
@@ -54,9 +65,9 @@ svghist.append("g")
   .append("line")
     .attr("y1", "100%");
 
-d3.json("/decompte/popcontest.json", function(error, root) {
+d3.json("decompte/popcontest.json", function(error, root) {
   if (error) throw error;
-
+  console.log(root);
   partitionhist.nodes(root);
   xhist.domain([0, root.value]).nice();
   down(root, 0);
@@ -104,11 +115,13 @@ function down(d, i) {
       .style("fill-opacity", 1);
 
   // Transition entering rects to the new x-scale.
+
   enterTransition.select("rect")
       .attr("width", function(d) { return xhist(d.value); })
-      .style("fill", function(d) { return colorhist(!!d.children); });
+      .style("fill", function(d) { return colorhist(d.name); });
 
-  // Transition exiting bars to fade out.
+
+  // Transition exiting bars to fade out.t
   var exitTransition = exit.transition()
       .duration(durationhist)
       .style("opacity", 1e-6)
@@ -144,7 +157,7 @@ function up(d) {
   // Exiting nodes will obscure the parent bar, so hide it.
   enter.select("rect")
       .style("fill", function(d) { return colorhist(!!d.children); })
-    .filter(function(p) { return p === d; })
+      .filter(function(p) { return p === d; })
       .style("fill-opacity", 1e-6);
 
   // Update the x-scale domain.
