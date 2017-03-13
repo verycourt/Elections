@@ -54,12 +54,12 @@ class SListener(StreamListener):
                     if status['user'] is not None:
                         tweet_res = {"t_user": status['user'], "t_text": status["text"].encode('utf8').lower(), "t_time": float(status['timestamp_ms']),
                                      "t_id": status['id'],
-                                     "t_RT": status['retweet_count'],
+                                     "t_RToriginal": status['retweeted_status'],
                                      "t_lat": 0.0, "t_lng": 0.0,
                                      "t_state": ""}
                     else:
                         tweet_res = {"t_text": status["text"].encode('utf8'), "t_time": float(status['timestamp_ms']),
-                                     "t_RT": status['retweet_count'],
+                                     "t_RToriginal": status['retweeted_status'],
                                      "t_lat": 0.0, "t_lng": 0.0,
                                      "t_state": ""}
                     self.channel.basic_publish(exchange='', routing_key='twitter', body=json.dumps(tweet_res))
