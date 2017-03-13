@@ -2,11 +2,18 @@ var marginhist = {top: 60, right: 120, bottom: 0, left: 80},
     widthhist = 1000 - marginhist.left - marginhist.right,
     heighthist = 370 - marginhist.top - marginhist.bottom;
 
+var colorhist = d3.scale.ordinal()
+     .domain(["Hamon","Macron","Bayrou","Fillon",
+	"Melenchon","Valls","Le Pen"])
+     .range(["#CC3399","#A9A9A9","#A9A9A9","#0000CC",
+	  "#FF0000",  "#CC3399","#000066"]);
+
 var xhist = d3.scale.linear()
     .range([0, widthhist]);
 
 var barhistHeight = 20;
 
+<<<<<<< HEAD
 var colorhist = d3.scale.ordinal()
       .domain(["Arnaud Montebourg", "Benoît Hamon","Cécile Duflot", "Emmanuel Macron",
           "François Bayrou",  "François Fillon",  "François Hollande",  "Jacques Cheminade",
@@ -21,6 +28,8 @@ var colorhist = d3.scale.ordinal()
           "#FF0066",  "#339900"]);
 
 
+=======
+>>>>>>> 5095501b09af648a1595d1de9d9135cc65c9c521
 var durationhist = 750,
     delay = 25;
 
@@ -32,22 +41,11 @@ var xAxishist = d3.svg.axis()
     .orient("top");
 
 var svghist = d3.select("#twittermentions").append("svg")
-    .attr("width", widthhist + marginhist.left + marginhist.right)
-    .attr("height", heighthist + marginhist.top + marginhist.bottom)
-  .append("g")
-    .attr("transform", "translate(" + marginhist.left + "," + marginhist.top + ")");
-
-
-  svghist.append("text")
-      .attr("y", -40)
-      .attr("x", 369)
-      .style("text-anchor", "middle")
-      .style("font-weight","bold")
-      .style("font-size","25px")
-      .style("fill", "#000000")
-      .text("Mentions twitter par candidats sur 3 jours glissants");
-
-
+    .attr("width", "100%")
+    .attr("height", "50%")
+    .attr("viewBox","10 0 800 200")
+    .append("g")
+    .attr("transform", "translate(" + marginhist.left + "," + "5" + ")");
 
 
 svghist.append("rect")
@@ -79,7 +77,7 @@ function down(d, i) {
 
   // Mark any currently-displayed bars as exiting.
   var exit = svghist.selectAll(".enter")
-      .attr("class", "exit");
+      .attr("class", "exit").style("font-size","1.5vmin");
 
   // Entering nodes immediately obscure the clicked-on bar, so hide it.
   exit.selectAll("rect").filter(function(p) { return p === d; })
@@ -119,7 +117,10 @@ function down(d, i) {
   enterTransition.select("rect")
       .attr("width", function(d) { return xhist(d.value); })
       .style("fill", function(d) { return colorhist(d.name); });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5095501b09af648a1595d1de9d9135cc65c9c521
 
   // Transition exiting bars to fade out.t
   var exitTransition = exit.transition()
@@ -227,6 +228,15 @@ function bar(d) {
   bar.append("rect")
       .attr("width", function(d) { return xhist(d.value); })
       .attr("height", barhistHeight);
+
+	bar.append("text")
+	  .attr("x", function(d) { return xhist(d.value); })
+	  .attr("y", barhistHeight / 2)
+	  .attr("dy", ".35em")
+	  .style("font-size","2vmin")
+	  .style("font-weight", "bold")
+	  .style("text-anchor", "auto")
+	  .text(function(d) { return d.value; });
 
   return bar;
 }

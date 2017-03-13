@@ -1,3 +1,11 @@
 head, body {font-family:"Comic Sans MS",cursive,sans-serif}
-h1 {font-family:"Comic Sans MS",cursive,sans-serif;background:#990000;color:white; font-size:24px;text-align:center}
-li { padding: 5px;}
+h1 {font-family:"Comic Sans MS",cursive,sans-serif;background:#990000;color:white; font-size:150%;text-align:center}
+li { padding: 1%;}
+
+svg{height:auto;max-width:100%}
+
+.panel {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+}

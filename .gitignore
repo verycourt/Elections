@@ -1,6 +1,9 @@
 # ignore .csv
 *.csv
 
+# ignore .tsv
+*.tsv
+
 # ignore .json
 *.json
 
@@ -9,3 +12,6 @@
 
 # ignore .DS_Store
 .DS_Store
+
+# ignore .htaccess and .htpassword
+.ht*

@@ -1,83 +1,26 @@
-Index([u'Alain Juppé', u'Arnaud Montebourg', u'Benoît Hamon',
-       u'Bruno Le Maire', u'Cécile Duflot', u'Date', u'Emmanuel Macron',
-       u'François Asselineau', u'François Bayrou', u'François Fillon',
-       u'François Hollande', u'Jacques Cheminade', u'Jean Lassalle',
-       u'Jean-François Copé', u'Jean-Luc Mélenchon', u'Manuel Valls',
-       u'Marine Le Pen', u'Martine Aubry', u'Nathalie Arthaud',
-       u'Nicolas Dupont-Aignan', u'Nicolas Hulot', u'Nicolas Sarkozy',
-       u'Olivier Besancenot', u'Philippe Poutou', u'Philippe de Villiers',
-       u'Rama Yade', u'Sondeur', u'Sylvia Pinel', u'Vincent Peillon',
-       u'Yannick Jadot', u'Échantillon', u'Éva Joly'],
-      dtype='object')
-[u'Alain Jupp\xe9', u'Bruno Le Maire', u'Jean-Fran\xe7ois Cop\xe9', u'Nicolas Sarkozy', u'\xc9va Joly', u'Sylvia Pinel', u'Vincent Peillon', u'Arnaud Montebourg']
-          Benoît Hamon  Emmanuel Macron  François Asselineau  François Bayrou  \
-date                                                                            
-20161125           NaN             13.0                  NaN             6.00   
-20161127           NaN             13.5                  NaN             6.50   
-20161129           NaN             15.0                  NaN             5.50   
-20170104           6.0             19.5                  NaN             7.75   
-20170106           6.0             18.0                  NaN             6.25   
-20170108           6.0             18.0                  NaN             5.50   
-20170115           7.0             19.0                  NaN             5.00   
-20170120           8.0             19.0                  NaN              NaN   
-20170124           NaN              NaN                  NaN              NaN   
+            Benoît Hamon  Emmanuel Macron  François Fillon  \
+2017-01-06         6.000        18.500000        24.333333   
+2017-01-12         7.000        19.000000        24.000000   
+2017-01-18         8.000        19.000000        25.500000   
+2017-01-24        14.000        20.500000        21.500000   
+2017-01-30        17.000        21.333333        19.833333   
+2017-02-05        15.165        21.335000        18.250000   
+2017-02-11        15.240        21.256667        18.140000   
+2017-02-17        14.690        19.435000        19.625000   
+2017-02-23        13.500        23.000000        19.833333   
+2017-03-01        14.405        24.625000        19.062500   
+2017-03-07        13.750        25.250000        19.000000   
 
-          François Fillon  Jacques Cheminade  Jean Lassalle  \
-date                                                          
-20161125            32.00                NaN            NaN   
-20161127            26.00                NaN            NaN   
-20161129            30.50                NaN            NaN   
-20170104            24.75                NaN            NaN   
-20170106            24.25               0.25            NaN   
-20170108            24.00                NaN            NaN   
-20170115            24.00               0.50            NaN   
-20170120            25.50               0.50            NaN   
-20170124              NaN                NaN            NaN   
-
-          Jean-Luc Mélenchon  Manuel Valls  Marine Le Pen  Martine Aubry  \
-date                                                                       
-20161125               12.00           NaN          22.00            NaN   
-20161127               14.00           9.0          24.00            NaN   
-20161129               12.00           9.0          24.00            NaN   
-20170104               13.88          12.5          23.00            NaN   
-20170106               11.75          10.5          26.00            NaN   
-20170108               12.75          11.0          25.50            NaN   
-20170115               14.33           9.5          25.33            NaN   
-20170120               14.00           9.0          27.00            NaN   
-20170124                 NaN           NaN            NaN            NaN   
-
-          Nathalie Arthaud  Nicolas Dupont-Aignan  Olivier Besancenot  \
-date                                                                    
-20161125              2.00                    2.0                 NaN   
-20161127              1.00                    2.5                 NaN   
-20161129              0.50                    2.0                 NaN   
-20170104              1.00                    1.5                 NaN   
-20170106              0.75                    1.5                 NaN   
-20170108              1.00                    1.5                 NaN   
-20170115              1.00                    2.5                 NaN   
-20170120              1.00                    2.0                 NaN   
-20170124               NaN                    NaN                 NaN   
-
-          Philippe Poutou  Philippe de Villiers  Yannick Jadot  
-date                                                            
-20161125             1.00                   NaN           2.00  
-20161127             1.00                   NaN           2.50  
-20161129             1.00                   NaN           1.50  
-20170104             2.00                   NaN           1.25  
-20170106             1.00                   NaN           2.00  
-20170108             0.75                   NaN           2.50  
-20170115             1.00                   NaN           2.50  
-20170120             1.00                   NaN           2.00  
-20170124              NaN                   NaN            NaN  
-Traceback (most recent call last):
-  File "/home/ubuntu/Elections/sondages/sondages_wiki_scrap.py", line 223, in <module>
-    dfFs2.to_json(path2+"sondages2e.json")
-  File "/usr/local/lib/python2.7/dist-packages/pandas/core/generic.py", line 1089, in to_json
-    lines=lines)
-  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 39, in to_json
-    date_unit=date_unit, default_handler=default_handler).write()
-  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 72, in __init__
-    self._format_axes()
-  File "/usr/local/lib/python2.7/dist-packages/pandas/io/json.py", line 105, in _format_axes
-    "'%s'." % self.orient)
-ValueError: DataFrame index must be unique for orient='columns'.
+            Jean-Luc Mélenchon  Marine Le Pen  Philippe Poutou  
+2017-01-06           12.793333      24.833333         1.250000  
+2017-01-12           14.330000      25.330000         1.000000  
+2017-01-18           14.000000      27.000000         1.000000  
+2017-01-24           10.000000      25.000000         0.500000  
+2017-01-30           10.083333      25.166667         0.500000  
+2017-02-05           11.165000      25.335000         0.835000  
+2017-02-11           11.976667      24.800000         0.533333  
+2017-02-17           12.065000      26.500000         0.500000  
+2017-02-23           11.500000      26.416667         0.750000  
+2017-03-01           11.437500      26.342500         0.782500  
+2017-03-07           11.750000      26.000000         0.500000  
+Done
