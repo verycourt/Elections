@@ -128,7 +128,7 @@ for candidate in accounts:
         stats_yt, stats_yt2 = ['-', '-', '-'], ['-', '-', '-']
 
     stats['2_yt_subscribers'], _, _ = stats_yt
-    _, stats['3_yt_like_rate'], stats['4_yt_dislike_rate'] = stats_yt2
+    _, stats['3_yt_like_count'], stats['4_yt_dislike_count'] = stats_yt2
     
     try:
         pass
