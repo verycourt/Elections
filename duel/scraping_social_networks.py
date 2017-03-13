@@ -128,14 +128,15 @@ for candidate in accounts:
         stats_yt, stats_yt2 = ['-', '-', '-'], ['-', '-', '-']
 
     stats['2_yt_subscribers'], _, _ = stats_yt
-    stats['3_yt_views_avg'], _, _ = stats_yt2
+    _, stats['3_yt_like_rate'], stats['4_yt_dislike_rate'] = stats_yt2
     
     try:
-        stats['4_yt_reaction_rate'] = round((float(stats_yt2[1] + stats_yt2[2]) / stats_yt2[0]) * 100, 1)
-        stats['5_yt_satisfaction_rate'] = round((float(stats_yt2[1]) / (stats_yt2[2] + stats_yt2[1])) * 100, 1)
+	pass
+        #stats['4_yt_reaction_rate'] = round((float(stats_yt2[1] + stats_yt2[2]) / stats_yt2[0]) * 100, 1)
+        #stats['5_yt_satisfaction_rate'] = round((float(stats_yt2[1]) / (stats_yt2[2] + stats_yt2[1])) * 100, 1)
     except:
-        stats['4_yt_reaction_rate'] = '-'
-        stats['5_yt_satisfaction_rate'] = '-'
+        #stats['4_yt_reaction_rate'] = '-'
+        #stats['5_yt_satisfaction_rate'] = '-'
     
     try: # Facebook : [likes, people talking about this]
         stats_fb = FacebookPageData(accounts[candidate][1], access_token)
@@ -155,7 +156,6 @@ for candidate in accounts:
 # ajout de la colonne des mentions twitter sur 3 jours
 b = pd.read_json('/var/www/html/decompte/popcontest.json', orient='column')
 names, counts = [e['name'] for e in b['children']], [e['size'] for e in b['children']]
-names = [n.replace('MLP', 'Le Pen') for n in names]
 
 b = pd.DataFrame(counts, columns=['1_tw_mentions'], index=names)
 c = pd.concat([df,b], axis=1, join_axes=[df.index])
