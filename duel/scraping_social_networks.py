@@ -131,7 +131,7 @@ for candidate in accounts:
     _, stats['3_yt_like_rate'], stats['4_yt_dislike_rate'] = stats_yt2
     
     try:
-	pass
+        pass
         #stats['4_yt_reaction_rate'] = round((float(stats_yt2[1] + stats_yt2[2]) / stats_yt2[0]) * 100, 1)
         #stats['5_yt_satisfaction_rate'] = round((float(stats_yt2[1]) / (stats_yt2[2] + stats_yt2[1])) * 100, 1)
     except:
