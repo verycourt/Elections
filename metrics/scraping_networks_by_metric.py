@@ -177,7 +177,7 @@ def save_metrics(df, timestamp): # sauvegarde des colonnes du dataframe dans les
 
 
 #__________________________
-print('Maj du', today)
 today = (datetime.utcnow() + timedelta(hours=1)).date()
+print('Maj du', today)
 
 save_metrics(get_metrics(), today)
