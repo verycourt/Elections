@@ -18,7 +18,6 @@
 
 		<script src="radar.js" type="text/javascript"></script>
 		<p>Les 2 indicateurs YouTube prennent en compte les 10 dernières vidéos publiées sur les chaînes officielles de chaque candidat.</p>
-		<!--p>Le taux de satisfaction correspond au rapport Likes/(Likes+Dislikes) de ces vidéos. </p-->
 		<p><strong>Sources :</strong> Facebook, Twitter, Youtube. Données actualisées tous les jours. </p>
 		</div>
 	</body>
