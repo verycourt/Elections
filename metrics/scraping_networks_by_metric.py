@@ -124,15 +124,6 @@ def get_metrics():
         stats['2_yt_subscribers'], _, _ = stats_yt
         _, stats['3_yt_like_count'], stats['4_yt_dislike_count'] = stats_yt2
 
-        try:
-            pass
-            #stats['4_yt_reaction_rate'] = round((float(stats_yt2[1] + stats_yt2[2]) / stats_yt2[0]) * 100, 1)
-            #stats['5_yt_satisfaction_rate'] = round((float(stats_yt2[1]) / (stats_yt2[2] + stats_yt2[1])) * 100, 1)
-        except:
-            pass
-            #stats['4_yt_reaction_rate'] = '-'
-            #stats['5_yt_satisfaction_rate'] = '-'
-
         try: # Facebook : [likes, people talking about this]
             stats_fb = FacebookPageData(accounts[candidate][1], access_token)
         except:
