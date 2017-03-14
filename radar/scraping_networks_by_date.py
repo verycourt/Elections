@@ -78,8 +78,9 @@ accounts = {#'Alliot-Marie': [None, 'MAlliotMarie', 'MAlliotMarie'],
            #'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot'],
            'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel'],
            'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EmmanuelMacron', 'emmanuelmacron'],
-           'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
-           'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']}
+           u'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
+           #'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']
+           }
 
 app_id = "615202351999343"
 app_secret = "ea787efd843d1de746817ec6e9bf7e94"
@@ -159,4 +160,4 @@ df_final.fillna(value='-', inplace=True)
 df_final.to_json(path + fname, orient='split')
 df_final.to_json(path + 'radar.json', orient='split')
 
-print('Data saved as ' + path + fname)
+print('Data saved in ' + path)
