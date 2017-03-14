@@ -78,7 +78,7 @@ accounts = {#'Alliot-Marie': [None, 'MAlliotMarie', 'MAlliotMarie'],
            #'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot'],
            'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel'],
            'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EmmanuelMacron', 'emmanuelmacron'],
-           'Melenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
+           'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
            'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']}
 
 app_id = "615202351999343"
@@ -89,7 +89,7 @@ google_key = 'AIzaSyBkRrj_kFDUv-T76CJaI3Pd-g3v7UY4GMA'
 today = (datetime.utcnow() + timedelta(hours=1)).date()
 fname = str(today) + '.json'
 # path = 'data/' # save path
-path = '/var/www/html/duel/data/'
+path = '/var/www/html/radar/data/'
 
 df = pd.DataFrame()
 print('Maj du', today)
@@ -128,16 +128,7 @@ for candidate in accounts:
         stats_yt, stats_yt2 = ['-', '-', '-'], ['-', '-', '-']
 
     stats['2_yt_subscribers'], _, _ = stats_yt
-    _, stats['3_yt_like_rate'], stats['4_yt_dislike_rate'] = stats_yt2
-    
-    try:
-        pass
-        #stats['4_yt_reaction_rate'] = round((float(stats_yt2[1] + stats_yt2[2]) / stats_yt2[0]) * 100, 1)
-        #stats['5_yt_satisfaction_rate'] = round((float(stats_yt2[1]) / (stats_yt2[2] + stats_yt2[1])) * 100, 1)
-    except:
-        pass
-        #stats['4_yt_reaction_rate'] = '-'
-        #stats['5_yt_satisfaction_rate'] = '-'
+    _, stats['3_yt_like_count'], _ = stats_yt2
     
     try: # Facebook : [likes, people talking about this]
         stats_fb = FacebookPageData(accounts[candidate][1], access_token)
