@@ -67,9 +67,27 @@ def YoutubeVideosData(page_id, access_token):
     return [videoStats[metric] for metric in ['viewCount', 'likeCount', 'dislikeCount']]
 
 def get_metrics():
-    df = pd.DataFrame()
-    print('Maj du', today)
+    # {Candidat : [Chaine Youtube, Compte Facebook, Compte Twitter]}
+    accounts = {#'Alliot-Marie': [None, 'MAlliotMarie', 'MAlliotMarie'],
+               #'Arthaud': ['UCZsh-MrJftAOP_-ZgRgLScw', 'nathaliearthaud', 'n_arthaud'],
+               #'Bayrou': [None, 'bayrou', 'bayrou'],
+               #'Cheminade': ['UCCPw8MX-JcsiTzItY-qq1Fg', 'Jcheminade', 'Jcheminade'],
+               #'Dupont-Aignan': ['UCfA5DnCDX3Ixy5QOAMGtBlA', 'nicolasdupontaignan', 'dupontaignan'],
+               'Fillon': ['UCp1R4BFJrKw34PfUc3GDLkw', 'FrancoisFillon', 'francoisfillon'],
+               'Hamon': ['UCcMryUp6ME3BvP2alkS1dKg', 'hamonbenoit', 'benoithamon'],
+               #'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot'],
+               'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel'],
+               'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EmmanuelMacron', 'emmanuelmacron'],
+               'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
+               #'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']
+    }
 
+    app_id = "615202351999343"
+    app_secret = "ea787efd843d1de746817ec6e9bf7e94"
+    access_token = app_id + "|" + app_secret
+    google_key = 'AIzaSyBkRrj_kFDUv-T76CJaI3Pd-g3v7UY4GMA'
+
+    df = pd.DataFrame()
     for candidate in accounts:
         print('-' * 20)
         print(candidate)
@@ -139,10 +157,13 @@ def get_metrics():
     tweet_df.fillna(value='-', inplace=True)
 
     df = pd.concat([df, tweet_df], axis=1, join_axes=[df.index])
+
     return df
 
-def save_metrics(df, timestamp=today):
-    # sauvegarde des colonnes du dataframe dans les différents .json
+def save_metrics(df, timestamp): # sauvegarde des colonnes du dataframe dans les différents .json
+    #path = 'data/' # save path
+    path = '/var/www/html/metrics/data/'
+
     for metric in df:
         try:
             current_df = pd.read_json(path + metric + '.json', orient='split')
@@ -163,30 +184,9 @@ def save_metrics(df, timestamp=today):
         
     return
 
-# {Candidat : [Chaine Youtube, Compte Facebook, Compte Twitter]}
-accounts = {#'Alliot-Marie': [None, 'MAlliotMarie', 'MAlliotMarie'],
-           #'Arthaud': ['UCZsh-MrJftAOP_-ZgRgLScw', 'nathaliearthaud', 'n_arthaud'],
-           #'Bayrou': [None, 'bayrou', 'bayrou'],
-           #'Cheminade': ['UCCPw8MX-JcsiTzItY-qq1Fg', 'Jcheminade', 'Jcheminade'],
-           #'Dupont-Aignan': ['UCfA5DnCDX3Ixy5QOAMGtBlA', 'nicolasdupontaignan', 'dupontaignan'],
-           'Fillon': ['UCp1R4BFJrKw34PfUc3GDLkw', 'FrancoisFillon', 'francoisfillon'],
-           'Hamon': ['UCcMryUp6ME3BvP2alkS1dKg', 'hamonbenoit', 'benoithamon'],
-           #'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot'],
-           'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel'],
-           'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EmmanuelMacron', 'emmanuelmacron'],
-           'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
-           #'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']
-}
-
-app_id = "615202351999343"
-app_secret = "ea787efd843d1de746817ec6e9bf7e94"
-access_token = app_id + "|" + app_secret
-google_key = 'AIzaSyBkRrj_kFDUv-T76CJaI3Pd-g3v7UY4GMA'
-
-today = (datetime.utcnow() + timedelta(hours=1)).date()
-fname = str(today) + '.json'
-#path = 'data/' # save path
-path = '/var/www/html/duel/data/'
 
 #__________________________
-save_metrics(get_metrics())
+print('Maj du', today)
+today = (datetime.utcnow() + timedelta(hours=1)).date()
+
+save_metrics(get_metrics(), today)
