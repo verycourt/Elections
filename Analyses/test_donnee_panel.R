@@ -69,8 +69,8 @@ E_var <- pdata.frame(data_var, index=c("d.partement", "Ann.e"), drop.index=TRUE,
 E_var$code <- NULL
 
 #plm <- plm(taux_tgauche ~ Naissances.domicili.es.par.d.partement+var_chomage_annee+depart_frontalier+depart_CORSE, data=data_var, model="random")
-znp <- pvcm(taux_tgauche ~ Q3_rate + X60.74ans, data=data_var, model="within")
-zplm <- plm(taux_tgauche ~ Q3_rate + X60.74ans, data=data_var, model="pooling")
+znp <- pvcm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="within")
+zplm <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="within")
 pooltest(zplm,znp)
 
 test_data_ain <- subset(data_var, data_var$d.partement=="AIN")
@@ -78,3 +78,25 @@ test_data_ain <- subset(data_var, data_var$d.partement=="AIN")
 # Le test d'homogeneite ne fonctionner pas car dans le premier pvcm
 # on tente autant de regression que de département mais on ne peut avoir
 # p > n donc avec n = 4 cela causé des pb
+# Question : peut on pratiquer les test pour avoir un avis puis changer l'équation??
+
+# Test hypothèse sur la variable de chomage et de décès domicilié par département
+znp <- pvcm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="within")
+zplm <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="pooling")
+pooltest(zplm,znp)
+# On rejette l'hypothèse d'homogeneité global 
+znp <- pvcm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="within")
+zplm <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="within")
+pooltest(zplm,znp)
+# on ne rejtte pas l'hypothèse null sur le test d'homogeneite de beta 
+# La structure de panel est deja justifié 
+znp <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="pooling")
+zplm <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="within")
+pooltest(znp,zplm)
+# On rejette H0 => modele à effet aléatoire il reste à savoir
+# si on est en dans un modèle à effet fixe ou aléatoire
+# test de haussman
+znp <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="within")
+zplm <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="random")
+phtest(znp,zplm)
+# On ne eejette H0, on peut donc specifié notre modèle avec des effets individuelles aléatoires
