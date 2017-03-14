@@ -89,7 +89,7 @@ google_key = 'AIzaSyBkRrj_kFDUv-T76CJaI3Pd-g3v7UY4GMA'
 today = (datetime.utcnow() + timedelta(hours=1)).date()
 fname = str(today) + '.json'
 # path = 'data/' # save path
-path = '/var/www/html/duel/data/'
+path = '/var/www/html/radar/data/'
 
 df = pd.DataFrame()
 print('Maj du', today)
