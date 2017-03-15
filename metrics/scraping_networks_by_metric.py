@@ -78,7 +78,7 @@ def get_metrics():
                #'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot'],
                'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel'],
                'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EmmanuelMacron', 'emmanuelmacron'],
-               'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
+               u'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
                #'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']
     }
 
@@ -151,10 +151,12 @@ def get_metrics():
     tweet_data = pd.read_json('/var/www/html/decompte/popcontest.json', orient='column')
     #tweet_data = pd.read_json('popcontest.json', orient='column')
     names, counts = [e['name'] for e in tweet_data['children']], [e['size'] for e in tweet_data['children']]
+    
     tweet_df = pd.DataFrame(counts, columns=['1_tw_mentions'], index=names)
     tweet_df.fillna(value='-', inplace=True)
 
     df = pd.concat([df, tweet_df], axis=1, join_axes=[df.index])
+    df.sort_index(axis=0, inplace=True)
 
     return df
 
