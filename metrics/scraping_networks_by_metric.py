@@ -121,8 +121,15 @@ def get_metrics():
             print('No Youtube Channel')
             stats_yt, stats_yt2 = ['-', '-', '-'], ['-', '-', '-']
 
-        stats['2_yt_subscribers'], _, _ = stats_yt
-        _, stats['3_yt_like_count'], stats['4_yt_dislike_count'] = stats_yt2
+        stats['2_yt_subscribers'], stats['3_yt_views_count'], stats['x_yt_videos_count'] = stats_yt
+        _, stats['x_yt_like_count'], stats['x_yt_dislike_count'] = stats_yt2
+
+        try:
+            stats['4_yt_reaction_rate'] = round((float(stats_yt2[1] + stats_yt2[2]) / stats_yt2[0]) * 100, 1)
+            stats['5_yt_satisfaction_rate'] = round((float(stats_yt2[1]) / (stats_yt2[2] + stats_yt2[1])) * 100, 1)
+        except:
+            stats['4_yt_reaction_rate'] = '-'
+            stats['5_yt_satisfaction_rate'] = '-'
 
         try: # Facebook : [likes, people talking about this]
             stats_fb = FacebookPageData(accounts[candidate][1], access_token)
