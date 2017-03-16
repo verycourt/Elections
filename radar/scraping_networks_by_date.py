@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # coding: utf-8
 
-from __future__ import unicode_literals
 import sys
 import requests
 from datetime import date, datetime, timedelta
@@ -97,8 +96,6 @@ df = pd.DataFrame()
 print('Maj du', today)
 
 for candidate in accounts:
-    print('-' * 20)
-    print(candidate)
     print('-' * 20)
 
     stats = {}
