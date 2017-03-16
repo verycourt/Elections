@@ -2,55 +2,67 @@
 import pymongo as pym
 import re
 
-''' Récupérer X tweets à labelliser
-afficher les tweets un par un,  
-prendre en input le sentiment
-insérer le tweet labelisé dans une autre collection'''
 
-def removeDuplicates():
-	client = pym.MongoClient()
-        c = client.tweet.tweet
-	duplicates = []
-	removepipe = [{"$group":{"_id":"$t_id", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
-	try :
-		for doc in c.aggregate(removepipe) :
-			it = iter(doc['dups'])
-			next(it)
-			for id in it :
-				duplicates.append(pym.DeleteOne({'_id':id}))
-		c.bulk_write(duplicates)	
-	except:
-		pass
-        client.close()
+def retrait_doublons(collection):
+    print('Retrait d\'eventuels doublons...')
+    textCleanPipeline = [{"$group":{"_id":"$text", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
+    duplicates = []
+    count = 0
+    try:
+        for doc in collection.aggregate(textCleanPipeline) :
+            it = iter(doc['dups'])
+            next(it)
+            for id in it:
+                count += 1
+                duplicates.append(pym.DeleteOne({'_id':id}))
+        if duplicates:
+            collection.bulk_write(duplicates)
+    except:
+        pass
+    
+    print(count, 'doublons retirés.')
+    client.close()
 
-print("Removing duplicates....\n")
-removeDuplicates()
-print("Done\n")
-print("NB: si un tweet concerne plusieurs candidats à la fois, il est préférable de ne pas le labéliser.")
+print("NB: si un tweet concerne plusieurs candidats à la fois, il est préférable de ne pas le labéliser (touche r).")
 
-session = int(input("Combien de tweets à labeliser pour cette session ?\n"))
-if session == 0 : exit()
+compte = 0
+labeled = []
+
 client = pym.MongoClient('localhost',27017)
 collection = client.tweet.tweet
-#corpus = collection.find({'t_text':{'$regex':'^(?!.*rt).*$'},'t_id':{'$gte':rd.random()*collection.count()-session}},{'t_text':1})[:session]
-corpus = collection.aggregate([{'$match':{'t_text':{'$not':re.compile('rt @')}}},{'$sample':{'size':session}},{'$project':{'t_text':1}}])
+
+print('Recuperation de tweets pris au hasard dans la base...')
+
+#corpus = collection.aggregate([{'$match':{'t_text':{'$not':re.compile('rt @')}}},{'$sample':{'size':200}},{'$project':{'t_text':1, 't_id':1}}])
+corpus = collection.aggregate([{'$sample':{'size':200}},{'$project':{'t_text':1, 't_id':1}}])
 client.close()
+
 sentimentmap = {'a':1,'z':0,'e':-1}
-phrase = 'Sentiment ? Positif : a , Négatif : e, Neutre : z, Ne Sais Pas / Plusieurs candidats : r '
+phrase = 'Sentiment ? Positif: a , Négatif: e, Neutre: z, Ne Sais Pas / Plusieurs candidats: r, Quitter: X'
+
+for tweet in corpus:
+    if 'rt @' not in tweet['t_text']:
+        print(tweet['t_text'])
+        sentiment = raw_input(phrase)
+        
+        while(sentiment not in ['a', 'z', 'e', 'r', 'X']) :
+            print("Touche invalide. Essaie encore.\n")
+            sentiment = raw_input(phrase)
+
+        if sentiment == 'r':
+            continue
+        elif sentiment == 'X':
+            break
+        else:
+            labeled.append({'t_id':tweet['t_id'], 'text':tweet['t_text'], 'sentiment':sentimentmap[sentiment]})
+            compte += 1
+    else:
+        continue
 
 collection = client.tweet.train
-for i, tweet in enumerate(corpus):
-    currtweet = {}
-    print(tweet['t_text'])
-    sentiment = raw_input(phrase)
-    
-    while(sentiment not in ['a','z','e','r']) :
-        print("erreur\n")
-        sentiment = raw_input(phrase)
-
-    if sentiment == 'r' : continue
-
-    labeled = {'text':tweet['t_text'],'sentiment':sentimentmap[sentiment]}
-    collection.insert_one(labeled)
-
+collection.insert_many(labeled)
+n_tweets = collection.count()
 client.close()
+
+print('Insertion de {0} tweets dans la base "train", qui compte desormais {1} tweets'.format(compte, n_tweets))
+retrait_doublons(collection)
