@@ -20,7 +20,7 @@ def retrait_doublons(collection):
     except:
         pass
     
-    print(count, 'doublons retirés.')
+    print('{} doublons retirés.'.format(count))
     client.close()
 
 print("NB: si un tweet concerne plusieurs candidats à la fois, il est préférable de ne pas le labéliser (touche r).")
@@ -38,7 +38,7 @@ corpus = collection.aggregate([{'$sample':{'size':200}},{'$project':{'t_text':1,
 client.close()
 
 sentimentmap = {'a':1,'z':0,'e':-1}
-phrase = 'Sentiment ? Positif: a , Négatif: e, Neutre: z, Ne Sais Pas / Plusieurs candidats: r, Quitter: X'
+phrase = 'Sentiment ? Positif: a , Négatif: e, Neutre: z, Ne Sais Pas / Plusieurs candidats: r, Quitter: X\n'
 
 for tweet in corpus:
     if 'rt @' not in tweet['t_text']:
@@ -47,6 +47,7 @@ for tweet in corpus:
         
         while(sentiment not in ['a', 'z', 'e', 'r', 'X']) :
             print("Touche invalide. Essaie encore.\n")
+            print(tweet['t_text'])
             sentiment = raw_input(phrase)
 
         if sentiment == 'r':
