@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # coding: utf-8
 
-from __future__ import unicode_literals
 import sys
 import requests
 from datetime import date, datetime, timedelta
@@ -57,15 +56,12 @@ def YoutubeVideosData(page_id, access_token):
     
     response = ul.urlopen(url)
     data = json.loads(response.read().decode('utf-8'))
-    keys = data['items'][0]['statistics'].keys() # list of metrics
-    n = len(data['items'])
-    
-    # Construction du dictionnaire des valeurs moyennes pour chaque clé sur les vidéos analysées
-    videoStats = {key: int(round(sum([int(e['statistics'][key]) for e in data['items']]) / n)) for key in keys}
-    
+
+    df_stats = pd.DataFrame([item['statistics'] for item in data['items']]).fillna(value=0).astype(int)
+    n = len(df_stats.index)
     print('Getting average metrics for the latest', n, 'videos of the channel')
 
-    return [videoStats[metric] for metric in ['viewCount', 'likeCount', 'dislikeCount']]
+    return [df_stats[metric].mean() for metric in ['viewCount', 'likeCount', 'dislikeCount']]
 
 def get_metrics():
     # {Candidat : [Chaine Youtube, Compte Facebook, Compte Twitter]}
@@ -79,7 +75,7 @@ def get_metrics():
                #'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot'],
                'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel'],
                'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EmmanuelMacron', 'emmanuelmacron'],
-               'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
+               'Melenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
                #'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']
     }
 
@@ -91,11 +87,9 @@ def get_metrics():
     df = pd.DataFrame()
     for candidate in accounts:
         print('-' * 20)
-        print(candidate)
-        print('-' * 20)
 
         stats = {}
-        try: # Twitter : [tweets, followers]
+        try: # Twitter : [_, tweets, followers]
             print('Analyzing Twitter account', accounts[candidate][2])
             soup = BeautifulSoup(requests.get('https://twitter.com/' + accounts[candidate][2] + '?lang=en').text, 'lxml')
             stats_tw = [int(tag.attrs['title'].replace(',', '').split(' ')[0])
@@ -113,11 +107,11 @@ def get_metrics():
             except:
                 stats_yt = ['-', '-', '-']
                 print('Page Youtube : une erreur est survenue...')
-            try: # Youtube [moyenne vues 10 vidéos, moyenne likes 10 vidéos, moyenne dislikes 10 vidéos]
-                stats_yt2 = YoutubeVideosData(accounts[candidate][0], google_key)
-            except:
-                stats_yt2 = ['-', '-', '-']
-                print('Vidéos Youtube : une erreur est survenue...')
+            #try: # Youtube [total vues, compte de likes, compte de dislikes]
+            stats_yt2 = YoutubeVideosData(accounts[candidate][0], google_key)
+            #except:
+            # stats_yt2 = ['-', '-', '-']
+            # print('Vidéos Youtube : une erreur est survenue...')
         else:
             print('No Youtube Channel')
             stats_yt, stats_yt2 = ['-', '-', '-'], ['-', '-', '-']
@@ -147,17 +141,8 @@ def get_metrics():
         rec = pd.DataFrame([stats.values()], columns=stats.keys(), index=[candidate])
         df = df.append(rec, verify_integrity=False)
 
-    # ajout de la colonne des mentions twitter sur 3 jours
-
-    tweet_data = pd.read_json('/var/www/html/decompte/popcontest.json', orient='column')
-    #tweet_data = pd.read_json('popcontest.json', orient='column')
-    names, counts = [e['name'] for e in tweet_data['children']], [e['size'] for e in tweet_data['children']]
-    
-    tweet_df = pd.DataFrame(counts, columns=['1_tw_mentions'], index=names)
-    tweet_df.fillna(value='-', inplace=True)
-
-    df = pd.concat([df, tweet_df], axis=1, join_axes=[df.index])
     df.sort_index(axis=0, inplace=True)
+    df.fillna(value='-', inplace=True)
 
     return df
 
@@ -168,18 +153,17 @@ def save_metrics(df, timestamp): # sauvegarde des colonnes du dataframe dans les
     for metric in df:
         try:
             current_df = pd.read_json(path + metric + '.json', orient='split')
-            
+
             if timestamp in current_df:
-                print('Fichier json deja a jour pour', metric)
-                continue
-                
-            current_df = pd.concat([current_df, df[metric]], axis=1)
+                current_df[timestamp] = df[metric]
+            else:
+                current_df = pd.concat([current_df, df[metric]], axis=1)
+                current_df.rename(columns={metric:timestamp}, inplace=True)
             
         except ValueError: # si le fichier n'existe pas
             current_df = pd.DataFrame(df[metric], columns=[metric], index=[df.index])
-
-        current_df.rename(columns={metric:timestamp}, inplace=True)
-        current_df.fillna(value='-', inplace=True)
+            current_df.rename(columns={metric:timestamp}, inplace=True)
+        
         current_df.to_json(path + metric + '.json', orient='split')
         print('Data saved as ' + path + metric + '.json')
         
