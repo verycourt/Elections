@@ -1,7 +1,7 @@
 var fname = "7_fb_talking_about.json";
 
 $.getJSON("/metrics/data/" + fname, function(json) {
-    var linechart_title = "Evolution du buzz sur Facebook"
+    var linechart_title = "Buzz sur Facebook"
     var chart_id = "m7"
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
     var data_json = json; 

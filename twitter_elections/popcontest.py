@@ -55,8 +55,8 @@ for idx, candidate in enumerate(candidates):
 print(dataLePoint)
 export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
 exportLePoint = {
-	"title":u"Les candidats les plus mentionnés sur Twitter",
-	"legend":"Nombre de mentions Twitter par candidat sur 3 jours glissants, rafraîchi tous les jours à 8h.",
+	"title":u"Les candidats les plus mentionnés sur Twitter*",
+	"legend":"* Nombre de mentions Twitter par candidat sur 3 jours glissants, rafraîchi tous les jours à 8h.",
     "id": 1,
     "unit": "nombre de tweets",
 	"dataset":[entry for entry in dataLePoint.values()]
