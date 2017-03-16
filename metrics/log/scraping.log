@@ -1,55 +1,8 @@
-('Maj du', datetime.date(2017, 3, 13))
+(u'Maj du', datetime.date(2017, 3, 16))
 --------------------
-Le Pen
---------------------
-('Analyzing Twitter account', 'MLP_officiel')
-Scanning Youtube Channel
-('Getting average metrics for the latest', 10, 'videos of the channel')
-('Facebook page :', u'Marine Le Pen')
-()
-{'0_tw_followers': 1322615, '2_yt_subscribers': 15651, '3_yt_like_rate': 262, '4_yt_dislike_rate': 14, '7_fb_talking_about': 196342, '6_fb_likes': 1249370}
---------------------
-Melenchon
---------------------
-('Analyzing Twitter account', 'JLMelenchon')
-Scanning Youtube Channel
-('Getting average metrics for the latest', 10, 'videos of the channel')
-('Facebook page :', u'Jean-Luc M\xe9lenchon')
-()
-{'0_tw_followers': 991487, '2_yt_subscribers': 232199, '3_yt_like_rate': 6069, '4_yt_dislike_rate': 59, '7_fb_talking_about': 128573, '6_fb_likes': 680659}
---------------------
-Macron
---------------------
-('Analyzing Twitter account', 'emmanuelmacron')
-Scanning Youtube Channel
-('Getting average metrics for the latest', 10, 'videos of the channel')
-('Facebook page :', u'Emmanuel Macron')
-()
-{'0_tw_followers': 557085, '2_yt_subscribers': 10374, '3_yt_like_rate': 346, '4_yt_dislike_rate': 608, '7_fb_talking_about': 49316, '6_fb_likes': 207866}
---------------------
-Fillon
---------------------
-('Analyzing Twitter account', 'francoisfillon')
-Scanning Youtube Channel
-('Getting average metrics for the latest', 10, 'videos of the channel')
-('Facebook page :', u'Fran\xe7ois Fillon')
-()
-{'0_tw_followers': 453930, '2_yt_subscribers': 4561, '3_yt_like_rate': 133, '4_yt_dislike_rate': 36, '7_fb_talking_about': 85042, '6_fb_likes': 305467}
---------------------
-Poutou
---------------------
-('Analyzing Twitter account', 'PhilippePoutou')
-No Youtube Channel
-('Facebook page :', u'Philippe Poutou')
-()
-{'0_tw_followers': 98719, '2_yt_subscribers': '-', '3_yt_like_rate': '-', '4_yt_dislike_rate': '-', '7_fb_talking_about': 9300, '6_fb_likes': 16960}
---------------------
-Hamon
---------------------
-('Analyzing Twitter account', 'benoithamon')
-Scanning Youtube Channel
-('Getting average metrics for the latest', 10, 'videos of the channel')
-('Facebook page :', u'Beno\xeet Hamon')
-()
-{'0_tw_followers': 342849, '2_yt_subscribers': 5548, '3_yt_like_rate': 42, '4_yt_dislike_rate': 10, '7_fb_talking_about': 47983, '6_fb_likes': 139268}
-Data saved as /var/www/html/duel/data/2017-03-13.json
+Traceback (most recent call last):
+  File "/home/ubuntu/Elections/metrics/scraping_networks_by_metric.py", line 193, in <module>
+    save_metrics(get_metrics(), today)
+  File "/home/ubuntu/Elections/metrics/scraping_networks_by_metric.py", line 94, in get_metrics
+    print(candidate)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xe9' in position 1: ordinal not in range(128)
