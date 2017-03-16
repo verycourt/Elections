@@ -2,7 +2,7 @@
 <html>
 	
 	<head>
-		<title>Analyse historique réseaux sociaux</title>
+		<title>Analyse historique rÃ©seaux sociaux</title>
 
 		<?php include "/var/www/html/site_head.html";?>
 		<style><?php include "/var/www/html/header_style.css";?></style>
@@ -23,6 +23,12 @@
 			<canvas id="m2" width="800" height="500"></canvas>
 		</div>
 		<div class="line">
+			<canvas id="m4" width="800" height="500"></canvas>
+		</div>
+		<div class="line">
+			<canvas id="m5" width="800" height="500"></canvas>
+		</div>
+		<div class="line">
 			<canvas id="m6" width="800" height="500"></canvas>
 		</div>
 		<div class="line">
@@ -32,8 +38,13 @@
 		<script src="metrics_0.js" type="text/javascript"></script>
 		<script src="metrics_1.js" type="text/javascript"></script>
 		<script src="metrics_2.js" type="text/javascript"></script>
+		<script src="metrics_4.js" type="text/javascript"></script>
+		<script src="metrics_5.js" type="text/javascript"></script>
 		<script src="metrics_6.js" type="text/javascript"></script>
 		<script src="metrics_7.js" type="text/javascript"></script>
+		
+		<p> Les statistiques du buzz sur Facebook représentent le nombre d'utilisateurs qui ont interagi avec la page officielle d'un des candidat.
+		Les interactions comprennent notamment les likes, les commentaires ou partages d'une publication de la page du candidat. </p>
 
 		<p> Source des données : Twitter, YouTube et Facebook. </p>
 	</body>

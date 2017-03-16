@@ -23,9 +23,9 @@ def removeDuplicates():
 		pass
         client.close()
 
-print("Removing duplicates....\n")
-removeDuplicates()
-print("Done\n")
+#print("Removing duplicates....\n")
+#removeDuplicates()
+#print("Done\n")
 print("NB: si un tweet concerne plusieurs candidats à la fois, il est préférable de ne pas le labéliser.")
 
 session = int(input("Combien de tweets à labeliser pour cette session ?\n"))
@@ -36,16 +36,17 @@ collection = client.tweet.tweet
 corpus = collection.aggregate([{'$match':{'t_text':{'$not':re.compile('rt @')}}},{'$sample':{'size':session}},{'$project':{'t_text':1}}])
 client.close()
 sentimentmap = {'a':1,'z':0,'e':-1}
+phrase = 'Sentiment ? Positif : a , Négatif : e, Neutre : z, Ne Sais Pas / Plusieurs candidats : r '
 
 collection = client.tweet.train
 for i, tweet in enumerate(corpus):
     currtweet = {}
     print(tweet['t_text'])
-    sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z, Ne Sais Pas : r ')
+    sentiment = raw_input(phrase)
     
     while(sentiment not in ['a','z','e','r']) :
         print("erreur\n")
-        sentiment = raw_input('Sentiment ? Positif : a , Négatif : e, Neutre : z, Ne Sais Pas : r')
+        sentiment = raw_input(phrase)
 
     if sentiment == 'r' : continue
 

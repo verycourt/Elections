@@ -1,7 +1,7 @@
 var fname = "0_tw_followers.json";
 
 $.getJSON("/metrics/data/" + fname, function(json) {
-    var linechart_title = "Evolution du nombre de followers des candidats sur Twitter"
+    var linechart_title = "Evolution quotidienne des followers Twitter"
     var chart_id = "m0"
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
     var data_json = json; 
@@ -18,16 +18,20 @@ $.getJSON("/metrics/data/" + fname, function(json) {
     var lenI = data_json.index.length;
 
     for (var i = 0; i < lenI; i++) { // Boucle sur les lignes
+        var delta = []; // Evolution d'un jour sur l'autre
+        for (var j = 1; j < data_json.data[i].length; j++) {
+            delta.push(data_json.data[i][j] - data_json.data[i][j-1]);
+        }
         lines.push({
             label : data_json.index[i],
             backgroundColor: backgroundColors[i],
             borderColor: borderColors[i],
-            data: data_json.data[i]
+            data: delta
         });
     }
 
     var data = {
-        labels: data_json.columns,
+        labels: data_json.columns.slice(1), // on saute la 1ere date
         datasets: lines
     };
 
@@ -90,12 +94,7 @@ $.getJSON("/metrics/data/" + fname, function(json) {
                 mode: 'index',
                 position: 'nearest',
                 bodyFontSize: 13,
-                titleFontSize: 13,
-                callbacks: { // formate les valeurs en format francais (local)
-                    label: function(tooltipItems, data) {
-                        return data.datasets[tooltipItems.datasetIndex].label +': ' + data_json.data[tooltipItems.datasetIndex][tooltipItems.index].toLocaleString();
-                    }
-                }
+                titleFontSize: 13
             }
         }
     });
