@@ -22,14 +22,12 @@ from scipy.sparse import hstack
 from sklearn.linear_model import LogisticRegression
 
 
-# In[2]:
 
 print(stopwords.words('french'))
 print('---')
 print(stop_words.get_stop_words('fr'))
 
 
-# In[3]:
 
 stops = set(['rt','ds','qd','ss','ns','vs','nn','amp','gt','gd','gds','tt','pr','ac','mm', 'qu',
             '``', 'ni', 'ca', 'le', 'les', ' ', 'si', '$', '^', 'via', 'ils'] +
@@ -37,7 +35,25 @@ stops = set(['rt','ds','qd','ss','ns','vs','nn','amp','gt','gd','gds','tt','pr',
 print(stops)
 
 
-# In[9]:
+def cleanTrainDb():
+    client = pym.MongoClient('localhost', 27017)
+    collection = client.tweet.train
+    textCleanPipeline = [{"$group":{"_id":"$text", "dups":{"$push":"$_id"},"count":{"$sum":1}}},{"$match":{"count":{"$gt":1}}}]
+    duplicates = []
+    try :
+        for doc in collection.aggregate(textCleanPipeline) :
+            it = iter(doc['dups'])
+            next(it)
+            for id in it :
+                duplicates.append(pym.DeleteOne({'_id':id}))
+        c.bulk_write(duplicates)    
+    except:
+        pass
+        client.close()
+
+
+
+
 
 def tweetPreprocessing(collection, retweet=False):
 
@@ -153,29 +169,22 @@ def getSentiments(n_predict, retweet) :
     return predictions
 
 
-# In[5]:
 
+cleanTrainDb()
 client = pym.MongoClient('localhost', 27017)
-
-collection = client.tweet.train
 collection = client.tweet.labelised
+
 corpus = tweetPreprocessing(collection, retweet=True)
 print('Taille base d\'entrainement :', corpus.shape[0])
 print(corpus['sentiment'].value_counts())
 
 
-# In[6]:
-
 corpus[:10]
 
-
-# In[11]:
 
 a = getSentiments(800, retweet=True)
 print(len(a[a==1]), len(a[a==0]))
 
-
-# In[8]:
 
 # calculer des f-score, sentiwordnet, bigrammes...
 
