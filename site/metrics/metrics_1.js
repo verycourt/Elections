@@ -1,7 +1,7 @@
 var fname = "1_tw_mentions.json";
 
 $.getJSON("/metrics/data/" + fname, function(json) {
-    var linechart_title = "Tweets cumulés sur 3 jours"
+    var linechart_title = "Mentions dans des tweets sur 3 jours"
     var chart_id = "m1"
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
     var data_json = json; 

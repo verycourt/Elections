@@ -46,6 +46,6 @@
 		<p> Les statistiques du buzz sur Facebook représentent le nombre d'utilisateurs qui ont interagi avec la page officielle d'un des candidat.
 		Les interactions comprennent notamment les likes, les commentaires ou partages d'une publication de la page du candidat. </p>
 
-		<p> Source des données : Twitter, YouTube et Facebook. </p>
+		<p> <strong>Source des données :</strong> Twitter, YouTube et Facebook. </p>
 	</body>
 </html>
