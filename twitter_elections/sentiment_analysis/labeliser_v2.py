@@ -25,9 +25,6 @@ def retrait_doublons(collection):
 
 print("NB: si un tweet concerne plusieurs candidats à la fois, avec des sentiments mitigés (par exemple positif envers un candidat et negatif envers un autre), il est préférable de ne pas le labéliser (touche r).")
 
-compte = 0
-labeled = []
-
 client = pym.MongoClient('localhost',27017)
 collection = client.tweet.tweet
 
@@ -40,6 +37,8 @@ client.close()
 sentimentmap = {'a':1,'z':0,'e':-1}
 phrase = 'Sentiment ? Positif: a , Négatif: e, Neutre: z, Ne Sais Pas / Plusieurs candidats: r, Quitter: X\n'
 
+compte = 0
+collection = client.tweet.train
 for tweet in corpus:
     if 'rt @' not in tweet['t_text']:
         print(20*'-')
@@ -59,15 +58,14 @@ for tweet in corpus:
         elif sentiment == 'X':
             break
         else:
-            labeled.append({'t_id':tweet['t_id'], 'text':tweet['t_text'], 'sentiment':sentimentmap[sentiment]})
+            collection.insert_one({'t_id':tweet['t_id'], 'text':tweet['t_text'], 'sentiment':sentimentmap[sentiment]})
             compte += 1
     else:
         continue
 
-collection = client.tweet.train
-collection.insert_many(labeled)
 n_tweets = collection.count()
 client.close()
 
 print('Insertion de {0} tweets dans la base "train", qui compte desormais {1} tweets.'.format(compte, n_tweets))
 retrait_doublons(collection)
+print('\nMerci de ta collaboration !')
