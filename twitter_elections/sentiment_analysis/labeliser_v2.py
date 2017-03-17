@@ -23,7 +23,7 @@ def retrait_doublons(collection):
     print('{} doublons retirés.'.format(count))
     client.close()
 
-print("NB: si un tweet concerne plusieurs candidats à la fois, il est préférable de ne pas le labéliser (touche r).")
+print("NB: si un tweet concerne plusieurs candidats à la fois, avec des sentiments mitigés (par exemple positif envers un candidat et negatif envers un autre), il est préférable de ne pas le labéliser (touche r).")
 
 compte = 0
 labeled = []
@@ -42,12 +42,16 @@ phrase = 'Sentiment ? Positif: a , Négatif: e, Neutre: z, Ne Sais Pas / Plusieu
 
 for tweet in corpus:
     if 'rt @' not in tweet['t_text']:
+        print(20*'-')
         print(tweet['t_text'])
+        print(20*'-')
         sentiment = raw_input(phrase)
         
         while(sentiment not in ['a', 'z', 'e', 'r', 'X']) :
             print("Touche invalide. Essaie encore.\n")
+            print(20*'-')
             print(tweet['t_text'])
+            print(20*'-')
             sentiment = raw_input(phrase)
 
         if sentiment == 'r':
@@ -65,5 +69,5 @@ collection.insert_many(labeled)
 n_tweets = collection.count()
 client.close()
 
-print('Insertion de {0} tweets dans la base "train", qui compte desormais {1} tweets'.format(compte, n_tweets))
+print('Insertion de {0} tweets dans la base "train", qui compte desormais {1} tweets.'.format(compte, n_tweets))
 retrait_doublons(collection)
