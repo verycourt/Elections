@@ -7,7 +7,7 @@ library(plyr)
 data <- read.csv2("/home/brehelin/Documents/Elections/Analyses/la_base.csv",sep=",",dec=".")
 
 
-data$taux_tgauche <- data[,4] + data[,7] + data[,9]
+data$taux_tgauche <- data[,"taux_xgauche"] + data[,"taux_gauche"] + data[,"taux_vert"]
 
 # On va utiliser un decision tree pour regarder quels variales sont discriminante de manière naives
 
@@ -100,3 +100,107 @@ znp <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, 
 zplm <- plm(taux_tgauche ~ var_chomage_annee + D.c.s.domicili.s.par.d.partement, data=data_var, model="random")
 phtest(znp,zplm)
 # On ne eejette H0, on peut donc specifié notre modèle avec des effets individuelles aléatoires
+
+
+# On va tester un modèle entrainer sur les années supérieur à 81
+data_train<-subset(data, data$Ann.e > 1981)
+data_train$code <- NULL
+# On teste un premier modèle relativement simple
+# On étudie la corrélation entre y et X des pop pour savoir quel pop supprimer
+cor(data_train[,c("taux_tgauche","X0.19ans","X20.39ans","X40.59ans","X60.74ans","X75.ans")])
+# On supprime la pop la moins corrélé à la cible (de manière générale la corrélation est faible)
+
+
+cor(data_train[,c("taux_tgauche","taux_centre_sup_moyenne"
+                  ,"taux_droite_sup_moyenne",                "taux_gauche_sup_moyenne"
+                  ,"taux_vert_sup_moyenne" ,                 "taux_xdroite_sup_moyenne"
+                  ,"taux_xgauche_sup_moyenne",               "taux_Abstention_sup_moyenne"
+                  ,"taux_Blancs.et.nuls_sup_moyenne" )])
+
+data_train$taux_tgauche_sup_moyenne <- data_train[,"taux_gauche_sup_moyenne"] + 
+  data_train[,"taux_vert_sup_moyenne"] + data_train[,"taux_xgauche_sup_moyenne"]
+
+# mise à 0 des NA sur la popularité des verts 
+data_train[is.na(data_train[,"pop_verts"]),"pop_verts"]<-0
+data_train$pop_tgauche <- data_train[,"pop_gauche"] + 
+  data_train[,"pop_verts"] + data_train[,"pop_xgauche"]
+
+cor(data_train[,c("taux_tgauche","taux_centre_sup_moyenne"
+                  ,"taux_droite_sup_moyenne", "taux_tgauche_sup_moyenne"
+                  ,"taux_xdroite_sup_moyenne"
+                )])
+
+formula_var1 <- as.formula(taux_tgauche~depart_frontalier+depart_CORSE+var_chomage_annee+
+                            X0.19ans+X20.39ans+X40.59ans+X75.ans+Naissances.domicili.es.par.d.partement+
+                           taux_Abstention_sup_moyenne+taux_centre_sup_moyenne+
+                           taux_droite_sup_moyenne + taux_tgauche_sup_moyenne+
+                          taux_xdroite_sup_moyenne+pop_tgauche )
+
+data_train_panel <- pdata.frame(data_train, index=c("d.partement", "Ann.e"), drop.index=TRUE, row.names=TRUE)
+
+model_test1 <- plm(formula_var1, data=data_train_panel, model="random")
+
+
+formula_var2 <- as.formula(taux_tgauche~var_chomage_annee+
+                            X20.39ans+X40.59ans+X75.ans+Naissances.domicili.es.par.d.partement+
+                             taux_centre_sup_moyenne+
+                             taux_droite_sup_moyenne + taux_tgauche_sup_moyenne+
+                             taux_xdroite_sup_moyenne + pop_tgauche)
+model_test2 <- plm(formula_var2, data=data_train_panel, model="random")
+
+# On observe des signes de coeficients très suspect, relation positive entre chomage et gauche?
+mse_model_test2 <- mean(model_test2$residuals^2)
+mae_mode_test_2 <- mean(abs(model_test2$residuals))
+
+# Next step :
+# - modifier les indicateurs de pop_tgauche/ taux_tgauche
+# - refaire un arbre pour utiliser les variables les plus discriminantes
+
+data_train$taux_tmean_gauche_sup_moyenne <- data_train$taux_tgauche_sup_moyenne/ 3
+
+data_train$pop_tmean_gauche <- 0  
+
+data_train[data_train$Ann.e==1988, "pop_tmean_gauche"]<-data_train[data_train$Ann.e==1988, "pop_tgauche"]/ 2
+data_train[data_train$Ann.e!=1988, "pop_tmean_gauche"]<-data_train[data_train$Ann.e!=1988, "pop_tgauche"]/ 3
+
+
+# Faire un decision tree et garder variable les plus discriminante
+
+                                
+form <- as.formula(taux_tgauche~depart_frontalier+depart_OM+depart_CORSE+X0.19ans+X20.39ans+X40.59ans+
+                     X60.74ans+X75.ans+Naissances.domicili.es.par.d.partement+Nombre.total.de.mariages.domicili.s+
+                     D.c.s.domicili.s.par.d.partement+var_chomage_annee+taux_centre_sup_moyenne+taux_droite_sup_moyenne
+                  + taux_xdroite_sup_moyenne + taux_Abstention_sup_moyenne+taux_Blancs.et.nuls_sup_moyenne
+                  +pop_droite + pop_centre + pop_xdroite + taux_tmean_gauche_sup_moyenne +
+                    taux_tgauche_sup_moyenne + pop_tgauche + pop_tmean_gauche)
+
+tree <- rpart(form,data=data_train)
+
+data_train_panel <- pdata.frame(data_train, index=c("d.partement", "Ann.e"), drop.index=TRUE, row.names=TRUE)
+
+formula_var3 <- as.formula(taux_tgauche~var_chomage_annee+ X0.19ans + 
+                             X20.39ans+X40.59ans+X75.ans+Naissances.domicili.es.par.d.partement+
+                             taux_centre_sup_moyenne+taux_Blancs.et.nuls_sup_moyenne+
+                             taux_droite_sup_moyenne + taux_tmean_gauche_sup_moyenne+ taux_centre_sup_moyenne + 
+                             taux_xdroite_sup_moyenne + pop_tmean_gauche + pop_droite + pop_centre 
+                           + pop_xdroite )
+
+model_test3 <- plm(formula_var3, data=data_train_panel, model="random")
+
+# On observe des signes de coeficients très suspect, relation positive entre chomage et gauche?
+mse_model_test3 <- mean(model_test3$residuals^2)
+mae_mode_test_3 <- mean(abs(model_test3$residuals))
+
+formula_var4 <- as.formula(taux_tgauche~var_chomage_annee+ taux_centre_sup_moyenne 
+                           + taux_tmean_gauche_sup_moyenne+ taux_centre_sup_moyenne + 
+                             taux_xdroite_sup_moyenne + pop_tmean_gauche + pop_droite + pop_centre 
+                           + pop_xdroite )
+
+model_test4 <- plm(formula_var4, data=data_train_panel, model="random")
+
+# On observe des signes de coeficients très suspect, relation positive entre chomage et gauche?
+mse_model_test4 <- mean(model_test4$residuals^2)
+mae_mode_test_4 <- mean(abs(model_test4$residuals))
+
+## ECART DE POPULARITE ENTRE PREMIER MINISTRE ET PRESIDENT
+## VOIX OBTENU AU SCRUTE PRECEDENT
