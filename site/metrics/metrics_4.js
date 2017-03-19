@@ -1,8 +1,8 @@
-var fname = "1_tw_mentions.json";
+var fname = "4_yt_reaction_rate.json";
 
 $.getJSON("/metrics/data/" + fname, function(json) {
-    var linechart_title = "Mentions dans des tweets sur 3 jours"
-    var chart_id = "m1"
+    var linechart_title = "Réactions aux vidéos YouTube (rapport pouces bleus et pouces rouges cumulés sur nombre total de vues)"
+    var chart_id = "m4"
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
     var data_json = json; 
 
@@ -74,7 +74,10 @@ $.getJSON("/metrics/data/" + fname, function(json) {
                 yAxes: [{
                     position: 'right',
                     ticks: {
-                        fontSize: 12
+                        fontSize: 12,
+                        callback: function(value, index, values) {
+                            return value + '%';
+                        }
                     }
                 }]
             },

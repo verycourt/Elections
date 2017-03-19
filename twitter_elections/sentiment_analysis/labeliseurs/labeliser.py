@@ -26,7 +26,6 @@ def removeDuplicates():
 print("Removing duplicates....\n")
 removeDuplicates()
 print("Done\n")
-print("NB: si un tweet concerne plusieurs candidats à la fois, il est préférable de ne pas le labéliser.")
 
 session = int(input("Combien de tweets à labeliser pour cette session ?\n"))
 if session == 0 : exit()
