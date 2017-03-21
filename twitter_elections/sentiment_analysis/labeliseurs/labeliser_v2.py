@@ -2,6 +2,7 @@
 import pymongo as pym
 import re
 
+# raw_input est valable uniquement pour Python 2. En Python 3, la fonction équivalente est input()
 
 def retrait_doublons(collection):
     print('Retrait d\'eventuels doublons...')
@@ -23,7 +24,11 @@ def retrait_doublons(collection):
     print('{} doublons retirés.'.format(count))
     client.close()
 
-print("NB: si un tweet concerne plusieurs candidats à la fois, avec des sentiments mitigés (par exemple positif envers un candidat et negatif envers un autre), il est préférable de ne pas le labéliser (touche r).")
+print(20*'-')
+print('Instructions :')
+print('- Ne pas labéliser les tweets qui ne sont pas en francais.')
+print("- Si un tweet concerne plusieurs candidats à la fois, avec des sentiments mitigés (par exemple positif envers un candidat et negatif envers un autre), il est préférable de ne pas le labéliser (touche r).")
+print(20*'-')
 
 client = pym.MongoClient('localhost',27017)
 collection = client.tweet.tweet
@@ -31,11 +36,11 @@ collection = client.tweet.tweet
 print('Recuperation de tweets pris au hasard dans la base...')
 
 #corpus = collection.aggregate([{'$match':{'t_text':{'$not':re.compile('rt @')}}},{'$sample':{'size':200}},{'$project':{'t_text':1, 't_id':1}}])
-corpus = collection.aggregate([{'$sample':{'size':200}},{'$project':{'t_text':1, 't_id':1}}])
+corpus = collection.aggregate([{'$sample':{'size':400}},{'$project':{'t_text':1, 't_id':1}}])
 client.close()
 
 sentimentmap = {'a':1,'z':0,'e':-1}
-phrase = 'Sentiment ? Positif: a , Négatif: e, Neutre: z, Ne Sais Pas / Plusieurs candidats: r, Quitter: X\n'
+phrase = 'Sentiment ? Pos: a , Nég: e, Neutre: z, Ne rien faire: r, Quitter: X\n'
 
 compte = 0
 collection = client.tweet.train
@@ -44,14 +49,20 @@ for tweet in corpus:
         print(20*'-')
         print(tweet['t_text'])
         print(20*'-')
-        sentiment = raw_input(phrase)
+        try:
+            sentiment = raw_input(phrase)
+        except NameError:
+            sentiment = input(phrase)
         
         while(sentiment not in ['a', 'z', 'e', 'r', 'X']) :
             print("Touche invalide. Essaie encore.\n")
             print(20*'-')
             print(tweet['t_text'])
             print(20*'-')
-            sentiment = raw_input(phrase)
+            try:
+                sentiment = raw_input(phrase)
+            except NameError:
+                sentiment = input(phrase)
 
         if sentiment == 'r':
             continue
@@ -66,6 +77,6 @@ for tweet in corpus:
 n_tweets = collection.count()
 client.close()
 
-print('Insertion de {0} tweets dans la base "train", qui compte desormais {1} tweets.'.format(compte, n_tweets))
+print('\nInsertion de {0} tweets dans la base "train", qui compte desormais {1} tweets.'.format(compte, n_tweets))
 retrait_doublons(collection)
-print('\nMerci de ta collaboration !')
+print('\nMerci de ta collaboration ! Relance le script pour continuer.')

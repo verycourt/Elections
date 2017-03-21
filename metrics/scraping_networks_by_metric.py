@@ -101,17 +101,17 @@ def get_metrics():
         _, _, stats['0_tw_followers'] = stats_tw
 
         if accounts[candidate][0] is not None:
-            print('Scanning Youtube Channel')
+            print('Scanning {}\'s Youtube Channel'.format(candidate))
             try: # Youtube [abonnés, total vues, nombre de vidéos]
                 stats_yt = YoutubePageData(accounts[candidate][0], google_key)
             except:
                 stats_yt = ['-', '-', '-']
                 print('Page Youtube : une erreur est survenue...')
-            #try: # Youtube [total vues, compte de likes, compte de dislikes]
-            stats_yt2 = YoutubeVideosData(accounts[candidate][0], google_key)
-            #except:
-            # stats_yt2 = ['-', '-', '-']
-            # print('Vidéos Youtube : une erreur est survenue...')
+            try: # Youtube moyennes [total vues, compte de likes, compte de dislikes]
+                stats_yt2 = YoutubeVideosData(accounts[candidate][0], google_key)
+            except:
+                stats_yt2 = ['-', '-', '-']
+                print('Vidéos Youtube : une erreur est survenue...')
         else:
             print('No Youtube Channel')
             stats_yt, stats_yt2 = ['-', '-', '-'], ['-', '-', '-']
@@ -146,14 +146,25 @@ def get_metrics():
 
     return df
 
+def get_tweet_count(): # ajout de la colonne des mentions twitter sur 3 jours
+    path = '/var/www/html/decompte/popcontest.json'
+    # path = 'data/popcontest.json'
+    df = pd.read_json(path, orient='column')
+    names, counts = [e['name'] for e in df['children']], [e['size'] for e in df['children']]
+    print('Decompte Twitter :')
+    print(names, counts)
+    df = pd.DataFrame(counts, columns=['1_tw_mentions'], index=names)
+    df = df.sort_index(axis=0).fillna(value='-')
+
+    return df
+
 def save_metrics(df, timestamp): # sauvegarde des colonnes du dataframe dans les différents .json
-    #path = 'data/' # save path
     path = '/var/www/html/metrics/data/'
+    # path = 'data/' # save path
 
     for metric in df:
         try:
             current_df = pd.read_json(path + metric + '.json', orient='split')
-
             if timestamp in current_df:
                 current_df[timestamp] = df[metric]
             else:
@@ -164,7 +175,9 @@ def save_metrics(df, timestamp): # sauvegarde des colonnes du dataframe dans les
             current_df = pd.DataFrame(df[metric], columns=[metric], index=[df.index])
             current_df.rename(columns={metric:timestamp}, inplace=True)
         
+        current_df.fillna(value='-', inplace=True)
         current_df.to_json(path + metric + '.json', orient='split')
+        print(current_df)
         print('Data saved as ' + path + metric + '.json')
         
     return
@@ -175,3 +188,4 @@ today = (datetime.utcnow() + timedelta(hours=1)).date()
 print('Maj du', today)
 
 save_metrics(get_metrics(), today)
+save_metrics(get_tweet_count(), today)

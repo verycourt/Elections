@@ -56,15 +56,12 @@ def YoutubeVideosData(page_id, access_token):
     
     response = ul.urlopen(url)
     data = json.loads(response.read().decode('utf-8'))
-    keys = data['items'][0]['statistics'].keys() # list of metrics
-    n = len(data['items'])
-    
-    # Construction du dictionnaire des valeurs moyennes pour chaque clé sur les vidéos analysées
-    videoStats = {key: int(round(sum([int(e['statistics'][key]) for e in data['items']]) / n)) for key in keys}
-    
+
+    df_stats = pd.DataFrame([item['statistics'] for item in data['items']]).fillna(value=0).astype(int)
+    n = len(df_stats.index)
     print('Getting average metrics for the latest', n, 'videos of the channel')
 
-    return [videoStats[metric] for metric in ['viewCount', 'likeCount', 'dislikeCount']]
+    return [df_stats[metric].mean() for metric in ['viewCount', 'likeCount', 'dislikeCount']]
 
 
 # {Candidat : [Chaine Youtube, Compte Facebook, Compte Twitter]}
@@ -78,7 +75,7 @@ accounts = {#'Alliot-Marie': [None, 'MAlliotMarie', 'MAlliotMarie'],
            #'Jadot': ['UCsUMhb2ygeTSS2mXLTIDHMQ', 'yannick.jadot', 'yjadot'],
            'Le Pen': ['UCU3z3px1_RCqYBwrs8LJVWg', 'MarineLePen', 'MLP_officiel'],
            'Macron': ['UCJw8np695wqWOaKVhFjkRyg', 'EmmanuelMacron', 'emmanuelmacron'],
-           'Mélenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
+           'Melenchon': ['UCk-_PEY3iC6DIGJKuoEe9bw', 'JLMelenchon', 'JLMelenchon'],
            #'Poutou': [None, 'poutou.philippe', 'PhilippePoutou']
            }
 
@@ -99,7 +96,7 @@ for candidate in accounts:
     print('-' * 20)
 
     stats = {}
-    try: # Twitter : [tweets, followers]
+    try: # Twitter : [_, tweets, followers]
         print('Analyzing Twitter account', accounts[candidate][2])
         soup = BeautifulSoup(requests.get('https://twitter.com/' + accounts[candidate][2] + '?lang=en').text, 'lxml')
         stats_tw = [int(tag.attrs['title'].replace(',', '').split(' ')[0])
@@ -117,7 +114,7 @@ for candidate in accounts:
         except:
             stats_yt = ['-', '-', '-']
             print('Page Youtube : une erreur est survenue...')
-        try: # Youtube [moyenne vues 10 vidéos, moyenne likes 10 vidéos, moyenne dislikes 10 vidéos]
+        try: # Youtube [total vues, compte de likes, compte de dislikes]
             stats_yt2 = YoutubeVideosData(accounts[candidate][0], google_key)
         except:
             stats_yt2 = ['-', '-', '-']

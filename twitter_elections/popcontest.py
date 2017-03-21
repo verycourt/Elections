@@ -17,7 +17,7 @@ candidates = [u'François Fillon',u'Benoît Hamon','Marine Le Pen','Emmanuel Mac
 parties = ['LR','PS','FN','En Marche!','PG']
 colors = ["#000080", "#CC3399", "#3399FF", "#A9A9A9", "#FF0000"]
 pseudo = {'Valls':['valls','@manuelvalls','#valls'],'Emmanuel Macron':['macron','#macron','@EmmanuelMacron'],'Jadot':['Jadot','#Jadot','@yjadot'],
-'Marine Le Pen':['le pen', 'mlp','lepen'],u'Jean-Luc Mélenchon':['Melenchon','#Melenchon','@JLMelechon'],'Bayrou':['Bayrou','#Bayrou','@bayrou'],'Arthaud':['arthaud'],
+'Marine Le Pen':['le pen', 'mlp','lepen'],u'Jean-Luc Mélenchon':['Mélenchon'.decode('utf-8'), 'Mélenchon'.encode('utf-8'), 'Mélenchon','Melenchon','#Melenchon','@JLMelechon'],'Bayrou':['Bayrou','#Bayrou','@bayrou'],'Arthaud':['arthaud'],
 'Poutou':['Poutou','#Poutou','@PhilippePoutou'],'Peillon':['Peillon','#peillon','@Vincent_Peillon'],'Rugy':['#Rugy','Rugy','@FdeRugy'],
 u'Benoît Hamon':['Hamon','#hamon','@benoithamon'],'Pinel':['pinel','#pinel','@SylviaPinel'],'Bennhamias':['bennhamias','#bennhamias','@JLBennhamias'],
 'Montebourg':['montebourg','#montebourg','@montebourg'],u'François Fillon':['Fillon','#Fillon','@FrancoisFillon']}
@@ -53,7 +53,7 @@ for idx, candidate in enumerate(candidates):
 	except : print("no tweet")
 #print(data)
 print(dataLePoint)
-export = {"name":"twitter_mentions","children":[entry for entry in data.values()]}
+export = {"name":"twitter_mentions","children":[{'name': 'Melenchon', 'size': entry['size']} if entry == {'name': 'Mélenchon', 'size': entry['size']} else entry for entry in data.values()]}
 exportLePoint = {
 	"title":u"Les candidats les plus mentionnés sur Twitter*",
 	"legend":"* Nombre de mentions Twitter par candidat sur 3 jours glissants, rafraîchi tous les jours à 8h.",

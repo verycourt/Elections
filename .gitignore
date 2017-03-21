@@ -1,3 +1,6 @@
+# ignore nohup.out
+*.out
+
 # ignore .csv
 *.csv
 

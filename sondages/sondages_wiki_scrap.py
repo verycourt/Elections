@@ -31,8 +31,8 @@ path2 = "/var/www/html/2ndtour/"
 '''
 dicoTableMois = {0:"Mars 2017", 1:"Février 2017", 2:"Janvier 2017"}
 dico_couleurs_candidats = {u"Arnaud Montebourg":"#CC0066", u"Benoît Hamon":"#CC3399",u"Cécile Duflot":"#008000", u"Emmanuel Macron":"#A9A9A9",
-          u"François Bayrou":"#FF6600", u"François Fillon":"#000080", u"François Hollande":"#FF9999",  u"Jacques Cheminade":"#CC0000",
-          u"Jean-Luc Mélenchon":"#FF0000", u"Manuel Valls":"#FF6699", u"Marine Le Pen":"#3399FF",  u"Nathalie Arthaud":"#CC0033",
+          u"François Bayrou":"#FF6600", u"François Fillon":"#3399FF", u"François Hollande":"#FF9999",  u"Jacques Cheminade":"#CC0000",
+          u"Jean-Luc Mélenchon":"#FF0000", u"Manuel Valls":"#FF6699", u"Marine Le Pen":"#000080", u"Nathalie Arthaud":"#CC0033",
           u"Nicolas Dupont-Aignan":"#0000CC",  u"Nicolas Hulot":"#66CC00", u"Philippe Poutou":"#990033",
           u"Sylvia Pinel":"#FF0066", u"Yannick Jadot":"#339900"}
 
@@ -95,8 +95,11 @@ def loadPandas(URL):
                     item[0] -= 1
 
             for i,elem in enumerate(ligne.findAll("td")):
-                while line[i] != "/":
-                    i+=1
+                try:
+                    while line[i] != "/":
+                        i+=1
+                except:
+                    continue
 
                 if elem.has_attr("rowspan"):
                     nbRowspan = int(elem["rowspan"])
@@ -138,6 +141,7 @@ dfF, dfFs = loadPandas(URL)
 
 dfF = dfF.replace(to_replace=["-", "–"], value=" ")
 
+dfF = dfF[dfF["Pourrait changer d'avis"]!="/"]
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : (str(x).split("[")[0].strip()))
 
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : 0 if x == "nan" or x == "" else float(x[:2]))
@@ -230,7 +234,6 @@ to_add = (max(dfF5.index) - (max(dfF5.groupby(pd.TimeGrouper('6D')).mean().index
 dfF5.index = dfF5.index.map(lambda x : (x + datetime.timedelta(days=to_add)) )
 dfF5 = dfF5.groupby(pd.TimeGrouper('6D')).mean()
 #dfF5 = dfF5.index.map(lambda x : x.to_datetime() + datetime.timedelta(days=6))
-print(dfF5)
 for col in dfF5.columns :
     dfF5[col] = np.round(dfF5[col], 1)
 

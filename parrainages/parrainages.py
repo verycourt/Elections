@@ -15,7 +15,7 @@ def loadHTML(url):
 def extractSponsoring(url):
     table = loadHTML(url).find("table")
     rows = table.findAll('tr')
-    candOfInterest = [u'ALLIOT-MARIE Michèle','ARTHAUD Nathalie',u'ASSELINEAU François','CHEMINADE Jacques','DUPONT-AIGNAN Nicolas',u'FILLON François','GUAINO Henri',u'HAMON Benoît','JARDIN Alexandre','LE PEN Marine','MACRON Emmanuel','MELENCHON Jean-Luc','POUTOU Philippe']
+    candOfInterest = [u'ALLIOT-MARIE Michèle','ARTHAUD Nathalie',u'ASSELINEAU François','CHEMINADE Jacques','DUPONT-AIGNAN Nicolas',u'FILLON François','GUAINO Henri',u'HAMON Benoît','JARDIN Alexandre','JUPPE Alain', 'LASSALLE Jean', 'LE PEN Marine','MACRON Emmanuel','MELENCHON Jean-Luc','POUTOU Philippe', 'YADE Rama']
     candidates = []
     for row in rows[1:] :
         currcand = {}
@@ -24,12 +24,13 @@ def extractSponsoring(url):
         if name not in candOfInterest : continue
         currcand['Nom'] = " ".join(name.split()[-1:]) + " " + " ".join(name.split()[0:-1])
         currcand['01 mars'] = row.findAll('td')[2].text
-        currcand['03 mars'] = row.findAll('td')[3].text
-        currcand['07 mars'] = row.findAll('td')[4].text
-        currcand['10 mars'] = row.findAll('td')[5].text
-        currcand['14 mars'] = row.findAll('td')[6].text
-        currcand['18 mars'] = row.findAll('td')[7].text
-        candidates.append(currcand)
+       	currcand['03 mars'] = row.findAll('td')[3].text
+	#print(currcand['03 mars'])
+       	currcand['07 mars'] = row.findAll('td')[4].text
+       	currcand['10 mars'] = row.findAll('td')[5].text
+       	currcand['14 mars'] = row.findAll('td')[6].text
+       	currcand['18 mars'] = row.findAll('td')[7].text
+       	candidates.append(currcand)
     return candidates
 
 dump = pd.DataFrame(extractSponsoring(url))
