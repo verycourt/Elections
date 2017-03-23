@@ -109,6 +109,7 @@ data_train$code <- NULL
 # On étudie la corrélation entre y et X des pop pour savoir quel pop supprimer
 cor(data_train[,c("taux_tgauche","X0.19ans","X20.39ans","X40.59ans","X60.74ans","X75.ans")])
 # On supprime la pop la moins corrélé à la cible (de manière générale la corrélation est faible)
+cor(data_train[,c("taux_tgauche","taux_droite","taux_gauche","var_chomage_annee","pop_gauche")])
 
 
 cor(data_train[,c("taux_tgauche","taux_centre_sup_moyenne"
@@ -191,7 +192,7 @@ model_test3 <- plm(formula_var3, data=data_train_panel, model="random")
 mse_model_test3 <- mean(model_test3$residuals^2)
 mae_mode_test_3 <- mean(abs(model_test3$residuals))
 
-formula_var4 <- as.formula(taux_tgauche~var_chomage_annee+ taux_centre_sup_moyenne 
+formula_var4 <- as.formula(taux_tgauche~var_chomage_annee+depart_frontalier+taux_centre_sup_moyenne 
                            + taux_tmean_gauche_sup_moyenne+ taux_centre_sup_moyenne + 
                              taux_xdroite_sup_moyenne + pop_tmean_gauche + pop_droite + pop_centre 
                            + pop_xdroite )
@@ -204,3 +205,42 @@ mae_mode_test_4 <- mean(abs(model_test4$residuals))
 
 ## ECART DE POPULARITE ENTRE PREMIER MINISTRE ET PRESIDENT
 ## VOIX OBTENU AU SCRUTE PRECEDENT
+
+# Test FN
+form <- as.formula(taux_xdroite~depart_frontalier+depart_OM+depart_CORSE+X0.19ans+X20.39ans+X40.59ans+
+                     X60.74ans+X75.ans+Naissances.domicili.es.par.d.partement+Nombre.total.de.mariages.domicili.s+
+                     D.c.s.domicili.s.par.d.partement+var_chomage_annee+taux_centre_sup_moyenne+taux_droite_sup_moyenne
+                   + taux_xdroite_sup_moyenne + taux_Abstention_sup_moyenne+taux_Blancs.et.nuls_sup_moyenne
+                   +pop_droite + pop_centre + pop_xdroite + taux_tmean_gauche_sup_moyenne +
+                     taux_tgauche_sup_moyenne + pop_tgauche + pop_tmean_gauche)
+
+tree <- rpart(form,data=data_train)
+
+formula_var5 <- as.formula(taux_xdroite~depart_frontalier+X0.19ans+X20.39ans+Naissances.domicili.es.par.d.partement+
+                             var_chomage_annee+taux_xdroite_sup_moyenne + pop_tgauche +  
+                           + pop_centre 
+                           +pop_droite  
+                           + taux_droite_sup_moyenne )
+
+model_test5 <- plm(form, data=data_train_panel, model="random")
+mae_mode_test_5 <- mean(abs(model_test5$residuals))
+
+# Test Centre
+
+form <- as.formula(taux_centre~depart_frontalier+depart_OM+depart_CORSE+X0.19ans+X20.39ans+X40.59ans+
+                     X60.74ans+X75.ans+Naissances.domicili.es.par.d.partement+Nombre.total.de.mariages.domicili.s+
+                     D.c.s.domicili.s.par.d.partement+var_chomage_annee+taux_centre_sup_moyenne+taux_droite_sup_moyenne
+                   + taux_xdroite_sup_moyenne + taux_Abstention_sup_moyenne+taux_Blancs.et.nuls_sup_moyenne
+                   +pop_droite + pop_centre + pop_xdroite + taux_tmean_gauche_sup_moyenne +
+                     taux_tgauche_sup_moyenne + pop_tgauche + pop_tmean_gauche)
+
+tree <- rpart(form,data=data_train)
+
+formula_var6 <- as.formula( taux_centre ~ pop_tgauche + pop_xdroite +
+                           pop_droite + pop_tmean_gauche 
+                           + pop_xdroite + taux_xdroite_sup_moyenne 
+                           + taux_centre_sup_moyenne  )
+model_test6 <- plm(formula_var6, data=data_train_panel, model="random")
+summary(model_test6)
+mae_mode_test_6 <- mean(abs(model_test6$residuals))
+mae_mode_test_6
