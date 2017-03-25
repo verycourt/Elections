@@ -2,7 +2,7 @@
 <html>
 	
 	<head>
-		<title>Analyse historique rÃ©seaux sociaux</title>
+		<title>Analyse historique réseaux sociaux</title>
 
 		<?php include "/var/www/html/site_head.html";?>
 		<style><?php include "/var/www/html/header_style.css";?></style>
@@ -25,6 +25,7 @@
 		<div class="line">
 			<canvas id="m4" width="800" height="500"></canvas>
 		</div>
+
 		<div class="line">
 			<canvas id="m5" width="800" height="500"></canvas>
 		</div>
@@ -43,8 +44,10 @@
 		<script src="metrics_6.js" type="text/javascript"></script>
 		<script src="metrics_7.js" type="text/javascript"></script>
 		
+		<p> Les statistiques sur les vidéos YouTube sont des moyennes sur les 10 dernières vidéos mises en ligne sur les chaînes officielles des candidats.</p>
+
 		<p> Les statistiques du buzz sur Facebook représentent le nombre d'utilisateurs qui ont interagi avec la page officielle d'un des candidat.
-		Les interactions comprennent notamment les likes, les commentaires ou partages d'une publication de la page du candidat. </p>
+		Les interactions comprennent notamment les likes, les commentaires ou partages d'une publication de la page du candidat.</p>
 
 		<p> <strong>Source des données :</strong> Twitter, YouTube et Facebook. </p>
 	</body>

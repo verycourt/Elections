@@ -1,14 +1,6 @@
-/*function readStringFromFileAtPath(pathOfFileToReadFrom) {
-        var request = new XMLHttpRequest();
-        request.open("GET", pathOfFileToReadFrom, false);
-        request.send(null);
-        var returnValue = request.responseText;
-        return returnValue;
-}*/
-
 var fname = "radar.json";
 
-$.getJSON("/duel/data/" + fname, function(json) {
+$.getJSON("/radar/data/" + fname, function(json) {
     var linechart_title = "Veille réseaux sociaux";
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split'
     var data_json = json; 
@@ -54,8 +46,8 @@ $.getJSON("/duel/data/" + fname, function(json) {
     }
 
     var data = {
-        labels: ['TWITTER : followers', 'TWITTER : mentions sur 3 jours', 'YOUTUBE : abonnés', 'YOUTUBE : likes chaîne officielle',
-    'FACEBOOK : likes page officielle', 'FACEBOOK : mentions'],
+        labels: ['TWITTER : followers', 'TWITTER : mentions sur 3 jours', 'YOUTUBE : abonnés', 'YOUTUBE : likes vidéos officielles*',
+    'FACEBOOK : followers', 'FACEBOOK : mentions**'],
         datasets: webs
     };
 

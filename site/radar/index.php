@@ -17,7 +17,8 @@
 		</div>
 
 		<script src="radar.js" type="text/javascript"></script>
-		<p>Les 2 indicateurs YouTube prennent en compte les 10 dernières vidéos publiées sur les chaînes officielles de chaque candidat.</p>
+		<p>* Les likes des vidéos YouTube sont une moyenne sur les 10 dernières vidéos publiées sur la chaîne des candidats.</p>
+		<p>** Les mentions sur Facebook représentent le nombre d'utilisateurs qui ont interagi avec la page officielle d'un des candidat. Les interactions comprennent notamment les likes, les commentaires ou partages d'une publication de la page du candidat.</p>
 		<p><strong>Sources :</strong> Facebook, Twitter, Youtube. Données actualisées tous les jours. </p>
 		</div>
 	</body>
