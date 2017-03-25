@@ -1,7 +1,7 @@
 library(rpart)				  
 library(rpart.plot)	
 
-data <- read.csv2(/home/brehelin/Documents/Elections/Analyses/base_train_gauche.csv,sep=,,dec=.)
+data <- read.csv2("/home/brehelin/Documents/Elections/Analyses/base_train_gauche.csv",sep=",",dec=".")
 
 
 form <- as.formula(data[,51]~ depart_frontalier+depart_CORSE+                                                   
