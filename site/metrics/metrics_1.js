@@ -12,7 +12,8 @@ $.getJSON("/metrics/data/" + fname, function(json) {
     
     // couleur de la courbe
     // var borderColors = ["rgba(20,70,95,0.9)", "rgba(200,30,5,0.9)", "rgba(15,130,10,0.9)", "rgba(230,220,5,0.9)", "rgba(80,170,230,0.9)", "rgba(110,50,10,0.9)", "rgba(60,60,60,0.9)", "rgba(250,100,170,0.9)", "rgba(240,140,10,0.9)", "rgba(60,20,60,0.9)"];
-    var borderColors = ["rgba(30,40,180,0.9)", "rgba(250,100,170,0.9)", "rgba(20,70,95,0.9)", "rgba(110,50,10,0.9)", "rgba(225,5,5,0.9)"]
+    //var borderColors = ["rgba(30,40,180,0.9)", "rgba(250,100,170,0.9)", "rgba(20,70,95,0.9)", "rgba(110,50,10,0.9)", "rgba(225,5,5,0.9)"]
+    var borderColors = ["rgba(80,170,230,0.9)", "rgba(250,100,170,0.9)", "rgba(30,40,180,0.9)", "rgba(110,50,10,0.9)", "rgba(200,30,5,0.9)"];
     
     var lines = [];
     var lenI = data_json.index.length;

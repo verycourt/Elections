@@ -1,7 +1,7 @@
 var fname = "2_yt_subscribers.json";
 
 $.getJSON("/metrics/data/" + fname, function(json) {
-    var linechart_title = "Evolution quotidienne du nombre d'abonnés sur la chaîne YouTube"
+    var linechart_title = "Abonnés supplementaires sur YouTube d'un jour sur l'autre"
     var chart_id = "m2"
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
     var data_json = json; 
@@ -12,7 +12,8 @@ $.getJSON("/metrics/data/" + fname, function(json) {
     
     // couleur de la courbe
     // var borderColors = ["rgba(20,70,95,0.9)", "rgba(200,30,5,0.9)", "rgba(15,130,10,0.9)", "rgba(230,220,5,0.9)", "rgba(80,170,230,0.9)", "rgba(110,50,10,0.9)", "rgba(60,60,60,0.9)", "rgba(250,100,170,0.9)", "rgba(240,140,10,0.9)", "rgba(60,20,60,0.9)"];
-    var borderColors = ["rgba(30,40,180,0.9)", "rgba(250,100,170,0.9)", "rgba(20,70,95,0.9)", "rgba(110,50,10,0.9)", "rgba(225,5,5,0.9)"]
+    //var borderColors = ["rgba(30,40,180,0.9)", "rgba(250,100,170,0.9)", "rgba(20,70,95,0.9)", "rgba(110,50,10,0.9)", "rgba(225,5,5,0.9)"]
+    var borderColors = ["rgba(80,170,230,0.9)", "rgba(250,100,170,0.9)", "rgba(30,40,180,0.9)", "rgba(110,50,10,0.9)", "rgba(200,30,5,0.9)"];
     
     var lines = [];
     var lenI = data_json.index.length;
