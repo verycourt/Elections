@@ -10,6 +10,9 @@
 # Remarque on n'utilise pas l'année 1981 pour le train 
 
 library(plm)
+library(rpart)				  
+library(rpart.plot)	
+library(caret)
 
 # Import du train
 train <- read.csv2("/home/brehelin/Documents/Elections/Analyses/base_train_gauche.csv",sep=",",dec=".")
@@ -53,6 +56,13 @@ le taux de chomage/ var chomage ne sont pas singificative sur ce modèle
 
 #test <- merge(train, data[,c("Ann.e","d.partement","taux_tgauche")],
 #              by.x=c("Année","département"), by.y = c("Ann.e","d.partement"), all.x=TRUE)
+test_var <- train 
+test_var$taux_sortie_sans_bloc<- NULL
+test_var$taux_sortie_avec_bloc<- NULL
+test_var$d.partement<- NULL                                                   
+test_var$Ann.e<- NULL                                                          
+test_var$taux_gauche<- NULL
+
 
 form <- as.formula(taux_bgauche~ capacite.epargne.future.am.lioration.moins.deterioration.+
                      taux_gauche_sup_moyenne+taux_vert_sup_moyenne
@@ -83,3 +93,33 @@ mean(abs(test$taux_bgauche - test$predict_bgauche))
 Constat les prédictions du bloc de gauche sont déja plus proche que lorsqu'on tente de prédire seulement la gauche
 l'érreur est tout de même très importantes avec 7 pts en moyenne 
 """
+
+# On veut tester la prédiction d'un modèle qui prédit le pourcentage de voix de la majorité sortante
+# contrairement aux test précédent on utilise l'année 1981 pour nos prédictions
+
+test_var <- train 
+test_var$taux_bgauche<- NULL
+test_var$taux_sortie_sans_bloc<- NULL
+test_var$d.partement<- NULL                                                   
+test_var$Ann.e<- NULL                                                          
+test_var$taux_gauche<- NULL
+
+tree_var_importance <- rpart(taux_sortie_avec_bloc~., test_var)
+
+
+lm_var_importance <- step(lm(taux_sortie_avec_bloc~.,data=test_var),direction="both")
+
+form <- as.formula(taux_sortie_avec_bloc~  
+                     taux_sortie_avec_bloc ~ X20.39ans + X40.59ans + 
+                     X60.74ans + Naissances.domicili.es.par.d.partement + Nombre.total.de.mariages.domicili.s + 
+                     var_chomage_annee + taux_centre_sup_moyenne + taux_droite_sup_moyenne + 
+                     taux_gauche_sup_moyenne + taux_xdroite_sup_moyenne + pop_droite + 
+                     pop_xgauche + Dissident + Superficie + pres_xgauche
+                      )
+
+model_sortie_sans_bloc <- plm(form , data=ptrain, model="random")
+summary(model_sortie_sans_bloc)
+
+# ==> le score est meilleur sur le bloc de gauche sortie que sur la gauche partie socialiste 
+# Score pas très satisfaisant
+# TO DO : créer des features de sortie 
