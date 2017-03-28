@@ -42,7 +42,7 @@ dico_candidat_parti = {u"Arnaud Montebourg":"PS",u"Benoît Hamon":"PS",u"Cécile
           u"François Hollande" : "PS", u"Jacques Cheminade" : "sp",
           u"Jean-Luc Mélenchon" : "Parti de Gauche",  u"Manuel Valls":"PS",u"Marine Le Pen":"FN",
           u"Nathalie Arthaud":"lutte ouvriere",
-          u"Nicolas Dupont-Aignan":"debout_la_france", u"Nicolas Hulot":"empty", u"Philippe Poutou":"NPA",
+          u"Nicolas Dupont-Aignan":"Debout La France", u"Nicolas Hulot":"empty", u"Philippe Poutou":"NPA",
           u"Sylvia Pinel":"ps",  u"Yannick Jadot":"eelv"}
 
 
@@ -65,10 +65,15 @@ def loadPandas(URL):
         colonnes = []
         for elem in lignes[0].findAll("th"):
             if elem.find("a") is None :
-                colonnes.append(elem.text)
+                if elem.text != u'Autres candidats':
+                    colonnes.append(elem.text)
             else :
                 if(elem.find("a").text != ""):
                     colonnes.append(elem.find("a").text)
+        for elem in lignes[1].findAll("th"):
+            if elem.find("a") is not None :
+                colonnes.append(elem.find("a").text)
+
         if len(colonnes) < 7:
             for elem in lignes[2].findAll("th"):
                 a=3
@@ -76,7 +81,6 @@ def loadPandas(URL):
 
         #On crée un pandas dataframe pour stocker nos table :
         df = pd.DataFrame(columns = colonnes)
-
         #print(len(colonnes))
 
         nbRowspan = 0
@@ -117,11 +121,16 @@ def loadPandas(URL):
                 df.loc[j] = line
             #print(df)
 
+        try :
+            df = df[df["Date"] != "/"]
+        except:
+            continue
 
-        df = df[df["Date"] != "/"]
         if idx >= 0 and idx <= 2:
             df["Date"] = df["Date"].map(lambda x : x.lower().replace(dicoTableMois[idx].lower()[:-5],""))
             df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx])
+
+        print(df.columns)
 
         #2ème tour :
         if len(colonnes) < 7  :
@@ -145,7 +154,6 @@ dfF = dfF[dfF["Pourrait changer d'avis"]!="/"]
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : (str(x).split("[")[0].strip()))
 
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : 0 if x == "nan" or x == "" else float(x[:2]))
-
 
 
 notCandidats = [u"Date", u"Sondeur", u"Échantillon"]
@@ -189,7 +197,6 @@ def dateToString(date):
     return str(date.year)+month+day
 
 dfF3 = dfF3.round(2)
-
 dfF3 = dfF3[dfF3["Date"] > datetime.date(year=2017,month=01,day=01)]
 dfF4 = dfF3
 
@@ -197,7 +204,7 @@ dfF4 = dfF3
 
 for col in dfF4.columns:
     if col not in [u"Benoît Hamon", u"Emmanuel Macron", u"Date", u"François Fillon",\
-                   u"Jean-Luc Mélenchon", u"Marine Le Pen", u"Philippe Poutou"]:
+                   u"Jean-Luc Mélenchon", u"Marine Le Pen", u"Nicolas Dupont-Aignan"]:
         dfF4 = dfF4.drop(col, axis=1)
 
 dfF5 = dfF4
@@ -214,6 +221,7 @@ dfF4 = dfF4.dropna(axis=0, how='all')
 dfF5 = dfF5.dropna(axis=1, how='all')
 dfF5 = dfF5.dropna(axis=0, how='all')
 dfF5 = dfF5.set_index("Date")
+
 idx = pd.date_range(min(dfF5.index), max(dfF5.index))
 
 dfF5 = dfF5.reindex(idx, fill_value="null")
@@ -236,6 +244,7 @@ dfF5 = dfF5.groupby(pd.TimeGrouper('6D')).mean()
 #dfF5 = dfF5.index.map(lambda x : x.to_datetime() + datetime.timedelta(days=6))
 for col in dfF5.columns :
     dfF5[col] = np.round(dfF5[col], 1)
+print(dfF5)
 
 
 to_json = []
@@ -251,7 +260,7 @@ dico_sondage["refresh"]["dayInterval"] = 6
 
 dico_sondage["title"] = "Agrégation des sondages pour le 1er tour de 11 instituts*"
 
-dico_sondage["legende"] = "* Les données de ce graphique sont les moyennes des sondages de 11 instituts sur six jours. \
+dico_sondage["legende"] = "* Les données de ce graphique sont les moyennes des sondages d'intentions de vote de 11 instituts sur six jours. \
 Plus précisément, pour chaque jour affiché, il fait la moyenne sur les six derniers jours. \
 Les instituts sont : Ifop-Fiducial, OpinionWay, CSA, Future Thinking - SSI, BVA, Odoxa, Harris Interactive, TNS Sofres, Cevipof Ipsos-Sopra Steria, Elabe, Dedicated Research."
 dico_sondage["unit"] = "%"
