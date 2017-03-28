@@ -123,3 +123,13 @@ summary(model_sortie_sans_bloc)
 # ==> le score est meilleur sur le bloc de gauche sortie que sur la gauche partie socialiste 
 # Score pas très satisfaisant
 # TO DO : créer des features de sortie 
+
+data_var<-subset(train, train$Ann.e > 1981)
+ptrain <- pdata.frame(data_var, index=c("d.partement", "Ann.e"), drop.index=TRUE, row.names=TRUE)
+
+form <- as.formula(taux_sortie_avec_bloc~var_chomage_annee+cohabitation+droite_au_pouvoir
+                   +ecart_pop+pop_exec+taux_droite_sup_moyenne+taux_gauche_sup_moyenne+
+                     taux_xgauche_sup_moyenne+taux_vert_sup_moyenne
+)
+
+model_sortie_avec_bloc <- plm(form , data=ptrain, model="random")
