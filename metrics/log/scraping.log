@@ -5,35 +5,35 @@ Scanning Macron's Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Emmanuel Macron')
 ()
-{'0_tw_followers': 602782, '2_yt_subscribers': 12059, 'x_yt_like_count': 220.80000000000001, 'x_yt_videos_count': 124, '4_yt_reaction_rate': 5.5, 'x_yt_dislike_count': 287.5, '6_fb_likes': 251339, '5_yt_satisfaction_rate': 43.4, '3_yt_views_count': 1058617, '7_fb_talking_about': 80762}
+{'0_tw_followers': 603465, '2_yt_subscribers': 12072, 'x_yt_like_count': 222.59999999999999, 'x_yt_videos_count': 124, '4_yt_reaction_rate': 5.5, 'x_yt_dislike_count': 296.19999999999999, '6_fb_likes': 251552, '5_yt_satisfaction_rate': 42.9, '3_yt_views_count': 1058617, '7_fb_talking_about': 80762}
 --------------------
 ('Analyzing Twitter account', 'francoisfillon')
 Scanning Fillon's Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Fran\xe7ois Fillon')
 ()
-{'0_tw_followers': 471714, '2_yt_subscribers': 5113, 'x_yt_like_count': 61.100000000000001, 'x_yt_videos_count': 308, '4_yt_reaction_rate': 5.2, 'x_yt_dislike_count': 9.3000000000000007, '6_fb_likes': 325520, '5_yt_satisfaction_rate': 86.8, '3_yt_views_count': 1187371, '7_fb_talking_about': 166784}
+{'0_tw_followers': 471976, '2_yt_subscribers': 5116, 'x_yt_like_count': 61.700000000000003, 'x_yt_videos_count': 308, '4_yt_reaction_rate': 5.2, 'x_yt_dislike_count': 9.4000000000000004, '6_fb_likes': 325750, '5_yt_satisfaction_rate': 86.8, '3_yt_views_count': 1187371, '7_fb_talking_about': 166784}
 --------------------
 ('Analyzing Twitter account', 'benoithamon')
 Scanning Hamon's Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Beno\xeet Hamon')
 ()
-{'0_tw_followers': 357150, '2_yt_subscribers': 6484, 'x_yt_like_count': 82.5, 'x_yt_videos_count': 210, '4_yt_reaction_rate': 5.5, 'x_yt_dislike_count': 13.199999999999999, '6_fb_likes': 155784, '5_yt_satisfaction_rate': 86.2, '3_yt_views_count': 624430, '7_fb_talking_about': 77231}
+{'0_tw_followers': 357454, '2_yt_subscribers': 6511, 'x_yt_like_count': 92.0, 'x_yt_videos_count': 212, '4_yt_reaction_rate': 5.8, 'x_yt_dislike_count': 14.0, '6_fb_likes': 156049, '5_yt_satisfaction_rate': 86.8, '3_yt_views_count': 624430, '7_fb_talking_about': 77231}
 --------------------
 ('Analyzing Twitter account', 'MLP_officiel')
 Scanning Le Pen's Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Marine Le Pen')
 ()
-{'0_tw_followers': 1349919, '2_yt_subscribers': 17448, 'x_yt_like_count': 413.89999999999998, 'x_yt_videos_count': 185, '4_yt_reaction_rate': 5.2, 'x_yt_dislike_count': 73.400000000000006, '6_fb_likes': 1272716, '5_yt_satisfaction_rate': 84.9, '3_yt_views_count': 2561028, '7_fb_talking_about': 237765}
+{'0_tw_followers': 1350212, '2_yt_subscribers': 17456, 'x_yt_like_count': 417.0, 'x_yt_videos_count': 185, '4_yt_reaction_rate': 5.2, 'x_yt_dislike_count': 74.0, '6_fb_likes': 1272886, '5_yt_satisfaction_rate': 84.9, '3_yt_views_count': 2561028, '7_fb_talking_about': 237765}
 --------------------
 ('Analyzing Twitter account', 'JLMelenchon')
 Scanning Melenchon's Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Jean-Luc M\xe9lenchon')
 ()
-{'0_tw_followers': 1036560, '2_yt_subscribers': 249329, 'x_yt_like_count': 12132.799999999999, 'x_yt_videos_count': 449, '4_yt_reaction_rate': 8.3, 'x_yt_dislike_count': 190.09999999999999, '6_fb_likes': 783202, '5_yt_satisfaction_rate': 98.5, '3_yt_views_count': 18708829, '7_fb_talking_about': 428244}
+{'0_tw_followers': 1037046, '2_yt_subscribers': 249541, 'x_yt_like_count': 12231.6, 'x_yt_videos_count': 449, '4_yt_reaction_rate': 8.3, 'x_yt_dislike_count': 191.80000000000001, '6_fb_likes': 784044, '5_yt_satisfaction_rate': 98.5, '3_yt_views_count': 18708829, '7_fb_talking_about': 428244}
            2017-02-15  2017-02-16  2017-02-17  2017-02-18  2017-02-19  \
 Fillon         424011      425149      426014      426789      427675   
 Hamon          327730      328988      329775      330478      331323   
@@ -63,11 +63,11 @@ Macron         593491      595798      598053      600094      602017
 Melenchon     1029367     1031138     1033090     1034531     1035985   
 
            2017-03-29  
-Fillon         471714  
-Hamon          357150  
-Le Pen        1349919  
-Macron         602782  
-Melenchon     1036560  
+Fillon         471976  
+Hamon          357454  
+Le Pen        1350212  
+Macron         603465  
+Melenchon     1037046  
 
 [5 rows x 43 columns]
 Data saved as /var/www/html/metrics/data/0_tw_followers.json
@@ -100,11 +100,11 @@ Macron          11782       11859       11926       11960       12040
 Melenchon      243743      244858      247052      248139      249084   
 
            2017-03-29  
-Fillon           5113  
-Hamon            6484  
-Le Pen          17448  
-Macron          12059  
-Melenchon      249329  
+Fillon           5116  
+Hamon            6511  
+Le Pen          17456  
+Macron          12072  
+Melenchon      249541  
 
 [5 rows x 44 columns]
 Data saved as /var/www/html/metrics/data/2_yt_subscribers.json
@@ -123,11 +123,11 @@ Macron          251.7       277.5       265.3       209.4       219.6
 Melenchon      8003.9      8161.5      8520.1      9245.2     10888.6   
 
            2017-03-25  2017-03-26  2017-03-27  2017-03-28  2017-03-29  
-Fillon           41.2        44.7        47.4        60.0        61.1  
-Hamon            67.0        73.3        75.8        84.6        82.5  
-Le Pen          256.2       335.5       378.1       407.6       413.9  
-Macron          224.9       228.6       196.3       218.2       220.8  
-Melenchon     11405.7     12315.1     11934.8     12268.5     12132.8  
+Fillon           41.2        44.7        47.4        60.0        61.7  
+Hamon            67.0        73.3        75.8        84.6        92.0  
+Le Pen          256.2       335.5       378.1       407.6       417.0  
+Macron          224.9       228.6       196.3       218.2       222.6  
+Melenchon     11405.7     12315.1     11934.8     12268.5     12231.6  
 Data saved as /var/www/html/metrics/data/x_yt_like_count.json
            2017-03-15  2017-03-16  2017-03-17  2017-03-18  2017-03-19  \
 Fillon            270         270         272         273         273   
@@ -145,7 +145,7 @@ Melenchon         446         447         447         448         449
 
            2017-03-25  2017-03-26  2017-03-27  2017-03-28  2017-03-29  
 Fillon            301         301         308         308         308  
-Hamon             207         206         207         210         210  
+Hamon             207         206         207         210         212  
 Le Pen            181         182         182         185         185  
 Macron            119         120         123         124         124  
 Melenchon         449         450         447         449         449  
@@ -180,7 +180,7 @@ Melenchon         9.2         8.9         9.2         8.5         8.4
 
            2017-03-29  
 Fillon            5.2  
-Hamon             5.5  
+Hamon             5.8  
 Le Pen            5.2  
 Macron            5.5  
 Melenchon         8.3  
@@ -202,11 +202,11 @@ Macron          311.5       333.4       328.5       281.5       310.5
 Melenchon       132.4       135.1       143.4       147.1       156.2   
 
            2017-03-25  2017-03-26  2017-03-27  2017-03-28  2017-03-29  
-Fillon            4.5         5.9         6.8         9.1         9.3  
-Hamon             5.7         7.3        11.6        13.0        13.2  
-Le Pen           20.3        63.4        70.5        72.1        73.4  
-Macron          322.5       334.2       252.9       266.7       287.5  
-Melenchon       161.2       179.7       185.0       189.9       190.1  
+Fillon            4.5         5.9         6.8         9.1         9.4  
+Hamon             5.7         7.3        11.6        13.0        14.0  
+Le Pen           20.3        63.4        70.5        72.1        74.0  
+Macron          322.5       334.2       252.9       266.7       296.2  
+Melenchon       161.2       179.7       185.0       189.9       191.8  
 Data saved as /var/www/html/metrics/data/x_yt_dislike_count.json
            2017-02-15  2017-02-16  2017-02-17  2017-02-18  2017-02-19  \
 Fillon         278653      279630      280445      281095      281942   
@@ -237,11 +237,11 @@ Macron         244879      246401      247898      249998      251026
 Melenchon      763017      767953      774015      778718      782262   
 
            2017-03-29  
-Fillon         325520  
-Hamon          155784  
-Le Pen        1272716  
-Macron         251339  
-Melenchon      783202  
+Fillon         325750  
+Hamon          156049  
+Le Pen        1272886  
+Macron         251552  
+Melenchon      784044  
 
 [5 rows x 43 columns]
 Data saved as /var/www/html/metrics/data/6_fb_likes.json
@@ -275,9 +275,9 @@ Melenchon        98.6        98.6        98.6        98.5        98.5
 
            2017-03-29  
 Fillon           86.8  
-Hamon            86.2  
+Hamon            86.8  
 Le Pen           84.9  
-Macron           43.4  
+Macron           42.9  
 Melenchon        98.5  
 
 [5 rows x 40 columns]

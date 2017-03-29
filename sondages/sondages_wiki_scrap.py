@@ -220,13 +220,16 @@ dfF5 = dfF5.dropna(axis=1, how='all')
 dfF5 = dfF5.dropna(axis=0, how='all')
 dfF5 = dfF5.set_index("Date")
 
-dfF5.to_csv("table_agrege.csv")
-dfF_temp = pd.read_csv("table_agrege.csv", encoding="utf-8").set_index("Date")
-print(dfF_temp)
+#dfF5.to_csv("table_agrege.csv")
+#dfF5 = pd.read_csv("table_agrege.csv", encoding="utf-8")
+#dfF5["Date"] = pd.to_datetime(dfF5["Date"])
+#dfF5.set_index("Date", inplace=True)
+
 
 idx = pd.date_range(min(dfF5.index), max(dfF5.index))
 
 dfF5 = dfF5.reindex(idx, fill_value="null")
+
 
 ########################
 # Agrégats sur 6 jours #
