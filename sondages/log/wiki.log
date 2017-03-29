@@ -1,217 +1,113 @@
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention', u'Indécis',
-       u'Autres candidats', u'Nathalie Arthaud', u'Philippe Poutou',
-       u'Jean-Luc Mélenchon', u'Benoît Hamon', u'Emmanuel Macron',
-       u'Jean Lassalle', u'François Fillon', u'Nicolas Dupont-Aignan',
-       u'François Asselineau', u'Marine Le Pen', u'Jacques Cheminade'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention', u'Indécis',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Yannick Jadot', u'Benoît Hamon', u'Emmanuel Macron',
-       u'François Bayrou', u'François Fillon', u'Nicolas Dupont-Aignan',
-       u'Marine Le Pen', u'Jacques Cheminade'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Pourrait changer d'avis',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Yannick Jadot', u'Benoît Hamon', u'Arnaud Montebourg',
-       u'Vincent Peillon', u'Manuel Valls', u'Emmanuel Macron',
-       u'François Bayrou', u'François Fillon', u'Nicolas Dupont-Aignan',
-       u'Marine Le Pen', u'Jacques Cheminade'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Yannick Jadot', u'Benoît Hamon', u'Arnaud Montebourg',
-       u'Manuel Valls', u'Sylvia Pinel', u'Emmanuel Macron',
-       u'François Bayrou', u'François Fillon', u'Nicolas Dupont-Aignan',
-       u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Yannick Jadot', u'Arnaud Montebourg', u'François Hollande',
-       u'Manuel Valls', u'Sylvia Pinel', u'Emmanuel Macron',
-       u'François Bayrou', u'Alain Juppé', u'François Fillon',
-       u'Nicolas Sarkozy', u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Cécile Duflot', u'Yannick Jadot', u'Arnaud Montebourg',
-       u'François Hollande', u'Manuel Valls', u'Emmanuel Macron',
-       u'François Bayrou', u'Alain Juppé', u'Nicolas Sarkozy',
-       u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Cécile Duflot', u'Arnaud Montebourg', u'François Hollande',
-       u'Manuel Valls', u'Emmanuel Macron', u'François Bayrou', u'Alain Juppé',
-       u'Bruno Le Maire', u'François Fillon', u'Nicolas Sarkozy',
-       u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Nathalie Arthaud',
-       u'Philippe Poutou', u'Jean-Luc Mélenchon', u'Cécile Duflot',
-       u'François Hollande', u'François Bayrou', u'Alain Juppé',
-       u'Nicolas Sarkozy', u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Cécile Duflot', u'Nicolas Hulot', u'Arnaud Montebourg',
-       u'François Hollande', u'Emmanuel Macron', u'François Bayrou',
-       u'Jean Lassalle', u'Rama Yade', u'Alain Juppé', u'Bruno Le Maire',
-       u'François Fillon', u'Nicolas Sarkozy', u'Nicolas Dupont-Aignan',
-       u'François Asselineau', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Nathalie Arthaud',
-       u'Philippe Poutou', u'Jean-Luc Mélenchon', u'Cécile Duflot',
-       u'François Hollande', u'François Bayrou', u'Alain Juppé',
-       u'Bruno Le Maire', u'François Fillon', u'Nicolas Sarkozy',
-       u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Cécile Duflot', u'Nicolas Hulot', u'Arnaud Montebourg',
-       u'François Hollande', u'Manuel Valls', u'Emmanuel Macron',
-       u'François Bayrou', u'Alain Juppé', u'Bruno Le Maire',
-       u'François Fillon', u'Nicolas Sarkozy', u'Nicolas Dupont-Aignan',
-       u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Nathalie Arthaud',
-       u'Philippe Poutou', u'Jean-Luc Mélenchon', u'Cécile Duflot',
-       u'François Hollande', u'Emmanuel Macron', u'François Bayrou',
-       u'Alain Juppé', u'Nicolas Sarkozy', u'Nicolas Dupont-Aignan',
-       u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Nathalie Arthaud',
-       u'Philippe Poutou', u'Jean-Luc Mélenchon', u'Cécile Duflot',
-       u'François Hollande', u'François Bayrou', u'Alain Juppé',
-       u'Bruno Le Maire', u'François Fillon', u'Nicolas Sarkozy',
-       u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Nathalie Arthaud',
-       u'Philippe Poutou', u'Jean-Luc Mélenchon', u'Cécile Duflot',
-       u'François Hollande', u'Emmanuel Macron', u'François Bayrou',
-       u'Alain Juppé', u'François Fillon', u'Nicolas Sarkozy',
-       u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Olivier Besancenot',
-       u'Jean-Luc Mélenchon', u'Cécile Duflot', u'Arnaud Montebourg',
-       u'François Hollande', u'Manuel Valls', u'François Bayrou',
-       u'Alain Juppé', u'Nicolas Sarkozy', u'Nicolas Dupont-Aignan',
-       u'Philippe de Villiers', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Eva Joly', u'Cécile Duflot', u'Arnaud Montebourg', u'Martine Aubry',
-       u'François Hollande', u'Manuel Valls', u'François Bayrou',
-       u'Alain Juppé', u'François Fillon', u'Nicolas Sarkozy',
-       u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jacques Cheminade',
-       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
-       u'Eva Joly', u'François Hollande', u'François Bayrou',
-       u'François Fillon', u'Jean-François Copé', u'Nicolas Sarkozy',
-       u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Nathalie Arthaud',
-       u'Philippe Poutou', u'Jean-Luc Mélenchon', u'Eva Joly',
-       u'François Hollande', u'François Bayrou', u'Nicolas Sarkozy',
-       u'Nicolas Dupont-Aignan', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Région', u'Nathalie Arthaud',
-       u'Philippe Poutou', u'Jean-Luc Mélenchon', u'Benoît Hamon',
-       u'Emmanuel Macron', u'François Fillon', u'Nicolas Dupont-Aignan',
-       u'François Asselineau', u'Marine Le Pen', u'Jacques Cheminade'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention',
-       u'Nathalie\nArthaud', u'Philippe\nPoutou', u'Jean-Luc\nMélenchon',
-       u'Benoît\nHamon', u'Emmanuel\nMacron', u'François\nFillon',
-       u'Nicolas\nDupont-Aignan', u'Marine\nLe Pen', u'Jacques\nCheminade'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Emmanuel Macron', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'François Fillon', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Emmanuel Macron', u'François Fillon'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Emmanuel Macron',
-       u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Emmanuel Macron',
-       u'François Fillon'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'François Fillon',
-       u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Benoît Hamon', u'Marine Le Pen'], dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Benoît Hamon',
-       u'François Fillon'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Jean-Luc Mélenchon',
-       u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Manuel Valls', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Emmanuel Macron', u'Alain Juppé'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Alain Juppé', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'François Hollande', u'Alain Juppé'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'François Hollande', u'Nicolas Sarkozy'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Nicolas Sarkozy', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Manuel Valls', u'Nicolas Sarkozy'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Emmanuel Macron', u'Nicolas Sarkozy'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'Bruno Le Maire', u'Marine Le Pen'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'François Hollande', u'François Fillon'],
-      dtype='object')
-Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
-       u'François Hollande', u'Marine Le Pen'],
-      dtype='object')
             Benoît Hamon  Emmanuel Macron  François Fillon  \
-2017-01-09           6.0             18.5             24.3   
-2017-01-15           7.0             19.0             24.0   
-2017-01-21           8.0             19.0             25.5   
-2017-01-27          14.0             20.5             21.5   
-2017-02-02          17.0             21.3             19.8   
-2017-02-08          15.2             21.3             18.2   
-2017-02-14          15.2             21.3             18.1   
-2017-02-20          14.7             19.4             19.6   
-2017-02-26          13.5             23.0             19.8   
-2017-03-04          21.4             12.8              7.1   
-2017-03-10          25.5              NaN              2.8   
-2017-03-16          25.8              0.0              3.2   
-2017-03-22          25.7              0.9              3.8   
-2017-03-28          24.9              0.9              4.2   
+Date                                                         
+2017-01-04          6.00            19.50            24.75   
+2017-01-06          6.00            18.00            24.25   
+2017-01-08          6.00            18.00            24.00   
+2017-01-15          7.00            19.00            24.00   
+2017-01-20          8.00            19.00            25.50   
+2017-01-27         14.00            20.50            21.50   
+2017-01-31         16.50            22.50            19.50   
+2017-02-01         18.00            20.00            21.00   
+2017-02-02         16.50            21.50            19.00   
+2017-02-06         15.50            20.50            18.50   
+2017-02-08         14.83            22.17            18.00   
+2017-02-09         15.50            21.00            18.75   
+2017-02-12         14.25            21.50            18.00   
+2017-02-14         15.97            21.27            17.67   
+2017-02-17         15.00            19.25            19.25   
+2017-02-20         14.38            19.62            20.00   
+2017-02-22         14.00            19.50            20.00   
+2017-02-23         13.00            25.00            19.00   
+2017-02-24         13.50            24.50            20.50   
+2017-02-27         13.50            24.50            20.00   
+2017-03-02         13.50            24.80            19.50   
+2017-03-03         15.00            24.00            19.00   
+2017-03-04         14.00            23.30            18.50   
+2017-03-05         14.00            25.00            17.50   
+2017-03-06         13.50            25.50            19.00   
+2017-03-07         14.00            25.00            19.00   
+2017-03-08         13.00            26.00            20.00   
+2017-03-09         14.00            26.00            20.00   
+2017-03-10         13.50            25.75            19.75   
+2017-03-15         13.00            25.75            18.00   
+2017-03-16         12.25            25.75            19.50   
+2017-03-17         12.25            25.50            18.25   
+2017-03-19         13.50            25.50            17.50   
+2017-03-21         11.50            25.75            17.25   
+2017-03-22         12.50            26.00            18.00   
+2017-03-23         11.00            24.00            19.00   
+2017-03-24         11.00            26.00            17.50   
+2017-03-27         11.25            24.75            17.75   
+
+            Jean-Luc Mélenchon  Marine Le Pen  Nicolas Dupont-Aignan      date  
+Date                                                                            
+2017-01-04               13.88          23.00                   1.50  20170104  
+2017-01-06               11.75          26.00                   1.50  20170106  
+2017-01-08               12.75          25.50                   1.50  20170108  
+2017-01-15               14.33          25.33                   2.50  20170115  
+2017-01-20               14.00          27.00                   2.00  20170120  
+2017-01-27               10.00          25.00                   3.25  20170127  
+2017-01-31               10.00          26.50                   1.00  20170131  
+2017-02-01                9.00          24.00                   2.00  20170201  
+2017-02-02               11.25          25.00                   2.00  20170202  
+2017-02-06               10.00          25.50                   2.50  20170206  
+2017-02-08               12.33          25.17                   1.83  20170208  
+2017-02-09               11.75          25.50                   2.75  20170209  
+2017-02-12               11.75          25.50                   3.00  20170212  
+2017-02-14               12.43          23.40                   2.37  20170214  
+2017-02-17               12.25          26.00                   3.00  20170217  
+2017-02-20               11.88          27.00                   2.62  20170220  
+2017-02-22               12.00          25.75                   2.50  20170222  
+2017-02-23               12.00          27.00                   2.00  20170223  
+2017-02-24               10.50          26.50                   2.75  20170224  
+2017-02-27               11.50          26.00                   2.50  20170227  
+2017-03-02               10.60          25.70                   3.00  20170302  
+2017-03-03               11.00          27.00                   3.00  20170303  
+2017-03-04               11.40          26.60                   2.50  20170304  
+2017-03-05               11.50          27.00                   3.00  20170305  
+2017-03-06               12.00          26.00                   3.00  20170306  
+2017-03-07               11.50          26.00                   3.50  20170307  
+2017-03-08               12.00          25.00                   3.00  20170308  
+2017-03-09               11.00          26.00                   2.00  20170309  
+2017-03-10               11.75          26.00                   2.25  20170310  
+2017-03-15               11.50          26.75                   3.50  20170315  
+2017-03-16               10.75          27.00                   3.00  20170316  
+2017-03-17               12.00          26.00                   3.00  20170317  
+2017-03-19               13.00          25.00                   3.00  20170319  
+2017-03-21               12.50          25.25                   5.00  20170321  
+2017-03-22               13.50          25.00                   4.00  20170322  
+2017-03-23               14.00          25.00                   4.00  20170323  
+2017-03-24               13.50          25.00                   4.50  20170324  
+2017-03-27               14.00          25.00                   4.25  20170327  
+            Benoît Hamon  Emmanuel Macron  François Fillon  \
+2017-01-08           6.0             18.5             24.3   
+2017-01-14           7.0             19.0             24.0   
+2017-01-20           8.0             19.0             25.5   
+2017-01-26          14.0             20.5             21.5   
+2017-02-01          17.0             21.3             19.8   
+2017-02-07          15.2             21.3             18.2   
+2017-02-13          15.2             21.3             18.1   
+2017-02-19          14.7             19.4             19.6   
+2017-02-25          13.5             23.0             19.8   
+2017-03-03          14.0             24.2             19.2   
+2017-03-09          13.7             25.5             19.2   
+2017-03-15          12.6             25.8             18.8   
+2017-03-21          12.4             25.7             17.8   
+2017-03-27          11.1             24.9             18.1   
 
             Jean-Luc Mélenchon  Marine Le Pen  Nicolas Dupont-Aignan  
-2017-01-09                12.8           24.8                    1.5  
-2017-01-15                14.3           25.3                    2.5  
-2017-01-21                14.0           27.0                    2.0  
-2017-01-27                10.0           25.0                    3.2  
-2017-02-02                10.1           25.2                    1.7  
-2017-02-08                11.2           25.3                    2.2  
-2017-02-14                12.0           24.8                    2.7  
-2017-02-20                12.1           26.5                    2.8  
-2017-02-26                11.5           26.4                    2.4  
-2017-03-04                13.5            9.0                    1.5  
-2017-03-10                13.7            0.5                    NaN  
-2017-03-16                12.6            0.2                    0.5  
-2017-03-22                12.4            0.4                    0.6  
-2017-03-28                11.1            0.2                    0.3  
+2017-01-08                12.8           24.8                    1.5  
+2017-01-14                14.3           25.3                    2.5  
+2017-01-20                14.0           27.0                    2.0  
+2017-01-26                10.0           25.0                    3.2  
+2017-02-01                10.1           25.2                    1.7  
+2017-02-07                11.2           25.3                    2.2  
+2017-02-13                12.0           24.8                    2.7  
+2017-02-19                12.1           26.5                    2.8  
+2017-02-25                11.5           26.4                    2.4  
+2017-03-03                11.1           26.3                    2.8  
+2017-03-09                11.6           26.0                    2.8  
+2017-03-15                11.1           26.9                    3.2  
+2017-03-21                12.8           25.3                    3.8  
+2017-03-27                13.8           25.0                    4.2  
 Done

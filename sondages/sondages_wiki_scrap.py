@@ -130,14 +130,12 @@ def loadPandas(URL):
             df["Date"] = df["Date"].map(lambda x : x.lower().replace(dicoTableMois[idx].lower()[:-5],""))
             df["Date"] = df["Date"].map(lambda x : x+" "+dicoTableMois[idx])
 
-        print(df.columns)
-
         #2ème tour :
         if len(colonnes) < 7  :
             dfFs = dfFs.append(df)
         #1er tour :
         elif idx >= 0 and idx <= 2:
-            dfF = dfF.append(df)
+            dfF = dfF.append(df.ix[1:])
 
     return (dfF, dfFs)
 
@@ -149,7 +147,6 @@ dfF, dfFs = loadPandas(URL)
 #######################################################################
 
 dfF = dfF.replace(to_replace=["-", "–"], value=" ")
-
 dfF = dfF[dfF["Pourrait changer d'avis"]!="/"]
 dfF["Pourrait changer d'avis"] = dfF["Pourrait changer d'avis"].map(lambda x : (str(x).split("[")[0].strip()))
 
@@ -218,13 +215,21 @@ dfF4 = dfF4.dropna(axis=0, how='all')
 
 
 # --- To json --- #
+
 dfF5 = dfF5.dropna(axis=1, how='all')
 dfF5 = dfF5.dropna(axis=0, how='all')
 dfF5 = dfF5.set_index("Date")
 
+#dfF5.to_csv("table_agrege.csv")
+#dfF5 = pd.read_csv("table_agrege.csv", encoding="utf-8")
+#dfF5["Date"] = pd.to_datetime(dfF5["Date"])
+#dfF5.set_index("Date", inplace=True)
+
+
 idx = pd.date_range(min(dfF5.index), max(dfF5.index))
 
 dfF5 = dfF5.reindex(idx, fill_value="null")
+
 
 ########################
 # Agrégats sur 6 jours #
@@ -240,6 +245,7 @@ diffDaysLast = (datetime.datetime.now()-max(dfF5.index).to_datetime()).days
 lastsondages = max(dfF5.index)
 to_add = (max(dfF5.index) - (max(dfF5.groupby(pd.TimeGrouper('6D')).mean().index))).days
 dfF5.index = dfF5.index.map(lambda x : (x + datetime.timedelta(days=to_add)) )
+
 dfF5 = dfF5.groupby(pd.TimeGrouper('6D')).mean()
 #dfF5 = dfF5.index.map(lambda x : x.to_datetime() + datetime.timedelta(days=6))
 for col in dfF5.columns :

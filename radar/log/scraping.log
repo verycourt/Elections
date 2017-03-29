@@ -1,37 +1,37 @@
-('Maj du', datetime.date(2017, 3, 27))
+('Maj du', datetime.date(2017, 3, 28))
 --------------------
 ('Analyzing Twitter account', 'emmanuelmacron')
 Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Emmanuel Macron')
 ()
-{'6_fb_likes': 249802, '3_yt_like_count': 208.80000000000001, '2_yt_subscribers': 11951, '0_tw_followers': 599784, '7_fb_talking_about': 124476}
+{'6_fb_likes': 250844, '3_yt_like_count': 213.80000000000001, '2_yt_subscribers': 12030, '0_tw_followers': 601668, '7_fb_talking_about': 126226}
 --------------------
 ('Analyzing Twitter account', 'francoisfillon')
 Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Fran\xe7ois Fillon')
 ()
-{'6_fb_likes': 323955, '3_yt_like_count': 48.600000000000001, '2_yt_subscribers': 5076, '0_tw_followers': 470469, '7_fb_talking_about': 161190}
+{'6_fb_likes': 325134, '3_yt_like_count': 59.0, '2_yt_subscribers': 5102, '0_tw_followers': 471248, '7_fb_talking_about': 166464}
 --------------------
 ('Analyzing Twitter account', 'benoithamon')
 Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Beno\xeet Hamon')
 ()
-{'6_fb_likes': 154805, '3_yt_like_count': 74.400000000000006, '2_yt_subscribers': 6440, '0_tw_followers': 356073, '7_fb_talking_about': 85378}
+{'6_fb_likes': 155453, '3_yt_like_count': 82.299999999999997, '2_yt_subscribers': 6473, '0_tw_followers': 356678, '7_fb_talking_about': 81831}
 --------------------
 ('Analyzing Twitter account', 'MLP_officiel')
 Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Marine Le Pen')
 ()
-{'6_fb_likes': 1271468, '3_yt_like_count': 368.5, '2_yt_subscribers': 17326, '0_tw_followers': 1348089, '7_fb_talking_about': 377298}
+{'6_fb_likes': 1272348, '3_yt_like_count': 401.80000000000001, '2_yt_subscribers': 17396, '0_tw_followers': 1349146, '7_fb_talking_about': 303158}
 --------------------
 ('Analyzing Twitter account', 'JLMelenchon')
 Scanning Youtube Channel
 ('Getting average metrics for the latest', 10, 'videos of the channel')
 ('Facebook page :', u'Jean-Luc M\xe9lenchon')
 ()
-{'6_fb_likes': 777896, '3_yt_like_count': 11724.6, '2_yt_subscribers': 247927, '0_tw_followers': 1034262, '7_fb_talking_about': 504190}
+{'6_fb_likes': 781728, '3_yt_like_count': 11999.9, '2_yt_subscribers': 248902, '0_tw_followers': 1035718, '7_fb_talking_about': 504759}
 Data saved in /var/www/html/radar/data/
