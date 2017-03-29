@@ -1,8 +1,8 @@
 Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention', u'Indécis',
-       u'Autres candidats', u'Nathalie Arthaud', u'Philippe Poutou',
-       u'Jean-Luc Mélenchon', u'Benoît Hamon', u'Emmanuel Macron',
-       u'Jean Lassalle', u'François Fillon', u'Nicolas Dupont-Aignan',
-       u'François Asselineau', u'Marine Le Pen', u'Jacques Cheminade'],
+       u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
+       u'Benoît Hamon', u'Emmanuel Macron', u'Jean Lassalle',
+       u'François Fillon', u'Nicolas Dupont-Aignan', u'François Asselineau',
+       u'Marine Le Pen', u'Jacques Cheminade'],
       dtype='object')
 Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention', u'Indécis',
        u'Nathalie Arthaud', u'Philippe Poutou', u'Jean-Luc Mélenchon',
@@ -184,34 +184,36 @@ Index([u'Sondeur', u'Date', u'Échantillon', u'Abstention, blanc ou nul',
        u'François Hollande', u'Marine Le Pen'],
       dtype='object')
             Benoît Hamon  Emmanuel Macron  François Fillon  \
-2017-01-09           6.0             18.5             24.3   
-2017-01-15           7.0             19.0             24.0   
-2017-01-21           8.0             19.0             25.5   
-2017-01-27          14.0             20.5             21.5   
-2017-02-02          17.0             21.3             19.8   
-2017-02-08          15.2             21.3             18.2   
-2017-02-14          15.2             21.3             18.1   
-2017-02-20          14.7             19.4             19.6   
-2017-02-26          13.5             23.0             19.8   
-2017-03-04          21.4             12.8              7.1   
-2017-03-10          25.5              NaN              2.8   
-2017-03-16          25.8              0.0              3.2   
-2017-03-22          25.7              0.9              3.8   
-2017-03-28          24.9              0.9              4.2   
+2017-01-04           6.0             18.5             24.3   
+2017-01-10           7.0             19.0             24.0   
+2017-01-16           8.0             19.0             25.5   
+2017-01-22          14.0             20.5             21.5   
+2017-01-28          17.0             21.3             19.8   
+2017-02-03          15.2             21.3             18.2   
+2017-02-09          15.2             21.3             18.1   
+2017-02-15          14.7             19.4             19.6   
+2017-02-21          13.5             23.0             19.8   
+2017-02-27          14.0             24.2             19.2   
+2017-03-05          13.7             25.5             19.2   
+2017-03-11          12.6             25.8             18.8   
+2017-03-17          12.4             25.7             17.8   
+2017-03-23          11.3             24.7             18.2   
+2017-03-29           NaN              NaN              NaN   
 
             Jean-Luc Mélenchon  Marine Le Pen  Nicolas Dupont-Aignan  
-2017-01-09                12.8           24.8                    1.5  
-2017-01-15                14.3           25.3                    2.5  
-2017-01-21                14.0           27.0                    2.0  
-2017-01-27                10.0           25.0                    3.2  
-2017-02-02                10.1           25.2                    1.7  
-2017-02-08                11.2           25.3                    2.2  
-2017-02-14                12.0           24.8                    2.7  
-2017-02-20                12.1           26.5                    2.8  
-2017-02-26                11.5           26.4                    2.4  
-2017-03-04                13.5            9.0                    1.5  
-2017-03-10                13.7            0.5                    NaN  
-2017-03-16                12.6            0.2                    0.5  
-2017-03-22                12.4            0.4                    0.6  
-2017-03-28                11.1            0.2                    0.3  
+2017-01-04                12.8           24.8                    1.5  
+2017-01-10                14.3           25.3                    2.5  
+2017-01-16                14.0           27.0                    2.0  
+2017-01-22                10.0           25.0                    3.2  
+2017-01-28                10.1           25.2                    1.7  
+2017-02-03                11.2           25.3                    2.2  
+2017-02-09                12.0           24.8                    2.7  
+2017-02-15                12.1           26.5                    2.8  
+2017-02-21                11.5           26.4                    2.4  
+2017-02-27                11.1           26.3                    2.8  
+2017-03-05                11.6           26.0                    2.8  
+2017-03-11                11.1           26.9                    3.2  
+2017-03-17                12.8           25.3                    3.8  
+2017-03-23                13.8           25.0                    4.0  
+2017-03-29                 NaN            NaN                    NaN  
 Done
