@@ -133,3 +133,36 @@ form <- as.formula(taux_sortie_avec_bloc~var_chomage_annee+cohabitation+droite_a
 )
 
 model_sortie_avec_bloc <- plm(form , data=ptrain, model="random")
+
+##############################################
+#       Test sur xdroite                     #
+#                                            #
+##############################################
+# Import du train
+train <- read.csv2("/home/brehelin/Documents/Elections/Analyses/base_train_xdroite.csv",sep=",",dec=".")
+
+# Import du test 
+test <- read.csv2("/home/brehelin/Documents/Elections/Analyses/base_test_xdroite.csv",sep=",",dec=".")
+
+test_var <- train 
+test_var$d.partement<- NULL                                                   
+test_var$Ann.e<- NULL                                                          
+
+
+tree_var_importance <- rpart(taux_xdroite~., test_var,method="anova")
+tree_prune <- prune(tree_var_importance,cp=10e-5)
+rpart.plot(tree_prune)
+lm_var_importance <- step(lm(taux_xdroite~.,data=test_var),direction="both")
+# R ne conserve pas les memes variables
+# On normalise nos features pour être sur que R ne converse pas les mêmes variables
+# Puis il faut tester la perf
+
+scale_test_var <- scale(test_var)
+scale_test_var <- as.data.frame(scale_test_var)
+tree_var_importance <- rpart(taux_xdroite~., scale_test_var ,method="anova")
+tree_prune <- prune(tree_var_importance,cp=10e-5)
+rpart.plot(tree_prune)
+lm_var_importance <- step(lm(taux_xdroite~.,data=scale_test_var ),direction="both")
+
+# Meme scale les résultats sont différents....
+# Remarque FN = > supprimer une Année ou ils ont à zero
