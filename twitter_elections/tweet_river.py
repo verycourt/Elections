@@ -1,4 +1,4 @@
-#coding=utf-8
+#-*- coding: utf-8 -*-
 #!/usr/bin/python
 """Get tweet in real time."""
 from slistener import SListener
@@ -20,7 +20,7 @@ api = tweepy.API(auth)
 
 def main():
     """Method to get Twitter status in real time."""
-    track = ['lassalle', 'asselineau', 'fillon','bayrou', 'macron ','mlp','lepen','le pen', 'mélenchon'.encode('utf-8'), 'mélenchon'.decode('utf-8'), 'melenchon','hamon','valls', 'poutou', 'arthaud', 'dupont-aignan', 'dupontaignan', 'juppe']
+    track = ['lassalle', 'asselineau', 'fillon','bayrou', 'macron ','mlp','lepen','le pen', 'mélenchon'.decode('utf-8'), 'melenchon','hamon','valls', 'poutou', 'arthaud', 'dupont-aignan', 'dupontaignan', 'juppe']
 
     listen = SListener(api, 'myprefix')
     stream = tweepy.Stream(auth, listen)
