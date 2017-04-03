@@ -210,3 +210,11 @@ mean(abs(test$taux_xdroite - test$lm))
 ################################
 ##     Modèle effet indiv     ##
 ################################
+
+form <- as.formula(taux_xdroite~ subventions + capacit..epargne.actuelle..augmentation.moins.diminution.+
+                     var_chomage_annee+X40.59ans+Naissances.domicili.es.par.d.partement+
+                     Densit.)
+
+model_train <- plm(form, data=train, model="within")
+summary(model_train)
+test$panel<-predict(model_train ,test) 
