@@ -221,10 +221,13 @@ dfF5 = dfF5.dropna(axis=0, how='all')
 dfF5 = dfF5.set_index("Date")
 
 #dfF5.to_csv("table_agrege.csv")
-#dfF5 = pd.read_csv("table_agrege.csv", encoding="utf-8")
-#dfF5["Date"] = pd.to_datetime(dfF5["Date"])
-#dfF5.set_index("Date", inplace=True)
 
+dfF5 = pd.read_csv("table_agrege.csv", encoding="utf-8")
+dfF5["Date"] = pd.to_datetime(dfF5["Date"])
+dfF5 = dfF5.groupby(["Date", "date"]).mean().reset_index()
+dfF5.set_index("Date", inplace=True)
+
+print(dfF5)
 
 idx = pd.date_range(min(dfF5.index), max(dfF5.index))
 
@@ -274,22 +277,6 @@ dico_sondage["unit"] = "%"
 dico_sondage["dataset"] = []
 
 
-for col in dfF4.columns:
-
-    dico_temp = {}
-    dico_temp["title"] = col
-    if col in dico_candidat_parti.keys():
-        dico_temp["subtitle"] = dico_candidat_parti[col]
-    else :
-        dico_temp["subtitle"] = ""
-
-    if col in dico_couleurs_candidats.keys():
-        dico_temp["color"] = dico_couleurs_candidats[col]
-    else :
-        dico_temp["color"] = "#ffffff"
-
-    dico_temp["data"] = list(dfF4[col].map(lambda x : "null" if np.isnan(x) else x))
-
 
 for col in dfF5.columns:
     #On garde les candidats demandés :
@@ -309,8 +296,6 @@ for col in dfF5.columns:
     dico_sondage["dataset"].append(dico_temp)
 to_json.append(dico_sondage)
 
-with open(path1+'data.json', 'w') as fp:
-    json.dump(dico_sondage, fp, ensure_ascii=False)
 
 #dfF4.to_csv(path+"sondages1er.csv", sep="\t", encoding='utf-8')
 
