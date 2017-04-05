@@ -6,6 +6,7 @@ import pymongo as pym
 import re
 import string
 from sklearn.feature_extraction.text import TfidfVectorizer
+from datetime import date, datetime, timedelta
 import pandas as pd
 import numpy as np
 
