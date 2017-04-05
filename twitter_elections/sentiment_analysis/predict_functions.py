@@ -5,10 +5,18 @@ import treetaggerwrapper
 import pymongo as pym
 import re
 import string
-from sklearn.feature_extraction.text import TfidfVectorizer
-from datetime import date, datetime, timedelta
 import pandas as pd
 import numpy as np
+import time
+from sklearn.feature_extraction.text import TfidfVectorizer
+from datetime import date, datetime, timedelta
+
+
+def timestamp(self):
+    "Return POSIX timestamp as float"
+    return time.mktime((self.year, self.month, self.day,
+                         self.hour, self.minute, self.second,
+                         -1, -1, -1)) + self.microsecond / 1e6
 
 
 def process_texts(list_of_texts, pos_tag_list, stop_words):
@@ -103,7 +111,8 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
 def extract_tweets(date_string, days=1, port=27017, limit=0):
     client = pym.MongoClient(port=port)
     collection = client.tweet.tweet
-    date_timestamp = int(datetime.strptime(date_string, '%Y-%m-%d').timestamp() * 1000)
+    date_datetime = datetime.strptime(date_string, '%Y-%m-%d')
+    date_timestamp = int(timestamp(date_datetime) * 1000)
     date_timestamp += 1000 * 60 * 60 * 24 # on se décale à la fin de la journée en question (23h59)
     window = 1000 * 60 * 60 * 24 * days # fenetre exprimée en millisecondes
     
