@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# coding: utf-8
+
 import treetaggerwrapper
 import pymongo as pym
 import re
@@ -94,3 +97,34 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
     print('{} documents vectorises.'.format(taille2))
 
     return X.drop('sentiment', axis=1), X['sentiment'], vectorizer.vocabulary_
+
+
+def extract_tweets(date_string, days=1, port=27017, limit=0):
+    client = pym.MongoClient(port=port)
+    collection = client.tweet.tweet
+    date_timestamp = int(datetime.strptime(date_string, '%Y-%m-%d').timestamp() * 1000)
+    date_timestamp += 1000 * 60 * 60 * 24 # on se décale à la fin de la journée en question (23h59)
+    window = 1000 * 60 * 60 * 24 * days # fenetre exprimée en millisecondes
+    
+    fetched_tweets = []
+    corpus = collection.find(
+        filter={'t_time': {'$gt': (date_timestamp - window), '$lt': date_timestamp}},
+        projection={'_id': False, 't_id': 1, 't_text': 1, 't_time': 1}).sort('t_time', pym.DESCENDING).limit(limit)
+
+    count = 0
+    for t in corpus:
+        count += 1
+        fetched_tweets.append({'id': t['t_id'], 'text': t['t_text'], 'timestamp': t['t_time']})
+
+    print('{} tweets trouves.'.format(count))
+    client.close()
+    result_df = pd.DataFrame(fetched_tweets)
+    
+    return result_df
+
+
+def insert_in_mongo(df, port=27017):
+    client = pym.MongoClient(port=port)
+    collection = client.tweet.predicted
+    collection.insert_many(df.to_dict('records'))
+    client.close()
