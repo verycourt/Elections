@@ -22,7 +22,7 @@ def timestamp(self):
 
 def process_texts(list_of_texts, pos_tag_list, stop_words):
     # Processing the tweets (POS tagging, lemmatization, spellchecking)
-    tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr')
+    tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr', TAGDIR='/home/ubuntu/Elections/twitter_elections/sentiment_analysis')
     list_of_processed_texts = []
     
     for text in list_of_texts:
