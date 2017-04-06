@@ -47,7 +47,7 @@ df = df[df['count']==1]
 df.reset_index(drop=True, inplace=True)
 
 # 3. Creation des features et de la matrice TF-IDF pour la base test
-X_test, _, _ = build_Xy(df, drop_dups=False, vocab=voca, min_df=3, n_grams=(1,1))
+X_test= build_X(df, drop_dups=False, vocab=voca, min_df=3, n_grams=(1,1))
 
 # 4. Chargement du modele entraine
 clf = joblib.load('trained_logistic_regression.pkl')
