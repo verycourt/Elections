@@ -22,9 +22,13 @@ def timestamp(self):
 
 def process_texts(list_of_texts, pos_tag_list, stop_words):
     # Processing the tweets (POS tagging, lemmatization)
-    tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr',
-        TAGDIR='/home/ubuntu/Elections/twitter_elections/sentiment_analysis/treeTagger'
-        )
+    try:
+        tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr',
+            TAGDIR='/home/ubuntu/Elections/twitter_elections/sentiment_analysis/treeTagger'
+            )
+    except:
+        tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr')
+
     list_of_processed_texts = []
     
     for text in list_of_texts:
@@ -51,7 +55,7 @@ def process_texts(list_of_texts, pos_tag_list, stop_words):
     return list_of_processed_texts
 
 
-def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
+def build_X(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
     # Choix des tags et stop words
     pos_tags_to_keep = ['ADJ', 'ADV', 'NOM', 'NUM', 'PUN:cit', 'INT', 'DET:POS', 'PRO:POS', 'PRO:DEM',
                     'VER:cond', 'VER:futu', 'VER:impe', 'VER:impf',
@@ -70,8 +74,8 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
     
     mat = vectorizer.fit_transform([' '.join(tweet) for tweet in tweet_list])
     del tweet_list
-    voca = vectorizer.vocabulary_
-    print('Longueur du vocabulaire : {}'.format(len(voca)))
+
+    print('Taille du vocabulaire : {}'.format(len(vectorizer.vocabulary_)))
     X = pd.DataFrame(mat.toarray())
     del mat
 
@@ -88,11 +92,6 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
 
     taille1 = X.shape[0]
     taille2 = X.shape[0]
-    
-    if 'sentiment' in df_tweets: # si les labels sont fournis
-        X['sentiment'] = df_tweets['sentiment']
-    else: # sinon
-        X['sentiment'] = np.zeros(taille1)
 
     if drop_dups: # on ne retirera les doublons que pour l'ensemble d'entrainement
         X.drop_duplicates(inplace=True)
@@ -101,7 +100,7 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
         
     print('{} documents vectorises.'.format(taille2))
 
-    return X.drop('sentiment', axis=1), X['sentiment'], voca
+    return X
 
 
 def extract_tweets(date_string, days=1, port=27017, limit=0):
