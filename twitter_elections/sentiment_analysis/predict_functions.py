@@ -1,15 +1,34 @@
+#!/usr/bin/python
+# coding: utf-8
+
+from __future__ import unicode_literals
 import treetaggerwrapper
 import pymongo as pym
 import re
 import string
-from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import numpy as np
+import time
+from sklearn.feature_extraction.text import TfidfVectorizer
+from datetime import date, datetime, timedelta
+
+
+def timestamp(self):
+    "Return POSIX timestamp as float"
+    return time.mktime((self.year, self.month, self.day,
+        self.hour, self.minute, self.second,
+        -1, -1, -1)) + self.microsecond / 1e6
 
 
 def process_texts(list_of_texts, pos_tag_list, stop_words):
-    # Processing the tweets (POS tagging, lemmatization, spellchecking)
-    tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr')
+    # Processing the tweets (POS tagging, lemmatization)
+    try:
+        tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr',
+            TAGDIR='/home/ubuntu/Elections/twitter_elections/sentiment_analysis/treeTagger'
+            )
+    except:
+        tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr')
+
     list_of_processed_texts = []
     
     for text in list_of_texts:
@@ -36,18 +55,7 @@ def process_texts(list_of_texts, pos_tag_list, stop_words):
     return list_of_processed_texts
 
 
-def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
-    # Tweet feature extraction
-    hashtag = np.array([t.count('#') / 2. for t in df_tweets['text']])
-    links = np.array([(t.count('http') / 2.) if t.count('http') > 1 else 0 for t in df_tweets['text']])
-    at = np.array([t.count('@') / 1. for t in df_tweets['text']])
-    n_car = np.array([np.log(len(t))/4 / 1. for t in df_tweets['text']])
-    n_words = np.array([np.log(len(t.split(' '))) / 2 for t in df_tweets['text']])
-    n_2points = np.array([t.count(':') / 1. for t in df_tweets['text']])
-    n_exc = np.array([t.count('!') / 1. for t in df_tweets['text']])
-    n_int = np.array([t.count('?') / 1. for t in df_tweets['text']])
-    n_quotes = np.array([(t.count('"') + t.count('»')) / 2. for t in df_tweets['text']])
-
+def build_X(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
     # Choix des tags et stop words
     pos_tags_to_keep = ['ADJ', 'ADV', 'NOM', 'NUM', 'PUN:cit', 'INT', 'DET:POS', 'PRO:POS', 'PRO:DEM',
                     'VER:cond', 'VER:futu', 'VER:impe', 'VER:impf',
@@ -65,26 +73,25 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
                                  min_df=min_df, max_df=1.0, ngram_range=n_grams)
     
     mat = vectorizer.fit_transform([' '.join(tweet) for tweet in tweet_list])
-    print('Longueur du vocabulaire : {}'.format(len(vectorizer.vocabulary_)))
+    del tweet_list
+
+    print('Taille du vocabulaire : {}'.format(len(vectorizer.vocabulary_)))
     X = pd.DataFrame(mat.toarray())
-    X_added_features = pd.DataFrame(data={'#': hashtag,
-                                          'http': links,
-                                          '@': at,
-                                          'n_car': n_car,
-                                          'n_words': n_words,
-                                          ':': n_2points,
-                                          '!': n_exc,
-                                          '?': n_int,
-                                          '""': n_quotes
-                                         })
-    X = pd.concat([X, X_added_features], axis=1)
+    del mat
+
+    # ajout colonnes features supplémentaires
+    X['#'] = np.array([t.count('#') / 2. for t in df_tweets['text']])
+    X['http'] = np.array([(t.count('http') / 2.) if t.count('http') > 1 else 0 for t in df_tweets['text']])
+    X['@'] = np.array([t.count('@') / 1. for t in df_tweets['text']])
+    X['n_car'] = np.array([np.log(len(t))/4 / 1. for t in df_tweets['text']])
+    X['n_words'] = np.array([np.log(len(t.split(' '))) / 2 for t in df_tweets['text']])
+    X[':'] = np.array([t.count(':') / 1. for t in df_tweets['text']])
+    X['!'] = np.array([t.count('!') / 1. for t in df_tweets['text']])
+    X['?'] = np.array([t.count('?') / 1. for t in df_tweets['text']])
+    X['"'] = np.array([(t.count('"') + t.count('»')) / 2. for t in df_tweets['text']])
+
     taille1 = X.shape[0]
     taille2 = X.shape[0]
-    
-    if 'sentiment' in df_tweets: # si les labels sont fournis
-        X = pd.concat([X, df_tweets['sentiment']], axis=1)
-    else: # sinon
-        X['sentiment'] = np.zeros(taille1)
 
     if drop_dups: # on ne retirera les doublons que pour l'ensemble d'entrainement
         X.drop_duplicates(inplace=True)
@@ -93,4 +100,36 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
         
     print('{} documents vectorises.'.format(taille2))
 
-    return X.drop('sentiment', axis=1), X['sentiment'], vectorizer.vocabulary_
+    return X
+
+
+def extract_tweets(date_string, days=1, port=27017, limit=0):
+    client = pym.MongoClient(port=port)
+    collection = client.tweet.tweet
+    date_datetime = datetime.strptime(date_string, '%Y-%m-%d')
+    date_timestamp = int(timestamp(date_datetime) * 1000)
+    date_timestamp += 1000 * 60 * 60 * 24 # on se décale à la fin de la journée en question (23h59)
+    window = 1000 * 60 * 60 * 24 * days # fenetre exprimée en millisecondes
+    
+    fetched_tweets = []
+    corpus = collection.find(
+        filter={'t_time': {'$gt': (date_timestamp - window), '$lt': date_timestamp}},
+        projection={'_id': False, 't_id': 1, 't_text': 1, 't_time': 1}).sort('t_time', pym.DESCENDING).limit(limit)
+
+    count = 0
+    for t in corpus:
+        count += 1
+        fetched_tweets.append({'id': t['t_id'], 'text': t['t_text'], 'timestamp': t['t_time']})
+
+    print('{} tweets trouves.'.format(count))
+    client.close()
+    result_df = pd.DataFrame(fetched_tweets)
+    
+    return result_df
+
+
+def insert_in_mongo(df, port=27017):
+    client = pym.MongoClient(port=port)
+    collection = client.tweet.predicted
+    collection.insert_many(df.to_dict('records'))
+    client.close()

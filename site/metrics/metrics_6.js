@@ -1,7 +1,7 @@
 var fname = "6_fb_likes.json";
 
 $.getJSON("/metrics/data/" + fname, function(json) {
-    var linechart_title = "Evolution quotidienne du nombre de likes sur Facebook"
+    var linechart_title = "Evolution quotidienne du nombre de nouveaux likes sur Facebook"
     var chart_id = "m6"
     // Format de json valable : pd.to_json() avec l'option 'orient' = 'split', et les timestamps en millisecondes
     var data_json = json; 
