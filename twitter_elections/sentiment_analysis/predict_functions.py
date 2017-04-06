@@ -16,13 +16,15 @@ from datetime import date, datetime, timedelta
 def timestamp(self):
     "Return POSIX timestamp as float"
     return time.mktime((self.year, self.month, self.day,
-                         self.hour, self.minute, self.second,
-                         -1, -1, -1)) + self.microsecond / 1e6
+        self.hour, self.minute, self.second,
+        -1, -1, -1)) + self.microsecond / 1e6
 
 
 def process_texts(list_of_texts, pos_tag_list, stop_words):
-    # Processing the tweets (POS tagging, lemmatization, spellchecking)
-    tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr', TAGDIR='/home/ubuntu/Elections/twitter_elections/sentiment_analysis')
+    # Processing the tweets (POS tagging, lemmatization)
+    tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr',
+        TAGDIR='/home/ubuntu/Elections/twitter_elections/sentiment_analysis/treeTagger'
+        )
     list_of_processed_texts = []
     
     for text in list_of_texts:
@@ -50,17 +52,6 @@ def process_texts(list_of_texts, pos_tag_list, stop_words):
 
 
 def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
-    # Tweet feature extraction
-    hashtag = np.array([t.count('#') / 2. for t in df_tweets['text']])
-    links = np.array([(t.count('http') / 2.) if t.count('http') > 1 else 0 for t in df_tweets['text']])
-    at = np.array([t.count('@') / 1. for t in df_tweets['text']])
-    n_car = np.array([np.log(len(t))/4 / 1. for t in df_tweets['text']])
-    n_words = np.array([np.log(len(t.split(' '))) / 2 for t in df_tweets['text']])
-    n_2points = np.array([t.count(':') / 1. for t in df_tweets['text']])
-    n_exc = np.array([t.count('!') / 1. for t in df_tweets['text']])
-    n_int = np.array([t.count('?') / 1. for t in df_tweets['text']])
-    n_quotes = np.array([(t.count('"') + t.count('»')) / 2. for t in df_tweets['text']])
-
     # Choix des tags et stop words
     pos_tags_to_keep = ['ADJ', 'ADV', 'NOM', 'NUM', 'PUN:cit', 'INT', 'DET:POS', 'PRO:POS', 'PRO:DEM',
                     'VER:cond', 'VER:futu', 'VER:impe', 'VER:impf',
@@ -78,24 +69,28 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
                                  min_df=min_df, max_df=1.0, ngram_range=n_grams)
     
     mat = vectorizer.fit_transform([' '.join(tweet) for tweet in tweet_list])
-    print('Longueur du vocabulaire : {}'.format(len(vectorizer.vocabulary_)))
+    del tweet_list
+    voca = vectorizer.vocabulary_
+    print('Longueur du vocabulaire : {}'.format(len(voca)))
     X = pd.DataFrame(mat.toarray())
-    X_added_features = pd.DataFrame(data={'#': hashtag,
-                                          'http': links,
-                                          '@': at,
-                                          'n_car': n_car,
-                                          'n_words': n_words,
-                                          ':': n_2points,
-                                          '!': n_exc,
-                                          '?': n_int,
-                                          '""': n_quotes
-                                         })
-    X = pd.concat([X, X_added_features], axis=1)
+    del mat
+
+    # ajout colonnes features supplémentaires
+    X['#'] = np.array([t.count('#') / 2. for t in df_tweets['text']])
+    X['http'] = np.array([(t.count('http') / 2.) if t.count('http') > 1 else 0 for t in df_tweets['text']])
+    X['@'] = np.array([t.count('@') / 1. for t in df_tweets['text']])
+    X['n_car'] = np.array([np.log(len(t))/4 / 1. for t in df_tweets['text']])
+    X['n_words'] = np.array([np.log(len(t.split(' '))) / 2 for t in df_tweets['text']])
+    X[':'] = np.array([t.count(':') / 1. for t in df_tweets['text']])
+    X['!'] = np.array([t.count('!') / 1. for t in df_tweets['text']])
+    X['?'] = np.array([t.count('?') / 1. for t in df_tweets['text']])
+    X['"'] = np.array([(t.count('"') + t.count('»')) / 2. for t in df_tweets['text']])
+
     taille1 = X.shape[0]
     taille2 = X.shape[0]
     
     if 'sentiment' in df_tweets: # si les labels sont fournis
-        X = pd.concat([X, df_tweets['sentiment']], axis=1)
+        X['sentiment'] = df_tweets['sentiment']
     else: # sinon
         X['sentiment'] = np.zeros(taille1)
 
@@ -106,7 +101,7 @@ def build_Xy(df_tweets, drop_dups=False, vocab=None, min_df=5, n_grams=(1,1)):
         
     print('{} documents vectorises.'.format(taille2))
 
-    return X.drop('sentiment', axis=1), X['sentiment'], vectorizer.vocabulary_
+    return X.drop('sentiment', axis=1), X['sentiment'], voca
 
 
 def extract_tweets(date_string, days=1, port=27017, limit=0):
