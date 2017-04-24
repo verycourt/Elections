@@ -159,8 +159,8 @@ def get_tweet_count(): # ajout de la colonne des mentions twitter sur 3 jours
     return df
 
 def save_metrics(df, timestamp): # sauvegarde des colonnes du dataframe dans les différents .json
-    path = '/var/www/html/metrics/data/'
-    # path = 'data/' # save path
+    # path = '/var/www/html/metrics/data/'
+    path = 'data/' # save path
 
     for metric in df:
         try:
@@ -188,4 +188,4 @@ today = (datetime.utcnow() + timedelta(hours=1)).date()
 print('Maj du', today)
 
 save_metrics(get_metrics(), today)
-save_metrics(get_tweet_count(), today)
+# save_metrics(get_tweet_count(), today)
