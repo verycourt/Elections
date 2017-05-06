@@ -1,0 +1,12 @@
+csv_file = pd.DataFrame(pd.read_csv(fname, sep = ',', header = 0, index_col = False))
+csv_file.to_json('twitter_sentiments_daily_15_until_22_april_raw.json', orient ='split')
+df = pd.read_json('twitter_sentiments_daily_15_until_22_april_raw.json', orient='split')
+df['neu'] = pd.to_numeric(df['neu'], errors='coerce')
+df['neg'] = pd.to_numeric(df['neg'], errors='coerce')
+df['pos'] = pd.to_numeric(df['pos'], errors='coerce')
+df = df.fillna(0)
+df['score'] = (df['pos']) / (df['neg'] + df['neu'] + df['pos'])
+df = df.fillna(0)
+df['score'] = df['score'] * df['count']
+df_pivot = df.pivot_table(index='date',columns='candidat',values='score').fillna(0)
+df_pivot.to_json('twitter_sentiments_daily_15_until_22_april.json', orient='split')
