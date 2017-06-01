@@ -1,5 +1,8 @@
 var svg = d3.select("#svg4195")
 var dataset = []
+var dicoNuances = {"EXG":"#d30202", "COM":"#ff1616", "FI":"#ff1616","SOC":"#f76060","RDG":"#edafaf",
+"ECO":"#41992f","DIV":"#d3913b","REG":"#54422b","REM":"#af4608","MDM":"#ea681c","UDI":"#b3c5f2","LR":"#3c589e",
+"DVD":"#1a3372","DLF":"#0f2763","FN":"#03194f","EXD":"#000a23"}
 
 d3.csv('data/resultats.csv')
 .row(function(d, i){
@@ -23,12 +26,18 @@ d3.csv('data/resultats.csv')
 	});
 
 function color(){
-	console.log("Drawing");
 	for(i=0;i < dataset.length; i++){
-		console.log(dataset[i]);
 		svg.select('[id='+'"'+dataset[i].circo+'"'+']')
-		.style("fill", dataset[i].color1)
-		.select("title").text(dataset[i].nom +'\n' + dataset[i].candidat1 + " : " + dataset[i].score1 +'\n' 
-		+ dataset[i].candidat2 + " : " + dataset[i].score2 +'\n' + dataset[i].candidat3 + " : " + dataset[i].score3 + '\n');
+		.style("fill", dicoNuances[dataset[i].color1])
+		.select("title").text(function(){
+		
+		if(+dataset[i].score1 > 0.5){
+			return dataset[i].nom +'\n' + dataset[i].candidat1 + " : " + dataset[i].score1 * 100 +"%" + "(Vainqueur)" + '\n' 
+		+ dataset[i].candidat2 + " : " + dataset[i].score2 * 100 +"%" +'\n' + dataset[i].candidat3 + " : " + dataset[i].score3 * 100 +"%"+ '\n';}
+		else{
+			return dataset[i].nom +'\n' + dataset[i].candidat1 + " : " + dataset[i].score1 * 100 +"%" +'\n' 
+		+ dataset[i].candidat2 + " : " + dataset[i].score2 * 100 +"%" +'\n' + dataset[i].candidat3 + " : " + dataset[i].score3 * 100 +"%" + '\n';}
+
+		})
 	};
 };
