@@ -4,7 +4,7 @@ var dicoNuances = {"EXG":"#d30202", "COM":"#ff1616", "FI":"#ff1616","SOC":"#f760
 "ECO":"#41992f","DIV":"#d3913b","REG":"#54422b","REM":"#af4608","MDM":"#ea681c","UDI":"#b3c5f2","LR":"#3c589e",
 "DVD":"#1a3372","DLF":"#0f2763","FN":"#03194f","EXD":"#000a23"}
 
-d3.csv('data/resultats1.csv')
+d3.csv('data/resultats2.csv')
 .row(function(d, i){
 	return {
 	circo : d.circo,
@@ -30,14 +30,7 @@ function color(){
 		svg.select('[id='+'"'+dataset[i].circo+'"'+']')
 		.style("fill", dicoNuances[dataset[i].color1])
 		.select("title").text(function(){
-		
-		if(+dataset[i].score1 > 0.5){
 			return dataset[i].nom +'\n' + dataset[i].candidat1 + " : " + dataset[i].score1 * 100 +"%" + "(Vainqueur)" + '\n' 
-		+ dataset[i].candidat2 + " : " + dataset[i].score2 * 100 +"%" +'\n' + dataset[i].candidat3 + " : " + dataset[i].score3 * 100 +"%"+ '\n';}
-		else{
-			return dataset[i].nom +'\n' + dataset[i].candidat1 + " : " + dataset[i].score1 * 100 +"%" +'\n' 
-		+ dataset[i].candidat2 + " : " + dataset[i].score2 * 100 +"%" +'\n' + dataset[i].candidat3 + " : " + dataset[i].score3 * 100 +"%" + '\n';}
-
-		})
+		+ dataset[i].candidat2 + " : " + dataset[i].score2 * 100 +"%" +'\n' + dataset[i].candidat3 + " : " + dataset[i].score3 * 100 +"%"+ '\n';})
 	};
 };
