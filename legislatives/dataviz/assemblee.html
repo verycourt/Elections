@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="js/d3-parliament.js" charset="utf-8"></script>
+
+        <style media="screen">
+            html, body {
+                width: 100%;
+                height: 100%;
+                padding: 0px;
+                margin: 0px;
+                background: white;
+            }
+            svg .seat {
+                cursor: pointer;
+                transition: all 800ms;
+            }
+
+            /* European parliament colors */
+            svg .seat.gue-ngl { fill: #990000 }
+            svg .seat.sd { fill: #F0001C }
+            svg .seat.greens-efa { fill: #32CD32 }
+            svg .seat.alde { fill: #FFD700 }
+            svg .seat.epp { fill: #3399FF }
+            svg .seat.ecr { fill: #0054A5 }
+            svg .seat.efdd { fill: #40E0D0 }
+            svg .seat.enf { fill: #000000 }
+            /* French parliament colors */
+            svg .seat.EXG { fill: #d30202; }
+            svg .seat.COM { fill: #ff1616; }
+            svg .seat.FI { fill: #ff1616; }
+            svg .seat.SOC { fill: #f76060; }
+            svg .seat.RDG { fill: #edafaf; }
+            svg .seat.ECO { fill: #41992f; }
+            svg .seat.DIV { fill: #d3913b; }
+            svg .seat.REG { fill: #54422b; }
+            svg .seat.REM { fill: #af4608; }
+            svg .seat.MDM { fill: #ea681c; }
+            svg .seat.UDI { fill: #b3c5f2; }
+            svg .seat.LR { fill: #3c589e; }
+            svg .seat.DVD { fill: #1a3372; }
+            svg .seat.DLF { fill: #0f2763; }
+            svg .seat.FN { fill: #03194f; }
+            svg .seat.EXD { fill: #000a23; }
+            /* common */
+            svg .seat.vacant { fill: #FFFFFF }
+            svg .seat.no-party { fill: #909090; }
+        </style>
+    </head>
+    <body>
+        <svg></svg>
+        <script type="text/javascript">
+            var parliament = d3.parliament().width(800).height(800).innerRadiusCoef(0.4);
+            parliament.enter.fromCenter(true).smallToBig(true);
+            parliament.exit.toCenter(true).bigToSmall(true);
+            parliament.on("click", function(e) { console.log(e); });
+
+            var setData = function(d) {
+            	console.log(d);
+                d3.select("svg").datum(d).call(parliament);
+            };
+
+            d3.json("french.json", setData);
+
+            //setTimeout(function() { d3.json("data/french2.json", setData); }, 5000)
+        </script>
+    </body>
+</html>
