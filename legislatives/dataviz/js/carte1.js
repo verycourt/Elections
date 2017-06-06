@@ -41,11 +41,11 @@ d3.csv('data/resultatsEtr.csv')
 	score2 : d.score2,
 	candidat3 : d.candidat3,
 	score3 : d.score3,
-	candidat4 : d.candidat4,
-	score4 : d.score4,
+	//candidat4 : d.candidat4,
+	//score4 : d.score4,
 	color2 : d.color2,
 	color3 : d.color3,
-	color4 : d.color4
+	//color4 : d.color4
 	};
 })
 .get(function(error, rows){
@@ -63,22 +63,23 @@ function color(){
 		.style("fill", dicoNuances[dataset[i].color1])
 		.select("title").text(function(){
 		
-		if(+dataset[i].score1 > 0.5 && dataset[i].nom.indexOf('Français') > 0){
+		if(+dataset[i].score1 > 0.5 && dataset[i].nom.indexOf('Français') < 0){
 			circo.style("stroke","yellow").style("stroke-width","3");
-			return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' +dataset[i].color1 + " : " + Math.round(dataset[i].score1 * 100) +"%" + "(Potentiel Vainqueur au premier tour)";}
+			return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' +dataset[i].color1 + " : " + Math.round(dataset[i].score1 * 100) +"%" + "(Potentiel Vainqueur au premier tour)"
+			;}
 		
-		else{
-			if(+dataset[i].score1 > 0.5 && dataset[i].nom.indexOf('Français') > 0){
-			circo.style("stroke","yellow").style("stroke-width","3");	
-			return dataset[i].nom +'\n' + dataset[i].candidat1 + ' '+dataset[i].color1 + " : " + Math.round(dataset[i].score1 * 100) +"%" + "(Potentiel Vainquer au premier tour)";}
-			
 			else{
 				if (+dataset[i].candidat3 == ''){
 					return dataset[i].nom +'\n' + dataset[i].candidat1 + '  '+ dataset[i].color1 +  " : " + Math.round(dataset[i].score1 * 100) +"%"  + '\n' 
-					+ dataset[i].candidat2 + ' ' + dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%";}
+					+ dataset[i].candidat2 + ' ' + dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%"
+					;}
 				
 				else{
-				if (+dataset[i].candidat4 == ''){
+					circo.style("stroke","white").style("stroke-width","3");
+					return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' +dataset[i].color1 +  " : " + Math.round(dataset[i].score1 * 100) +"%"  + '\n' 
+					+ dataset[i].candidat2 +' '+ dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%" +'\n' + dataset[i].candidat3 + ' '+ dataset[i].color3 + " : " + Math.round(dataset[i].score3 * 100) +"%"+ '\n'
+					;}
+				/*if (+dataset[i].candidat4 == ''){
 					circo.style("stroke","white").style("stroke-width","3");
 					return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' +dataset[i].color1 +  " : " + Math.round(dataset[i].score1 * 100) +"%"  + '\n' 
 					+ dataset[i].candidat2 +' '+ dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%" +'\n' + dataset[i].candidat3 + ' '+ dataset[i].color3 + " : " + Math.round(dataset[i].score3 * 100) +"%"+ '\n';}
@@ -87,10 +88,9 @@ function color(){
 					circo.style("stroke","black").style("stroke-width","3");
 					return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' + dataset[i].color1 +  " : " + Math.round(dataset[i].score1 * 100) +"%"  + '\n' 
 					+ dataset[i].candidat2 + ' '+ dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%" +'\n' + dataset[i].candidat3 + ' ' + dataset[i].color3 + " : " + Math.round(dataset[i].score3 * 100) +"%"+ '\n'
-					+ dataset[i].candidat4 + ' ' + dataset[i].color4 + " : " + Math.round(dataset[i].score4 * 100) +"%";}
+					+ dataset[i].candidat4 + ' ' + dataset[i].color4 + " : " + Math.round(dataset[i].score4 * 100) +"%";}*/
 					}
 				}
-			}
-		})
+		)
 	};
 };
