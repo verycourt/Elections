@@ -6,7 +6,7 @@
 d3.parliament = function() {
     /* params */
     var width = 500,
-        height = 500,
+        height = 250,
         innerRadiusCoef = 0.4;
 
     /* animations */
