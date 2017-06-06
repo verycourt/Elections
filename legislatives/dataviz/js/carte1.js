@@ -1,7 +1,7 @@
 var svg = d3.select("#premier")
 var dataset = []
 var dicoNuances = {"EXG":"#d30202", "COM":"#ff1616", "FI":"#ff1616","SOC":"#f76060","RDG":"#edafaf",
-"ECO":"#41992f","DIV":"#d3913b","REG":"#54422b","REM":"#ffbf00","MDM":" #cca300","UDI":"#536cad","LR":"#3c589e",
+"ECO":"#41992f","DIV":"#d3913b","REG":"#54422b","REM":"#ffbf00","MDM":" #cca300","UDI":"#537bbc","LR":"#3c589e",
 "DVD":"#1a3372","DLF":"#7928b7","FN":"#03194f","EXD":"#000a23",'DVG':'#c66b9a'}
 
 
@@ -65,18 +65,19 @@ function color(){
 		
 		if(+dataset[i].score1 > 0.5 && dataset[i].nom.indexOf('Français') < 0){
 			circo.style("stroke","#000000").style("stroke-width","2");
-			return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' +dataset[i].color1 + " : " + Math.round(dataset[i].score1 * 100) +"%" + "(Potentiel Vainqueur au premier tour)"
+			return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' +dataset[i].color1 + " : " + Math.round(dataset[i].score1 * 100) +"%" + " (Potentiel vainqueur au premier tour)"
 			+ '\n' + dataset[i].candidat2 + ' ' +dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%"
 			;}
 		
 			else{
 				if (+dataset[i].candidat3 == ''){
-					return dataset[i].nom +'\n' + dataset[i].candidat1 + '  '+ dataset[i].color1 +  " : " + Math.round(dataset[i].score1 * 100) +"%"  + '\n' 
+					return dataset[i].nom +'\n' + dataset[i].candidat1 + ' '+ dataset[i].color1 +  " : " + Math.round(dataset[i].score1 * 100) +"%"  + '\n' 
 					+ dataset[i].candidat2 + ' ' + dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%"
 					;}
 				
 				else{
-					circo.style("stroke","white").style("stroke-width","2");
+					circo.style("background","linear-gradient(to bottom, black 0%,black 50%,#000000 50%,white 50%,white 100%);");
+					circo.style("z-index","-1");
 					return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' +dataset[i].color1 +  " : " + Math.round(dataset[i].score1 * 100) +"%"  + '\n' 
 					+ dataset[i].candidat2 +' '+ dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%" +'\n' + dataset[i].candidat3 + ' '+ dataset[i].color3 + " : " + Math.round(dataset[i].score3 * 100) +"%"+ '\n'
 					;}
