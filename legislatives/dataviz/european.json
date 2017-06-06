@@ -1,0 +1,98 @@
+[
+    {
+        "id": "EXG",
+        "legend": "Extrême Gauche",
+        "name": "Extrême Gauche",
+        "seats": 0
+    },
+    {
+        "id": "COM",
+        "legend": "Parti Communiste Français",
+        "name": "Parti Communiste Français",
+        "seats": 5
+    },
+    {
+        "id": "FI",
+        "legend": "La France Insoumise",
+        "name": "La France Insoumise",
+        "seats": 50
+    },
+    {
+        "id": "SOC",
+        "legend": "Parti Socialiste",
+        "name": "Parti Socialiste",
+        "seats": 100
+    },
+    {
+        "id": "RDG",
+        "legend": "Les Radicaux de Gauche",
+        "name": "Les Radicaux de Gauche",
+        "seats": 20
+    },
+    {
+        "id": "ECO",
+        "legend": "Ecologistes",
+        "name": "Ecologistes",
+        "seats": 15
+    },
+    {
+        "id": "DIV",
+        "legend": "Divers",
+        "name": "Divers",
+        "seats": 10
+    },
+    {
+        "id": "REG",
+        "legend": "Régionalistes",
+        "name": "Régionalistes",
+        "seats": 10
+    },
+    {
+        "id": "REM",
+        "legend": "La République en Marche",
+        "name": "La République en Marche",
+        "seats": 150
+    },
+    {
+        "id": "MDM",
+        "legend": "MoDem",
+        "name": "Mouvement Démocrate",
+        "seats": 40
+    },
+    {
+        "id": "UDI",
+        "legend": "UDI",
+        "name": "Union des démocrates indépendants",
+        "seats": 50
+    },
+    {
+        "id": "LR",
+        "legend": "Les Républicains",
+        "name": "Les Républicains",
+        "seats": 100
+    },
+    {
+        "id": "DVD",
+        "legend": "Divers Droite",
+        "name": "Divers Droite",
+        "seats": 10
+    },
+    {
+        "id": "DLF",
+        "legend": "Debout la France",
+        "name": "Debout la France",
+        "seats": 5
+    },
+    {
+        "id": "FN",
+        "legend": "Front National",
+        "name": "Front National",
+        "seats": 10
+    },
+    {
+        "id": "EXD",
+        "legend": "Extrême Droite",
+        "name": "Extrême Droite",
+        "seats": 2
+    },
+]
