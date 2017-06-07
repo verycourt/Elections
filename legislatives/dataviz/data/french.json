@@ -23,6 +23,12 @@
         "name": "Les Radicaux de Gauche",
         "seats": 3
     },
+        {
+        "id": "DVG",
+        "legend": "Divers Gauche",
+        "name": "Divers Gauche",
+        "seats": 14
+    },
     {
         "id": "ECO",
         "legend": "Ecologistes",
