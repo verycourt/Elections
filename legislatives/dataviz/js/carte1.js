@@ -76,7 +76,7 @@ function color(){
 					;}
 				
 				else{
-					circo.style("stroke","#adad85").style("stroke-width","4");
+					circo.style("stroke","white").style("stroke-width","4");
 					return dataset[i].nom +'\n' + dataset[i].candidat1 + ' ' +dataset[i].color1 +  " : " + Math.round(dataset[i].score1 * 100) +"%"  + '\n' 
 					+ dataset[i].candidat2 +' '+ dataset[i].color2 + " : " + Math.round(dataset[i].score2 * 100) +"%" +'\n' + dataset[i].candidat3 + ' '+ dataset[i].color3 + " : " + Math.round(dataset[i].score3 * 100) +"%"+ '\n'
 					;}
