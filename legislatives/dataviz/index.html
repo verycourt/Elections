@@ -39,6 +39,7 @@
             svg .seat.FI { fill: #ff1616; }
             svg .seat.SOC { fill: #f76060; }
             svg .seat.RDG { fill: #edafaf; }
+            svg .seat.DVG { fill: #c66b9a; }
             svg .seat.ECO { fill: #41992f; }
             svg .seat.DIV { fill: #d3913b; }
             svg .seat.REG { fill: #54422b; }
@@ -54,9 +55,10 @@
             svg .seat.vacant { fill: #FFFFFF }
             svg .seat.no-party { fill: #909090; }
         </style>
-		<svg>  <g class="legend" transform="translate(1100,50)">
-  <circle cx="18" cy="18" r="7" style="fill: #d30202; stroke: #d30202; z-index:-10"></circle>
-  <text x="27" y="23" font-size="12">EXG</text>
+		<svg>
+      <g class="legend" transform="translate(1100,50)">
+  <circle cx="18" cy="18" r="7" style="fill: #d3913b; stroke: #d3913b; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12" >DIV</text>
   </g>
   <g class="legend" transform="translate(1100,75)">
   <circle cx="18" cy="18" r="7" style="fill: #ff1616; stroke: #ff1616; z-index:-10"></circle>
@@ -106,17 +108,10 @@
   <circle cx="18" cy="18" r="7" style="fill:#1a3372; stroke:#1a3372; z-index:-10"></circle>
   <text x="27" y="23" font-size="12">DVD</text>
   </g>
-  <g class="legend" transform="translate(1100,375)">
-  <circle cx="18" cy="18" r="7" style="fill: #7928b7; stroke:#7928b7; z-index:-10"></circle>
-  <text x="27" y="23" font-size="12">DLF</text>
-  </g>
-  <g class="legend" transform="translate(1100,400)">
+  <g class="legend" transform="translate(1100, 375)">
   <circle cx="18" cy="18" r="7" style="fill: #03194f; stroke: #03194f; z-index:-10"></circle>
   <text x="27" y="23" font-size="12">FN</text>
   </g>
-  <g class="legend" transform="translate(1100, 425)">
-  <circle cx="18" cy="18" r="7" style="fill: #000a23; stroke: #000a23; z-index:-10"></circle>
-  <text x="27" y="23" font-size="12">EXD</text>
   </g></svg>
 
 
@@ -130,7 +125,7 @@
                 d3.select("svg").datum(d).call(parliament);
             };
 
-            d3.json("french.json", setData);
+            d3.json("data/french.json", setData);
         </script>
 	<h2>Carte de France du vote au premier tour</h2>
 	<svg id="premier" viewBox="0 500 2400 600"
@@ -5946,7 +5941,6 @@
   <text x="22" y="16">Triangulaire</text>
   </g>
 
-<h2>Projection de candidats en tête par parti au premier tour<h2>
 
 
 <script type="text/javascript"> 
@@ -5958,7 +5952,6 @@ var myBarChart = new Chart(ctx, {
 </script>
 
 
-<h2>Projection de sièges par partis</h2>
 
 
 
