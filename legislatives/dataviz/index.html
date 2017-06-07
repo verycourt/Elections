@@ -13,7 +13,7 @@
     <script src="js/d3-parliament.js" charset="utf-8"></script>
     <style media="screen">
             html, body {
-                width: 100%;
+                width: 50%;
                 height: 10%;
                 padding: 0px;
                 margin: 0px;
@@ -21,7 +21,7 @@
             }
             svg .seat {
                 cursor: pointer;
-                transition: all 400ms;
+                transition: all 800ms;
             }
 
             /* European parliament colors */
@@ -44,19 +44,84 @@
             svg .seat.REG { fill: #54422b; }
             svg .seat.REM { fill: #f2da37; }
             svg .seat.MDM { fill: #ea681c; }
-            svg .seat.UDI { fill: #b3c5f2; }
+            svg .seat.UDI { fill: #537bbc; }
             svg .seat.LR { fill: #3c589e; }
             svg .seat.DVD { fill: #1a3372; }
-            svg .seat.DLF { fill: #0f2763; }
+            svg .seat.DLF { fill: #7928b7; }
             svg .seat.FN { fill: #03194f; }
             svg .seat.EXD { fill: #000a23; }
             /* common */
             svg .seat.vacant { fill: #FFFFFF }
             svg .seat.no-party { fill: #909090; }
         </style>
-		<svg></svg>
+		<svg>  <g class="legend" transform="translate(1100,50)">
+  <circle cx="18" cy="18" r="7" style="fill: #d30202; stroke: #d30202; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">EXG</text>
+  </g>
+  <g class="legend" transform="translate(1100,75)">
+  <circle cx="18" cy="18" r="7" style="fill: #ff1616; stroke: #ff1616; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12" >COM</text>
+  </g>
+  <g class="legend" transform="translate(1100,100)">
+  <circle cx="18" cy="18" r="7" style="fill: #ff1616; stroke: #ff1616; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">FI</text>
+  </g>
+  <g class="legend" transform="translate(1100,125)">
+  <circle cx="18" cy="18" r="7" style="fill: #f76060; stroke: #f76060; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">SOC</text>
+  </g>
+  <g class="legend" transform="translate(1100,150)">
+  <circle cx="18" cy="18" r="7" style="fill: #edafaf; stroke: #edafaf; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">RDG</text>
+  </g>
+  <g class="legend" transform="translate(1100,175)">
+  <circle cx="18" cy="18" r="7" style="fill: #c66b9a; stroke: #c66b9a; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">DVG</text>
+  </g>
+  <g class="legend" transform="translate(1100,200)">
+  <circle cx="18" cy="18" r="7" style="fill: #41992f; stroke: #41992f; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">ECO</text>
+  </g>
+  <g class="legend" transform="translate(1100,225)">
+  <circle cx="18" cy="18" r="7" style="fill: #54422b; stroke: #54422b; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">REG</text>
+  </g>
+  <g class="legend" transform="translate(1100,250)">
+  <circle cx="18" cy="18" r="7" style="fill: #f2da37; stroke: #f2da37; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">REM</text>
+  </g>
+  <g class="legend" transform="translate(1100, 275)">
+  <circle cx="18" cy="18" r="7" style="fill:#ea681c; stroke: #ea681c; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">MDM</text>
+  </g>
+  <g class="legend" transform="translate(1100,300)">
+  <circle cx="18" cy="18" r="7" style="fill: #537bbc; stroke: #537bbc; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">UDI</text>
+  </g>
+  <g class="legend" transform="translate(1100,325)">
+  <circle cx="18" cy="18" r="7" style="fill: #3c589e; stroke: #3c589e; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">LR</text>
+  </g>
+  <g class="legend" transform="translate(1100,350)">
+  <circle cx="18" cy="18" r="7" style="fill:#1a3372; stroke:#1a3372; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">DVD</text>
+  </g>
+  <g class="legend" transform="translate(1100,375)">
+  <circle cx="18" cy="18" r="7" style="fill: #7928b7; stroke:#7928b7; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">DLF</text>
+  </g>
+  <g class="legend" transform="translate(1100,400)">
+  <circle cx="18" cy="18" r="7" style="fill: #03194f; stroke: #03194f; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">FN</text>
+  </g>
+  <g class="legend" transform="translate(1100, 425)">
+  <circle cx="18" cy="18" r="7" style="fill: #000a23; stroke: #000a23; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">EXD</text>
+  </g></svg>
+
+
         <script type="text/javascript">
-            var parliament = d3.parliament().width(800).height(400).innerRadiusCoef(0.4);
+            var parliament = d3.parliament().width(1200).height(400).innerRadiusCoef(0.4);
             parliament.enter.fromCenter(true).smallToBig(true);
             parliament.exit.toCenter(true).bigToSmall(true);
             parliament.on("click", function(e) { console.log(e); });
@@ -87,7 +152,7 @@
      id="defs1">
     <style
        id="style1">
-       .circo {fill-opacity:2.0;fill-rule:evenodd;stroke-opacity:1;stroke:grey;stroke-width:0.25;fill: #4c4d4f}
+       .circo {fill-opacity:2.0;fill-rule:evenodd;stroke-opacity:1;stroke:grey;stroke-width:0.25}
        .titre {font-size:40px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
        .titres {font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
        .num_etranger {font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans}
@@ -1880,10 +1945,6 @@
       <desc
          id="d206">Cantons de : Allègre, Auzon, Blesle, Brioude Nord, Brioude Sud, Cayres, La Chaise-Dieu, Craponne-sur-Arzon, Langeac Lavoûte-Chilhac, Loudes, Paulhaguet, Pinols, Pradelles, Le Puy Nord, Le Puy Ouest, Le Puy Sud-Ouest, Saint-Paulien, Saugues, Solignac-sur-Loire.</desc>
     </path>
-    <path
-       class="vide"
-       d="M 517.31666,644.45833 516.53541,644.77083 516.16041,644.58333 515.47291,645.73958 514.72291,645.45833 513.16041,646.98958 511.94166,647.45833 511.12916,647.27083 510.75416,647.45833 510.81666,648.30208 510.72291,648.77083 511.84791,650.05208 513.28541,650.98958 516.50416,651.98958 516.75416,650.70833 520.28541,652.08333 521.69166,653.08333 522.03541,653.80208 521.50416,654.17708 522.25416,654.70833 521.87916,655.77083 522.03541,656.30208 521.94166,656.89583 523.06666,657.27083 522.59791,658.36458 524.78541,658.27083 527.00416,657.45833 528.53541,655.83333 530.97291,654.70833 531.16041,654.48958 529.69166,651.45833 529.75416,650.20833 529.00416,650.58333 528.12916,651.33333 526.28541,653.73958 525.22291,653.58333 525.44166,652.45833 525.91041,651.77083 526.00416,650.95833 524.84791,650.61458 524.28541,649.42708 522.22291,648.89583 521.41041,648.80208 519.53541,645.86458 517.31666,644.45833 z"
-       id="44-0" />
     <path
        class="circo"
        id="44-3"
@@ -5849,7 +5910,7 @@
   <text x="22" y="16">REM</text>
   </g>
   <g class="legend" transform="translate(750, 50)">
-  <rect width="18" height="18" style="fill:#CCA300; stroke: #CCA300; z-index:-10"></rect>
+  <rect width="18" height="18" style="fill:#f4a213; stroke: #f4a213; z-index:-10"></rect>
   <text x="22" y="16">MDM</text>
   </g>
   <g class="legend" transform="translate(850,50)">
@@ -5881,7 +5942,7 @@
   <text x="22" y="16">Potentiel Elu</text>
   </g>
   <g class="legend" transform="translate(1450, 50)">
-  <rect width="18" height="18" style="fill: #ffffff; stroke: white; z-index:-10; stroke-width:4"></rect>
+  <rect width="18" height="18" style="fill: #ffffff; stroke: #adad85; z-index:-10; stroke-width:4"></rect>
   <text x="22" y="16">Triangulaire</text>
   </g>
 
@@ -9836,7 +9897,7 @@ var myBarChart = new Chart(ctx, {
     </path>
     <path
        class="circo"
-       id="976-1"
+       id="985-1"
        d="M 32.788305,905.70652 32.201705,905.82402 29.972905,908.2877 30.207505,908.75694 32.905605,909.69542 33.844105,911.57237 37.011405,909.3433 36.894105,908.87406 32.788305,905.70652 z M 56.484806,911.68949 53.317406,912.62797 53.552106,913.80106 50.971305,916.02975 50.150105,919.31442 48.507805,920.83963 46.278905,920.60501 46.630805,923.65505 43.580805,926.82222 40.530705,926.23586 40.296105,926.47048 37.949905,933.50905 41.117305,933.86079 42.055705,935.73774 37.480705,940.54761 37.480705,941.72071 45.340405,937.73219 54.138606,936.79371 56.250206,939.37452 63.992606,943.83228 74.433106,946.53021 79.008206,946.99944 87.102607,947.58618 99.420107,943.94977 95.314207,940.78223 92.381507,939.72663 91.677607,938.90528 92.029607,936.79371 91.325707,937.49757 88.510307,936.08985 84.169806,935.85523 80.064006,935.73774 76.896606,932.80519 74.315806,937.61469 72.321606,937.61469 71.265806,935.62062 70.210006,935.50349 67.629206,936.55909 65.048406,935.15138 63.992606,934.79926 64.931106,931.74959 63.523406,928.81667 64.461806,926.82222 60.473306,924.82815 59.182906,921.7781 54.373206,917.32034 52.496306,916.38187 56.132906,913.68356 56.484806,911.68949 z M 114.55301,946.29596 111.5029,950.87084 109.27401,954.62474 106.10671,953.68627 110.09521,956.50169 114.08371,963.30564 114.90491,960.2556 118.07231,957.08843 118.30691,953.80377 118.42421,953.68627 118.77611,952.6303 116.89921,948.52465 114.55301,946.29596 z">
       <title
          id="t558">Première circonscription de Mayotte</title>
@@ -9845,7 +9906,7 @@ var myBarChart = new Chart(ctx, {
     </path>
     <path
        class="circo"
-       id="976-2"
+       id="985-2"
        d="M 92.708807,987.27956 90.080707,989.15539 87.090707,990.40093 85.851507,993.42132 86.429607,995.51675 88.629107,997.83891 83.392706,997.40459 80.218806,1001.5223 80.923406,1004.4762 80.503706,1005.4624 78.409406,1005.748 77.610606,1007.7143 81.500806,1013.7311 87.543407,1016.8446 87.391407,1017.8991 85.630107,1019.3807 82.217006,1019.6589 79.640706,1021.4732 78.900106,1018.2249 77.448806,1016.6002 75.262206,1016.128 73.765906,1017.7782 73.872506,1018.8976 73.996306,1019.7148 74.053006,1020.8249 71.218506,1024.105 69.064106,1023.7657 67.015206,1021.2644 64.226106,1022.8174 63.379606,1018.5181 61.261206,1018.1817 58.420306,1021.3752 57.581306,1020.7122 59.078706,1013.2202 58.698406,1011.044 57.680006,1010.6033 53.274106,1013.4357 49.101605,1011.8676 53.669706,1009.4888 55.710706,1007.137 56.744506,1002.9116 56.190506,1000.8544 52.116306,1000.5451 50.159405,998.07691 46.736605,991.50007 49.966105,991.25006 55.563606,991.77223 56.205906,995.01635 57.469406,999.08633 62.488806,1001.0973 63.943006,1002.6863 64.125106,1002.6653 67.391006,1003.6853 70.691406,1002.9108 73.218906,999.14339 72.891606,998.03637 68.038906,988.95718 65.994506,988.01983 65.693806,987.38354 63.096106,985.47881 59.323506,979.97822 55.484706,978.02357 54.125406,976.18603 54.748206,975.22642 56.535806,973.79956 61.840106,972.1546 57.604906,970.71235 56.113506,969.4608 57.602306,964.24325 55.807606,961.62791 55.639006,959.45027 56.603006,957.89916 59.531106,957.36836 59.278006,956.40098 55.185206,956.06538 54.419706,954.08332 56.238906,951.59411 56.608606,949.44612 55.314306,947.82219 53.386306,948.93822 50.466505,947.36834 48.317805,947.97835 43.369005,943.39108 40.123805,943.82353 37.469005,941.7266 45.351805,937.74596 54.143106,936.81725 56.260706,939.40781 63.990706,943.84493 74.389806,946.47829 79.029206,946.98131 87.131607,947.58194 99.393007,943.8941 99.560407,947.05639 98.454907,950.22055 97.636907,949.43711 97.752207,946.7741 95.729607,950.49496 97.520907,951.15903 98.989407,953.03373 98.390307,953.49846 94.591007,955.99368 92.153607,959.66462 89.435807,961.68197 88.888407,964.94336 86.992707,966.15812 86.913107,966.19641 85.594007,967.77793 85.860507,969.8437 83.394606,971.7154 83.065806,972.70718 84.057206,973.05291 86.054607,973.6877 86.461907,975.82141 88.873107,979.41852 90.976407,980.02327 91.451607,982.17763 94.592907,982.30527 92.708807,987.27956 z">
       <title
          id="t559">Deuxième circonscription de Mayotte</title>
