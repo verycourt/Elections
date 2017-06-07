@@ -33,8 +33,14 @@
         "id": "DIV",
         "legend": "Divers",
         "name": "Divers",
-        "seats": 2
+        "seats": 1
     },
+    {
+        "id": "REG",
+        "legend": "Divers",
+        "name": "Divers",
+        "seats": 1
+    },    
     {
         "id": "REM",
         "legend": "La République en Marche",
