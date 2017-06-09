@@ -1,6 +1,6 @@
 var svg = d3.select("#premier")
 var dataset = []
-var dicoNuances = {"EXG":"#d30202", "COM":"#ff1616", "FI":"#ff1616","SOC":"#f76060","RDG":"#edafaf",
+var dicoNuances = {"EXG":"#d30202", "COM":"#990000", "FI":"#ff1616","SOC":"#f76060","RDG":"#edafaf",
 "ECO":"#41992f","DIV":"#d3913b","REG":"#54422b","REM":"#ffbf00","MDM":"#f4a213","UDI":"#537bbc","LR":"#3c589e",
 "DVD":"#1a3372","DLF":"#7928b7","FN":"#03194f","EXD":"#000a23",'DVG':'#c66b9a'}
 
