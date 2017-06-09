@@ -69,13 +69,13 @@
         "id": "LR",
         "legend": "Les Républicains",
         "name": "Les Républicains",
-        "seats": 105
+        "seats": 106
     },
     {
         "id": "DVD",
         "legend": "Divers Droite",
         "name": "Divers Droite",
-        "seats": 3
+        "seats": 2
     },
     {
         "id": "FN",
