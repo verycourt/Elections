@@ -1,0 +1,134 @@
+<html>
+<header>
+	<script type="text/javascript" src="js/d3.min.js"></script>
+</header>
+<head>
+	<meta charset="utf-8">
+	<title>Predict the Parliament</title>
+</head>
+<body>
+	<h1>Projet Predict the Parliament</h1>
+	<h2>Prédiction des sièges à l'assemblée nationale</h2>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/d3-parliament.js" charset="utf-8"></script>
+    <style media="screen">
+            html, body {
+                width: 50%;
+                height: 10%;
+                padding: 0px;
+                margin: 0px;
+                background: white;
+            }
+            svg .seat {
+                cursor: pointer;
+                transition: all 800ms;
+            }
+
+            /* European parliament colors */
+            svg .seat.gue-ngl { fill: #990000 }
+            svg .seat.sd { fill: #F0001C }
+            svg .seat.greens-efa { fill: #32CD32 }
+            svg .seat.alde { fill: #FFD700 }
+            svg .seat.epp { fill: #3399FF }
+            svg .seat.ecr { fill: #0054A5 }
+            svg .seat.efdd { fill: #40E0D0 }
+            svg .seat.enf { fill: #000000 }
+            /* French parliament colors */
+            svg .seat.EXG { fill: #d30202; }
+            svg .seat.COM { fill: #990000; }
+            svg .seat.FI { fill: #ff1616; }
+            svg .seat.SOC { fill: #f76060; }
+            svg .seat.RDG { fill: #edafaf; }
+            svg .seat.DVG { fill: #c66b9a; }
+            svg .seat.ECO { fill: #41992f; }
+            svg .seat.DIV { fill: #d3913b; }
+            svg .seat.REG { fill: #54422b; }
+            svg .seat.REM { fill: #f2da37; }
+            svg .seat.MDM { fill: #ea681c; }
+            svg .seat.UDI { fill: #537bbc; }
+            svg .seat.LR { fill: #3c589e; }
+            svg .seat.DVD { fill: #132553; }
+            svg .seat.DLF { fill: #7928b7; }
+            svg .seat.FN { fill: #03174a; }
+            svg .seat.EXD { fill: #000a23; }
+            /* common */
+            svg .seat.vacant { fill: #FFFFFF }
+            svg .seat.no-party { fill: #909090; }
+        </style>
+		<svg>
+      <g class="legend" transform="translate(1100,0)">
+  <circle cx="18" cy="18" r="7" style="fill: #d3913b; stroke: #d3913b; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12" >DIV</text>
+  </g>
+  <g class="legend" transform="translate(1100,25)">
+  <circle cx="18" cy="18" r="7" style="fill:#b30000; stroke:#990000; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12" >COM</text>
+  </g>
+  <g class="legend" transform="translate(1100,50)">
+  <circle cx="18" cy="18" r="7" style="fill: #ff1616; stroke: #ff1616; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">FI</text>
+  </g>
+  <g class="legend" transform="translate(1100,75)">
+  <circle cx="18" cy="18" r="7" style="fill: #f76060; stroke: #f76060; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">SOC</text>
+  </g>
+  <g class="legend" transform="translate(1100,100)">
+  <circle cx="18" cy="18" r="7" style="fill: #edafaf; stroke: #edafaf; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">RDG</text>
+  </g>
+  <g class="legend" transform="translate(1100,125)">
+  <circle cx="18" cy="18" r="7" style="fill: #c66b9a; stroke: #c66b9a; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">DVG</text>
+  </g>
+  <g class="legend" transform="translate(1100,150)">
+  <circle cx="18" cy="18" r="7" style="fill: #41992f; stroke: #41992f; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">ECO</text>
+  </g>
+  <g class="legend" transform="translate(1100,175)">
+  <circle cx="18" cy="18" r="7" style="fill: #54422b; stroke: #54422b; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">REG</text>
+  </g>
+  <g class="legend" transform="translate(1100,200)">
+  <circle cx="18" cy="18" r="7" style="fill: #f2da37; stroke: #f2da37; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">REM</text>
+  </g>
+  <g class="legend" transform="translate(1100, 225)">
+  <circle cx="18" cy="18" r="7" style="fill:#ea681c; stroke: #ea681c; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">MDM</text>
+  </g>
+  <g class="legend" transform="translate(1100,250)">
+  <circle cx="18" cy="18" r="7" style="fill: #537bbc; stroke: #537bbc; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">UDI</text>
+  </g>
+  <g class="legend" transform="translate(1100,275)">
+  <circle cx="18" cy="18" r="7" style="fill: #3c589e; stroke: #3c589e; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">LR</text>
+  </g>
+  <g class="legend" transform="translate(1100, 300)">
+  <circle cx="18" cy="18" r="7" style="fill:#132553; stroke:#1a3372; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">DVD</text>
+  </g>
+  <g class="legend" transform="translate(1100, 325)">
+  <circle cx="18" cy="18" r="7" style="fill: #03174a; stroke: #03174a; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">FN</text></g>
+  <g class="legend" transform="translate(1100, 375)">
+  <circle cx="18" cy="18" r="7" style="fill: #000a23; stroke:#000a23; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">EXD</text></g>
+  <g class="legend" transform="translate(1100, 350)">
+  <circle cx="18" cy="18" r="7" style="fill: #7928b7; stroke: #7928b7; z-index:-10"></circle>
+  <text x="27" y="23" font-size="12">DLF</text></g>
+  </g></svg>
+
+
+        <script type="text/javascript">
+            var parliament = d3.parliament().width(1200).height(400).innerRadiusCoef(0.4);
+            parliament.enter.fromCenter(true).smallToBig(true);
+            parliament.exit.toCenter(true).bigToSmall(true);
+            parliament.on("click", function(e) { console.log(e); });
+
+            var setData = function(d) {
+                d3.select("svg").datum(d).call(parliament);
+            };
+
+            d3.json("data/french2.json", setData);
+        </script>
