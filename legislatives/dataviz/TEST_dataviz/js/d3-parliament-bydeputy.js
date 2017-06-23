@@ -71,12 +71,17 @@ d3.parliament = function() {
             var seats = [];
             (function() {
                 var seatsToRemove = maxSeatNumber - nSeats;
+                // loop over the 13 rows
                 for (var i = 0; i < nRows; i++) {
                     var rowRadius = innerParliementRadius + rowWidth * (i + 0.5);
                     var rowSeats = Math.floor(Math.PI * (b + i)) - Math.floor(seatsToRemove / nRows) - (seatsToRemove % nRows > i ? 1 : 0);
                     var anglePerSeat = Math.PI / rowSeats;
+                    // lover over "columns"
                     for (var j = 0; j < rowSeats; j++) {
                         var s = {};
+                        //console.log(i, j)
+                        // rowRadius >>> 1 par parti élu
+                        //s.deputy = d.party.deputies[j]
                         s.polar = {
                             r: rowRadius,
                             teta: -Math.PI + anglePerSeat * (j + 0.5)
@@ -127,7 +132,10 @@ d3.parliament = function() {
             };
             var seatX = function(d) { return d.cartesian.x; };
             var seatY = function(d) { return d.cartesian.y; };
-            var seatID = function(d) { return (Math.round(d.cartesian.x * 100) / 100).toString() + "__" + (Math.round(d.cartesian.y * 100) / 100).toString(); };
+            var seatID = function(d) {
+                return d.data.Désignation
+                //return (Math.round(d.cartesian.x * 100) / 100).toString() + "__" + (Math.round(d.cartesian.y * 100) / 100).toString();
+            };
             var seatRadius = function(d) {
                 var r = 0.4 * rowWidth;
                 if (d.data && typeof d.data.size === 'number') {
@@ -173,17 +181,53 @@ d3.parliament = function() {
             /* circles catch mouse and touch events */
             for (var evt in parliamentDispatch._) {
                 (function(evt){
+
+                    
                     circlesEnter.on(evt, function(e) { 
+                        //console.log("e", e)
                         parliamentDispatch.call(evt, this, e);
                     });
+
+                    var tooltip = d3.select("body")
+                        .append("div")
+                        .style("position", "absolute")
+                        .style("z-index", "10")
+                        .style("visibility", "hidden")
+                        .text("a simple tooltip");
+
                     circlesEnter
-                    .on("mouseover", function(d) {
-                        console.log(d3.select(this).attr("class").text);
-                        d3.select(this).attr("r", 10).style("fill", "red");
-                    })                  
-                    .on("mouseout", function(d) {
-                        d3.select(this).attr("r", 5.5).style("fill", "#fff8ee");
-                    });
+                        /*.on('mouseover', function(d){
+                            d3.select(this)
+                            .append("text")
+                            .style("position", "absolute")
+                            .style("opacity", 1)
+                            .style("z-index", "10")
+                            .style("visibility", "hidden")
+                            .text("JNZFIJBZRVHBZOHBFSUHBQDFSBHU")
+                            //return tooltip(this).style("visibility", "visible");
+                        })*/
+                        .on("mouseover", function(){ return tooltip.style("visibility", "visible"); })
+                        //.on("mousemove", function(d){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+                        //.on("mouseout", function(d){return tooltip.style("visibility", "hidden");});
+                    /*.on("mouseover", function(d) {
+                        d3.select(this).append("svg:circle")
+                            .append("svg:title")
+                            .text(function(d) { return "OKOKOKOKOK"; });
+                        //console.log(d3.select(this).attr("class").text);
+                        var g = d3.select(this);
+                        var info = g.append('text')
+                            .classed('info', true)
+                            .append('text')
+                            .attr('x', 20)
+                            .attr('y', 10)
+                            .text('test');
+                            //.attr("id").style("fill", "red");
+                        //d3.select(this).attr("r", 10).style("fill", "red");
+                    })*/   
+                    /*.on("mouseout", function(d) {
+                        //d3.select(this).attr("r", 5.5).style("fill", "#fff8ee");
+                        //d3.select(this).select('text.info').remove();
+                    });*/
                 })(evt);
             }
 
