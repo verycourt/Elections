@@ -188,46 +188,26 @@ d3.parliament = function() {
                         parliamentDispatch.call(evt, this, e);
                     });
 
-                    var tooltip = d3.select("body")
-                        .append("div")
-                        .style("position", "absolute")
-                        .style("z-index", "10")
-                        .style("visibility", "hidden")
-                        .text("a simple tooltip");
-
                     circlesEnter
-                        /*.on('mouseover', function(d){
-                            d3.select(this)
-                            .append("text")
-                            .style("position", "absolute")
-                            .style("opacity", 1)
-                            .style("z-index", "10")
-                            .style("visibility", "hidden")
-                            .text("JNZFIJBZRVHBZOHBFSUHBQDFSBHU")
-                            //return tooltip(this).style("visibility", "visible");
-                        })*/
-                        .on("mouseover", function(){ return tooltip.style("visibility", "visible"); })
-                        //.on("mousemove", function(d){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-                        //.on("mouseout", function(d){return tooltip.style("visibility", "hidden");});
-                    /*.on("mouseover", function(d) {
-                        d3.select(this).append("svg:circle")
-                            .append("svg:title")
-                            .text(function(d) { return "OKOKOKOKOK"; });
-                        //console.log(d3.select(this).attr("class").text);
-                        var g = d3.select(this);
-                        var info = g.append('text')
-                            .classed('info', true)
-                            .append('text')
-                            .attr('x', 20)
-                            .attr('y', 10)
-                            .text('test');
-                            //.attr("id").style("fill", "red");
-                        //d3.select(this).attr("r", 10).style("fill", "red");
-                    })*/   
-                    /*.on("mouseout", function(d) {
-                        //d3.select(this).attr("r", 5.5).style("fill", "#fff8ee");
-                        //d3.select(this).select('text.info').remove();
-                    });*/
+                        .on("mouseover", function(d){
+                            //console.log(d.data)
+                            return d3.select("body")
+                                .append("div")
+                                .style("background",'#F2EDED')
+                                .attr('class','tooltip')
+                                .style("position", "absolute")
+                                .style("z-index", "10")
+                                .html(d.data.Désignation + "<br><br>"
+                                    + "Département : " + d.data.Dpt + "<br>"
+                                    + "Score : " + d.data.Score + "<br>"
+                                    + "Si dpt. sortant : " + d.data.Sortant + "<br>"
+                                    + "Si ex-poste important : " + d.data["Perso."] + "<br>"
+                                    + "Date de naissance : " + d.data["Né(e)_le"] + "<br>"
+                                    + "Profession : " + d.data.Profession
+                                    );
+                        })
+                        .on("mousemove", function(){return d3.select(".tooltip").style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+                        .on("mouseout", function(){return d3.select(".tooltip").remove();});
                 })(evt);
             }
 

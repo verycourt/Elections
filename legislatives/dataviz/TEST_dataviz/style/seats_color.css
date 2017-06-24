@@ -5,6 +5,14 @@ html, body {
     margin: 0px;
     background: white;
 }
+
+.tooltip {
+  position: absolute;
+  width: 300px;
+  height: 160px;
+  pointer-events: none;
+}
+
 svg .seat {
     cursor: pointer;
     transition: all 800ms;

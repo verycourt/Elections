@@ -6,7 +6,7 @@
         "seats": [{
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "1ère circonscription",
-            "Désignation": "M. SERVA Olivier",
+            "Désignation": "M. Machin Olivier",
             "Nuance": "COM",
             "Score": "61,74 %",
             "Sortant": "",
@@ -21,7 +21,7 @@
           {
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "2ème circonscription",
-            "Désignation": "Mme BENIN Justine",
+            "Désignation": "Mme Machine Justine",
             "Nuance": "COM",
             "Score": "64,26 %",
             "Sortant": "",
@@ -41,7 +41,7 @@
         "seats": [{
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "1ère circonscription",
-            "Désignation": "M. SERVA Olivier",
+            "Désignation": "M. Truc Olivier",
             "Nuance": "FI",
             "Score": "61,74 %",
             "Sortant": "",
@@ -61,7 +61,7 @@
         "seats": [{
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "1ère circonscription",
-            "Désignation": "M. SERVA Olivier",
+            "Désignation": "M. Bidule Olivier",
             "Nuance": "SOC",
             "Score": "61,74 %",
             "Sortant": "",
@@ -81,7 +81,7 @@
         "seats": [{
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "1ère circonscription",
-            "Désignation": "M. SERVA Olivier",
+            "Désignation": "M. Lalala Olivier",
             "Nuance": "RDG",
             "Score": "61,74 %",
             "Sortant": "",
@@ -101,7 +101,7 @@
         "seats": [{
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "1ère circonscription",
-            "Désignation": "M. SERVA Olivier",
+            "Désignation": "M. Zig Olivier",
             "Nuance": "DVG",
             "Score": "61,74 %",
             "Sortant": "",
@@ -121,7 +121,7 @@
         "seats": [{
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "1ère circonscription",
-            "Désignation": "M. SERVA Olivier",
+            "Désignation": "M. Puce Olivier",
             "Nuance": "ECO",
             "Score": "61,74 %",
             "Sortant": "",
@@ -141,7 +141,7 @@
         "seats": [{
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "1ère circonscription",
-            "Désignation": "M. SERVA Olivier",
+            "Désignation": "M. Tintin Olivier",
             "Nuance": "DIV",
             "Score": "61,74 %",
             "Sortant": "",
@@ -161,7 +161,7 @@
         "seats": [{
             "Dpt": "ZA",
             "Nom_de_la_Circonscription": "1ère circonscription",
-            "Désignation": "M. SERVA Olivier",
+            "Désignation": "M. Milou Olivier",
             "Nuance": "REG",
             "Score": "61,74 %",
             "Sortant": "",
