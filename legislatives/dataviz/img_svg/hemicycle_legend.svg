@@ -1,0 +1,9 @@
+
+		<svg>
+			<!-- LEGEND of HEMICYCLE-->
+			<circle cx="18" cy="18" r="7" style="fill: #d3913b; stroke: #d3913b; z-index:-10"></circle>
+			<text x="27" y="23" font-size="12" >DIV</text>
+			<circle cx="18" cy="18" r="7" style="fill:#b30000; stroke:#990000; z-index:-10"></circle>
+			<text x="27" y="23" font-size="12" >COM</text>
+			
+		</svg>

@@ -1,0 +1,578 @@
+Dpt;Nom_de_la_Circonscription;Désignation;Nuance;Score;Sortant;Perso.;Né(e)_le;Profession;Tour
+ZA;1ère circonscription;M. SERVA Olivier;REM;61,74 %;;;6/21/74;34 - Expert comptable;2
+ZA;2ème circonscription;Mme BENIN Justine;DVG;64,26 %;;;3/12/75;48 - Fonctionnaire de catégorie B;2
+ZA;3ème circonscription;M. MATHIASIN Max;DVG;65,15 %;;;2/24/56;52 - Employé (autres entrep. publiques);2
+ZA;4ème circonscription;Mme VAINQUEUR-CHRISTOPHE Hélène;SOC;61,61 %;;;5/6/56;28 - Pharmacien;2
+ZB;1ère circonscription;Mme MANIN Josette;DVG;54,89 %;;;3/16/50;61 - Retraité salarié privé;2
+ZB;2ème circonscription;M. AZEROT Bruno Nestor;DVG;55,78 %;O;DEP;7/22/61;09 - Commercant;2
+ZB;3ème circonscription;M. LETCHIMY Serge;DVG;73,94 %;O;DEP;1/13/53;63 - Retraité fonct.publique (sf enseig.);2
+ZB;4ème circonscription;M. NILOR Jean-Philippe;REG;68,02 %;O;DEP;5/15/65;57 - Sans profession déclarée;2
+ZC;1ère circonscription;M. SERVILLE Gabriel;DVG;51,33 %;O;DEP;9/27/59;44 - Profession rattachée à l'enseignt.;2
+ZC;2ème circonscription;M. ADAM Lénaïck;REM;50,21 %;;;2/19/92;50 - Cadre sup. (entreprises publiques);2
+ZD;1ère circonscription;Mme BAREIGTS Ericka;SOC;65,86 %;O;DEP;4/16/67;47 - Fonctionnaire de catégorie A;2
+ZD;2ème circonscription;Mme BELLO Huguette;DVG;73,59 %;O;DEP;8/24/50;62 - Retraité de l'enseignement;2
+ZD;3ème circonscription;Mme BASSIRE Nathalie;LR;56,44 %;;;1/22/68;62 - Retraité de l'enseignement;2
+ZD;4ème circonscription;M. LORION David;LR;54,39 %;;;10/15/64;41 - Professeur de faculté;2
+ZD;5ème circonscription;M. RATENON Jean Hugues;DVG;52,88 %;;;6/25/67;20 - Employé (secteur privé);2
+ZD;6ème circonscription;Mme RAMASSAMY Nadia;LR;52,61 %;;;5/17/61;24 - Médecin;2
+ZD;7ème circonscription;M. ROBERT Thierry;MDM;60,78 %;O;DEP;4/1/77;05 - Industriel-Chef entreprise;2
+ZM;1ère circonscription;Mme ALI Ramlati;SOC;50,17 %;;;5/28/61;24 - Médecin;2
+ZM;2ème circonscription;M. KAMARDINE Mansour;LR;64,61 %;;;3/23/59;29 - Avocat;2
+ZN;1ère circonscription;M. DUNOYER Philippe;DVD;59,15 %;;;1/11/68;47 - Fonctionnaire de catégorie A;2
+ZN;2ème circonscription;M. GOMES Philippe;UDI;54,95 %;O;DEP;10/27/58;54 - Permanent politique;2
+ZP;1ère circonscription;Mme SAGE Maina;UDI;68,36 %;O;DEP;5/10/75;56 - Autre profession;2
+ZP;2ème circonscription;Mme SANQUER Nicole;DVD;64,18 %;;;6/16/72;42 - Professeur du secondaire et techn.;2
+ZP;3ème circonscription;M. BROTHERSON Moetai, Charles;REG;52,50 %;;;10/22/69;56 - Autre profession;2
+ZS;Saint-Pierre-et-Miquelon;Mme GIRARDIN Annick;RDG;51,87 %;;MIN;8/3/64;47 - Fonctionnaire de catégorie A;2
+ZW;1ère circonscription;M. POLUTELE Napole;DVG;50,24 %;O;DEP;6/25/64;42 - Professeur du secondaire et techn.;1
+ZX;1ère circonscription;Mme JAVOIS Claire;LR;54,73 %;;;9/6/57;18 - Cadre supérieur (secteur privé);2
+ZZ;1ère circonscription;M. LESCURE Roland;REM;79,73 %;;;11/26/66;18 - Cadre supérieur (secteur privé);2
+ZZ;2ème circonscription;Mme FORTEZA Paula;REM;60,92 %;;;8/8/86;18 - Cadre supérieur (secteur privé);2
+ZZ;3ème circonscription;M. HOLROYD Alexandre;REM;70,11 %;;;5/17/87;57 - Sans profession déclarée;2
+ZZ;4ème circonscription;M. ANGLADE Pieyre-Alexandre;REM;73,73 %;;;11/2/86;56 - Autre profession;2
+ZZ;5ème circonscription;Mme CAZEBONNE Samantha;REM;66,21 %;;;8/10/71;44 - Profession rattachée à l'enseignt.;2
+ZZ;6ème circonscription;M. SON-FORGET Joachim;REM;74,94 %;;;4/15/83;24 - Médecin;2
+ZZ;7ème circonscription;M. PETIT Frédéric;MDM;62,94 %;;;2/10/61;13 - Ingénieur;2
+ZZ;8ème circonscription;M. HABIB Meyer;UDI;57,86 %;O;DEP;4/28/61;05 - Industriel-Chef entreprise;2
+ZZ;9ème circonscription;M. EL GUERRAB M'Jid;DIV;59,66 %;;;4/25/83;19 - Autre cadre (secteur privé);2
+ZZ;10ème circonscription;Mme LAKRAFI Amal Amélia;REM;71,25 %;;;3/20/78;05 - Industriel-Chef entreprise;2
+ZZ;11ème circonscription;Mme GENETET Anne;REM;71,72 %;;;4/20/63;24 - Médecin;2
+1;1ère circonscription;M. BRETON Xavier;LR;53,75 %;O;DEP;11/25/62;56 - Autre profession;2
+1;2ème circonscription;M. DE LA VERPILLIÈRE Charles;LR;51,72 %;O;DEP;5/31/54;46 - Grands corps de l'état;2
+1;3ème circonscription;Mme GIVERNET Olga;REM;61,86 %;;;10/17/81;13 - Ingénieur;2
+1;4ème circonscription;M. TROMPILLE Stéphane;REM;64,50 %;;;12/1/82;20 - Employé (secteur privé);2
+1;5ème circonscription;M. ABAD Damien;LR;67,02 %;O;DEP,PCD;4/5/80;57 - Sans profession déclarée;2
+2;1ère circonscription;Mme BONO-VANDORME Aude;REM;56,22 %;;;8/3/62;44 - Profession rattachée à l'enseignt.;2
+2;2ème circonscription;M. DIVE Julien;LR;64,97 %;O;DEP;5/21/85;19 - Autre cadre (secteur privé);2
+2;3ème circonscription;M. BRICOUT Jean-Louis;SOC;60,45 %;O;DEP;12/27/57;51 - Cadre (entreprises publiques);2
+2;4ème circonscription;M. DELATTE Marc;REM;56,27 %;;;5/24/61;24 - Médecin;2
+2;5ème circonscription;M. KRABAL Jacques;REM;57,82 %;O;DEP;4/10/48;62 - Retraité de l'enseignement;2
+3;1ère circonscription;M. DUFRÈGNE Jean-Paul;COM;51,85 %;;;3/28/58;14 - Agent technique et technicien;2
+3;2ème circonscription;Mme VANCEUNEBROCK-MIALON Laurence;REM;52,05 %;;;5/6/70;48 - Fonctionnaire de catégorie B;2
+3;3ème circonscription;Mme PEYROL Bénédicte;REM;58,43 %;;;3/23/91;32 - Conseiller juridique;2
+4;1ère circonscription;Mme BAGARRY Delphine;REM;63,60 %;;;1/9/70;24 - Médecin;2
+4;2ème circonscription;M. CASTANER Christophe;REM;61,57 %;O;DEP,MIN;1/3/66;56 - Autre profession;2
+5;1ère circonscription;Mme BOYER Pascale;REM;57,92 %;;;9/28/65;56 - Autre profession;2
+5;2ème circonscription;M. GIRAUD Joël;REM;68,16 %;O;DEP;10/14/59;46 - Grands corps de l'état;2
+6;1ère circonscription;M. CIOTTI Eric;LR;56,21 %;O;DEP,PCD;9/28/65;56 - Autre profession;2
+6;2ème circonscription;M. DOMBREVAL Loîc;REM;59,08 %;;;4/16/66;05 - Industriel-Chef entreprise;2
+6;3ème circonscription;M. ROUSSEL Cédric;REM;60,84 %;;;10/10/72;39 - Autre profession libérale;2
+6;4ème circonscription;Mme VALETTA ARDISSON Alexandra;REM;52,74 %;;;6/7/76;49 - Fonctionnaire de catégorie C;2
+6;5ème circonscription;Mme BRENIER Marine;LR;61,21 %;O;DEP;8/11/86;32 - Conseiller juridique;2
+6;6ème circonscription;Mme TRASTOUR-ISNART Laurence;LR;57,35 %;;;3/6/72;48 - Fonctionnaire de catégorie B;2
+6;7ème circonscription;M. PAUGET Eric;LR;59,45 %;;;8/18/70;19 - Autre cadre (secteur privé);2
+6;8ème circonscription;M. BROCHAND Bernard;LR;57,13 %;O;DEP;6/5/38;59 - Retr.artis.commerc.chef d entrep.;2
+6;9ème circonscription;Mme TABAROT Michèle;LR;53,98 %;O;DEP;10/13/62;06 - Administrateur de sociétés;2
+7;1ère circonscription;M. SAULIGNAC Hervé;SOC;58,02 %;;PCD;11/6/70;51 - Cadre (entreprises publiques);2
+7;2ème circonscription;M. DUSSOPT Olivier;SOC;56,30 %;O;DEP;8/16/78;56 - Autre profession;2
+7;3ème circonscription;M. BRUN Fabrice;LR;54,77 %;;;4/2/68;05 - Industriel-Chef entreprise;2
+8;1ère circonscription;Mme POLETTI Bérengère;LR;69,68 %;O;DEP;10/14/59;47 - Fonctionnaire de catégorie A;2
+8;2ème circonscription;M. CORDIER Pierre;LR;61,05 %;;;5/27/72;47 - Fonctionnaire de catégorie A;2
+8;3ème circonscription;M. WARSMANN Jean-Luc;LR;74,72 %;O;DEP;10/22/65;54 - Permanent politique;2
+9;1ère circonscription;Mme TAURINE Bénédicte;FI;50,28 %;;;6/18/76;42 - Professeur du secondaire et techn.;2
+9;2ème circonscription;M. LARIVE Michel;FI;50,55 %;;;8/22/66;44 - Profession rattachée à l'enseignt.;2
+10;1ère circonscription;M. BESSON-MOREAU Grégory;REM;36,46 %;;;7/7/82;35 - Ingénieur conseil;2
+10;2ème circonscription;Mme BAZIN-MALGRAS Valérie;LR;55,30 %;;;10/31/69;09 - Commercant;2
+10;3ème circonscription;M. MENUEL Gérard;LR;52,72 %;O;DEP;5/7/52;58 - Retraité agricole;2
+11;1ère circonscription;Mme HÉRIN Danièle;REM;58,71 %;;;1/14/47;62 - Retraité de l'enseignement;2
+11;2ème circonscription;M. PEREA Alain;REM;58,46 %;;;6/5/71;47 - Fonctionnaire de catégorie A;2
+11;3ème circonscription;Mme ROBERT Mireille;REM;53,10 %;;;3/1/62;43 - Enseignant 1er deg.-directeur école;2
+12;1ère circonscription;M. MAZARS Stéphane;REM;66,37 %;;;3/25/69;29 - Avocat;2
+12;2ème circonscription;Mme BLANC Anne;REM;100,00 %;;;7/20/66;39 - Autre profession libérale;2
+12;3ème circonscription;M. VIALA Arnaud;LR;59,16 %;O;DEP;12/4/74;44 - Profession rattachée à l'enseignt.;2
+13;1ère circonscription;Mme BOYER Valérie;LR;55,10 %;O;DEP,MAI;6/11/62;18 - Cadre supérieur (secteur privé);2
+13;2ème circonscription;Mme PITOLLAT Claire;REM;54,77 %;;;9/17/79;13 - Ingénieur;2
+13;3ème circonscription;Mme LOUIS Alexandra;REM;52,42 %;;;9/17/83;29 - Avocat;2
+13;4ème circonscription;M. MÉLENCHON Jean-Luc;FI;59,85 %;;RPE;8/19/51;57 - Sans profession déclarée;2
+13;5ème circonscription;Mme RACON-BOUZON Cathy;REM;52,21 %;;;11/22/76;18 - Cadre supérieur (secteur privé);2
+13;6ème circonscription;M. TEISSIER Guy;LR;53,53 %;O;DEP;4/4/45;56 - Autre profession;2
+13;7ème circonscription;M. AHAMADA Saïd;REM;58,39 %;;;11/7/72;47 - Fonctionnaire de catégorie A;2
+13;8ème circonscription;M. ZULESI Jean-Marc;REM;58,68 %;;;6/6/88;19 - Autre cadre (secteur privé);2
+13;9ème circonscription;M. DEFLESSELLES Bernard;LR;50,77 %;O;DEP;10/16/53;13 - Ingénieur;2
+13;10ème circonscription;M. LAMBERT François-Michel;REM;58,27 %;O;DEP;8/24/66;13 - Ingénieur;2
+13;11ème circonscription;M. LAQHILA Mohamed;MDM;50,95 %;;;8/3/59;34 - Expert comptable;2
+13;12ème circonscription;M. DIARD Eric;LR;62,13 %;;;7/21/65;29 - Avocat;2
+13;13ème circonscription;M. DHARRÉVILLE Pierre;COM;62,41 %;;;6/15/75;20 - Employé (secteur privé);2
+13;14ème circonscription;Mme PETEL Anne-Laurence;REM;60,23 %;;;2/8/70;19 - Autre cadre (secteur privé);2
+13;15ème circonscription;M. REYNÈS Bernard;LR;56,49 %;O;DEP;10/18/53;54 - Permanent politique;2
+13;16ème circonscription;Mme MICHEL Monica;REM;51,17 %;;;4/16/55;16 - Représentant de commerce;2
+14;1ère circonscription;M. LE VIGOUREUX Fabrice;REM;64,93 %;;;8/27/69;41 - Professeur de faculté;2
+14;2ème circonscription;Mme DUMONT Laurence;SOC;53,32 %;O;DEP;6/2/58;54 - Permanent politique;2
+14;3ème circonscription;M. LECLERC Sébastien;LR;51,32 %;;;3/28/70;39 - Autre profession libérale;2
+14;4ème circonscription;M. BLANCHET Christophe;REM;55,82 %;;;4/9/73;09 - Commercant;2
+14;5ème circonscription;M. BOUYX Bertrand;REM;55,33 %;;;5/26/70;28 - Pharmacien;2
+14;6ème circonscription;M. TOURRET Alain;REM;68,34 %;O;DEP;12/25/47;29 - Avocat;2
+15;1ère circonscription;M. DESCOEUR Vincent;LR;51,11 %;;PCD;12/13/62;42 - Professeur du secondaire et techn.;2
+15;2ème circonscription;M. BONY Jean-Yves;LR;55,76 %;;;3/11/55;01 - Agriculteur-propriétaire exploit.;2
+16;1ère circonscription;M. MESNIER Thomas;REM;59,95 %;;;3/4/86;24 - Médecin;2
+16;2ème circonscription;Mme MARSAUD Sandra;REM;58,73 %;;;1/2/74;51 - Cadre (entreprises publiques);2
+16;3ème circonscription;M. LAMBERT Jérôme;SOC;59,90 %;O;DEP;6/7/57;18 - Cadre supérieur (secteur privé);2
+17;1ère circonscription;M. FALORNI Olivier;DVG;69,02 %;O;DEP;3/27/72;42 - Professeur du secondaire et techn.;2
+17;2ème circonscription;Mme TUFFNELL Fréderique;REM;57,27 %;;;6/29/56;51 - Cadre (entreprises publiques);2
+17;3ème circonscription;M. ARDOUIN Jean-Philippe;REM;57,52 %;;;3/5/64;01 - Agriculteur-propriétaire exploit.;2
+17;4ème circonscription;M. GÉRARD Raphaël;REM;51,29 %;;;1/11/68;18 - Cadre supérieur (secteur privé);2
+17;5ème circonscription;M. QUENTIN Didier;LR;54,89 %;O;DEP;12/23/46;63 - Retraité fonct.publique (sf enseig.);2
+18;1ère circonscription;M. CORMIER-BOULIGEON François;REM;56,21 %;;;11/19/72;56 - Autre profession;2
+18;2ème circonscription;Mme ESSAYAN Nadia;MDM;52,57 %;;;6/6/57;19 - Autre cadre (secteur privé);2
+18;3ème circonscription;M. KERVRAN Loïc;REM;50,92 %;;;2/11/84;19 - Autre cadre (secteur privé);2
+19;1ère circonscription;M. JERRETIE Christophe;REM;53,43 %;;;8/31/79;39 - Autre profession libérale;2
+19;2ème circonscription;Mme MEUNIER Frédérique;LR;50,03 %;;;12/8/60;29 - Avocat;2
+2A;1ère circonscription;M. FERRARA Jean-Jacques;LR;64,99 %;;;6/16/67;24 - Médecin;2
+2A;2ème circonscription;M. COLOMBANI Paul-André;REG;55,22 %;;;8/17/67;24 - Médecin;2
+2B;1ère circonscription;M. CASTELLANI Michel;REG;60,81 %;;;9/28/45;62 - Retraité de l'enseignement;2
+2B;2ème circonscription;M. ACQUAVIVA Jean-Félix;REG;63,16 %;;;3/19/73;57 - Sans profession déclarée;2
+21;1ère circonscription;M. MARTIN Didier;REM;54,14 %;;;8/20/56;50 - Cadre sup. (entreprises publiques);2
+21;2ème circonscription;M. DELATTE Rémi;LR;52,44 %;O;DEP;6/9/56;01 - Agriculteur-propriétaire exploit.;2
+21;3ème circonscription;Mme KHATTABI Fadila;REM;65,31 %;;;2/23/62;42 - Professeur du secondaire et techn.;2
+21;4ème circonscription;Mme DE COURSON Yolaine;REM;51,29 %;;;7/14/54;59 - Retr.artis.commerc.chef d entrep.;2
+21;5ème circonscription;M. PARIS Didier;REM;53,78 %;;;2/14/54;18 - Cadre supérieur (secteur privé);2
+22;1ère circonscription;M. JONCOUR Bruno;MDM;60,04 %;;;11/25/53;48 - Fonctionnaire de catégorie B;2
+22;2ème circonscription;M. BERVILLE Hervé;REM;64,17 %;;;1/15/90;19 - Autre cadre (secteur privé);2
+22;3ème circonscription;M. LE FUR Marc;LR;54,32 %;O;DEP;11/28/56;46 - Grands corps de l'état;2
+22;4ème circonscription;M. KERLOGOT Yannick;REM;50,49 %;;;5/12/70;43 - Enseignant 1er deg.-directeur école;2
+22;5ème circonscription;M. BOTHOREL Eric;REM;66,41 %;O;DEP;10/20/66;18 - Cadre supérieur (secteur privé);2
+23;1ère circonscription;M. MOREAU Jean-Baptiste;REM;58,23 %;;;2/14/77;01 - Agriculteur-propriétaire exploit.;2
+24;1ère circonscription;M. CHASSAING Philippe;REM;52,53 %;;;5/18/72;42 - Professeur du secondaire et techn.;2
+24;2ème circonscription;M. DELPON Michel;REM;66,32 %;;;8/13/49;61 - Retraité salarié privé;2
+24;3ème circonscription;M. CUBERTAFON Jean-Pierre;MDM;51,00 %;;;2/5/48;60 - Retraité des professions libérales;2
+24;4ème circonscription;Mme DUBOIS Jacqueline;REM;56,20 %;;;5/28/57;62 - Retraité de l'enseignement;2
+25;1ère circonscription;Mme CHARVIER Fannette;REM;53,49 %;;;12/31/84;52 - Employé (autres entrep. publiques);2
+25;2ème circonscription;M. ALAUZET Eric;ECO;62,19 %;O;DEP;6/7/58;24 - Médecin;2
+25;3ème circonscription;M. SOMMER Denis;REM;50,81 %;;;9/23/57;42 - Professeur du secondaire et techn.;2
+25;4ème circonscription;M. BARBIER Frédéric;REM;61,64 %;O;DEP;8/30/60;51 - Cadre (entreprises publiques);2
+25;5ème circonscription;Mme GENEVARD Annie;LR;59,78 %;O;DEP;9/7/56;42 - Professeur du secondaire et techn.;2
+26;1ère circonscription;Mme CLAPOT Mireille;REM;56,89 %;;;10/14/63;50 - Cadre sup. (entreprises publiques);2
+26;2ème circonscription;Mme THOUROT Alice;REM;62,80 %;;;10/12/85;29 - Avocat;2
+26;3ème circonscription;Mme DE LAVERGNE Célia;REM;56,99 %;;;11/21/79;13 - Ingénieur;2
+26;4ème circonscription;Mme ANTHOINE Emmanuelle;LR;56,45 %;;;7/2/64;29 - Avocat;2
+27;1ère circonscription;M. LE MAIRE Bruno;REM;64,53 %;O;MIN;4/15/69;46 - Grands corps de l'état;2
+27;2ème circonscription;M. GOUTTEFARDE Fabien;REM;63,25 %;;;9/27/78;47 - Fonctionnaire de catégorie A;2
+27;3ème circonscription;Mme TAMARELLE-VERHAEGHE Marie;MDM;59,29 %;;;9/27/62;24 - Médecin;2
+27;4ème circonscription;M. QUESTEL Bruno;REM;60,51 %;;;12/21/66;29 - Avocat;2
+27;5ème circonscription;Mme O'PETIT Claire;REM;55,98 %;;;10/15/49;59 - Retr.artis.commerc.chef d entrep.;2
+28;1ère circonscription;M. KASBARIAN Guillaume;REM;55,18 %;;;2/28/87;18 - Cadre supérieur (secteur privé);2
+28;2ème circonscription;M. MARLEIX Olivier;LR;59,38 %;O;DEP;2/6/71;47 - Fonctionnaire de catégorie A;2
+28;3ème circonscription;Mme DE LA RAUDIERE Laure;LR;56,10 %;O;DEP;2/12/65;05 - Industriel-Chef entreprise;2
+28;4ème circonscription;M. VIGIER Philippe;UDI;70,38 %;O;DEP;2/3/58;24 - Médecin;2
+29;1ère circonscription;Mme LE MEUR Annaïg;REM;54,45 %;;;4/29/73;39 - Autre profession libérale;2
+29;2ème circonscription;M. LARSONNEUR Jean-Charles;REM;59,58 %;;;1/24/84;47 - Fonctionnaire de catégorie A;2
+29;3ème circonscription;M. LE GAC Didier;REM;60,69 %;;;7/19/65;44 - Profession rattachée à l'enseignt.;2
+29;4ème circonscription;Mme LE FEUR Sandrine;REM;52,14 %;;;3/18/91;01 - Agriculteur-propriétaire exploit.;2
+29;5ème circonscription;Mme MELCHIOR Graziella;REM;53,89 %;;;4/6/60;41 - Professeur de faculté;2
+29;6ème circonscription;M. FERRAND Richard;REM;56,53 %;O;DEP,MIN;7/1/62;18 - Cadre supérieur (secteur privé);2
+29;7ème circonscription;Mme TANGUY Liliane;REM;62,95 %;;;3/12/67;47 - Fonctionnaire de catégorie A;2
+29;8ème circonscription;M. BALANANT Erwan;REM;51,45 %;;;2/21/71;38 - Homme de lettres et Artiste;2
+30;1ère circonscription;Mme DUMAS Françoise;REM;54,55 %;O;DEP;4/12/60;47 - Fonctionnaire de catégorie A;2
+30;2ème circonscription;M. COLLARD Gilbert;FN;50,16 %;O;DEP;2/3/48;29 - Avocat;2
+30;3ème circonscription;M. CELLIER Anthony;REM;59,02 %;;;6/1/75;19 - Autre cadre (secteur privé);2
+30;4ème circonscription;Mme CHAPELIER Annie;REM;58,21 %;;;11/7/67;43 - Enseignant 1er deg.-directeur école;2
+30;5ème circonscription;M. GAILLARD Olivier;REM;63,57 %;;PCC;2/28/67;47 - Fonctionnaire de catégorie A;2
+30;6ème circonscription;M. BERTA Philippe;REM;60,35 %;;;4/11/60;41 - Professeur de faculté;2
+31;1ère circonscription;M. CABARE Pierre;REM;51,02 %;;;12/12/57;10 - Artisan;2
+31;2ème circonscription;M. LAGLEIZE Jean-Luc;MDM;55,49 %;;;9/9/58;32 - Conseiller juridique;2
+31;3ème circonscription;Mme VIGNON Corinne;REM;52,97 %;;;6/10/63;18 - Cadre supérieur (secteur privé);2
+31;4ème circonscription;M. NOGAL Mickaël;REM;51,91 %;;;11/26/90;39 - Autre profession libérale;2
+31;5ème circonscription;M. PORTARRIEU Jean-François;REM;67,60 %;;;10/14/65;47 - Fonctionnaire de catégorie A;2
+31;6ème circonscription;Mme IBORRA Monique;REM;55,87 %;O;DEP;3/8/45;63 - Retraité fonct.publique (sf enseig.);2
+31;7ème circonscription;Mme TOUTUT-PICARD Elisabeth;REM;67,84 %;;;12/17/54;47 - Fonctionnaire de catégorie A;2
+31;8ème circonscription;M. AVIRAGNET Joël;SOC;50,13 %;;;6/16/56;19 - Autre cadre (secteur privé);2
+31;9ème circonscription;Mme MÖRCH Sandrine;REM;52,33 %;;;11/13/61;37 - Journaliste et autre média;2
+31;10ème circonscription;M. NADOT Sébastien;REM;60,70 %;;;7/8/72;42 - Professeur du secondaire et techn.;2
+32;1ère circonscription;M. CAZENEUVE Jean-René;REM;59,25 %;;;6/9/58;13 - Ingénieur;2
+32;2ème circonscription;Mme BIÉMOURET Gisèle;SOC;51,57 %;O;;6/16/52;54 - Permanent politique;2
+33;1ère circonscription;Mme DAVID Dominique;REM;59,59 %;;;2/27/63;18 - Cadre supérieur (secteur privé);2
+33;2ème circonscription;Mme FABRE Catherine;REM;63,79 %;;;9/19/78;48 - Fonctionnaire de catégorie B;2
+33;3ème circonscription;M. PRUD'HOMME Loïc;FI;50,20 %;;;8/19/69;48 - Fonctionnaire de catégorie B;2
+33;4ème circonscription;M. DAVID Alain;SOC;50,91 %;;;6/2/49;64 - Retraité des entreprises publiques;2
+33;5ème circonscription;M. SIMIAN Benoit;REM;50,46 %;;;5/27/83;51 - Cadre (entreprises publiques);2
+33;6ème circonscription;M. POULLIAT Eric;REM;58,81 %;;;7/9/74;48 - Fonctionnaire de catégorie B;2
+33;7ème circonscription;Mme COUILLARD Bérangère;REM;55,70 %;;;7/24/86;19 - Autre cadre (secteur privé);2
+33;8ème circonscription;Mme PANONACLE Sophie;REM;59,75 %;;;12/16/68;57 - Sans profession déclarée;2
+33;9ème circonscription;Mme METTE Sophie;MDM;53,54 %;;;9/13/59;57 - Sans profession déclarée;2
+33;10ème circonscription;M. BOUDIÉ Florent;REM;67,90 %;O;DEP;9/22/73;56 - Autre profession;2
+33;11ème circonscription;Mme HAMMERER Véronique;REM;57,02 %;;;11/4/68;47 - Fonctionnaire de catégorie A;2
+33;12ème circonscription;Mme DUBOS Christelle;REM;56,71 %;;;3/26/76;47 - Fonctionnaire de catégorie A;2
+34;1ère circonscription;Mme MIRALLÈS Patricia;REM;65,69 %;;;8/22/67;49 - Fonctionnaire de catégorie C;2
+34;2ème circonscription;Mme RESSIGUIER Muriel;FI;52,29 %;;;12/21/77;52 - Employé (autres entrep. publiques);2
+34;3ème circonscription;Mme DUBOST Coralie;REM;60,45 %;;;3/4/83;32 - Conseiller juridique;2
+34;4ème circonscription;M. ELIAOU Jean-François;REM;65,75 %;;;8/13/56;24 - Médecin;2
+34;5ème circonscription;M. HUPPÉ Philippe;REM;58,36 %;;;2/12/68;38 - Homme de lettres et Artiste;2
+34;6ème circonscription;Mme MÉNARD Emmanuelle;FN;53,49 %;;;8/15/68;37 - Journaliste et autre média;2
+34;7ème circonscription;M. EUZET Christophe;REM;52,83 %;;;4/2/67;41 - Professeur de faculté;2
+34;8ème circonscription;M. DÉMOULIN Nicolas;REM;62,85 %;;;7/22/79;33 - Agent général d'assurances;2
+34;9ème circonscription;M. VIGNAL Patrick;REM;64,54 %;O;DEP;1/22/58;06 - Administrateur de sociétés;2
+35;1ère circonscription;M. LAABID Mostapha;REM;58,87 %;;;3/29/69;56 - Autre profession;2
+35;2ème circonscription;Mme MAILLART-MÉHAIGNERIE Laurence;MDM;74,44 %;;;4/5/67;05 - Industriel-Chef entreprise;2
+35;3ème circonscription;M. ANDRÉ François;SOC;65,86 %;O;DEP;7/19/67;47 - Fonctionnaire de catégorie A;2
+35;4ème circonscription;M. LE BOHEC Gaël;REM;61,75 %;;;11/4/77;05 - Industriel-Chef entreprise;2
+35;5ème circonscription;Mme CLOAREC Christine;REM;53,30 %;;;10/28/64;20 - Employé (secteur privé);2
+35;6ème circonscription;M. BENOIT Thierry;UDI;58,00 %;O;DEP;9/13/66;16 - Représentant de commerce;2
+35;7ème circonscription;M. LURTON Gilles;LR;56,21 %;O;DEP;7/6/63;56 - Autre profession;2
+35;8ème circonscription;M. BACHELIER Florian;REM;60,96 %;;;4/5/79;29 - Avocat;2
+36;1ère circonscription;M. JOLIVET François;REM;70,42 %;;;3/21/66;18 - Cadre supérieur (secteur privé);2
+36;2ème circonscription;M. FORISSIER Nicolas;LR;51,69 %;;;2/17/61;05 - Industriel-Chef entreprise;2
+37;1ère circonscription;M. CHALUMEAU Philippe;REM;53,93 %;;;11/8/63;24 - Médecin;2
+37;2ème circonscription;M. LABARONNE Daniel;REM;56,86 %;;;7/16/55;41 - Professeur de faculté;2
+37;3ème circonscription;Mme AUCONIE Sophie;UDI;56,59 %;;;8/19/63;05 - Industriel-Chef entreprise;2
+37;4ème circonscription;Mme COLBOC Fabienne;REM;58,26 %;;;8/9/71;05 - Industriel-Chef entreprise;2
+37;5ème circonscription;Mme THILLAYE Sabine;REM;58,29 %;;;5/18/59;05 - Industriel-Chef entreprise;2
+38;1ère circonscription;M. VERAN Olivier;REM;68,09 %;;;4/22/80;24 - Médecin;2
+38;2ème circonscription;M. COLAS-ROY Jean-Charles;REM;73,55 %;;;5/2/78;13 - Ingénieur;2
+38;3ème circonscription;Mme CHALAS Emilie;REM;54,01 %;;;10/18/77;47 - Fonctionnaire de catégorie A;2
+38;4ème circonscription;Mme BATTISTEL Marie-Noëlle;SOC;54,01 %;O;DEP;8/20/56;19 - Autre cadre (secteur privé);2
+38;5ème circonscription;Mme KAMOWSKI Catherine;REM;66,71 %;;;4/8/58;42 - Professeur du secondaire et techn.;2
+38;6ème circonscription;Mme MOTIN Cendra;REM;55,05 %;;;1/29/75;39 - Autre profession libérale;2
+38;7ème circonscription;Mme LIMON Monique;REM;51,84 %;;;12/5/53;61 - Retraité salarié privé;2
+38;8ème circonscription;Mme ABADIE Caroline;REM;63,92 %;;;9/7/76;05 - Industriel-Chef entreprise;2
+38;9ème circonscription;Mme JACQUIER-LAFORGE Elodie;MDM;60,25 %;;;4/15/78;18 - Cadre supérieur (secteur privé);2
+38;10ème circonscription;Mme MEYNIER-MILLEFERT Marjolaine;REM;64,62 %;;;9/30/82;05 - Industriel-Chef entreprise;2
+39;1ère circonscription;Mme BRULEBOIS Danielle;REM;57,88 %;;;7/4/47;62 - Retraité de l'enseignement;2
+39;2ème circonscription;Mme DALLOZ Marie-Christine;LR;57,17 %;O;DEP;1/10/58;56 - Autre profession;2
+39;3ème circonscription;M. SERMIER Jean-Marie;LR;58,27 %;O;DEP;3/5/61;01 - Agriculteur-propriétaire exploit.;2
+40;1ère circonscription;Mme DARRIEUSSECQ Geneviève;MDM;63,65 %;;;3/4/56;24 - Médecin;2
+40;2ème circonscription;M. CAUSSE Lionel;REM;62,95 %;;;5/6/71;19 - Autre cadre (secteur privé);2
+40;3ème circonscription;M. VALLAUD Boris;SOC;50,75 %;;;7/25/75;47 - Fonctionnaire de catégorie A;2
+41;1ère circonscription;M. FESNEAU Marc;MDM;69,15 %;;;1/11/71;11 - Entrepreneur en batiments;2
+41;2ème circonscription;M. PELTIER Guillaume;LR;53,93 %;;;8/27/76;19 - Autre cadre (secteur privé);2
+41;3ème circonscription;M. LEROY Maurice;UDI;60,96 %;O;DEP,PCD;2/2/59;39 - Autre profession libérale;2
+42;1ère circonscription;M. JUANICO Régis;SOC;50,05 %;O;DEP;2/5/72;47 - Fonctionnaire de catégorie A;2
+42;2ème circonscription;M. MIS Jean-Michel;REM;57,47 %;;;7/28/67;19 - Autre cadre (secteur privé);2
+42;3ème circonscription;Mme FAURE-MUNTIAN Valéria;REM;52,62 %;;;9/2/84;17 - Agent d'assurances;2
+42;4ème circonscription;M. CINIERI Dino;LR;50,13 %;O;DEP;7/9/55;59 - Retr.artis.commerc.chef d entrep.;2
+42;5ème circonscription;Mme SARLES Nathalie;MDM;53,13 %;;;4/17/62;23 - Salarié du secteur médical;2
+42;6ème circonscription;M. BOROWCZYK Julien;REM;56,87 %;;;5/2/79;24 - Médecin;2
+43;1ère circonscription;Mme VALENTIN Isabelle;LR;58,72 %;;;1/20/62;02 - Salarié agricole;2
+43;2ème circonscription;M. VIGIER Jean-Pierre;LR;63,89 %;O;DEP;10/22/69;47 - Fonctionnaire de catégorie A;2
+44;1ère circonscription;M. DE RUGY François;REM;66,14 %;O;DEP;12/6/73;54 - Permanent politique;2
+44;2ème circonscription;Mme OPPELT Valérie;REM;59,99 %;;;12/10/73;06 - Administrateur de sociétés;2
+44;3ème circonscription;Mme BRUNET Anne-France;REM;56,26 %;;;6/12/62;31 - Huissier;2
+44;4ème circonscription;Mme AMADOU Aude;REM;56,93 %;;;2/29/80;20 - Employé (secteur privé);2
+44;5ème circonscription;Mme EL HAÏRY Sarah;MDM;61,02 %;;;3/16/89;19 - Autre cadre (secteur privé);2
+44;6ème circonscription;M. DANIEL Yves;REM;61,79 %;O;DEP;7/31/54;01 - Agriculteur-propriétaire exploit.;2
+44;7ème circonscription;Mme JOSSO Sandrine;REM;61,11 %;;;9/19/75;39 - Autre profession libérale;2
+44;8ème circonscription;Mme DUFEU SCHUBERT Audrey;REM;56,70 %;;;6/3/80;18 - Cadre supérieur (secteur privé);2
+44;9ème circonscription;M. HAURY Yannick;MDM;65,02 %;;;6/12/54;28 - Pharmacien;2
+44;10ème circonscription;Mme ERRANTE Sophie;REM;63,89 %;O;DEP;7/22/71;54 - Permanent politique;2
+45;1ère circonscription;Mme RIST Stéphanie;REM;65,02 %;;;8/6/73;24 - Médecin;2
+45;2ème circonscription;Mme JANVIER Caroline;REM;51,23 %;;;3/9/82;19 - Autre cadre (secteur privé);2
+45;3ème circonscription;M. DE GANAY Claude;LR;50,10 %;O;DEP;9/5/53;47 - Fonctionnaire de catégorie A;2
+45;4ème circonscription;M. DOOR Jean-Pierre;LR;50,01 %;O;DEP;4/1/42;60 - Retraité des professions libérales;2
+45;5ème circonscription;Mme DUBOIS Marianne;LR;50,16 %;O;DEP;12/17/57;57 - Sans profession déclarée;2
+45;6ème circonscription;M. RAMOS Richard;MDM;52,69 %;;;3/23/68;19 - Autre cadre (secteur privé);2
+46;1ère circonscription;M. PRADIÉ Aurélien;LR;51,32 %;;;3/14/86;18 - Cadre supérieur (secteur privé);2
+46;2ème circonscription;Mme TIEGNA Huguette;REM;53,25 %;;;4/1/82;13 - Ingénieur;2
+47;1ère circonscription;M. LAUZZANA Michel;REM;56,85 %;;;3/20/57;24 - Médecin;2
+47;2ème circonscription;M. FRESCHI Alexandre;REM;59,72 %;;;5/17/79;47 - Fonctionnaire de catégorie A;2
+47;3ème circonscription;M. DAMAISIN Olivier;REM;60,43 %;;;8/5/66;16 - Représentant de commerce;2
+48;1ère circonscription;M. MOREL A L'HUISSIER Pierre;LR;56,61 %;O;DEP;12/21/58;29 - Avocat;2
+49;1ère circonscription;M. ORPHELIN Matthieu;REM;64,33 %;;;12/3/72;50 - Cadre sup. (entreprises publiques);2
+49;2ème circonscription;Mme DUPONT Stella;REM;69,09 %;;;11/3/73;57 - Sans profession déclarée;2
+49;3ème circonscription;M. TAUGOURDEAU Jean-Charles;LR;51,88 %;O;DEP;7/17/53;05 - Industriel-Chef entreprise;2
+49;4ème circonscription;Mme SAINT-PAUL Laëtitia;REM;58,23 %;;;1/21/81;47 - Fonctionnaire de catégorie A;2
+49;5ème circonscription;M. MASSEGLIA Denis;REM;68,37 %;;;4/11/81;13 - Ingénieur;2
+49;6ème circonscription;Mme DUBRE-CHIRAT Nicole;REM;61,77 %;;;12/18/51;63 - Retraité fonct.publique (sf enseig.);2
+49;7ème circonscription;M. BOLO Philippe;MDM;62,42 %;;;3/25/67;13 - Ingénieur;2
+50;1ère circonscription;M. GOSSELIN Philippe;LR;52,50 %;O;DEP;10/23/66;44 - Profession rattachée à l'enseignt.;2
+50;2ème circonscription;M. SORRE Bertrand;REM;61,00 %;;;5/8/65;43 - Enseignant 1er deg.-directeur école;2
+50;3ème circonscription;M. TRAVERT Stéphane;REM;66,16 %;O;DEP;10/12/69;18 - Cadre supérieur (secteur privé);2
+50;4ème circonscription;Mme KRIMI Sonia;DIV;60,93 %;;;12/20/82;18 - Cadre supérieur (secteur privé);2
+51;1ère circonscription;Mme BEAUVAIS Valérie;LR;55,34 %;;;3/8/63;57 - Sans profession déclarée;2
+51;2ème circonscription;Mme KURIC Aina;REM;51,21 %;;;5/15/87;05 - Industriel-Chef entreprise;2
+51;3ème circonscription;M. GIRARDIN Éric;REM;59,61 %;;;2/12/62;05 - Industriel-Chef entreprise;2
+51;4ème circonscription;Mme MAGNIER Lise;LR;66,88 %;;;12/31/84;47 - Fonctionnaire de catégorie A;2
+51;5ème circonscription;M. DE COURSON Charles;UDI;71,57 %;O;DEP;4/2/52;63 - Retraité fonct.publique (sf enseig.);2
+52;1ère circonscription;Mme ABBA Bérangère;REM;53,44 %;;;10/22/76;20 - Employé (secteur privé);2
+52;2ème circonscription;M. CORNUT-GENTILLE François;LR;61,81 %;O;DEP;5/22/58;57 - Sans profession déclarée;2
+53;1ère circonscription;M. GAROT Guillaume;SOC;61,24 %;O;DEP;5/29/66;51 - Cadre (entreprises publiques);2
+53;2ème circonscription;Mme BANNIER Géraldine;MDM;54,78 %;;;11/22/79;42 - Professeur du secondaire et techn.;2
+53;3ème circonscription;M. FAVENNEC Yannick;UDI;61,53 %;O;DEP;8/12/58;54 - Permanent politique;2
+54;1ère circonscription;Mme GRANDJEAN Carole;REM;55,89 %;;;5/18/93;18 - Cadre supérieur (secteur privé);2
+54;2ème circonscription;M. GARCIA Laurent;MDM;66,82 %;;;5/31/70;13 - Ingénieur;2
+54;3ème circonscription;M. PALUSZKIEWICZ Xavier;REM;52,41 %;;;12/13/72;20 - Employé (secteur privé);2
+54;4ème circonscription;M. BAZIN Thibault;LR;53,27 %;;;10/27/84;19 - Autre cadre (secteur privé);2
+54;5ème circonscription;M. POTIER Dominique;SOC;63,13 %;O;DEP;3/17/64;01 - Agriculteur-propriétaire exploit.;2
+54;6ème circonscription;Mme FIAT Caroline;FI;61,36 %;;;1/28/77;23 - Salarié du secteur médical;2
+55;1ère circonscription;M. PANCHER Bertrand;UDI;58,25 %;O;DEP;6/5/58;06 - Administrateur de sociétés;2
+55;2ème circonscription;Mme CARIOU Emilie;REM;62,76 %;;;10/14/71;47 - Fonctionnaire de catégorie A;2
+56;1ère circonscription;M. PELLOIS Hervé;REM;64,41 %;O;DEP;4/17/51;18 - Cadre supérieur (secteur privé);2
+56;2ème circonscription;M. PAHUN Jimmy;DIV;51,06 %;;;5/15/62;56 - Autre profession;2
+56;3ème circonscription;Mme LE PEIH Nicole;REM;66,10 %;;;9/28/59;01 - Agriculteur-propriétaire exploit.;2
+56;4ème circonscription;M. MOLAC Paul;REM;54,00 %;O;DEP;5/21/62;42 - Professeur du secondaire et techn.;1
+56;5ème circonscription;M. ROUILLARD Gwendal;REM;63,11 %;O;DEP;4/20/76;54 - Permanent politique;2
+56;6ème circonscription;M. JACQUES Jean-Michel;REM;54,72 %;;;2/29/68;39 - Autre profession libérale;2
+57;1ère circonscription;M. BELHADDAD Belkhir;REM;59,97 %;;;7/9/69;05 - Industriel-Chef entreprise;2
+57;2ème circonscription;M. MENDES Ludovic;REM;52,40 %;;;4/11/87;18 - Cadre supérieur (secteur privé);2
+57;3ème circonscription;M. LIOGER Richard;REM;51,21 %;;;9/18/57;41 - Professeur de faculté;2
+57;4ème circonscription;M. DI FILIPPO Fabien;LR;53,29 %;;;8/23/86;19 - Autre cadre (secteur privé);2
+57;5ème circonscription;Mme GRIES-TRISSE Nicole;REM;51,51 %;;;6/29/63;23 - Salarié du secteur médical;2
+57;6ème circonscription;M. AREND Christophe;REM;56,96 %;;;8/12/75;26 - Dentiste;2
+57;7ème circonscription;Mme ZANNIER Hélène;REM;56,24 %;;;9/19/72;47 - Fonctionnaire de catégorie A;2
+57;8ème circonscription;M. HAMMOUCHE Brahim;MDM;58,84 %;;;5/17/71;24 - Médecin;2
+57;9ème circonscription;Mme RAUCH Isabelle;REM;70,13 %;;;8/10/68;39 - Autre profession libérale;2
+58;1ère circonscription;Mme GOULET Perrine;REM;66,13 %;;;3/19/78;19 - Autre cadre (secteur privé);2
+58;2ème circonscription;M. PERROT Patrice;REM;54,62 %;;;2/24/64;05 - Industriel-Chef entreprise;2
+59;1ère circonscription;M. QUATENNENS Adrien;FI;50,11 %;;;5/23/90;20 - Employé (secteur privé);2
+59;2ème circonscription;M. BERNALICIS Ugo;FI;64,15 %;;;9/25/89;47 - Fonctionnaire de catégorie A;2
+59;3ème circonscription;M. DI POMPEO Christophe;REM;51,30 %;;;7/15/64;41 - Professeur de faculté;2
+59;4ème circonscription;Mme LISO Brigitte;REM;58,75 %;;;7/29/59;09 - Commercant;2
+59;5ème circonscription;M. HUYGHE Sébastien;LR;55,52 %;O;DEP;10/25/69;30 - Notaire;2
+59;6ème circonscription;Mme LECOCQ Charlotte;REM;51,82 %;;;7/17/77;05 - Industriel-Chef entreprise;2
+59;7ème circonscription;M. VERCAMER Francis;UDI;53,52 %;O;DEP;5/10/58;13 - Ingénieur;2
+59;8ème circonscription;Mme OSSON Catherine;REM;62,95 %;;;2/7/74;43 - Enseignant 1er deg.-directeur école;2
+59;9ème circonscription;Mme PETIT Valérie;REM;52,06 %;;;6/23/76;44 - Profession rattachée à l'enseignt.;2
+59;10ème circonscription;M. LEDOUX Vincent;LR;55,93 %;O;DEP;6/21/66;42 - Professeur du secondaire et techn.;2
+59;11ème circonscription;M. PIETRASZEWSKI Laurent;REM;67,17 %;;;11/19/66;19 - Autre cadre (secteur privé);2
+59;12ème circonscription;Mme CATTELOT Anne Laure;REM;54,06 %;;;10/25/88;54 - Permanent politique;2
+59;13ème circonscription;M. HUTIN Christian;DVG;63,32 %;O;DEP;1/18/61;24 - Médecin;2
+59;14ème circonscription;M. CHRISTOPHE Paul;LR;63,88 %;;;2/10/71;47 - Fonctionnaire de catégorie A;2
+59;15ème circonscription;Mme DE TEMMERMAN Jennifer;REM;60,69 %;;;2/16/77;44 - Profession rattachée à l'enseignt.;2
+59;16ème circonscription;M. BRUNEEL Alain;COM;55,86 %;;;7/7/52;61 - Retraité salarié privé;2
+59;17ème circonscription;M. HOUBRON Dimitri;REM;53,21 %;;;2/12/91;32 - Conseiller juridique;2
+59;18ème circonscription;M. BRICOUT Guy;UDI;63,67 %;;;2/18/44;63 - Retraité fonct.publique (sf enseig.);2
+59;19ème circonscription;M. CHENU Sébastien;FN;55,35 %;;;4/13/73;54 - Permanent politique;2
+59;20ème circonscription;M. ROUSSEL Fabien;COM;63,88 %;;;4/16/69;54 - Permanent politique;2
+59;21ème circonscription;Mme DESCAMPS Béatrice;UDI;62,72 %;;;4/24/61;43 - Enseignant 1er deg.-directeur école;2
+60;1ère circonscription;M. DASSAULT Olivier;LR;67,07 %;O;DEP;6/1/51;05 - Industriel-Chef entreprise;2
+60;2ème circonscription;Mme THILL Agnès;REM;54,70 %;;;6/2/64;43 - Enseignant 1er deg.-directeur école;2
+60;3ème circonscription;M. BOIS Pascal;REM;57,68 %;;;12/3/59;19 - Autre cadre (secteur privé);2
+60;4ème circonscription;M. WOERTH Eric;LR;51,98 %;O;DEP;1/29/56;54 - Permanent politique;2
+60;5ème circonscription;M. VATIN Pierre;LR;55,96 %;;;8/21/67;54 - Permanent politique;2
+60;6ème circonscription;Mme BUREAU-BONNARD Carole;REM;58,40 %;;;8/9/65;39 - Autre profession libérale;2
+60;7ème circonscription;M. MINOT Maxime;LR;60,52 %;;;7/20/87;20 - Employé (secteur privé);2
+61;1ère circonscription;M. PUEYO Joaquim;SOC;52,50 %;O;DEP;5/30/50;63 - Retraité fonct.publique (sf enseig.);2
+61;2ème circonscription;Mme LOUWAGIE Véronique;LR;54,73 %;O;DEP;3/20/61;34 - Expert comptable;2
+61;3ème circonscription;M. NURY Jérôme;LR;56,08 %;;;8/25/72;56 - Autre profession;2
+62;1ère circonscription;M. DUVERGÉ Bruno;MDM;54,01 %;;;4/3/57;18 - Cadre supérieur (secteur privé);2
+62;2ème circonscription;Mme MAQUET Jacqueline;REM;65,51 %;O;DEP;5/13/49;54 - Permanent politique;2
+62;3ème circonscription;M. EVRARD José;FN;52,94 %;;;7/17/45;63 - Retraité fonct.publique (sf enseig.);2
+62;4ème circonscription;M. FASQUELLE Daniel;LR;52,19 %;O;DEP;1/16/63;54 - Permanent politique;2
+62;5ème circonscription;M. PONT Jean-Pierre;REM;61,03 %;;;5/9/50;24 - Médecin;2
+62;6ème circonscription;Mme BOURGUIGNON Brigitte;REM;60,84 %;O;DEP;3/21/59;54 - Permanent politique;2
+62;7ème circonscription;M. DUMONT Pierre-Henri;LR;60,83 %;;;10/7/87;54 - Permanent politique;2
+62;8ème circonscription;M. POTTERIE Benoit;REM;56,78 %;;;7/23/67;09 - Commercant;2
+62;9ème circonscription;Mme DEPREZ-AUDEBERT Marguerite;MDM;57,66 %;;;5/17/52;61 - Retraité salarié privé;2
+62;10ème circonscription;M. PAJOT Ludovic;FN;52,58 %;;;11/18/93;56 - Autre profession;2
+62;11ème circonscription;Mme LE PEN Marine;FN;58,60 %;;;8/5/68;29 - Avocat;2
+62;12ème circonscription;M. BILDE Bruno;FN;55,08 %;;;9/22/76;29 - Avocat;2
+63;1ère circonscription;Mme THOMAS Valérie;REM;57,01 %;;;1/21/68;39 - Autre profession libérale;2
+63;2ème circonscription;Mme PIRÈS BEAUNE Christine;SOC;63,21 %;O;DEP;10/6/64;47 - Fonctionnaire de catégorie A;2
+63;3ème circonscription;Mme VICHNIEVSKY Laurence;MDM;56,02 %;;;2/5/55;45 - Magistrat;2
+63;4ème circonscription;M. FANGET Michel;MDM;55,44 %;;;5/3/50;24 - Médecin;2
+63;5ème circonscription;M. CHASSAIGNE André;COM;63,55 %;O;DEP;7/2/50;62 - Retraité de l'enseignement;2
+64;1ère circonscription;Mme POUEYTO Josy;MDM;62,72 %;;;1/13/54;63 - Retraité fonct.publique (sf enseig.);2
+64;2ème circonscription;M. MATTEI Jean-Paul;MDM;60,93 %;;;3/21/54;30 - Notaire;2
+64;3ème circonscription;M. HABIB David;SOC;53,96 %;O;DEP;3/16/61;54 - Permanent politique;2
+64;4ème circonscription;M. LASSALLE Jean;DVD;52,79 %;O;DEP;5/3/55;54 - Permanent politique;2
+64;5ème circonscription;Mme LASSERRE-DAVID Florence;MDM;57,03 %;;;6/29/74;20 - Employé (secteur privé);2
+64;6ème circonscription;M. BRU Vincent;MDM;62,51 %;;;4/29/55;41 - Professeur de faculté;2
+65;1ère circonscription;M. SEMPASTOUS Jean-Bernard;REM;58,86 %;;;8/5/64;42 - Professeur du secondaire et techn.;2
+65;2ème circonscription;Mme DUBIÉ Jeanine;RDG;51,09 %;O;DEP;1/3/58;47 - Fonctionnaire de catégorie A;2
+66;1ère circonscription;M. GRAU Romain;REM;57,21 %;;;6/21/74;05 - Industriel-Chef entreprise;2
+66;2ème circonscription;M. ALIOT Louis;FN;50,56 %;;RPE;9/4/69;56 - Autre profession;2
+66;3ème circonscription;Mme GAYTE Laurence;REM;59,31 %;;;9/25/65;18 - Cadre supérieur (secteur privé);2
+66;4ème circonscription;M. CAZENOVE Sébastien;REM;57,97 %;;;12/28/76;48 - Fonctionnaire de catégorie B;2
+67;1ère circonscription;M. MICHELS Thierry;REM;59,95 %;;;8/27/60;18 - Cadre supérieur (secteur privé);2
+67;2ème circonscription;M. WASERMAN Sylvain;REM;58,53 %;;;12/8/67;05 - Industriel-Chef entreprise;2
+67;3ème circonscription;M. STUDER Bruno;REM;59,77 %;;;6/18/78;42 - Professeur du secondaire et techn.;2
+67;4ème circonscription;Mme WONNER Martine;REM;55,86 %;;;3/27/64;18 - Cadre supérieur (secteur privé);2
+67;5ème circonscription;M. HERTH Antoine;LR;54,14 %;O;DEP;2/14/63;01 - Agriculteur-propriétaire exploit.;2
+67;6ème circonscription;M. FURST Laurent;LR;62,60 %;O;DEP;5/19/65;50 - Cadre sup. (entreprises publiques);2
+67;7ème circonscription;M. HETZEL Patrick;LR;62,61 %;O;DEP;7/2/64;41 - Professeur de faculté;2
+67;8ème circonscription;M. REISS Frédéric;LR;58,88 %;O;DEP;11/12/49;62 - Retraité de l'enseignement;2
+67;9ème circonscription;M. THIEBAUT Vincent;REM;51,03 %;;;5/23/72;19 - Autre cadre (secteur privé);2
+68;1ère circonscription;M. STRAUMANN Eric;LR;66,41 %;O;DEP,PCD;8/17/64;42 - Professeur du secondaire et techn.;2
+68;2ème circonscription;M. CATTIN Jacques;LR;51,39 %;;;6/4/58;01 - Agriculteur-propriétaire exploit.;2
+68;3ème circonscription;M. REITZER Jean-Luc;LR;55,15 %;O;DEP;12/29/51;18 - Cadre supérieur (secteur privé);2
+68;4ème circonscription;M. SCHELLENBERGER Raphaël;LR;50,88 %;;;2/14/90;54 - Permanent politique;2
+68;5ème circonscription;M. BECHT Olivier;DVD;57,69 %;;;4/28/76;45 - Magistrat;2
+68;6ème circonscription;M. FUCHS Bruno;REM;64,16 %;;;4/7/59;05 - Industriel-Chef entreprise;2
+69;1ère circonscription;M. RUDIGOZ Thomas;REM;64,47 %;;;1/11/71;57 - Sans profession déclarée;2
+69;2ème circonscription;M. JULIEN-LAFERRIERE Hubert;REM;52,81 %;;;2/27/66;41 - Professeur de faculté;2
+69;3ème circonscription;M. TOURAINE Jean-Louis;REM;59,85 %;O;DEP;10/8/45;63 - Retraité fonct.publique (sf enseig.);2
+69;4ème circonscription;Mme BRUGNERA Anne;REM;60,55 %;;;11/28/70;47 - Fonctionnaire de catégorie A;2
+69;5ème circonscription;Mme BROCARD Blandine;REM;60,26 %;;;11/3/81;20 - Employé (secteur privé);2
+69;6ème circonscription;M. BONNELL Bruno;REM;60,18 %;;;10/6/58;05 - Industriel-Chef entreprise;2
+69;7ème circonscription;Mme KHEDHER Anissa;REM;50,61 %;;;4/1/80;47 - Fonctionnaire de catégorie A;2
+69;8ème circonscription;M. VERCHÈRE Patrice;LR;53,62 %;O;DEP;12/29/73;54 - Permanent politique;2
+69;9ème circonscription;M. PERRUT Bernard;LR;51,00 %;O;DEP;1/24/57;57 - Sans profession déclarée;2
+69;10ème circonscription;M. GASSILLOUD Thomas;REM;63,83 %;;;5/21/81;05 - Industriel-Chef entreprise;2
+69;11ème circonscription;M. FUGIT Jean-Luc;REM;54,71 %;;;11/27/69;41 - Professeur de faculté;2
+69;12ème circonscription;M. ISAAC-SIBILLE Cyrille;MDM;56,25 %;;;4/30/58;24 - Médecin;2
+69;13ème circonscription;Mme CAZARIAN Danièle;REM;52,35 %;;;8/31/65;06 - Administrateur de sociétés;2
+69;14ème circonscription;M. BLEIN Yves;REM;65,60 %;O;DEP;10/12/54;18 - Cadre supérieur (secteur privé);2
+70;1ère circonscription;Mme BESSOT BALLOT Barbara;REM;59,13 %;;;4/13/72;51 - Cadre (entreprises publiques);2
+70;2ème circonscription;M. LEJEUNE Christophe;REM;58,00 %;;;3/22/69;39 - Autre profession libérale;2
+71;1ère circonscription;M. DIRX Benjamin;REM;57,29 %;;;1/25/79;05 - Industriel-Chef entreprise;2
+71;2ème circonscription;Mme CORNELOUP Josiane;LR;51,04 %;;;9/30/59;28 - Pharmacien;2
+71;3ème circonscription;M. REBEYROTTE Rémy;REM;55,43 %;;;3/27/66;42 - Professeur du secondaire et techn.;2
+71;4ème circonscription;Mme UNTERMAIER Cécile;SOC;54,67 %;O;DEP;12/28/51;45 - Magistrat;2
+71;5ème circonscription;M. GAUVAIN Raphaël;REM;55,09 %;;;4/10/73;29 - Avocat;2
+72;1ère circonscription;M. PICHEREAU Damien;REM;50,09 %;;;1/28/88;20 - Employé (secteur privé);2
+72;2ème circonscription;Mme KARAMANLI Marietta;SOC;61,88 %;O;DEP;12/18/64;42 - Professeur du secondaire et techn.;2
+72;3ème circonscription;Mme FONTENEL-PERSONNE Pascale;REM;53,69 %;;;5/26/62;05 - Industriel-Chef entreprise;2
+72;4ème circonscription;M. LE FOLL Stéphane;SOC;54,91 %;O;DEP;2/3/60;42 - Professeur du secondaire et techn.;2
+72;5ème circonscription;M. GRELIER Jean-Carles;LR;52,73 %;;;3/15/66;19 - Autre cadre (secteur privé);2
+73;1ère circonscription;Mme DEGOIS Typhanie;REM;50,76 %;;;1/6/93;40 - Etudiant;2
+73;2ème circonscription;M. ROLLAND Vincent;LR;57,17 %;;;2/1/70;18 - Cadre supérieur (secteur privé);2
+73;3ème circonscription;Mme BONNIVARD Emilie;LR;53,77 %;;;8/2/80;19 - Autre cadre (secteur privé);2
+73;4ème circonscription;M. MIGNOLA Patrick;MDM;55,71 %;;;8/8/71;05 - Industriel-Chef entreprise;2
+74;1ère circonscription;Mme RIOTTON Véronique;REM;64,32 %;;;11/2/69;19 - Autre cadre (secteur privé);2
+74;2ème circonscription;Mme LARDET Frédérique;REM;53,60 %;;;9/1/66;57 - Sans profession déclarée;2
+74;3ème circonscription;M. SADDIER Martial;LR;51,50 %;O;DEP;10/15/69;57 - Sans profession déclarée;2
+74;4ème circonscription;Mme DUBY-MULLER Virginie;LR;54,63 %;O;DEP;8/16/79;18 - Cadre supérieur (secteur privé);2
+74;5ème circonscription;Mme LENNE Marion;REM;53,66 %;;;11/20/74;19 - Autre cadre (secteur privé);2
+74;6ème circonscription;M. ROSEREN Xavier;REM;56,51 %;;;1/12/70;09 - Commercant;2
+75;1ère circonscription;M. MAILLARD Sylvain;REM;50,80 %;;;4/28/74;05 - Industriel-Chef entreprise;1
+75;2ème circonscription;M. LE GENDRE Gilles;REM;54,53 %;;;5/13/58;05 - Industriel-Chef entreprise;2
+75;3ème circonscription;M. GUERINI Stanislas;REM;65,50 %;;;5/14/82;18 - Cadre supérieur (secteur privé);2
+75;4ème circonscription;Mme KUSTER Brigitte;LR;51,51 %;;MAI;4/12/59;57 - Sans profession déclarée;2
+75;5ème circonscription;M. GRIVEAUX Benjamin;REM;56,27 %;;;12/29/77;54 - Permanent politique;2
+75;6ème circonscription;M. PERSON Pierre;REM;50,99 %;;;1/22/89;19 - Autre cadre (secteur privé);2
+75;7ème circonscription;M. RUPIN Pacôme;REM;55,90 %;;;1/25/85;54 - Permanent politique;2
+75;8ème circonscription;Mme AVIA Laetitia;REM;64,56 %;;;10/29/85;29 - Avocat;2
+75;9ème circonscription;M. TAN Buon;REM;55,26 %;;;3/10/67;09 - Commercant;2
+75;10ème circonscription;Mme LANG Anne-Christine;REM;60,11 %;;;8/10/61;47 - Fonctionnaire de catégorie A;2
+75;11ème circonscription;Mme DE SARNEZ Marielle;MDM;63,50 %;;MIN,RPE;3/27/51;56 - Autre profession;2
+75;12ème circonscription;Mme GREGOIRE Olivia;REM;56,36 %;;;9/30/78;18 - Cadre supérieur (secteur privé);2
+75;13ème circonscription;M. RENSON Hugues;REM;55,99 %;;;2/11/78;50 - Cadre sup. (entreprises publiques);2
+75;14ème circonscription;M. GOASGUEN Claude;LR;52,43 %;O;DEP,MAI;3/12/45;29 - Avocat;2
+75;15ème circonscription;Mme PAU-LANGEVIN George;SOC;60,29 %;O;DEP;10/19/48;29 - Avocat;2
+75;16ème circonscription;M. MAHJOUBI Mounir;REM;51,18 %;;MIN;3/1/84;39 - Autre profession libérale;2
+75;17ème circonscription;Mme OBONO Danièle;FI;50,71 %;;;7/12/80;47 - Fonctionnaire de catégorie A;2
+75;18ème circonscription;M. BOURNAZEL Pierre-Yves;LR;53,61 %;;;8/31/77;39 - Autre profession libérale;2
+76;1ère circonscription;M. ADAM Damien;REM;54,68 %;;;6/28/89;18 - Cadre supérieur (secteur privé);2
+76;2ème circonscription;Mme VIDAL Annie;REM;60,54 %;;;9/17/56;47 - Fonctionnaire de catégorie A;2
+76;3ème circonscription;M. WULFRANC Hubert;COM;61,07 %;;;12/17/56;44 - Profession rattachée à l'enseignt.;2
+76;4ème circonscription;Mme SYLLA Sira;REM;60,73 %;;;3/14/80;29 - Avocat;2
+76;5ème circonscription;M. BOUILLON Christophe;SOC;69,15 %;O;DEP;3/4/69;56 - Autre profession;2
+76;6ème circonscription;M. JUMEL Sébastien;COM;52,27 %;;;12/20/71;54 - Permanent politique;2
+76;7ème circonscription;Mme FIRMIN LE BODO Agnès;LR;61,92 %;;;11/20/68;28 - Pharmacien;2
+76;8ème circonscription;M. LECOQ Jean-Paul;COM;62,70 %;;;10/13/58;48 - Fonctionnaire de catégorie B;2
+76;9ème circonscription;Mme KERBARH Stéphanie;REM;62,94 %;;;7/31/75;05 - Industriel-Chef entreprise;2
+76;10ème circonscription;M. BATUT Xavier;REM;61,72 %;;;12/26/76;19 - Autre cadre (secteur privé);2
+77;1ère circonscription;Mme LUQUET Aude;MDM;56,01 %;;;8/18/67;56 - Autre profession;2
+77;2ème circonscription;Mme LACROUTE Valérie;LR;54,09 %;O;DEP;10/29/65;56 - Autre profession;2
+77;3ème circonscription;M. JEGO Yves;UDI;69,13 %;O;DEP;4/17/61;29 - Avocat;2
+77;4ème circonscription;M. JACOB Christian;LR;61,77 %;O;DEP;12/4/59;56 - Autre profession;2
+77;5ème circonscription;M. RIESTER Franck;LR;68,89 %;O;DEP;1/3/74;05 - Industriel-Chef entreprise;2
+77;6ème circonscription;M. PARIGI Jean-François;LR;55,22 %;;;1/25/60;56 - Autre profession;2
+77;7ème circonscription;M. KOKOUENDO Rodrigue;REM;61,48 %;;;3/8/74;19 - Autre cadre (secteur privé);2
+77;8ème circonscription;M. FAUVERGUE Jean-Michel;REM;67,19 %;;;1/31/57;47 - Fonctionnaire de catégorie A;2
+77;9ème circonscription;Mme PEYRON Michèle;REM;54,27 %;;;7/22/61;19 - Autre cadre (secteur privé);2
+77;10ème circonscription;Mme DO Stéphanie;REM;56,31 %;;;12/20/79;47 - Fonctionnaire de catégorie A;2
+77;11ème circonscription;M. FAURE Olivier;SOC;61,09 %;O;DEP;8/18/68;18 - Cadre supérieur (secteur privé);2
+78;1ère circonscription;M. BAICHÈRE Didier;REM;51,06 %;;;8/20/70;18 - Cadre supérieur (secteur privé);2
+78;2ème circonscription;M. BARROT Jean-Noël;REM;58,30 %;;;5/13/83;41 - Professeur de faculté;2
+78;3ème circonscription;Mme PIRON Béatrice;REM;58,93 %;;;8/30/65;05 - Industriel-Chef entreprise;2
+78;4ème circonscription;Mme LEBEC Marie;REM;61,39 %;;;12/17/90;19 - Autre cadre (secteur privé);2
+78;5ème circonscription;Mme BRAUN-PIVET Yaël;REM;58,99 %;;;12/7/70;56 - Autre profession;2
+78;6ème circonscription;Mme POUZYREFF Natalia;REM;58,34 %;;;2/18/61;42 - Professeur du secondaire et techn.;2
+78;7ème circonscription;Mme DE VAUCOULEURS Michèle;MDM;55,57 %;;;2/12/64;19 - Autre cadre (secteur privé);2
+78;8ème circonscription;M. VIALAY Michel;LR;52,87 %;;;1/6/60;18 - Cadre supérieur (secteur privé);2
+78;9ème circonscription;M. MILLIENNE Bruno;MDM;54,49 %;;;11/28/59;18 - Cadre supérieur (secteur privé);2
+78;10ème circonscription;Mme BERGÉ Aurore;REM;64,75 %;;;11/13/86;18 - Cadre supérieur (secteur privé);2
+78;11ème circonscription;Mme HAÏ Nadia;REM;52,96 %;;;3/8/80;19 - Autre cadre (secteur privé);2
+78;12ème circonscription;Mme GRANJUS Florence;REM;56,63 %;;;5/17/62;50 - Cadre sup. (entreprises publiques);2
+79;1ère circonscription;M. CHICHE Guillaume;REM;60,42 %;;;3/30/86;19 - Autre cadre (secteur privé);2
+79;2ème circonscription;Mme BATHO Delphine;SOC;56,94 %;O;DEP;3/23/73;47 - Fonctionnaire de catégorie A;2
+79;3ème circonscription;M. FIEVET Jean-Marie;REM;59,37 %;;;6/19/64;48 - Fonctionnaire de catégorie B;2
+80;1ère circonscription;M. RUFFIN François;FI;55,97 %;;;10/18/75;37 - Journaliste et autre média;2
+80;2ème circonscription;Mme POMPILI Barbara;REM;61,89 %;O;DEP;6/13/75;56 - Autre profession;2
+80;3ème circonscription;M. MAQUET Emmanuel;LR;60,14 %;;;6/2/68;33 - Agent général d'assurances;2
+80;4ème circonscription;M. LECLABART Jean-Claude;REM;58,04 %;;;12/4/54;58 - Retraité agricole;2
+80;5ème circonscription;M. DEMILLY Stéphane;UDI;53,85 %;O;DEP;6/26/63;39 - Autre profession libérale;1
+81;1ère circonscription;M. FOLLIOT Philippe;DVD;70,69 %;O;DEP;7/14/63;54 - Permanent politique;2
+81;2ème circonscription;Mme VERDIER-JOUCLAS Marie-Christine;REM;66,14 %;;;3/19/65;56 - Autre profession;2
+81;3ème circonscription;M. TERLIER Jean;REM;52,11 %;;;3/2/77;29 - Avocat;2
+82;1ère circonscription;Mme RABAULT Valérie;SOC;55,02 %;O;DEP;4/25/73;13 - Ingénieur;2
+82;2ème circonscription;Mme PINEL Sylvia;RDG;55,40 %;O;DEP;9/28/77;56 - Autre profession;2
+83;1ère circonscription;Mme LEVY Geneviève;LR;55,18 %;O;DEP;2/24/48;60 - Retraité des professions libérales;2
+83;2ème circonscription;Mme MUSCHOTTI Cécile;REM;57,27 %;;;10/30/87;42 - Professeur du secondaire et techn.;2
+83;3ème circonscription;M. MASSON Jean-Louis;LR;51,38 %;;;2/5/54;63 - Retraité fonct.publique (sf enseig.);2
+83;4ème circonscription;Mme MAUBORGNE Sereine;REM;54,65 %;;;5/3/72;39 - Autre profession libérale;2
+83;5ème circonscription;M. MICHEL-KLEISBAUER Philippe;MDM;53,24 %;;;3/6/69;32 - Conseiller juridique;2
+83;6ème circonscription;Mme GOMEZ-BASSAC Valérie;REM;55,89 %;;;7/16/69;29 - Avocat;2
+83;7ème circonscription;Mme GUEREL Emilie;REM;56,97 %;;;12/18/83;42 - Professeur du secondaire et techn.;2
+83;8ème circonscription;M. MATRAS Fabien;REM;57,71 %;;;9/12/84;56 - Autre profession;2
+84;1ère circonscription;M. CESARINI Jean-François;REM;58,10 %;;;9/30/70;05 - Industriel-Chef entreprise;2
+84;2ème circonscription;M. BOUCHET Jean-Claude;LR;53,39 %;O;DEP;5/2/57;56 - Autre profession;2
+84;3ème circonscription;Mme POIRSON Brune;REM;50,68 %;;;9/1/82;39 - Autre profession libérale;2
+84;4ème circonscription;M. BOMPARD Jacques;EXD;50,37 %;O;DEP;2/24/43;60 - Retraité des professions libérales;2
+84;5ème circonscription;M. AUBERT Julien;LR;50,89 %;O;DEP;6/11/78;46 - Grands corps de l'état;2
+85;1ère circonscription;M. LATOMBE Philippe;MDM;54,41 %;;;4/21/75;18 - Cadre supérieur (secteur privé);2
+85;2ème circonscription;Mme GALLERNEAU Patricia;MDM;59,58 %;;;9/9/54;63 - Retraité fonct.publique (sf enseig.);2
+85;3ème circonscription;M. BUCHOU Stéphane;REM;60,16 %;;;3/14/74;18 - Cadre supérieur (secteur privé);2
+85;4ème circonscription;Mme LEGUILLE-BALLOY Martine;REM;62,50 %;;;9/6/57;29 - Avocat;2
+85;5ème circonscription;M. HENRIET Pierre;REM;53,36 %;;;11/26/91;42 - Professeur du secondaire et techn.;2
+86;1ère circonscription;M. SAVATIER Jacques;REM;59,62 %;;;10/23/52;63 - Retraité fonct.publique (sf enseig.);2
+86;2ème circonscription;M. HOULIÉ Sacha;REM;67,71 %;;;10/8/88;29 - Avocat;2
+86;3ème circonscription;M. CLÉMENT Jean-Michel;REM;67,83 %;O;DEP;10/31/54;29 - Avocat;2
+86;4ème circonscription;M. TURQUOIS Nicolas;MDM;51,34 %;;;7/26/72;01 - Agriculteur-propriétaire exploit.;2
+87;1ère circonscription;Mme BEAUDOUIN-HUBIERE Sophie;REM;55,60 %;;;11/20/72;57 - Sans profession déclarée;2
+87;2ème circonscription;M. DJEBBARI-BONNET Jean-Baptiste;REM;54,59 %;;;2/26/82;05 - Industriel-Chef entreprise;2
+87;3ème circonscription;Mme MAGNE Marie-Ange;REM;62,78 %;;;11/20/87;56 - Autre profession;2
+88;1ère circonscription;M. VIRY Stéphane;LR;53,12 %;;;10/14/69;29 - Avocat;2
+88;2ème circonscription;M. CHERPION Gérard;LR;55,41 %;O;DEP;3/15/48;60 - Retraité des professions libérales;2
+88;3ème circonscription;M. NAEGELEN Christophe;DVD;60,71 %;;;12/30/83;05 - Industriel-Chef entreprise;2
+88;4ème circonscription;M. GAULTIER Jean-Jacques;LR;53,47 %;;;7/13/63;24 - Médecin;2
+89;1ère circonscription;M. LARRIVÉ Guillaume;LR;52,60 %;O;DEP;1/24/77;46 - Grands corps de l'état;2
+89;2ème circonscription;M. VILLIERS André;UDI;54,09 %;;;12/13/54;01 - Agriculteur-propriétaire exploit.;2
+89;3ème circonscription;Mme CROUZET Michèle;REM;55,60 %;;;8/31/67;05 - Industriel-Chef entreprise;2
+90;1ère circonscription;M. BOUCARD Ian;LR;50,75 %;;;5/5/88;19 - Autre cadre (secteur privé);2
+90;2ème circonscription;M. ZUMKELLER Michel;UDI;53,84 %;O;DEP;1/21/66;54 - Permanent politique;2
+91;1ère circonscription;M. VALLS Manuel;DVG;50,30 %;O;DEP;8/13/62;56 - Autre profession;2
+91;2ème circonscription;M. MARLIN Franck;LR;59,42 %;O;DEP;9/30/64;46 - Grands corps de l'état;2
+91;3ème circonscription;Mme ROMEIRO DIAS Laëtitia;REM;57,41 %;;;1/15/81;19 - Autre cadre (secteur privé);2
+91;4ème circonscription;Mme RIXAIN Marie-Pierre;REM;57,75 %;;;1/18/77;39 - Autre profession libérale;2
+91;5ème circonscription;M. VILLANI Cédric;REM;69,36 %;;;10/5/73;41 - Professeur de faculté;2
+91;6ème circonscription;Mme DE MONTCHALIN Amélie;REM;61,34 %;;;6/19/85;18 - Cadre supérieur (secteur privé);2
+91;7ème circonscription;M. REDA Robin;LR;53,04 %;;;5/10/91;56 - Autre profession;2
+91;8ème circonscription;M. DUPONT-AIGNAN Nicolas;DLF;52,05 %;O;DEP;3/7/61;47 - Fonctionnaire de catégorie A;2
+91;9ème circonscription;Mme GUÉVENOUX Marie;REM;57,96 %;;;11/2/76;57 - Sans profession déclarée;2
+91;10ème circonscription;M. RAPHAN Pierre-Alain;REM;53,42 %;;;4/6/83;39 - Autre profession libérale;2
+92;1ère circonscription;Mme FAUCILLON Elsa;COM;55,18 %;;;8/6/81;20 - Employé (secteur privé);2
+92;2ème circonscription;M. TAQUET Adrien;REM;63,43 %;;;1/3/77;37 - Journaliste et autre média;2
+92;3ème circonscription;Mme HENNION Christine;REM;58,66 %;;;8/23/55;18 - Cadre supérieur (secteur privé);2
+92;4ème circonscription;Mme FLORENNES Isabelle;REM;67,27 %;;;8/2/67;47 - Fonctionnaire de catégorie A;2
+92;5ème circonscription;Mme CALVEZ Céline;REM;62,51 %;;;7/24/79;39 - Autre profession libérale;2
+92;6ème circonscription;Mme LE GRIP Constance;LR;53,81 %;;;11/14/60;54 - Permanent politique;2
+92;7ème circonscription;M. MARILOSSIAN Jacques;REM;57,81 %;;;7/26/58;18 - Cadre supérieur (secteur privé);2
+92;8ème circonscription;M. MAIRE Jacques;REM;61,03 %;;;4/4/62;47 - Fonctionnaire de catégorie A;2
+92;9ème circonscription;M. SOLÈRE Thierry;LR;56,53 %;O;DEP;8/17/71;18 - Cadre supérieur (secteur privé);2
+92;10ème circonscription;M. ATTAL Gabriel;REM;60,94 %;;;3/16/89;39 - Autre profession libérale;2
+92;11ème circonscription;Mme ROSSI Laurianne;REM;52,33 %;;;5/18/84;51 - Cadre (entreprises publiques);2
+92;12ème circonscription;M. BOURLANGES Jean-Louis;MDM;57,92 %;;;7/13/46;63 - Retraité fonct.publique (sf enseig.);2
+92;13ème circonscription;Mme DUMAS Frédérique;REM;61,36 %;;;5/18/63;05 - Industriel-Chef entreprise;2
+93;1ère circonscription;M. COQUEREL Éric;FI;51,73 %;;;12/30/58;05 - Industriel-Chef entreprise;2
+93;2ème circonscription;M. PEU Stéphane;FI;57,89 %;;;7/24/62;52 - Employé (autres entrep. publiques);2
+93;3ème circonscription;M. ANATO Patrice;REM;57,09 %;;;3/14/76;19 - Autre cadre (secteur privé);2
+93;4ème circonscription;Mme BUFFET Marie-George;COM;59,62 %;O;DEP;5/7/49;54 - Permanent politique;2
+93;5ème circonscription;M. LAGARDE Jean-Christophe;UDI;66,10 %;O;DEP;10/24/67;56 - Autre profession;2
+93;6ème circonscription;M. LACHAUD Bastien;FI;55,01 %;;;8/5/80;42 - Professeur du secondaire et techn.;2
+93;7ème circonscription;M. CORBIÈRE Alexis;FI;57,90 %;;;8/17/68;42 - Professeur du secondaire et techn.;2
+93;8ème circonscription;Mme CHARRIÈRE Sylvie;REM;56,46 %;;;5/15/61;47 - Fonctionnaire de catégorie A;2
+93;9ème circonscription;Mme RUBIN Sabine;FI;52,26 %;;;8/13/60;47 - Fonctionnaire de catégorie A;2
+93;10ème circonscription;M. RAMADIER Alain;LR;52,92 %;;;7/8/58;19 - Autre cadre (secteur privé);2
+93;11ème circonscription;Mme AUTAIN Clémentine;FI;59,52 %;;;5/26/73;37 - Journaliste et autre média;2
+93;12ème circonscription;M. TESTE Stéphane;REM;53,00 %;;;5/10/68;43 - Enseignant 1er deg.-directeur école;2
+94;1ère circonscription;M. DESCROZAILLE Frédéric;REM;52,47 %;;;4/16/67;19 - Autre cadre (secteur privé);2
+94;2ème circonscription;M. MBAYE Jean François;REM;52,58 %;;;1/1/79;51 - Cadre (entreprises publiques);2
+94;3ème circonscription;M. SAINT-MARTIN Laurent;REM;51,64 %;;;6/22/85;18 - Cadre supérieur (secteur privé);2
+94;4ème circonscription;Mme PETIT Maud;MDM;53,55 %;;;11/15/71;20 - Employé (secteur privé);2
+94;5ème circonscription;M. CARREZ Gilles;LR;50,49 %;O;DEP;8/29/48;63 - Retraité fonct.publique (sf enseig.);2
+94;6ème circonscription;M. GOUFFIER-CHA Guillaume;REM;59,22 %;;;2/1/86;56 - Autre profession;2
+94;7ème circonscription;M. BRIDEY Jean-Jacques;REM;52,70 %;O;DEP;5/7/53;18 - Cadre supérieur (secteur privé);2
+94;8ème circonscription;M. HERBILLON Michel;LR;57,99 %;O;DEP;3/6/51;56 - Autre profession;2
+94;9ème circonscription;M. CARVOUNAS Luc;SOC;58,74 %;;SEN;6/8/71;57 - Sans profession déclarée;2
+94;10ème circonscription;Mme PANOT Mathilde;FI;52,22 %;;;1/15/89;18 - Cadre supérieur (secteur privé);2
+94;11ème circonscription;Mme GAILLOT Albane;REM;53,61 %;;;7/7/71;19 - Autre cadre (secteur privé);2
+95;1ère circonscription;Mme MULLER-QUOY Isabelle;REM;54,23 %;;;11/8/67;41 - Professeur de faculté;2
+95;2ème circonscription;M. VUILLETET Guillaume;REM;50,96 %;;;6/20/67;18 - Cadre supérieur (secteur privé);2
+95;3ème circonscription;Mme RILHAC Cecile;REM;58,33 %;;;4/21/74;44 - Profession rattachée à l'enseignt.;2
+95;4ème circonscription;Mme MOUTCHOU Naïma;REM;59,37 %;;;11/4/80;29 - Avocat;2
+95;5ème circonscription;Mme LAZAAR Fiona;REM;59,72 %;;;9/19/85;19 - Autre cadre (secteur privé);2
+95;6ème circonscription;Mme ELIMAS Nathalie;MDM;57,11 %;;;6/5/73;43 - Enseignant 1er deg.-directeur école;2
+95;7ème circonscription;M. DA SILVA Dominique;REM;53,88 %;;;6/30/68;05 - Industriel-Chef entreprise;2
+95;8ème circonscription;M. PUPPONI François;SOC;65,80 %;O;DEP;7/31/62;47 - Fonctionnaire de catégorie A;2
+95;9ème circonscription;Mme PARK Zivka;REM;51,67 %;;;1/22/85;19 - Autre cadre (secteur privé);2
+95;10ème circonscription;M. TACHE Aurelien;REM;59,01 %;;;5/26/84;47 - Fonctionnaire de catégorie A;2

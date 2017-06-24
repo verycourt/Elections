@@ -1,0 +1,146 @@
+<html>
+<style type="text/css">
+.team_one{
+	fill:#FF4040;
+}
+.team_two{
+	fill:#FF9640;
+}
+.team_three{
+	fill:#33CCCC;
+}
+.team_four{
+	fill:#39E639;
+}
+.no_result{
+	fill:#FFF;
+	stroke:#ddd;
+}
+</style>
+<body>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script type="text/javascript">
+//hemicycle.js
+
+function hemicycle(options){
+	h = {
+		rows:10,
+		arc:180,
+		dotsize:5,
+		selector:'body',
+		height:450,
+		width:900,
+		partyorder:{'team one':1,'team two':2,'team three':3,'team four':4,'no result':5},
+		datasize:500,
+		margin:{top:6,bottom:6,left:6,right:6},
+		rainbow:false //lay the parties out like bands of a rainbow or not
+	};
+
+	function toID(s){
+		if(s){
+			s = s.replace(/\s/g,'_');
+			return s;
+		}
+		return "";
+	}
+
+	var svg = d3.select(h.selector).append('svg').attr({
+		width:h.width,
+		height:h.height
+	})
+
+	var arc = svg.append('g').attr({id:'arc'})
+
+	for(var o in options){
+		h[o] = options[o];
+	}
+
+
+	h.rescale = function(){
+		var widthMargin = h.margin.left + h.margin.right;
+
+		h.distanceScale = d3.scale.linear()
+			.domain([0, h.rows-1])
+			.range([(h.width)/4 - widthMargin, h.width/2 - widthMargin]);
+
+		h.angleScale = d3.scale.linear()
+			.domain([0, h.datasize/h.rows-1 ])
+			.range([0, h.arc]);
+
+		var arcTransform = 'translate(' + (h.width/2) + ',' + (h.height-h.margin.bottom) + ') rotate(180)';
+		arc.attr('transform', arcTransform);
+	}
+
+	h.draw = function(data){
+		console.log(data)
+		if(data){
+			h.data = data;
+		}	
+		h.datasize = h.data.length;
+		h.rescale();
+		h.data.sort(function(a,b){
+			if(h.partyorder[a.winningParty] > h.partyorder[b.winningParty]){
+				return 1;
+			}else if(h.partyorder[a.winningParty] < h.partyorder[b.winningParty]){
+				return -1;
+			}
+			return 0;
+		});
+
+		var join = arc.selectAll('circle.seat').data(h.data, function(d){ return d.seatname; });
+		
+		join.enter().append('circle')
+		join.exit().remove();
+		join.transition().duration(500).attr({
+				'class':function(d){
+					return  toID(d.state) + ' ' + toID(d.winningParty) + ' seat';
+				},
+				'id':function(d){
+					return toID(d.seatname) + '_hemicycle';
+				},
+				r:h.dotsize,
+				transform:function(d,i){
+					var layoutPosition = getLayoutPos(i,h.rainbow);
+					return 'rotate(' + h.angleScale(layoutPosition.column) + ') translate('+h.distanceScale(layoutPosition.row)+',0)';
+				}
+		})
+	}
+
+	function getLayoutPos(i, rows){
+		var maxColumns = Math.ceil( h.datasize/h.rows );
+		if(rows){
+			var row = Math.floor(i / maxColumns);
+			var column = i%maxColumns;
+		}else{
+			row = i%h.rows;
+			column = Math.floor(i/h.rows);
+		}
+		//console.log(row, column)
+		return {
+			row:row,
+			column:column
+		}
+	}
+
+	return h;
+}
+
+function getDummyData(n){
+	if(!n) n = 550;
+	var dummyData = [];
+	function randomParty(){
+		return ['team one','team two','team three','team four','no result'][Math.floor(Math.random() * 5)];
+	}
+
+	for(var i=0; i<n; i++){
+		dummyData.push({
+			winningParty:randomParty(),
+			seatname:'id ' + i
+		});
+	}
+	return dummyData;
+}
+
+var hem = hemicycle()
+hem.draw( getDummyData(500) );
+</script>
