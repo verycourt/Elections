@@ -105,6 +105,7 @@ d3.parliament = function() {
                 var partyIndex = 0;
                 var seatIndex = 0;
                 seats.forEach(function(s) {
+                    //console.log(s);
                     /* get current party and go to the next one if it has all its seats filled */
                     var party = d[partyIndex];
                     var nSeatsInParty = typeof party.seats === 'number' ? party.seats : party.seats.length;
@@ -127,7 +128,7 @@ d3.parliament = function() {
              * helpers to get value from seat data */
             var seatClasses = function(d) {
                 var c = "seat ";
-                c += (d.party && d.party.id) || "";
+                c += (d.party && d.party.Id) || "";
                 return c.trim();
             };
             var seatX = function(d) { return d.cartesian.x; };
@@ -154,7 +155,7 @@ d3.parliament = function() {
                 //console.log(d)
                 container.classed("parliament", true);
             }
-            container.attr("transform", "translate(" + width / 2 + "," + outerParliamentRadius + ")");
+            container.attr("transform", "translate(" + (width - 200) / 2 + "," + outerParliamentRadius + ")");
 
             /* all the seats as circles */
             var circles = container.selectAll(".seat").data(seats);
@@ -191,14 +192,25 @@ d3.parliament = function() {
 
                     circlesEnter
                         .on("click", function(d){
+
                             // remove selectedParty class
-                            /*d3.selectAll(".seats")
-                                .attr("class", "seat " + d.party.id);*/
+                            console.log(d3.selectAll(".seat")._groups[0])
+                            d3.selectAll(".seat")._groups[0].forEach(
+                                function(p) {
+                                    //console.log(p);
+                                    var pol = p.getAttribute("class").split(" ")[1];
+                                    //console.log(pol);
+                                    d3.selectAll("." + pol)
+                                        .attr("class", "seat " + pol);
+                             });
+
                             // add this class to the selection
-                            d3.selectAll("." + d.party.id)
-                                .attr("class", "seat " + d.party.id + " selectParty");
+                            d3.selectAll("." + d.party.Id)
+                                .attr("class", "seat " + d.party.Id + " selectParty");
+
                             return d3.select(".baseline")
-                                .html(d.party.id);
+                                .html(d.party.Id);
+
                         })
                         .on("mouseover", function(d){
                             //console.log(d.data)
