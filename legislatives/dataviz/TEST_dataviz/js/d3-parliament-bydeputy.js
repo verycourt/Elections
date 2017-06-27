@@ -41,6 +41,10 @@ d3.parliament = function() {
             svg.classed("d3-parliament", true);
             svg.attr("width", width);
             svg.attr("height", height);
+			
+
+
+		 
 
 
             /***
@@ -128,7 +132,7 @@ d3.parliament = function() {
              * helpers to get value from seat data */
             var seatClasses = function(d) {
                 var c = "seat ";
-                c += (d.party && d.party.id) || "";
+                c += (d.party && d.party.Id) || "";
                 return c.trim();
             };
             var seatX = function(d) { return d.cartesian.x; };
@@ -155,8 +159,17 @@ d3.parliament = function() {
                 //console.log(d)
                 container.classed("parliament", true);
             }
-            container.attr("transform", "translate(" + width / 2 + "," + outerParliamentRadius + ")");
-
+            container.attr("transform", "translate(" + (width - 200) / 2 + "," + outerParliamentRadius + ")");
+			
+			
+			// 
+			  container.append("svg:image")
+			  .attr("id","party_ID")
+			  .attr("width", 200)
+			  .attr("height", 200)
+			  .attr("x", 1400)
+			  .attr("y",0);
+			  
             /* all the seats as circles */
             var circles = container.selectAll(".seat").data(seats);
             circles.attr("class", seatClasses);
@@ -194,10 +207,10 @@ d3.parliament = function() {
                         .on("click", function(d){
 
                             // remove selectedParty class
-                            console.log(d3.selectAll(".seat")._groups[0])
+                            // console.log(d3.selectAll(".seat")._groups[0])
                             d3.selectAll(".seat")._groups[0].forEach(
                                 function(p) {
-                                    console.log(p);
+                                    //console.log(p);
                                     var pol = p.getAttribute("class").split(" ")[1];
                                     //console.log(pol);
                                     d3.selectAll("." + pol)
@@ -205,11 +218,22 @@ d3.parliament = function() {
                              });
 
                             // add this class to the selection
-                            d3.selectAll("." + d.party.id)
-                                .attr("class", "seat " + d.party.id + " selectParty");
+                            d3.selectAll("." + d.party.Id)
+                                .attr("class", "seat " + d.party.Id + " selectParty");
+								
+							console.log("../img/carte_"+d.party.Id+".PNG")
+							
+							  d3.select("#pict_ID")
+								.transition()
+							  .attr("xlink:href", "../img/carte_"+d.party.Id+".PNG")
+							  .attr("width", 200)
+							  .attr("height", 200)
+							  .attr("x", 1400)
+							  .attr("y",0);
 
                             return d3.select(".baseline")
-                                .html(d.party.id);
+                                .html(d.party.Id);
+								
 
                         })
                         .on("mouseover", function(d){

@@ -308,7 +308,7 @@ d3.tsv("data.tsv", function(error, data) {
       .attr("xlink:href", "attachment_pollster/pict_"+d.name.replace(" ", "_")+".jpeg")
       .attr("width", 133)
       .attr("height", 200)
-      .attr("x", 950)
+      .attr("x", 1300)
       .attr("y",0);
 
     d3.select("#party_ID")
