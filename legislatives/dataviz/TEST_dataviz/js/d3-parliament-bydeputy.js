@@ -105,6 +105,7 @@ d3.parliament = function() {
                 var partyIndex = 0;
                 var seatIndex = 0;
                 seats.forEach(function(s) {
+                    //console.log(s);
                     /* get current party and go to the next one if it has all its seats filled */
                     var party = d[partyIndex];
                     var nSeatsInParty = typeof party.seats === 'number' ? party.seats : party.seats.length;
@@ -191,14 +192,25 @@ d3.parliament = function() {
 
                     circlesEnter
                         .on("click", function(d){
+
                             // remove selectedParty class
-                            /*d3.selectAll(".seats")
-                                .attr("class", "seat " + d.party.id);*/
+                            console.log(d3.selectAll(".seat")._groups[0])
+                            d3.selectAll(".seat")._groups[0].forEach(
+                                function(p) {
+                                    console.log(p);
+                                    var pol = p.getAttribute("class").split(" ")[1];
+                                    //console.log(pol);
+                                    d3.selectAll("." + pol)
+                                        .attr("class", "seat " + pol);
+                             });
+
                             // add this class to the selection
                             d3.selectAll("." + d.party.id)
                                 .attr("class", "seat " + d.party.id + " selectParty");
+
                             return d3.select(".baseline")
                                 .html(d.party.id);
+
                         })
                         .on("mouseover", function(d){
                             //console.log(d.data)
