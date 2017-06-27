@@ -151,6 +151,7 @@ d3.parliament = function() {
             var container = svg.select(".parliament");
             if (container.empty()) {
                 container = svg.append("g");
+                //console.log(d)
                 container.classed("parliament", true);
             }
             container.attr("transform", "translate(" + width / 2 + "," + outerParliamentRadius + ")");
@@ -189,6 +190,16 @@ d3.parliament = function() {
                     });
 
                     circlesEnter
+                        .on("click", function(d){
+                            // remove selectedParty class
+                            /*d3.selectAll(".seats")
+                                .attr("class", "seat " + d.party.id);*/
+                            // add this class to the selection
+                            d3.selectAll("." + d.party.id)
+                                .attr("class", "seat " + d.party.id + " selectParty");
+                            return d3.select(".baseline")
+                                .html(d.party.id);
+                        })
                         .on("mouseover", function(d){
                             //console.log(d.data)
                             return d3.select("body")
