@@ -50,7 +50,12 @@ d3.parliament = function() {
             /***
              * compute number of seats and rows of the parliament */
             var nSeats = 0;
-            d.forEach(function(p) { nSeats += (typeof p.seats === 'number') ? Math.floor(p.seats) : p.seats.length; });
+            d.forEach(
+                function(p) {
+                    //console.log(p.Id, p.seats);
+                    nSeats += (typeof p.seats === 'number') ? Math.floor(p.seats) : p.seats.length; 
+                }
+                );
 
             var nRows = 0;
             var maxSeatNumber = 0;
@@ -183,7 +188,7 @@ d3.parliament = function() {
             circlesEnter.attr("r", enter.smallToBig ? 0 : seatRadius);
             circlesEnter.attr("id", seatID); /// COME BACK
             if (enter.fromCenter || enter.smallToBig) {
-                var t = circlesEnter.transition().duration(function() { return 1000 + Math.random()*800; });
+                var t = circlesEnter.transition().duration(function() { return 1000 + Math.random()*80; });
                 if (enter.fromCenter) {
                     t.attr("cx", seatX);
                     t.attr("cy", seatY);
@@ -259,14 +264,14 @@ d3.parliament = function() {
             }
 
             /* animation updating seats in the parliament */
-            circles.transition().duration(function() { return 1000 + Math.random()*800; })
+            circles.transition().duration(function() { return 1000 + Math.random()*80; })
                 .attr("cx", seatX)
                 .attr("cy", seatY)
                 .attr("r", seatRadius);
 
             /* animation removing seats from the parliament */
             if (exit.toCenter || exit.bigToSmall) {
-                var t = circles.exit().transition().duration(function() { return 1000 + Math.random()*800; });
+                var t = circles.exit().transition().duration(function() { return 1000 + Math.random()*80; });
                 if (exit.toCenter) {
                     t.attr("cx", 0).attr("cy", 0);
                 }
