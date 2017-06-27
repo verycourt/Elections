@@ -4,22 +4,13 @@ var dicoNuances2 = {"EXG":"#d30202", "COM":"#ff1616", "FI":"#ff1616","SOC":"#f76
 "ECO":"#41992f","DIV":"#d3913b","REG":"#54422b","REM":"#ffbf00","MDM":"#ed9302","UDI":"#536cad","LR":"#3c589e",
 "DVD":"#1a3372","DLF":"#7928b7","FN":"#03194f","EXD":"#000a23","DVG":"#c66b9a"}
 
-d3.csv('data/resultats1.csv')
+d3.csv('data/resultatT2_reel.csv')
 .row(function(d, i){
 	return {
-	circo : d.circo,
-	nom : d["nom circo"],
-	color1 : d.color1,
-	candidat1 : d.candidat1,
-	score1 : d.score1,
-	candidat2 : d.candidat2,
-	score2 : d.score2,
-	candidat3 : d.candidat3,
-	score3 : d.score3,
-	candidat4 : d.candidat4,
-	color2 : d.color2,
-	color3 : d.color3,
-	score4 : d.score4
+	code : d.code,
+	designation : d["designation"],
+	nuance : d.nuance,
+	score : d.score
 	};
 })
 .get(function(error, rows){
@@ -31,20 +22,10 @@ d3.csv('data/resultats1.csv')
 d3.csv('data/resultatsEtr.csv')
 .row(function(d, i){
 	return {
-	circo : d.circo,
-	nom : d["nom circo"],
-	color1 : d.color1,
-	candidat1 : d.candidat1,
-	score1 : d.score1,
-	candidat2 : d.candidat2,
-	score2 : d.score2,
-	candidat3 : d.candidat3,
-	score3 : d.score3,
-	//candidat4 : d.candidat4,
-	//score4 : d.score4,
-	color2 : d.color2,
-	color3 : d.color3,
-	//color4 : d.color4
+	code : d.code,
+	designation : d["designation"],
+	nuance : d.nuance,
+	score : d.score
 	};
 })
 .get(function(error, rows){
@@ -54,19 +35,8 @@ d3.csv('data/resultatsEtr.csv')
 
 function colorMap(){
 	for(i=0;i < dataset2.length; i++){
-		if(dataset2[i].color1 == "FN"){
-			svg2.select('[id='+'"'+dataset2[i].circo+'"'+']').style("fill", dicoNuances2[dataset2[i].color1])
-		}
-		else{
-			if(dataset2[i].color2 == "FN"){
-			svg2.select('[id='+'"'+dataset2[i].circo+'"'+']').style("fill", dicoNuances2[dataset2[i].color2])
-			}
-			else{
-				if(dataset2[i].color3 == "FN"){
-				svg2.select('[id='+'"'+dataset2[i].circo+'"'+']').style("fill", dicoNuances2[dataset2[i].color3])
-			}
-
-			}
+		if(dataset2[i].nuance == "EXD"){
+			svg2.select('[id='+'"'+dataset2[i].code+'"'+']').style("fill", dicoNuances2[dataset2[i].nuance])
 		}
 	};
 };
