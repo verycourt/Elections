@@ -24,11 +24,13 @@ html, body {
 svg .seat {
     cursor: pointer;
     transition: all 800ms;
+	box-shadow: 8px 8px 0px #aaa;
+	filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
 }
 
 svg .seat:hover {
 	stroke-width: 30;
-	stroke: white;
+	stroke: #ff8000;
 }
 
 svg .seat:active {
@@ -37,8 +39,8 @@ svg .seat:active {
 }
 
 svg .selectParty {
-	box-shadow: 8px 8px 0px #aaa;
-	filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
+	stroke-width: 30;
+	stroke: white;
 }
 
 /*:not(circle):active {
