@@ -25,67 +25,67 @@
 	    	<div class="col-md-8">
 				<svg>
 					<!-- LEGEND of HEMICYCLE-->
-					<g class="legend" transform="translate(900,50)">
+					<g class="legend" transform="translate(630,0)">
 					<circle cx="18" cy="15" r="7" style="fill: #d3913b; stroke: #d3913b; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12" >DIV</text>
 					</g>
-					<g class="legend" transform="translate(900,75)">
+					<g class="legend" transform="translate(630,25)">
 					<circle cx="18" cy="15" r="7" style="fill:#b30000; stroke:#990000; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12" >COM</text>
 					</g>
-					<g class="legend" transform="translate(900,100)">
+					<g class="legend" transform="translate(630,50)">
 					<circle cx="18" cy="15" r="7" style="fill: #ff1616; stroke: #ff1616; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">FI</text>
 					</g>
-					<g class="legend" transform="translate(900,125)">
+					<g class="legend" transform="translate(630,75)">
 					<circle cx="18" cy="15" r="7" style="fill: #f76060; stroke: #f76060; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">SOC</text>
 					</g>
-					<g class="legend" transform="translate(900,150)">
+					<g class="legend" transform="translate(630,100)">
 					<circle cx="18" cy="15" r="7" style="fill: #edafaf; stroke: #edafaf; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">RDG</text>
 					</g>
-					<g class="legend" transform="translate(900,175)">
+					<g class="legend" transform="translate(630,125)">
 					<circle cx="18" cy="15" r="7" style="fill: #c66b9a; stroke: #c66b9a; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">DVG</text>
 					</g>
-					<g class="legend" transform="translate(900,200)">
+					<g class="legend" transform="translate(630,150)">
 					<circle cx="18" cy="15" r="7" style="fill: #41992f; stroke: #41992f; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">ECO</text>
 					</g>
-					<g class="legend" transform="translate(900,225)">
+					<g class="legend" transform="translate(630,175)">
 					<circle cx="18" cy="15" r="7" style="fill: #54422b; stroke: #54422b; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">REG</text>
 					</g>
-					<g class="legend" transform="translate(900,250)">
+					<g class="legend" transform="translate(630,200)">
 					<circle cx="18" cy="15" r="7" style="fill: #f2da37; stroke: #f2da37; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">REM</text>
 					</g>
-					<g class="legend" transform="translate(900, 275)">
+					<g class="legend" transform="translate(630, 225)">
 					<circle cx="18" cy="15" r="7" style="fill:#ea681c; stroke: #ea681c; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">MDM</text>
 					</g>
-					<g class="legend" transform="translate(900,300)">
+					<g class="legend" transform="translate(630,250)">
 					<circle cx="18" cy="15" r="7" style="fill: #537bbc; stroke: #537bbc; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">UDI</text>
 					</g>
-					<g class="legend" transform="translate(900,325)">
+					<g class="legend" transform="translate(630,275)">
 					<circle cx="18" cy="15" r="7" style="fill: #3c589e; stroke: #3c589e; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">LR</text>
 					</g>
-					<g class="legend" transform="translate(900,350)">
+					<g class="legend" transform="translate(630,300)">
 					<circle cx="18" cy="15" r="7" style="fill:#132553; stroke:#1a3372; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">DVD</text>
 					</g>
-					<g class="legend" transform="translate(900, 375)">
+					<g class="legend" transform="translate(630, 325)">
 					<circle cx="18" cy="15" r="7" style="fill: #03174a; stroke: #03174a; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">FN</text>
 					</g>
-					<g class="legend" transform="translate(900, 400)">
+					<g class="legend" transform="translate(630, 350)">
 					<circle cx="18" cy="15" r="7" style="fill: #7928b7; stroke: #7928b7; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">DLF</text>
 					</g>
-					<g class="legend" transform="translate(900, 425)">
+					<g class="legend" transform="translate(630, 375)">
 					<circle cx="18" cy="15" r="7" style="fill: #000a23; stroke: #000a23; z-index:-10"></circle>
 					<text x="27" y="20" font-size="12">EXD</text>
 					</g>
@@ -106,7 +106,7 @@
 
 
     <script type="text/javascript">
-        var parliament = d3.parliament().width(1100).height(450).innerRadiusCoef(0.4);
+        var parliament = d3.parliament().width(700).height(350).innerRadiusCoef(0.4);
         parliament.enter.fromCenter(true).smallToBig(true);
         parliament.exit.toCenter(true).bigToSmall(true);
         parliament.on("click", function(e) { console.log(e); });
