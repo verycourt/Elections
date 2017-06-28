@@ -230,15 +230,19 @@ d3.parliament = function() {
                               .attr("x", 0)
                               .attr("y", 0);
                             
+                        })
+                        .on("mouseover", function(d){
+
+
                             if (d.party.membre_majorite == 0) {
-                                maj = "<strong style='color:red'>Non</strong> ";
+                                maj = "<strong>Non</strong> ";
                             } else {
-                                maj = "<strong style='color:green'>Oui</strong> ";
+                                maj = "<strong>Oui</strong> ";
                             }
                             if (d.data.ancien_ministre == 0) {
-                                ministre = "<strong style='color:red'>Non</strong>   .";
+                                ministre = "<strong>Non</strong>   <span style='visibility: hidden;'>.</span>";
                             } else {
-                                ministre = "<strong style='color:green'>Oui</strong>   .";
+                                ministre = "<strong>Oui</strong>   <span style='visibility: hidden;'>.</span>";
                             }
                             
                             if (d.data.pred_elu == "N") {
@@ -246,30 +250,27 @@ d3.parliament = function() {
                             } else {
                                 pred_elu = "<strong style='color:green'>Oui</strong> ";
                             }
-                        
                             
                             
                            return d3.select(".baseline")
                                .html("<h3> Dans la circonscription "+ d.data.code.split("|")[1]+" du département "+ d.data.Dpt + "</h3> "
-                                +"<h4> Circonscription gagnée par "+dicoNuancesPartis[d.party.Id]+"</h4> "
+                                +"<h4> Circonscription gagnée par : "+dicoNuancesPartis[d.party.Id]+"</h4> "
                                 +"<table style='font-size:13px;'>"
                                 +"<tr>"
-                                +"<td>&#x2802; L'avons nous prédit correctement ? "+pred_elu+" </td>"
-                                +"<td>&#x2802; Score du parti aux présidentielles dans la circ. : <strong>"+ Math.round(d.data.score_bloc_pres*10000)/100+"% </strong> </td>"
+                                +"<td>&#x2022; L'avons nous prédit correctement ? "+pred_elu+" </td>"
+                                +"<td>&#x2022; Score du parti aux présidentielles dans la circ. : <strong>"+ Math.round(d.data.score_bloc_pres*10000)/100+"% </strong> </td>"
                                 +"</tr>"
                                 +"<tr>"
-                                +"<td>&#x2802; Le candidat est un ancien ministre ? "+ministre+" </td> "
-                                +"<td>&#x2802; Le candidat appartient à la majorité présidentielle ? "+maj+" </td> "
+                                +"<td>&#x2022; Le candidat est un ancien ministre ? "+ministre+" </td> "
+                                +"<td>&#x2022; Le candidat appartient à la majorité présidentielle ? "+maj+" </td> "
                                 +"</tr>"
                                 +"<tr>"
-                                +"<td>&#x2802; Chômage dans le département : <strong>"+Math.round(d.data.chom_tot*10000)/100+"%</strong> </td>"
-                                +"<td>&#x2802; Revenu mensuel médian dans la circ. : <strong>"+d.data.revenus_med+"€</strong> </td>"
+                                +"<td>&#x2022; Chômage dans le département : <strong>"+Math.round(d.data.chom_tot*10000)/100+"%</strong> </td>"
+                                +"<td>&#x2022; Revenu mensuel médian dans la circ. : <strong>"+d.data.revenus_med+"€</strong> </td>"
                                 +"</tr>"
                                 +"</table>"
                 
                                 );
-                        })
-                        .on("mouseover", function(d){
                             console.log($(this));
                             //$(this).wrap("<a class='minitooltip' href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!' />");
                             //console.log(d.data)
