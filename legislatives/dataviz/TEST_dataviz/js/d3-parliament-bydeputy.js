@@ -220,7 +220,7 @@ d3.parliament = function() {
                            d3.selectAll("." + d.party.Id)
                                .attr("class", "seat " + d.party.Id + " selectParty");
                                 
-                            console.log("img/carte_"+d.party.Id+".PNG")
+                            //console.log("img/carte_"+d.party.Id+".PNG")
                             
                               d3.select("#img-box").selectAll("img").remove();
                               d3.select("#img-box")
@@ -229,17 +229,24 @@ d3.parliament = function() {
                               .attr("height", 330)
                               .attr("x", 0)
                               .attr("y", 0);
-							  console.log(d.data.link_vignes_x)
-							  
-							  d3.select("#imgtete").selectAll("img").remove();
-                              d3.select("#imgtete")
-                              .append('img')
-                              .attr("src", d.data.link_vignes_x)
-							  .attr("class", "img-rounded")
                             
                         })
                         .on("mouseover", function(d){
 
+
+                            // add the DEPUTY PICTURE
+
+
+                              console.log(d.data.link_vignes_x);
+                              
+                              d3.select("#imgtete").selectAll("img").remove();
+                              d3.select("#imgtete")
+                              .append('img')
+                              .attr("src", d.data.link_vignes_x)
+                              .attr("class", "img-rounded");
+
+
+                            // add the MODEL INFORMATIONS about the deputy
 
                             if (d.party.membre_majorite == 0) {
                                 maj = "<strong>Non</strong> ";
