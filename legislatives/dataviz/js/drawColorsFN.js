@@ -35,7 +35,7 @@ d3.csv('data/resultatsEtr.csv')
 
 function colorMap(){
 	for(i=0;i < dataset2.length; i++){
-		if(dataset2[i].nuance == "EXD"){
+		if(dataset2[i].nuance == "DLF"){
 			svg2.select('[id='+'"'+dataset2[i].code+'"'+']').style("fill", dicoNuances2[dataset2[i].nuance])
 		}
 	};

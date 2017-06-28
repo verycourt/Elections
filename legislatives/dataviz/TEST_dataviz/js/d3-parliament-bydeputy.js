@@ -33,6 +33,7 @@ d3.parliament = function() {
 
     function parliament(data) {
         data.each(function(d) {
+			
             var outerParliamentRadius = Math.min(width/2, height);
             var innerParliementRadius = outerParliamentRadius * innerRadiusCoef;
 
@@ -40,16 +41,13 @@ d3.parliament = function() {
             var svg = d3.select(this);
             svg.classed("d3-parliament", true);
             svg.attr("width", width);
-            svg.attr("height", height);
-			
-
-
-		 
+            svg.attr("height", height);		 
 
 
             /***
              * compute number of seats and rows of the parliament */
             var nSeats = 0;
+			console.log(data);
             d.forEach(
                 function(p) {
                     //console.log(p.Id, p.seats);
@@ -167,13 +165,6 @@ d3.parliament = function() {
             container.attr("transform", "translate(" + (width - 200) / 2 + "," + outerParliamentRadius + ")");
 			
 			
-			// 
-			  container.append("svg:image")
-			  .attr("id","party_ID")
-			  .attr("width", 200)
-			  .attr("height", 200)
-			  .attr("x", 1400)
-			  .attr("y",0);
 			  
             /* all the seats as circles */
             var circles = container.selectAll(".seat").data(seats);
@@ -226,15 +217,15 @@ d3.parliament = function() {
                             d3.selectAll("." + d.party.Id)
                                 .attr("class", "seat " + d.party.Id + " selectParty");
 								
-							console.log("../img/carte_"+d.party.Id+".PNG")
+							console.log("img/carte_"+d.party.Id+".PNG")
 							
-							  d3.select("#pict_ID")
-								.transition()
-							  .attr("xlink:href", "../img/carte_"+d.party.Id+".PNG")
-							  .attr("width", 200)
-							  .attr("height", 200)
-							  .attr("x", 1400)
-							  .attr("y",0);
+							  d3.select("#img-box").selectAll("img").remove();
+							  d3.select("#img-box")
+							  .append('img')
+							  .attr("src", "img/carte_"+d.party.Id+".PNG")
+							  .attr("height", 430)
+							  .attr("x", 0)
+							  .attr("y", 0);
 
                             return d3.select(".baseline")
                                 .html(d.party.Id);
