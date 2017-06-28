@@ -15,8 +15,26 @@ h1 {
   filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.5));
 }
 
+td /* Toutes les cellules des tableaux... */
+{
+    /*border: 1px solid black;*/ /* auront une bordure de 1px */
+}
+
+table {
+  cellpadding: 10;
+}
+
+.panel-heading {
+  box-shadow: 1px 1px 0px #aaa;
+  filter: drop-shadow(14px 14px 7px rgba(0,0,0,0.5));
+}
+
 .row {
   width: 100%;
+}
+
+#img-box {
+  margin-top: 1%;
 }
 
 .img-thumbnail, .img-rounded, .img-circle {
@@ -43,6 +61,10 @@ h1 {
   pointer-events: none;
 }
 
+/*.panel-footer {
+  height: 250px;
+}*/
+
 .baseline {
   position: absolute;
   /*min-width: 1200px;*/
@@ -53,6 +75,8 @@ h1 {
 
 svg {
   margin: 3% -1% 1% -10%;
+  /*box-shadow: 1px 1px 0px #aaa;*/
+  filter: drop-shadow(14px 14px 7px rgba(0,0,0,0.1));
 }
 
 svg .seat {

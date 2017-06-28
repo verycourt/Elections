@@ -18,6 +18,12 @@
     <!--script src="js/d3-parliament.js" charset="utf-8"></script-->
     <link rel="stylesheet" media="screen" type="text/css" href="style/seats_color.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- TODO : UTILISER LES TOOLTIPS DE BOOTSTRAP OU QTIP -->
     <div class="panel-body">
@@ -98,9 +104,8 @@
 	<div class="panel-footer">
 		<div class="row">
 			<!-- the grid is based on 12 columns -->
-			<!--div class="baseline col-sm-12">
-				<div id="pict_ID"></div>
-			</div-->
+			<div class="baseline col-sm-12">
+			</div>
 		</div>
 	</div>
 
@@ -117,6 +122,12 @@
 
         d3.json("data/json_viz/french.json", setData);
     </script>
+
+    <script>
+		$(document).ready(function(){
+		    $('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
 
 </body>
 </html>

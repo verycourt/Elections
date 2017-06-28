@@ -7,6 +7,9 @@ var dicoNuances2 = {"EXG":"#d30202", "COM":"#990000", "FI":"#ff1616","SOC":"#f76
 "ECO":"#41992f","DIV":"#d3913b","REG":"#54422b","REM":"#ffbf00","MDM":"#ed9302","UDI":"#536cad","LR":"#3c589e",
 "DVD":"#132553","DLF":"#7928b7","FN":"#03174a","EXD":"#000a23","DVG":"#c66b9a"}
 
+var dicoNuancesPartis = {"EXG":"Extrême Gauche", "COM":"Parti Communiste", "FI":"France Insoumise","SOC":"Parti Socialiste","RDG":"Radicaux de Gauche",
+"ECO":"Parti Ecologiste","DIV":"Divers","REG":"Régionalistes","REM":"La République en Marche","MDM":"MoDem","UDI":"Union des Démocrates et Indépendants","LR":"Les Républicains",
+"DVD":"Divers Droite","DLF":"Debout la France","FN":"Front National","EXD":"Extrême Droite","DVG":"Divers gauche"}
 
 
 d3.parliament = function() {
@@ -202,57 +205,92 @@ d3.parliament = function() {
                     circlesEnter
                         .on("click", function(d){
 
-                            // remove selectedParty class
-                            // console.log(d3.selectAll(".seat")._groups[0])
-                            d3.selectAll(".seat")._groups[0].forEach(
-                                function(p) {
-                                    //console.log(p);
-                                    var pol = p.getAttribute("class").split(" ")[1];
-                                    //console.log(pol);
-                                    d3.selectAll("." + pol)
-                                        .attr("class", "seat " + pol);
-                             });
+                           // remove selectedParty class
+                           // console.log(d3.selectAll(".seat")._groups[0])
+                           d3.selectAll(".seat")._groups[0].forEach(
+                               function(p) {
+                                   //console.log(p);
+                                   var pol = p.getAttribute("class").split(" ")[1];
+                                   //console.log(pol);
+                                   d3.selectAll("." + pol)
+                                       .attr("class", "seat " + pol);
+                            });
 
-                            // add this class to the selection
-                            d3.selectAll("." + d.party.Id)
-                                .attr("class", "seat " + d.party.Id + " selectParty");
-								
-							//console.log("img/carte_"+d.party.Id+".PNG")
-							
-							  d3.select("#img-box").selectAll("img").remove();
-							  d3.select("#img-box")
-							  .append('img')
-							  .attr("src", "img/carte_"+d.party.Id+".PNG")
-                              //.attr("class", "img-rounded")
-							  /*.attr("height", 430)
-							  .attr("x", 0)
-							  .attr("y", 0)*/;
-
-                            return d3.select(".baseline")
-                                .html(d.party.Id);
-								
-
+                           // add this class to the selection
+                           d3.selectAll("." + d.party.Id)
+                               .attr("class", "seat " + d.party.Id + " selectParty");
+                                
+                            console.log("img/carte_"+d.party.Id+".PNG")
+                            
+                              d3.select("#img-box").selectAll("img").remove();
+                              d3.select("#img-box")
+                              .append('img')
+                              .attr("src", "img/carte_"+d.party.Id+".PNG")
+                              .attr("height", 330)
+                              .attr("x", 0)
+                              .attr("y", 0);
+                            
+                            if (d.party.membre_majorite == 0) {
+                                maj = "<strong style='color:red'>Non</strong>";
+                            } else {
+                                maj = "<strong style='color:green'>Oui</strong>";
+                            }
+                            if (d.data.ancien_ministre == 0) {
+                                ministre = "<strong style='color:red'>Non</strong>";
+                            } else {
+                                ministre = "<strong style='color:green'>Oui</strong>";
+                            }
+                            
+                            if (d.data.pred_elu == "N") {
+                                pred_elu = "<strong style='color:red'>Non</strong>";
+                            } else {
+                                pred_elu = "<strong style='color:green'>Oui</strong>";
+                            }
+                        
+                            
+                            
+                           return d3.select(".baseline")
+                               .html("<h3> Dans la circonscription "+ d.data.code.split("|")[1]+" du département "+ d.data.Dpt + "</h3> "
+                                +"<h4> Circonscription gagnée par "+dicoNuancesPartis[d.party.Id]+"</h4> "
+                                +"<table>"
+                                +"<tr>"
+                                +"<td> L'avons nous prédit correctement ? "+pred_elu+" </td>"
+                                +"<td> Score du parti aux présidentielles dans la circ. : <strong>"+ Math.round(d.data.score_bloc_pres*10000)/100+"% </strong> </td>"
+                                +"</tr>"
+                                +"<tr>"
+                                +"<td> Le candidat est un ancien ministre ? "+ministre+" </td> "
+                                +"<td> Le candidat appartient à la majorité présidentielle ? "+maj+" </td> "
+                                +"</tr>"
+                                +"<tr>"
+                                +"<td> Chômage dans le département : <strong>"+Math.round(d.data.chom_tot*10000)/100+"%</strong> </td>"
+                                +"<td> Revenu mensuel médian dans la circ. : <strong>"+d.data.revenus_med+"€</strong> </td>"
+                                +"</tr>"
+                                +"</table>"
+                
+                                );
                         })
                         .on("mouseover", function(d){
+                            console.log($(this));
+                            //$(this).wrap("<a class='minitooltip' href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!' />");
                             //console.log(d.data)
-                            return d3.select("body")
+                            return d3.select(".col-md-8")
                                 .append("div")
-                                .style("background",'#F2EDED')
                                 .attr('class','tooltip')
+                                .style("background",'#F2EDED')
                                 .style("position", "absolute")
                                 .style("z-index", "10")
-                                .html("<a href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!'>Bottom</a>");
-                                /*.html(d.data.Désignation + "<br><br>"
+                                /*.html("<a href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!'>Bottom</a>")*/
+                                .html(d.data.Désignation + "<br><br>"
                                     + "Département : " + d.data.Dpt + "<br>"
                                     + "Score : " + d.data.Score + "<br>"
                                     + "Si dpt. sortant : " + d.data.Sortant + "<br>"
                                     + "Si ex-poste important : " + d.data["Perso."] + "<br>"
                                     + "Date de naissance : " + d.data["Né(e)_le"] + "<br>"
                                     + "Profession : " + d.data.Profession
-                                    );*/
+                                    );
                         })
                         .on("mousemove", function(){return d3.select(".tooltip").style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-                        .on("mouseout", function(){return d3.select(".tooltip").remove();});
+                        /*.on("mouseout", function(){return d3.select(".tooltip").remove();})*/;
                 })(evt);
             }
 
