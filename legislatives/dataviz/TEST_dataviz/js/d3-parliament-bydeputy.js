@@ -231,20 +231,20 @@ d3.parliament = function() {
                               .attr("y", 0);
                             
                             if (d.party.membre_majorite == 0) {
-                                maj = "<strong style='color:red'>Non</strong>";
+                                maj = "<strong style='color:red'>Non</strong> ";
                             } else {
-                                maj = "<strong style='color:green'>Oui</strong>";
+                                maj = "<strong style='color:green'>Oui</strong> ";
                             }
                             if (d.data.ancien_ministre == 0) {
-                                ministre = "<strong style='color:red'>Non</strong>";
+                                ministre = "<strong style='color:red'>Non</strong>   .";
                             } else {
-                                ministre = "<strong style='color:green'>Oui</strong>";
+                                ministre = "<strong style='color:green'>Oui</strong>   .";
                             }
                             
                             if (d.data.pred_elu == "N") {
-                                pred_elu = "<strong style='color:red'>Non</strong>";
+                                pred_elu = "<strong style='color:red'>Non</strong> ";
                             } else {
-                                pred_elu = "<strong style='color:green'>Oui</strong>";
+                                pred_elu = "<strong style='color:green'>Oui</strong> ";
                             }
                         
                             
@@ -252,18 +252,18 @@ d3.parliament = function() {
                            return d3.select(".baseline")
                                .html("<h3> Dans la circonscription "+ d.data.code.split("|")[1]+" du département "+ d.data.Dpt + "</h3> "
                                 +"<h4> Circonscription gagnée par "+dicoNuancesPartis[d.party.Id]+"</h4> "
-                                +"<table>"
+                                +"<table style='font-size:13px;'>"
                                 +"<tr>"
-                                +"<td> L'avons nous prédit correctement ? "+pred_elu+" </td>"
-                                +"<td> Score du parti aux présidentielles dans la circ. : <strong>"+ Math.round(d.data.score_bloc_pres*10000)/100+"% </strong> </td>"
+                                +"<td>&#x263c; L'avons nous prédit correctement ? "+pred_elu+" </td>"
+                                +"<td>&#x263c; Score du parti aux présidentielles dans la circ. : <strong>"+ Math.round(d.data.score_bloc_pres*10000)/100+"% </strong> </td>"
                                 +"</tr>"
                                 +"<tr>"
-                                +"<td> Le candidat est un ancien ministre ? "+ministre+" </td> "
-                                +"<td> Le candidat appartient à la majorité présidentielle ? "+maj+" </td> "
+                                +"<td>&#x263c; Le candidat est un ancien ministre ? "+ministre+" </td> "
+                                +"<td>&#x263c; Le candidat appartient à la majorité présidentielle ? "+maj+" </td> "
                                 +"</tr>"
                                 +"<tr>"
-                                +"<td> Chômage dans le département : <strong>"+Math.round(d.data.chom_tot*10000)/100+"%</strong> </td>"
-                                +"<td> Revenu mensuel médian dans la circ. : <strong>"+d.data.revenus_med+"€</strong> </td>"
+                                +"<td>&#x263c; Chômage dans le département : <strong>"+Math.round(d.data.chom_tot*10000)/100+"%</strong> </td>"
+                                +"<td>&#x263c; Revenu mensuel médian dans la circ. : <strong>"+d.data.revenus_med+"€</strong> </td>"
                                 +"</tr>"
                                 +"</table>"
                 

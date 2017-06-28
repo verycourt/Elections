@@ -17,11 +17,14 @@ h1 {
 
 td /* Toutes les cellules des tableaux... */
 {
-    /*border: 1px solid black;*/ /* auront une bordure de 1px */
+  /*border: 1px solid black;*/ /* auront une bordure de 1px */
+  /*padding: 5px;
+  text-align: center;
+  vertical-align: top;*/
 }
 
 table {
-  cellpadding: 10;
+  /*border-spacing:90px;*/
 }
 
 .panel-heading {
@@ -30,7 +33,7 @@ table {
 }
 
 .row {
-  width: 100%;
+  /*width: 100%;*/
 }
 
 #img-box {
@@ -71,6 +74,7 @@ table {
   height: 150px;
   pointer-events: none;
   background: #F2EDED;
+  font-size: 2px;
 }
 
 svg {
