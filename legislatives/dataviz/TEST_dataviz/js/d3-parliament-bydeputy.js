@@ -33,23 +33,21 @@ d3.parliament = function() {
 
     function parliament(data) {
         data.each(function(d) {
-            var outerParliamentRadius = Math.min(width/2, height);
+			
+            var outerParliamentRadius = Math.min(width/2.5, height);
             var innerParliementRadius = outerParliamentRadius * innerRadiusCoef;
 
             /* init the svg */
             var svg = d3.select(this);
             svg.classed("d3-parliament", true);
             svg.attr("width", width);
-            svg.attr("height", height);
-			
-
-
-		 
+            svg.attr("height", height);		 
 
 
             /***
              * compute number of seats and rows of the parliament */
             var nSeats = 0;
+			//console.log(data);
             d.forEach(
                 function(p) {
                     //console.log(p.Id, p.seats);
@@ -164,16 +162,9 @@ d3.parliament = function() {
                 //console.log(d)
                 container.classed("parliament", true);
             }
-            container.attr("transform", "translate(" + (width - 200) / 2 + "," + outerParliamentRadius + ")");
+            container.attr("transform", "translate(" + (width) / 2 + "," + outerParliamentRadius + ")");
 			
 			
-			// 
-			  container.append("svg:image")
-			  .attr("id","party_ID")
-			  .attr("width", 200)
-			  .attr("height", 200)
-			  .attr("x", 1400)
-			  .attr("y",0);
 			  
             /* all the seats as circles */
             var circles = container.selectAll(".seat").data(seats);
@@ -226,15 +217,16 @@ d3.parliament = function() {
                             d3.selectAll("." + d.party.Id)
                                 .attr("class", "seat " + d.party.Id + " selectParty");
 								
-							console.log("../img/carte_"+d.party.Id+".PNG")
+							//console.log("img/carte_"+d.party.Id+".PNG")
 							
-							  d3.select("#pict_ID")
-								.transition()
-							  .attr("xlink:href", "../img/carte_"+d.party.Id+".PNG")
-							  .attr("width", 200)
-							  .attr("height", 200)
-							  .attr("x", 1400)
-							  .attr("y",0);
+							  d3.select("#img-box").selectAll("img").remove();
+							  d3.select("#img-box")
+							  .append('img')
+							  .attr("src", "img/carte_"+d.party.Id+".PNG")
+                              //.attr("class", "img-rounded")
+							  /*.attr("height", 430)
+							  .attr("x", 0)
+							  .attr("y", 0)*/;
 
                             return d3.select(".baseline")
                                 .html(d.party.Id);
@@ -249,14 +241,15 @@ d3.parliament = function() {
                                 .attr('class','tooltip')
                                 .style("position", "absolute")
                                 .style("z-index", "10")
-                                .html(d.data.Désignation + "<br><br>"
+                                .html("<a href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!'>Bottom</a>");
+                                /*.html(d.data.Désignation + "<br><br>"
                                     + "Département : " + d.data.Dpt + "<br>"
                                     + "Score : " + d.data.Score + "<br>"
                                     + "Si dpt. sortant : " + d.data.Sortant + "<br>"
                                     + "Si ex-poste important : " + d.data["Perso."] + "<br>"
                                     + "Date de naissance : " + d.data["Né(e)_le"] + "<br>"
                                     + "Profession : " + d.data.Profession
-                                    );
+                                    );*/
                         })
                         .on("mousemove", function(){return d3.select(".tooltip").style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
                         .on("mouseout", function(){return d3.select(".tooltip").remove();});
