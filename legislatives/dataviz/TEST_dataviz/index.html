@@ -7,76 +7,95 @@
 	<title>Predict the Parliament</title>
 </head>
 <body>
-	<h1>Projet Predict the Parliament</h1>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h1>Predict The Parliament</h1>
+	</div>
+	
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="js/d3-parliament-bydeputy.js" charset="utf-8"></script>
+
     <!--script src="js/d3-parliament.js" charset="utf-8"></script-->
     <link rel="stylesheet" media="screen" type="text/css" href="style/seats_color.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- TODO : UTILISER LES TOOLTIPS DE BOOTSTRAP OU QTIP -->
+    <div class="panel-body">
+	    <div class="row">
+	    	<div class="col-md-9">
+				<svg>
+					<!-- LEGEND of HEMICYCLE-->
+					<g class="legend" transform="translate(900,50)">
+					<circle cx="18" cy="15" r="7" style="fill: #d3913b; stroke: #d3913b; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12" >DIV</text>
+					</g>
+					<g class="legend" transform="translate(900,75)">
+					<circle cx="18" cy="15" r="7" style="fill:#b30000; stroke:#990000; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12" >COM</text>
+					</g>
+					<g class="legend" transform="translate(900,100)">
+					<circle cx="18" cy="15" r="7" style="fill: #ff1616; stroke: #ff1616; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">FI</text>
+					</g>
+					<g class="legend" transform="translate(900,125)">
+					<circle cx="18" cy="15" r="7" style="fill: #f76060; stroke: #f76060; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">SOC</text>
+					</g>
+					<g class="legend" transform="translate(900,150)">
+					<circle cx="18" cy="15" r="7" style="fill: #edafaf; stroke: #edafaf; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">RDG</text>
+					</g>
+					<g class="legend" transform="translate(900,175)">
+					<circle cx="18" cy="15" r="7" style="fill: #c66b9a; stroke: #c66b9a; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">DVG</text>
+					</g>
+					<g class="legend" transform="translate(900,200)">
+					<circle cx="18" cy="15" r="7" style="fill: #41992f; stroke: #41992f; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">ECO</text>
+					</g>
+					<g class="legend" transform="translate(900,225)">
+					<circle cx="18" cy="15" r="7" style="fill: #54422b; stroke: #54422b; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">REG</text>
+					</g>
+					<g class="legend" transform="translate(900,250)">
+					<circle cx="18" cy="15" r="7" style="fill: #f2da37; stroke: #f2da37; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">REM</text>
+					</g>
+					<g class="legend" transform="translate(900, 275)">
+					<circle cx="18" cy="15" r="7" style="fill:#ea681c; stroke: #ea681c; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">MDM</text>
+					</g>
+					<g class="legend" transform="translate(900,300)">
+					<circle cx="18" cy="15" r="7" style="fill: #537bbc; stroke: #537bbc; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">UDI</text>
+					</g>
+					<g class="legend" transform="translate(900,325)">
+					<circle cx="18" cy="15" r="7" style="fill: #3c589e; stroke: #3c589e; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">LR</text>
+					</g>
+					<g class="legend" transform="translate(900,350)">
+					<circle cx="18" cy="15" r="7" style="fill:#132553; stroke:#1a3372; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">DVD</text>
+					</g>
+					<g class="legend" transform="translate(900, 375)">
+					<circle cx="18" cy="15" r="7" style="fill: #03174a; stroke: #03174a; z-index:-10"></circle>
+					<text x="27" y="20" font-size="12">FN</text>
+					</g>
+					<img src="http://masteres.telecom-paristech.fr/wp-content/uploads/2017/04/Bertrand-de-V%C3%A9ricourt-v.png" class="img-rounded" alt="B2V">
+				</svg>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
 
-	<svg>
-		<!-- LEGEND of HEMICYCLE-->
-		<g class="legend" transform="translate(900,50)">
-		<circle cx="18" cy="18" r="7" style="fill: #d3913b; stroke: #d3913b; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12" >DIV</text>
-		</g>
-		<g class="legend" transform="translate(900,75)">
-		<circle cx="18" cy="18" r="7" style="fill:#b30000; stroke:#990000; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12" >COM</text>
-		</g>
-		<g class="legend" transform="translate(900,100)">
-		<circle cx="18" cy="18" r="7" style="fill: #ff1616; stroke: #ff1616; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">FI</text>
-		</g>
-		<g class="legend" transform="translate(900,125)">
-		<circle cx="18" cy="18" r="7" style="fill: #f76060; stroke: #f76060; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">SOC</text>
-		</g>
-		<g class="legend" transform="translate(900,150)">
-		<circle cx="18" cy="18" r="7" style="fill: #edafaf; stroke: #edafaf; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">RDG</text>
-		</g>
-		<g class="legend" transform="translate(900,175)">
-		<circle cx="18" cy="18" r="7" style="fill: #c66b9a; stroke: #c66b9a; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">DVG</text>
-		</g>
-		<g class="legend" transform="translate(900,200)">
-		<circle cx="18" cy="18" r="7" style="fill: #41992f; stroke: #41992f; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">ECO</text>
-		</g>
-		<g class="legend" transform="translate(900,225)">
-		<circle cx="18" cy="18" r="7" style="fill: #54422b; stroke: #54422b; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">REG</text>
-		</g>
-		<g class="legend" transform="translate(900,250)">
-		<circle cx="18" cy="18" r="7" style="fill: #f2da37; stroke: #f2da37; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">REM</text>
-		</g>
-		<g class="legend" transform="translate(900, 275)">
-		<circle cx="18" cy="18" r="7" style="fill:#ea681c; stroke: #ea681c; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">MDM</text>
-		</g>
-		<g class="legend" transform="translate(900,300)">
-		<circle cx="18" cy="18" r="7" style="fill: #537bbc; stroke: #537bbc; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">UDI</text>
-		</g>
-		<g class="legend" transform="translate(900,325)">
-		<circle cx="18" cy="18" r="7" style="fill: #3c589e; stroke: #3c589e; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">LR</text>
-		</g>
-		<g class="legend" transform="translate(900,350)">
-		<circle cx="18" cy="18" r="7" style="fill:#132553; stroke:#1a3372; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">DVD</text>
-		</g>
-		<g class="legend" transform="translate(900, 375)">
-		<circle cx="18" cy="18" r="7" style="fill: #03174a; stroke: #03174a; z-index:-10"></circle>
-		<text x="27" y="23" font-size="12">FN</text>
-		</g>
-	</svg>
-
-	<div class="baseline"></div>
-	<div id="img"></div>
+	<div class="panel-footer">
+		<div class="row">
+			<!-- the grid is based on 12 columns -->
+			<!--div class="baseline col-sm-12">
+				<div id="pict_ID"></div>
+			</div-->
+		</div>
+	</div>
 
 
     <script type="text/javascript">
@@ -89,7 +108,7 @@
             d3.select("svg").datum(d).call(parliament);
         };
 
-        d3.json("data/json_viz/french.json", setData);
+        d3.json("data/json_viz/french_TEMP.json", setData);
     </script>
 
 </body>

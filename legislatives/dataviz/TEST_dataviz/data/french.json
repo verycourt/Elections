@@ -1,6 +1,6 @@
 [
     {
-        "id": "COM",
+        "Id": "COM",
         "legend": "Parti Communiste Français",
         "name": "Parti Communiste Français",
         "seats": [{
@@ -35,7 +35,7 @@
           }]
     },
     {
-        "id": "FI",
+        "Id": "FI",
         "legend": "La France Insoumise",
         "name": "La France Insoumise",
         "seats": [{
@@ -55,7 +55,7 @@
           }]
     },
     {
-        "id": "SOC",
+        "Id": "SOC",
         "legend": "Parti Socialiste",
         "name": "Parti Socialiste",
         "seats": [{
@@ -75,7 +75,7 @@
           }]
     },
     {
-        "id": "RDG",
+        "Id": "RDG",
         "legend": "Les Radicaux de Gauche",
         "name": "Les Radicaux de Gauche",
         "seats": [{
@@ -95,7 +95,7 @@
           }]
     },
         {
-        "id": "DVG",
+        "Id": "DVG",
         "legend": "Divers Gauche",
         "name": "Divers Gauche",
         "seats": [{
@@ -115,7 +115,7 @@
           }]
     },
     {
-        "id": "ECO",
+        "Id": "ECO",
         "legend": "Ecologistes",
         "name": "Ecologistes",
         "seats": [{
@@ -135,7 +135,7 @@
           }]
     },
     {
-        "id": "DIV",
+        "Id": "DIV",
         "legend": "Divers",
         "name": "Divers",
         "seats": [{
@@ -155,7 +155,7 @@
           }]
     },
     {
-        "id": "REG",
+        "Id": "REG",
         "legend": "Divers",
         "name": "Divers",
         "seats": [{
@@ -175,7 +175,7 @@
           }]
     },    
     {
-        "id": "REM",
+        "Id": "REM",
         "legend": "La République en Marche",
         "name": "La République en Marche",
         "seats": [{
@@ -210,39 +210,213 @@
           }]
     },
     {
-        "id": "MDM",
+        "Id": "MDM",
         "legend": "MoDem",
         "name": "Mouvement Démocrate",
-        "seats": []
+        "seats": [{
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "1ère circonscription",
+            "Désignation": "M. SERVA Olivier",
+            "Nuance": "REM",
+            "Score": "61,74 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "6/21/74",
+            "Profession": "34 - Expert comptable",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          },
+          {
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "2ème circonscription",
+            "Désignation": "Mme BENIN Justine",
+            "Nuance": "REM",
+            "Score": "64,26 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "3/12/75",
+            "Profession": "48 - Fonctionnaire de catégorie B",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          }]
     },
     {
-        "id": "UDI",
+        "Id": "UDI",
         "legend": "UDI",
         "name": "Union des démocrates indépendants",
-        "seats": []
+        "seats": [{
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "1ère circonscription",
+            "Désignation": "M. SERVA Olivier",
+            "Nuance": "REM",
+            "Score": "61,74 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "6/21/74",
+            "Profession": "34 - Expert comptable",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          },
+          {
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "2ème circonscription",
+            "Désignation": "Mme BENIN Justine",
+            "Nuance": "REM",
+            "Score": "64,26 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "3/12/75",
+            "Profession": "48 - Fonctionnaire de catégorie B",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          }]
     },
     {
-        "id": "LR",
+        "Id": "LR",
         "legend": "Les Républicains",
         "name": "Les Républicains",
-        "seats": []
+        "seats": [{
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "1ère circonscription",
+            "Désignation": "M. SERVA Olivier",
+            "Nuance": "REM",
+            "Score": "61,74 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "6/21/74",
+            "Profession": "34 - Expert comptable",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          },
+          {
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "2ème circonscription",
+            "Désignation": "Mme BENIN Justine",
+            "Nuance": "REM",
+            "Score": "64,26 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "3/12/75",
+            "Profession": "48 - Fonctionnaire de catégorie B",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          }]
     },
     {
-        "id": "DVD",
+        "Id": "DVD",
         "legend": "Divers Droite",
         "name": "Divers Droite",
-        "seats": []
+        "seats": [{
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "1ère circonscription",
+            "Désignation": "M. SERVA Olivier",
+            "Nuance": "REM",
+            "Score": "61,74 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "6/21/74",
+            "Profession": "34 - Expert comptable",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          },
+          {
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "2ème circonscription",
+            "Désignation": "Mme BENIN Justine",
+            "Nuance": "REM",
+            "Score": "64,26 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "3/12/75",
+            "Profession": "48 - Fonctionnaire de catégorie B",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          }]
     },
     {
-        "id": "FN",
+        "Id": "FN",
         "legend": "Front National",
         "name": "Front National",
-        "seats": []
+        "seats": [{
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "1ère circonscription",
+            "Désignation": "M. SERVA Olivier",
+            "Nuance": "REM",
+            "Score": "61,74 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "6/21/74",
+            "Profession": "34 - Expert comptable",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          },
+          {
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "2ème circonscription",
+            "Désignation": "Mme BENIN Justine",
+            "Nuance": "REM",
+            "Score": "64,26 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "3/12/75",
+            "Profession": "48 - Fonctionnaire de catégorie B",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          }]
     },
     {
-        "id": "EXD",
+        "Id": "EXD",
         "legend": "Extrême Droite",
         "name": "Extrême Droite",
-        "seats": []
+        "seats": [{
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "1ère circonscription",
+            "Désignation": "M. SERVA Olivier",
+            "Nuance": "REM",
+            "Score": "61,74 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "6/21/74",
+            "Profession": "34 - Expert comptable",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          },
+          {
+            "Dpt": "ZA",
+            "Nom_de_la_Circonscription": "2ème circonscription",
+            "Désignation": "Mme BENIN Justine",
+            "Nuance": "REM",
+            "Score": "64,26 %",
+            "Sortant": "",
+            "Perso.": "",
+            "Né(e)_le": "3/12/75",
+            "Profession": "48 - Fonctionnaire de catégorie B",
+            "Tour": 2,
+            "Photo":"http://test.com",
+            "Sexe":"M",
+            "Patrimoine":"http://test.com"
+          }]
     }
 ]
