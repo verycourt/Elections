@@ -229,6 +229,13 @@ d3.parliament = function() {
                               .attr("height", 330)
                               .attr("x", 0)
                               .attr("y", 0);
+							  console.log(d.data.link_vignes_x)
+							  
+							  d3.select("#imgtete").selectAll("img").remove();
+                              d3.select("#imgtete")
+                              .append('img')
+                              .attr("src", d.data.link_vignes_x)
+							  .attr("class", "img-rounded")
                             
                         })
                         .on("mouseover", function(d){
