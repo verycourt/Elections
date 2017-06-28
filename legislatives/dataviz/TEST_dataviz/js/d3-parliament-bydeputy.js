@@ -230,15 +230,19 @@ d3.parliament = function() {
                               .attr("x", 0)
                               .attr("y", 0);
                             
+                        })
+                        .on("mouseover", function(d){
+
+
                             if (d.party.membre_majorite == 0) {
-                                maj = "<strong style='color:red'>Non</strong> ";
+                                maj = "<strong>Non</strong> ";
                             } else {
-                                maj = "<strong style='color:green'>Oui</strong> ";
+                                maj = "<strong>Oui</strong> ";
                             }
                             if (d.data.ancien_ministre == 0) {
-                                ministre = "<strong style='color:red'>Non</strong>   .";
+                                ministre = "<strong>Non</strong>   <span style='visibility: hidden;'>.</span>";
                             } else {
-                                ministre = "<strong style='color:green'>Oui</strong>   .";
+                                ministre = "<strong>Oui</strong>   <span style='visibility: hidden;'>.</span>";
                             }
                             
                             if (d.data.pred_elu == "N") {
@@ -246,12 +250,11 @@ d3.parliament = function() {
                             } else {
                                 pred_elu = "<strong style='color:green'>Oui</strong> ";
                             }
-                        
                             
                             
                            return d3.select(".baseline")
                                .html("<h3> Dans la circonscription "+ d.data.code.split("|")[1]+" du département "+ d.data.Dpt + "</h3> "
-                                +"<h4> Circonscription gagnée par "+dicoNuancesPartis[d.party.Id]+"</h4> "
+                                +"<h4> Circonscription gagnée par : "+dicoNuancesPartis[d.party.Id]+"</h4> "
                                 +"<table style='font-size:13px;'>"
                                 +"<tr>"
                                 +"<td>&#x2022; L'avons nous prédit correctement ? "+pred_elu+" </td>"
@@ -268,8 +271,6 @@ d3.parliament = function() {
                                 +"</table>"
                 
                                 );
-                        })
-                        .on("mouseover", function(d){
                             console.log($(this));
                             //$(this).wrap("<a class='minitooltip' href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!' />");
                             //console.log(d.data)
