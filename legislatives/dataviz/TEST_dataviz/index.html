@@ -29,7 +29,7 @@
     <div class="panel-body">
 	    <div class="row">
 	    	<div class="col-md-7">
-				<svg>
+				<svg class="hemicycle">
 					<!-- LEGEND of HEMICYCLE-->
 					<g class="legend" transform="translate(630,0)">
 					<circle cx="18" cy="15" r="7" style="fill: #d3913b; stroke: #d3913b; z-index:-10"></circle>
@@ -103,7 +103,9 @@
 		<div class="row">
 			<!-- the grid is based on 12 columns -->
 			<div class="baseline col-sm-7"></div>
-			<div class="col-sm-5"></div>
+			<div class="col-sm-5">
+				<svg class="histo"></svg>
+			</div>
 		</div>
 	</div>
 
@@ -114,7 +116,7 @@
 		</div-->
 	<!--/div-->
 
-
+	<script src="histogramme.js"></script>
     <script type="text/javascript">
         var parliament = d3.parliament().width(700).height(350).innerRadiusCoef(0.4);
         parliament.enter.fromCenter(true).smallToBig(true);

@@ -291,7 +291,11 @@ d3.parliament = function() {
                                     );
                         })
                         .on("mousemove", function(){return d3.select(".tooltip").style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-                        /*.on("mouseout", function(){return d3.select(".tooltip").remove();})*/;
+                        .on("mouseout", 
+                            function(){
+                                //d3.select(".baseline").remove();
+                                return d3.select(".tooltip").remove();
+                        });
                 })(evt);
             }
 
