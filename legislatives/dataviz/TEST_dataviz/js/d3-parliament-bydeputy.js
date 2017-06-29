@@ -310,16 +310,16 @@ d3.parliament = function() {
                
                                );
                             //console.log($(this));
-                            //$(this).wrap("<a class='minitooltip' href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!' />");
+                            //$(this).wrap("<a class='minitooltip' href='#' data-toggle='my_tooltip' data-placement='bottom' title='Hooray!' />");
                             //console.log(d.data)
                             d3.select(".col-md-7")
                                 .append("div")
-                                .attr('class','tooltip')
+                                .attr('class','my_tooltip')
                                 .style("background",'#F2EDED')
                                 .style("border-color",color_pred)
                                 .style("position", "absolute")
-                                .style("z-index", "10")
-                                .html("<span style='font-size:120%;'>" + d.data.Désignation + "</span><br><br>"
+                                .style("z-index", "10 !important")
+                                .html("<span style='font-size:120%;'>" + d.data.Désignation + "</span><br>"
                                     //+ "Département : " + d.data.Dpt + "<br>"
                                     + "Score 2nd tour : <strong>" + d.data.Score + "</strong><br>"
                                     + "Score 1er tour : <strong>" + d.data.score_exp + " %</strong><br>"
@@ -328,7 +328,7 @@ d3.parliament = function() {
                                     + "Age : <strong>" + d.data.age + "</strong><br>"
                                     + "Profession : <strong>" + d.data.Profession.substring(4) + "</strong>"
                                     );
-                                /*.html("<a href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!'>Bottom</a>")*/
+                                /*.html("<a href='#' data-toggle='my_tooltip' data-placement='bottom' title='Hooray!'>Bottom</a>")*/
 
 
                             /*console.log(this);
@@ -336,11 +336,13 @@ d3.parliament = function() {
                                 .style("stroke", color_pred);*/
 
                         })
-                        .on("mousemove", function(){return d3.select(".tooltip").style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+                        .on("mousemove", function(){
+                            d3.select(".my_tooltip").style("top", (d3.event.pageY-270)+"px").style("left",(d3.event.pageX+10)+"px");
+                        })
                         .on("mouseout", 
                             function(){
                                 //d3.select(".baseline").remove();
-                                return d3.select(".tooltip").remove();
+                                d3.select(".my_tooltip").remove();
                         });
                 })(evt);
             }

@@ -58,10 +58,11 @@ table {
   background-color: black;
 }
 
-.tooltip {
+.my_tooltip {
+  z-index: 10 !important;
   position: absolute;
   /*opacity: 0.8;*/
-  width: 300px;
+  width: 350px;
   height: 150px;
   pointer-events: none;
   border-style: solid;
