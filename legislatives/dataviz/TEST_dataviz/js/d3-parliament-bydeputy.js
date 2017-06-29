@@ -180,7 +180,7 @@ d3.parliament = function() {
             circlesEnter.attr("cx", enter.fromCenter ? 0 : seatX);
             circlesEnter.attr("cy", enter.fromCenter ? 0 : seatY);
             circlesEnter.attr("r", enter.smallToBig ? 0 : seatRadius);
-            circlesEnter.attr("id", seatID); /// COME BACK
+            circlesEnter.attr("id", seatID);
             if (enter.fromCenter || enter.smallToBig) {
                 var t = circlesEnter.transition().duration(function() { return 1000 + Math.random()*80; });
                 if (enter.fromCenter) {
@@ -192,10 +192,60 @@ d3.parliament = function() {
                 }
             }
 
+
+            // INIT ######################################################################################################
+
+                        // histogram of the party
+            d3.select("#img-histo").selectAll("img").remove(); 
+            d3.select("#img-histo")
+                .append('img')
+                .attr("id", "my_histo")
+                .attr("height", 150)
+                .attr("src", "img/histo_REM.png");
+
+            // toggle button
+            /*d3.select("#img-histo").selectAll("input").remove(); 
+            d3.select("#img-histo")
+                .append("input")
+                .attr("type", 'checkbox')
+                .attr("checked", "checked")
+                .attr("data-toggle", 'toggle');*/
+                //data-toggle='toggle' data-on='Age' data-off='Sexe' data-onstyle='success' data-offstyle='danger' type='checkbox'");
+
+           // remove selectedParty class
+           // console.log(d3.selectAll(".seat")._groups[0])
+           d3.selectAll(".seat")._groups[0].forEach(
+               function(p) {
+                   //console.log(pol);
+                   d3.selectAll(".REM")
+                       .attr("class", "seat REM");
+            });
+
+           // add this class to the selection
+           d3.selectAll(".REM")
+               .attr("class", "seat REM" + " selectParty");
+                
+            //console.log("img/carte_"+d.party.Id+".PNG")
+            
+            d3.select("#img-box").selectAll("img").remove();
+            d3.select("#img-box")
+              .append('img')
+              .attr("src", "img/carte_REM"+".PNG")
+              .attr("height", 330)
+              .attr("x", 0)
+              .attr("y", 0);
+
+
             /* circles catch mouse and touch events */
             for (var evt in parliamentDispatch._) {
                 (function(evt){
 
+                    //console.log('container.selectAll("input")', container.selectAll("input"));
+                    /*container.selectAll("input").enter().on("click", function(r){
+
+                        var bt_ = r.getAttribute("class").split(" ")[-1];
+                        console.log("VOICI MA VARIABLE", bt_);
+                    });*/
                     
                     circlesEnter.on(evt, function(e) { 
                         //console.log("e", e)
@@ -207,12 +257,20 @@ d3.parliament = function() {
 
 
                             // histogram of the party
-
                             d3.select("#img-histo").selectAll("img").remove(); 
                             d3.select("#img-histo")
                                 .append('img')
                                 .attr("height", 150)
                                 .attr("src", "img/histo_REM.png");
+
+                            // toggle button
+                            /*d3.select("#img-histo").selectAll("input").remove(); 
+                            d3.select("#img-histo")
+                                .append("input")
+                                .attr("type", 'checkbox')
+                                .attr("checked", "checked")
+                                .attr("data-toggle", 'toggle');*/
+                                //data-toggle='toggle' data-on='Age' data-off='Sexe' data-onstyle='success' data-offstyle='danger' type='checkbox'");
 
                            // remove selectedParty class
                            // console.log(d3.selectAll(".seat")._groups[0])
@@ -321,6 +379,7 @@ d3.parliament = function() {
                                 .style("z-index", "10 !important")
                                 .html("<span style='font-size:120%;'>" + d.data.Désignation + "</span><br>"
                                     //+ "Département : " + d.data.Dpt + "<br>"
+                                    + "Prédiction correcte ? <strong>" + pred_elu + "</strong><br>"
                                     + "Score 2nd tour : <strong>" + d.data.Score + "</strong><br>"
                                     + "Score 1er tour : <strong>" + d.data.score_exp + " %</strong><br>"
                                     + "Député sortant ? " + sortant_ + "<br>"

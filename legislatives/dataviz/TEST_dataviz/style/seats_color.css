@@ -50,8 +50,10 @@ table {
   filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.5));
 }
 
-.col-sm-9 {
-  margin: 1% 1% 1% 1%;
+.col-sm-7 {
+  /*margin: 1% 1% 1% 1%;*/
+  /*margin: 1%;*/
+  left: 10px;
 }
 
 .col-sm-3 {
@@ -61,19 +63,39 @@ table {
 .my_tooltip {
   z-index: 10 !important;
   position: absolute;
-  /*opacity: 0.8;*/
+  opacity: 0.8;
   width: 350px;
-  height: 150px;
+  height: 170px;
   pointer-events: none;
   border-style: solid;
+  border-radius: 5px;
   /*border-color: #c7cee3;*/
   padding: 2px;
-  border-radius: 5px;
+  box-shadow: 1px 1px 0px #aaa;
+  filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.5));
 }
 
 #img-histo, #img-box {
   text-align: center;
+  /*border: 1px solid black;*/
+  /*box-shadow: 1px 1px 0px #aaa;*/
+  filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.5));
+  /*padding-left: 3px;*/
 }
+
+/*#imgtete {
+  width: 30px;
+  height: 30px;
+}*/
+
+/*#toggle-btn {
+    visibility: hidden !important;
+    display: none !important;*/
+    /*margin-right: 2px;*/
+/*    position: absolute !important;
+    margin-left: 3000px !important;
+    opacity: 0.5;
+}*/
 
 /*.panel-footer {
   height: 250px;
@@ -82,10 +104,12 @@ table {
 .baseline {
   position: absolute;
   /*min-width: 1200px;*/
-  height: 150px;
+  height: 150px;/*100%*/
   pointer-events: none;
   background: #F2EDED;
   font-size: 2px;
+  /*box-shadow: 1px 1px 0px #aaa;*/
+  filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.5));
 }
 
 svg {

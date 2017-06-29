@@ -80,7 +80,7 @@ d3.csv("stats_partis.csv", function(d, i, columns) {
       .attr("fill", z);
 
   legend.append("text")
-      .attr("x", width - 24)
+      .attr("x", width + 50)
       .attr("y", 9.5)
       .attr("dy", "0.32em")
       .text(function(d) { return d; });
