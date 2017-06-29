@@ -58,11 +58,21 @@ table {
   background-color: black;
 }
 
-.tooltip {
+.my_tooltip {
+  z-index: 10 !important;
   position: absolute;
-  width: 300px;
-  height: 160px;
+  /*opacity: 0.8;*/
+  width: 350px;
+  height: 150px;
   pointer-events: none;
+  border-style: solid;
+  /*border-color: #c7cee3;*/
+  padding: 2px;
+  border-radius: 5px;
+}
+
+#img-histo, #img-box {
+  text-align: center;
 }
 
 /*.panel-footer {

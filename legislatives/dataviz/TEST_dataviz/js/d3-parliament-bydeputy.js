@@ -205,6 +205,15 @@ d3.parliament = function() {
                     circlesEnter
                         .on("click", function(d){
 
+
+                            // histogram of the party
+
+                            d3.select("#img-histo").selectAll("img").remove(); 
+                            d3.select("#img-histo")
+                                .append('img')
+                                .attr("height", 150)
+                                .attr("src", "img/histo_REM.png");
+
                            // remove selectedParty class
                            // console.log(d3.selectAll(".seat")._groups[0])
                            d3.selectAll(".seat")._groups[0].forEach(
@@ -237,7 +246,7 @@ d3.parliament = function() {
                             // add the DEPUTY PICTURE
 
 
-                              console.log(d.data.link_vignes_x);
+                              //console.log(d.data.link_vignes_x);
                               
                               d3.select("#imgtete").selectAll("img").remove();
                               d3.select("#imgtete")
@@ -264,51 +273,76 @@ d3.parliament = function() {
                             } else {
                                 pred_elu = "<strong style='color:green'>Oui</strong> ";
                             }
+
+                            if (d.data.depute_sortant == 0) {
+                                sortant_ = "<strong>Non</strong> ";
+                            } else {
+                                sortant_ = "<strong>Oui</strong> ";
+                            }
+
+                            if (d.data.pred_elu == "N") {
+                                color_pred = "red";
+                            } else {
+                                color_pred = "green";
+                            }
+
                             
                             
-                           return d3.select(".baseline")
-                               .html("<h3> Dans la circonscription "+ d.data.code.split("|")[1]+" du département "+ d.data.Dpt + "</h3> "
-                                +"<h4> Circonscription gagnée par : "+dicoNuancesPartis[d.party.Id]+"</h4> "
-                                +"<table style='font-size:13px;'>"
+                            d3.select(".baseline")
+                              .html("<h3> Dans la circonscription "+ d.data.code.split("|")[1]+" du département "+ d.data.Dpt + "</h3> "
+                               +"<h4> Circonscription gagnée par : "+dicoNuancesPartis[d.party.Id]+"</h4> "
+                               +"<table style='font-size:13px;'>"
+                               +"<tr>"
+                               +"<td>&#x2022; Score du parti aux présidentielles dans la circ. : <strong>"+ Math.round(d.data.score_bloc_pres*10000)/100+"%  <span style='opacity:0;'>.</span></strong> </td>"
+                                +"<td>&#x2022; Part des ménages imposés dans la circ. : <strong>"+ Math.round(d.data.part_impose*10000)/100+"% </strong> </td>"
+                               +"</tr>"
+                                
+                               +"<tr>"
+                               +"<td>&#x2022; Chômage dans le département : <strong>"+Math.round(d.data.chom_tot*10000)/100+"%</strong> </td>"
+                               +"<td>&#x2022; Revenu mensuel médian dans la circ. : <strong>"+d.data.revenus_med+"€</strong> </td>"
+                               +"</tr>"
+                                
                                 +"<tr>"
-                                +"<td>&#x2022; L'avons nous prédit correctement ? "+pred_elu+" </td>"
-                                +"<td>&#x2022; Score du parti aux présidentielles dans la circ. : <strong>"+ Math.round(d.data.score_bloc_pres*10000)/100+"% </strong> </td>"
-                                +"</tr>"
-                                +"<tr>"
-                                +"<td>&#x2022; Le candidat est un ancien ministre ? "+ministre+" </td> "
-                                +"<td>&#x2022; Le candidat appartient à la majorité présidentielle ? "+maj+" </td> "
-                                +"</tr>"
-                                +"<tr>"
-                                +"<td>&#x2022; Chômage dans le département : <strong>"+Math.round(d.data.chom_tot*10000)/100+"%</strong> </td>"
-                                +"<td>&#x2022; Revenu mensuel médian dans la circ. : <strong>"+d.data.revenus_med+"€</strong> </td>"
-                                +"</tr>"
-                                +"</table>"
-                
-                                );
-                            console.log($(this));
-                            //$(this).wrap("<a class='minitooltip' href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!' />");
+                                +"<td>&#x2022; Part d'étrangers dans la circ. :  <strong>"+Math.round(d.data.etrangers*10000)/100+"%</strong> </td>"
+                                +"<td>&#x2022; Nombre d'inscrits dans la circ. <strong>"+d.data.inscrits+"</strong> </td>"
+                               +"</tr>"
+                               +"</table>"
+               
+                               );
+                            //console.log($(this));
+                            //$(this).wrap("<a class='minitooltip' href='#' data-toggle='my_tooltip' data-placement='bottom' title='Hooray!' />");
                             //console.log(d.data)
-                            return d3.select(".col-md-8")
+                            d3.select(".col-md-7")
                                 .append("div")
-                                .attr('class','tooltip')
+                                .attr('class','my_tooltip')
                                 .style("background",'#F2EDED')
+                                .style("border-color",color_pred)
                                 .style("position", "absolute")
-                                .style("z-index", "10")
-                                /*.html("<a href='#' data-toggle='tooltip' data-placement='bottom' title='Hooray!'>Bottom</a>")*/
-                                .html(d.data.Désignation + "<br><br>"
-                                    + "Département : " + d.data.Dpt + "<br>"
-                                    + "Score : " + d.data.Score + "<br>"
-                                    + "Si dpt. sortant : " + d.data.Sortant + "<br>"
-                                    + "Si ex-poste important : " + d.data["Perso."] + "<br>"
-                                    + "Date de naissance : " + d.data["Né(e)_le"] + "<br>"
-                                    + "Profession : " + d.data.Profession
+                                .style("z-index", "10 !important")
+                                .html("<span style='font-size:120%;'>" + d.data.Désignation + "</span><br>"
+                                    //+ "Département : " + d.data.Dpt + "<br>"
+                                    + "Score 2nd tour : <strong>" + d.data.Score + "</strong><br>"
+                                    + "Score 1er tour : <strong>" + d.data.score_exp + " %</strong><br>"
+                                    + "Député sortant ? " + sortant_ + "<br>"
+                                    //+ "Si ex-poste important : " + d.data["Perso."] + "<br>"
+                                    + "Age : <strong>" + d.data.age + "</strong><br>"
+                                    + "Profession : <strong>" + d.data.Profession.substring(4) + "</strong>"
                                     );
+                                /*.html("<a href='#' data-toggle='my_tooltip' data-placement='bottom' title='Hooray!'>Bottom</a>")*/
+
+
+                            /*console.log(this);
+                            this.style("stroke-width", 3)
+                                .style("stroke", color_pred);*/
+
                         })
-                        .on("mousemove", function(){return d3.select(".tooltip").style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+                        .on("mousemove", function(){
+                            d3.select(".my_tooltip").style("top", (d3.event.pageY-270)+"px").style("left",(d3.event.pageX+10)+"px");
+                        })
                         .on("mouseout", 
                             function(){
                                 //d3.select(".baseline").remove();
-                                return d3.select(".tooltip").remove();
+                                d3.select(".my_tooltip").remove();
                         });
                 })(evt);
             }
