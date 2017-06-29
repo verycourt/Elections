@@ -1,14 +1,14 @@
 var formatCount = d3.format(",.0f");
 
 var svg = d3.select(".histo"),
-    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    margin = {top: 30, right: 20, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var x0 = d3.scaleBand()
     .rangeRound([0, width])
-    .paddingInner(0.1);
+    .paddingInner(.2);
 
 var x1 = d3.scaleBand()
     .padding(0.0);
@@ -19,15 +19,15 @@ var y = d3.scaleLinear()
 var z = d3.scaleOrdinal()
     .range(["#CC9DB0", "#8a89a6", "#7b6888", "#a05d56", "#d0743c", "#ff8c00"]);
 
-d3.csv("stats_partis.csv", function(d, i, columns) {
+d3.csv("stats_partis_UDI.csv", function(d, i, columns) {
     console.log(d);
     for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
     return d;
 }, function(error, data) {
     if (error) throw error;
 
-    var keys = data.columns.slice(1,3); //(1,3) pour le sexe, (3,9) pour l'âge
-    var keys = data.columns.slice(3,9);
+    var keys = data.columns.slice(1,7); //(1,3) pour le sexe, (3,9) pour l'âge
+    //var keys = data.columns.slice(7,9);
 
     x0.domain(data.map(function(d) { return d.Id; }));
     x1.domain(keys).rangeRound([0, x0.bandwidth()]);
@@ -66,7 +66,7 @@ d3.csv("stats_partis.csv", function(d, i, columns) {
 
   var legend = g.append("g")
       .attr("font-family", "sans-serif")
-      .attr("font-size", 10)
+      .attr("font-size", 12)
       .attr("text-anchor", "end")
     .selectAll("g")
     .data(keys.slice().reverse())
