@@ -196,12 +196,12 @@ d3.parliament = function() {
             // INIT ######################################################################################################
 
                         // histogram of the party
-            d3.select("#img-histo").selectAll("img").remove(); 
+            /*d3.select("#img-histo").selectAll("img").remove(); 
             d3.select("#img-histo")
                 .append('img')
                 .attr("id", "my_histo")
                 .attr("height", 150)
-                .attr("src", "img/histo_REM.png");
+                .attr("src", "img/histo_REM.png");*/
 
             // toggle button
             /*d3.select("#img-histo").selectAll("input").remove(); 
@@ -214,7 +214,7 @@ d3.parliament = function() {
 
            // remove selectedParty class
            // console.log(d3.selectAll(".seat")._groups[0])
-           d3.selectAll(".seat")._groups[0].forEach(
+           /*d3.selectAll(".seat")._groups[0].forEach(
                function(p) {
                    //console.log(pol);
                    d3.selectAll(".REM")
@@ -233,7 +233,7 @@ d3.parliament = function() {
               .attr("src", "img/carte_REM"+".PNG")
               .attr("height", 330)
               .attr("x", 0)
-              .attr("y", 0);
+              .attr("y", 0);*/
 
 
             /* circles catch mouse and touch events */
@@ -252,16 +252,29 @@ d3.parliament = function() {
                         parliamentDispatch.call(evt, this, e);
                     });
 
+
+                    /*$('.row .btn').on('click', function(e) {
+                        console.log("moot2!");
+                    });*/
+                    //var r = d3.select(".toggle");
+                    //r.onclick  = function() { alert("moot!"); };
+                    //r.enter().on("click", function(s){alert("moot2!");});
+
                     circlesEnter
                         .on("click", function(d){
+
+                            // show toogle button
+                            d3.select("#img-histo").attr("class", "col-md-5");
 
 
                             // histogram of the party
                             d3.select("#img-histo").selectAll("img").remove(); 
                             d3.select("#img-histo")
                                 .append('img')
+                                .attr("class", "histo")
                                 .attr("height", 150)
-                                .attr("src", "img/histo_REM.png");
+                                .attr("src", "js/screenshots_histogrammes/age_" + d.party.Id +".png");
+                                //.attr("src", "img/histo_REM.png");
 
                             // toggle button
                             /*d3.select("#img-histo").selectAll("input").remove(); 
@@ -347,7 +360,7 @@ d3.parliament = function() {
                             
                             
                             d3.select(".baseline")
-                              .html("<h3> Dans la circonscription "+ d.data.code.split("|")[1]+" du département "+ d.data.Dpt + "</h3> "
+                              .html("<h3> Dans la circonscription "+ d.data.code.split("|")[1]+" du département "+ d.data.corr_dept + "</h3> "
                                +"<h4> Circonscription gagnée par : "+dicoNuancesPartis[d.party.Id]+"</h4> "
                                +"<table style='font-size:13px;'>"
                                +"<tr>"
