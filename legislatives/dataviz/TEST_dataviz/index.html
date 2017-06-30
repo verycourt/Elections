@@ -23,12 +23,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<!-- Latest compiled JavaScript -->
-	<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+	<!-- FOR TOGGLE BUTTON -->
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
-    <!-- TODO : UTILISER LES TOOLTIPS DE BOOTSTRAP OU QTIP -->
     <div class="panel-body">
 	    <div class="row">
 	    	<div class="col-md-7">
@@ -106,13 +106,13 @@
 		<div class="row">
 			<!-- the grid is based on 12 columns -->
 			<div class="baseline col-sm-7"></div>
-			<div class="col-md-5" id="img-histo" class="hidden invisible">
-				<input checked id="toggle-btn" data-toggle="toggle" data-on="Age" data-off="Sexe" data-onstyle="success" data-offstyle="info" type="checkbox" onclick="getElementById('my_histo').src='img/histo_LR.png">
+			<div class="col-md-5 hidden" id="img-histo">
+				<input checked id="toggle-btn" data-toggle="toggle" data-on="Age" data-off="Sexe" data-onstyle="success" data-offstyle="info" type="checkbox"> <!--onclick="getElementById('my_histo').src='img/histo_LR.png"-->
 			</div>
 		</div>
 	</div>
 
-	<script src="histogramme.js"></script>
+	<!--script src="histogramme.js"></script-->
     <script type="text/javascript">
         var parliament = d3.parliament().width(700).height(350).innerRadiusCoef(0.4);
         parliament.enter.fromCenter(true).smallToBig(true);
@@ -126,11 +126,29 @@
         d3.json("data/json_viz/french.json", setData);
     </script>
 
-    <!--script>
-		$(document).ready(function(){
-		    $('[data-toggle="my_tooltip"]').tooltip();   
-		});
-	</script-->
+    <script type="text/javascript">
+    	d3.select("#img-histo").on("click", function(){
+    		//console.log("WORKING", d3.select(".toggle").attr("class").split(" ")[2]);
+    		var prev_btn = d3.select(".toggle").attr("class").split(" ")[2];
+    		var donnee = 'age';
+    		var parti = d3.select("#img-box").select("img")._groups[0][0].attributes.src.value.split("_")[1];
+
+    		if (prev_btn == "btn-success") {
+    			donnee = 'sexe';
+    		} else {
+				donnee = 'age';
+    		}
+
+
+
+            d3.select("#img-histo").selectAll("img").remove();
+            d3.select("#img-histo")
+              	.append('img')
+	            .attr("class", "histo")
+	            .attr("height", 150)
+              	.attr("src", "js/screenshots_histogrammes/" + donnee + "_" + parti);
+    	});
+    </script>
 
 </body>
 </html>
