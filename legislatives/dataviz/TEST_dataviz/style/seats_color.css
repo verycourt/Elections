@@ -37,6 +37,19 @@ table {
   /*width: 100%;*/
 }
 
+/*.histo:hover {
+  position: absolute;
+  left: -500px;
+  top: -400px;
+  width:500px;
+  height:400px;
+}*/
+
+.histo {
+  /*background: url(js/screenshots_histogrammes/age_LR.png) no-repeat 0 -400px;
+  cursor:help;*/
+}
+
 #img-box {
   margin-top: 1%;
 }

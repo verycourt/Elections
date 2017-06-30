@@ -131,6 +131,7 @@
     		//console.log("WORKING", d3.select(".toggle").attr("class").split(" ")[2]);
     		var prev_btn = d3.select(".toggle").attr("class").split(" ")[2];
     		var donnee = 'age';
+    		var parti = d3.select("#img-box").select("img")._groups[0][0].attributes.src.value.split("_")[1];
 
     		if (prev_btn == "btn-success") {
     			donnee = 'sexe';
@@ -138,12 +139,14 @@
 				donnee = 'age';
     		}
 
+
+
             d3.select("#img-histo").selectAll("img").remove();
             d3.select("#img-histo")
               	.append('img')
 	            .attr("class", "histo")
 	            .attr("height", 150)
-              	.attr("src", "js/screenshots_histogrammes/" + donnee + "_" +"LR.png");
+              	.attr("src", "js/screenshots_histogrammes/" + donnee + "_" + parti);
     	});
     </script>
 
